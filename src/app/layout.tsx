@@ -31,8 +31,30 @@ export const metadata: Metadata = {
     title: "Keiran Flynn - High-Level English Conversation",
     description:
       "Strategic English conversation sessions for founders, executives, and internationally active professionals.",
+    siteName: "Keiran Flynn",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://keiranflynn.com",
     type: "website",
     locale: "en_GB",
+    images: [
+      {
+        url: "/keiran.png",
+        width: 742,
+        height: 928,
+        alt: "Portrait of Keiran Flynn in Phuket",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Keiran Flynn - High-Level English Conversation",
+    description:
+      "Strategic English conversation sessions for founders, executives, and internationally active professionals.",
+    images: [
+      {
+        url: "/keiran.png",
+        alt: "Portrait of Keiran Flynn in Phuket",
+      },
+    ],
   },
   robots: {
     index: true,

@@ -19,8 +19,14 @@ export const en = {
     hero: {
       headline:
         "High-Level English Conversation for Founders and International Professionals",
-      subheadline:
-        "Strategic, precise, high-stakes communication in English.",
+      subheadline: "Think, argue and operate at a higher level in English.",
+    },
+    credibility: {
+      items: [
+        "UK native speaker",
+        "20+ years building and operating complex systems",
+        "Based in Bang Tao, Phuket (in-person or online)",
+      ],
     },
     whoFor: {
       title: "Who This Is For",
@@ -37,6 +43,7 @@ export const en = {
         "Beginners or lower-intermediate speakers",
         "Exam-only preparation",
         "Casual, low-cost tutoring",
+        "If you want textbook drills or constant grammar correction, this is not it.",
       ],
     },
     whatWeWorkOn: {
@@ -79,7 +86,11 @@ export const en = {
         },
         {
           q: "Are sessions confidential?",
-          a: "Completely. Everything discussed remains private.",
+          a: "Yes. Sessions are private and confidential. I do not share names, companies, or session details.",
+        },
+        {
+          q: "Can I reschedule or cancel?",
+          a: "Yes. You can reschedule up to 24 hours in advance.",
         },
         {
           q: "How do payments work?",
@@ -164,6 +175,8 @@ export const en = {
   footer: {
     privacy: "Privacy",
     rights: "All rights reserved.",
+    telegramSupport: "Payment link not received? Telegram: @freelymoving",
+    linkedin: "LinkedIn",
   },
 };
 

@@ -87,15 +87,33 @@ export default function ConversationPage() {
               <div className="hero-image-wrap relative shadow-2xl shadow-black/50 max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
                 <Image
                   src="/keiran.png"
-                  alt="Keiran Flynn"
+                  alt="Portrait of Keiran Flynn, UK native English communication consultant based in Phuket"
                   width={480}
                   height={600}
+                  sizes="(max-width: 1024px) 85vw, 420px"
                   priority
                   className="w-full h-auto object-cover"
                 />
               </div>
             </SlideIn>
           </div>
+        </div>
+      </section>
+
+      <section className="relative">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-16 sm:pb-20">
+          <FadeIn delay={0.1}>
+            <div className="grid sm:grid-cols-3 gap-4 sm:gap-5">
+              {c.credibility.items.map((item, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl border border-white/[0.1] bg-gradient-to-b from-white/[0.06] to-white/[0.02] px-5 py-5 sm:py-6 min-h-[88px] flex items-center justify-center text-center text-[13px] sm:text-[14px] text-white/80 tracking-[0.02em] leading-relaxed shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-accent-gold/35 hover:text-white"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
