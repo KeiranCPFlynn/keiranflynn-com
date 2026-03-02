@@ -65,6 +65,16 @@ export const en = {
         { number: "04", text: "Private 1:1 strategic conversation" },
       ],
     },
+    sessionLength: {
+      title: "Session Length",
+      thirtyMinutes: "30 Minutes",
+      thirtyPrice: "$60",
+      bookThirty: "Book 30-Minute Session",
+      sixtyMinutes: "60 Minutes",
+      sixtyPrice: "$120",
+      bookSixty: "Book 60-Minute Session",
+      note: "Sessions are tailored to your priorities. Payment is required to confirm your slot.",
+    },
     location: {
       title: "Location",
       text: "In-person (Bang Tao, Phuket) or online.",
@@ -175,8 +185,16 @@ export const en = {
   footer: {
     privacy: "Privacy",
     rights: "All rights reserved.",
-    telegramSupport: "Payment link not received? Telegram: @freelymoving",
     linkedin: "LinkedIn",
+    paymentHelpTitle: "Payment Help",
+    paymentHelpSummary: "Didn't receive your Stripe payment link?",
+    paymentHelpShowSteps: "What to do",
+    paymentHelpSteps: [
+      "Check your inbox and spam/junk folders for an email from Keiran Flynn.",
+      "Wait up to 15 minutes after booking for the payment email to arrive.",
+      "If it still has not arrived, message Telegram with your name and booking email.",
+    ],
+    paymentHelpCta: "Message on Telegram",
   },
 };
 

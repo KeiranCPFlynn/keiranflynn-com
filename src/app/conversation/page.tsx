@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { BookingButtons } from "@/components/BookingButtons";
 import {
@@ -36,14 +36,14 @@ export default function ConversationPage() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-20 items-center">
             <div>
-              <motion.div
+              <m.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: 60, opacity: 1 }}
                 transition={{ duration: 1.2, delay: 0.2, ease }}
                 className="h-px bg-gradient-to-r from-accent-gold to-transparent mb-8"
               />
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4, ease }}
@@ -51,42 +51,42 @@ export default function ConversationPage() {
                 <h1 className="text-display text-white mb-8">
                   {c.hero.headline}
                 </h1>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.7, ease }}
               >
-                <p className="text-subheading text-white/35 mb-12 max-w-lg">
+                <p className="text-subheading text-white/60 mb-12 max-w-lg">
                   {c.hero.subheadline}
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.9, ease }}
               >
                 <BookingButtons />
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 1.2, ease }}
               >
-                <p className="mt-8 text-[13px] text-white/15 max-w-sm leading-relaxed">
+                <p className="mt-8 text-[13px] text-white/55 max-w-sm leading-relaxed">
                   {t.cta.paymentNotice}
                 </p>
-              </motion.div>
+              </m.div>
             </div>
 
-            {/* Photo: replace /public/keiran.png to change this image */}
+            {/* Photo: replace /public/keiran.jpg to change this image */}
             <SlideIn direction="right" delay={0.5}>
               <div className="hero-image-wrap relative shadow-2xl shadow-black/50 max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
                 <Image
-                  src="/keiran.png"
+                  src="/keiran.jpg"
                   alt="Portrait of Keiran Flynn, UK native English communication consultant based in Phuket"
                   width={480}
                   height={600}
@@ -150,7 +150,7 @@ export default function ConversationPage() {
         <StaggerContainer className="space-y-5 max-w-xl" stagger={0.1}>
           {c.notFor.items.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-4 text-white/30">
+              <div className="flex items-start gap-4 text-white/60">
                 <span className="mt-2.5 w-4 h-px bg-white/15 shrink-0" />
                 <span className="text-[15px]">{item}</span>
               </div>
@@ -201,13 +201,74 @@ export default function ConversationPage() {
             <StaggerItem key={step.number}>
               <div className="glass-card p-8 text-center sm:text-left h-full">
                 <span className="step-number block mb-4">{step.number}</span>
-                <p className="text-white/45 text-[15px] leading-relaxed">
+                <p className="text-white/60 text-[15px] leading-relaxed">
                   {step.text}
                 </p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </AnimatedSection>
+
+      <div className="section-divider" />
+
+      {/* ==================== SESSION LENGTH ==================== */}
+      <AnimatedSection>
+        <FadeIn>
+          <div className="accent-line mb-6" />
+          <h2 className="text-heading text-white mb-14">{c.sessionLength.title}</h2>
+        </FadeIn>
+        <StaggerContainer
+          className="grid md:grid-cols-2 gap-6 max-w-4xl"
+          stagger={0.12}
+        >
+          <StaggerItem>
+            <div className="rounded-2xl border border-white/[0.1] bg-white/[0.02] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-5">
+                  {c.sessionLength.thirtyMinutes}
+                </p>
+                <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
+                  {c.sessionLength.thirtyPrice}
+                </p>
+              </div>
+              <a
+                href="https://cal.com/keirancpflynn/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full"
+              >
+                {c.sessionLength.bookThirty}
+              </a>
+            </div>
+          </StaggerItem>
+
+          <StaggerItem>
+            <div className="rounded-2xl border-2 border-white/[0.2] bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-5">
+                  {c.sessionLength.sixtyMinutes}
+                </p>
+                <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
+                  {c.sessionLength.sixtyPrice}
+                </p>
+              </div>
+              <a
+                href="https://cal.com/keirancpflynn/60min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full"
+              >
+                {c.sessionLength.bookSixty}
+              </a>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
+        <FadeIn delay={0.2}>
+          <p className="mt-10 text-center text-[13px] leading-relaxed text-white/50">
+            {c.sessionLength.note}
+          </p>
+        </FadeIn>
       </AnimatedSection>
 
       <div className="section-divider" />
@@ -220,7 +281,7 @@ export default function ConversationPage() {
             <h2 className="text-heading text-white mb-6">
               {c.location.title}
             </h2>
-            <p className="text-white/40 text-lg leading-relaxed">
+            <p className="text-white/60 text-lg leading-relaxed">
               {c.location.text}
             </p>
           </FadeIn>
@@ -229,7 +290,7 @@ export default function ConversationPage() {
             <h2 className="text-heading text-white mb-6">
               {c.availability.title}
             </h2>
-            <p className="text-white/40 leading-relaxed">
+            <p className="text-white/60 leading-relaxed">
               {c.availability.text}
             </p>
           </FadeIn>
@@ -265,7 +326,7 @@ export default function ConversationPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/30 mb-14 text-subheading">
+            <p className="text-white/60 mb-14 text-subheading">
               {c.finalCta.subtitle}
             </p>
           </FadeIn>

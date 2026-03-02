@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -23,7 +23,7 @@ export function FadeIn({
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
@@ -31,7 +31,7 @@ export function FadeIn({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -49,7 +49,7 @@ export function StaggerContainer({
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
@@ -62,7 +62,7 @@ export function StaggerContainer({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -74,7 +74,7 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: {
@@ -86,7 +86,7 @@ export function StaggerItem({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -104,7 +104,7 @@ export function ScaleIn({
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
@@ -112,7 +112,7 @@ export function ScaleIn({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -133,7 +133,7 @@ export function SlideIn({
   const x = direction === "left" ? -80 : 80;
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, x }}
       animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x }}
@@ -141,7 +141,7 @@ export function SlideIn({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 

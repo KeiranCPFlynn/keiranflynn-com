@@ -25,7 +25,7 @@ export default function AboutPage() {
       <StaggerContainer className="space-y-7 max-w-2xl" stagger={0.12}>
         {a.paragraphs.map((p, i) => (
           <StaggerItem key={i}>
-            <p className="text-white/40 leading-[1.8] text-[16.5px]">{p}</p>
+            <p className="text-white/60 leading-[1.8] text-[16.5px]">{p}</p>
           </StaggerItem>
         ))}
       </StaggerContainer>
@@ -33,13 +33,13 @@ export default function AboutPage() {
       <FadeIn delay={0.4}>
         <div className="mt-24 grid sm:grid-cols-2 gap-6">
           <div className="glass-card p-8">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-white/20 block mb-3">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-white/55 block mb-3">
               {a.locationLabel}
             </span>
             <span className="text-white/55">{a.locationValue}</span>
           </div>
           <div className="glass-card p-8">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-white/20 block mb-3">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-white/55 block mb-3">
               {a.availabilityLabel}
             </span>
             <span className="text-white/55">{a.availabilityValue}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 export function FAQItem({
   question,
@@ -21,7 +21,7 @@ export function FAQItem({
         <span className="text-[15px] text-white/60 group-hover:text-white transition-colors duration-500 pr-8">
           {question}
         </span>
-        <motion.div
+        <m.div
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 ${
@@ -38,26 +38,26 @@ export function FAQItem({
             stroke="currentColor"
             strokeWidth="1.5"
             className={`transition-colors duration-300 ${
-              open ? "text-accent-gold/70" : "text-white/30"
+              open ? "text-accent-gold/70" : "text-white/55"
             }`}
           >
             <path d="M7 2v10M2 7h10" />
           </svg>
-        </motion.div>
+        </m.div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-white/35 text-[15px] leading-relaxed pb-7 pr-16 max-w-xl">
+            <p className="text-white/60 text-[15px] leading-relaxed pb-7 pr-16 max-w-xl">
               {answer}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

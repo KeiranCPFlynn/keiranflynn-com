@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
+import { siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -10,34 +11,40 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Keiran Flynn - High-Level English Conversation",
+    default: "Keiran Flynn | Executive English Conversation in Phuket & Online",
     template: "%s - Keiran Flynn",
   },
   description:
-    "Strategic English conversation sessions for founders, executives, and internationally active professionals. Phuket, Thailand.",
+    "High-level English conversation coaching for founders and executives. UK-native consultant based in Phuket offering in-person and online 1:1 sessions.",
   keywords: [
-    "British English conversation Phuket",
-    "Executive English Phuket",
-    "English for founders Phuket",
-    "strategic communication English",
-    "business English Phuket",
-    "English conversation for executives",
-    "English speaking practice professionals",
+    "executive English coaching Phuket",
+    "business English coach Phuket",
+    "British English conversation coach",
+    "English communication for founders",
+    "advanced English speaking practice",
+    "professional English conversation online",
+    "executive communication coaching",
   ],
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://keiranflynn.com"
-  ),
+  metadataBase: new URL(siteUrl),
+  applicationName: "Keiran Flynn",
+  authors: [{ name: "Keiran Flynn", url: siteUrl }],
+  creator: "Keiran Flynn",
+  publisher: "Keiran Flynn",
+  category: "Education",
+  alternates: {
+    canonical: "/conversation",
+  },
   openGraph: {
-    title: "Keiran Flynn - High-Level English Conversation",
+    title: "Keiran Flynn | Executive English Conversation in Phuket & Online",
     description:
-      "Strategic English conversation sessions for founders, executives, and internationally active professionals.",
+      "High-level English conversation coaching for founders and executives. In-person in Phuket or online.",
     siteName: "Keiran Flynn",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://keiranflynn.com",
+    url: siteUrl,
     type: "website",
     locale: "en_GB",
     images: [
       {
-        url: "/keiran.png",
+        url: "/keiran.jpg",
         width: 742,
         height: 928,
         alt: "Portrait of Keiran Flynn in Phuket",
@@ -48,10 +55,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Keiran Flynn - High-Level English Conversation",
     description:
-      "Strategic English conversation sessions for founders, executives, and internationally active professionals.",
+      "High-level English conversation coaching for founders and executives.",
     images: [
       {
-        url: "/keiran.png",
+        url: "/keiran.jpg",
         alt: "Portrait of Keiran Flynn in Phuket",
       },
     ],
@@ -59,6 +66,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxImagePreview: "large",
+      maxSnippet: -1,
+      maxVideoPreview: -1,
+    },
   },
 };
 

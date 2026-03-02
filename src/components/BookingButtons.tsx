@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 const CAL_60 = "https://cal.com/keirancpflynn/60min";
@@ -11,7 +11,7 @@ export function BookingButtons({ className = "" }: { className?: string }) {
 
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
-      <motion.a
+      <m.a
         href={CAL_60}
         target="_blank"
         rel="noopener noreferrer"
@@ -31,8 +31,8 @@ export function BookingButtons({ className = "" }: { className?: string }) {
         >
           <path d="M3 8h10M9 4l4 4-4 4" />
         </svg>
-      </motion.a>
-      <motion.a
+      </m.a>
+      <m.a
         href={CAL_30}
         target="_blank"
         rel="noopener noreferrer"
@@ -41,7 +41,7 @@ export function BookingButtons({ className = "" }: { className?: string }) {
         whileTap={{ scale: 0.98 }}
       >
         {t.cta.book30}
-      </motion.a>
+      </m.a>
     </div>
   );
 }

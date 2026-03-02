@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import type { Locale } from "@/content";
 
@@ -18,7 +18,7 @@ export function Header() {
   }, []);
 
   return (
-    <motion.header
+    <m.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -53,17 +53,17 @@ export function Header() {
             className="relative w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
-            <motion.span
+            <m.span
               animate={menuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
               className="absolute w-5 h-px bg-current"
               transition={{ duration: 0.3 }}
             />
-            <motion.span
+            <m.span
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
               className="absolute w-5 h-px bg-current"
               transition={{ duration: 0.2 }}
             />
-            <motion.span
+            <m.span
               animate={menuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
               className="absolute w-5 h-px bg-current"
               transition={{ duration: 0.3 }}
@@ -75,7 +75,7 @@ export function Header() {
       {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.nav
+          <m.nav
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -88,7 +88,7 @@ export function Header() {
                 { href: "/about", label: t.nav.about },
                 { href: "/contact", label: t.nav.contact },
               ].map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -97,17 +97,17 @@ export function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block text-lg text-white/50 hover:text-white transition-colors duration-300"
+                    className="block text-lg text-white/75 hover:text-white transition-colors duration-300"
                   >
                     {item.label}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
-    </motion.header>
+    </m.header>
   );
 }
 
@@ -121,7 +121,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="group relative text-[13px] uppercase tracking-[0.12em] text-white/40 hover:text-white transition-colors duration-500"
+      className="group relative text-[13px] uppercase tracking-[0.12em] text-white/70 hover:text-white transition-colors duration-500"
     >
       {children}
       <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-gold transition-all duration-500 group-hover:w-full" />
@@ -143,7 +143,7 @@ function LanguageToggle({
         className={`px-2.5 py-1.5 rounded-l transition-all duration-300 ${
           locale === "en"
             ? "text-white bg-white/[0.08]"
-            : "text-white/25 hover:text-white/50"
+            : "text-white/55 hover:text-white/75"
         }`}
       >
         EN
@@ -153,7 +153,7 @@ function LanguageToggle({
         className={`px-2.5 py-1.5 rounded-r transition-all duration-300 ${
           locale === "ru"
             ? "text-white bg-white/[0.08]"
-            : "text-white/25 hover:text-white/50"
+            : "text-white/55 hover:text-white/75"
         }`}
       >
         RU

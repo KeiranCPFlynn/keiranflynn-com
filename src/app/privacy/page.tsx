@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <FadeIn>
         <div className="accent-line mb-8" />
         <h1 className="text-display text-white mb-4">{p.title}</h1>
-        <p className="text-[13px] text-white/20 mb-16 tracking-wide">
+        <p className="text-[13px] text-white/55 mb-16 tracking-wide">
           {p.lastUpdated}
         </p>
       </FadeIn>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-medium text-white/70 mb-4">
               {section.title}
             </h2>
-            <p className="text-white/35 leading-[1.8]">{section.content}</p>
+            <p className="text-white/60 leading-[1.8]">{section.content}</p>
           </StaggerItem>
         ))}
       </StaggerContainer>

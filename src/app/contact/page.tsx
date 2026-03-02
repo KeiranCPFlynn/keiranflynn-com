@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { FadeIn, AnimatedSection } from "@/components/motion";
 import { BookingButtons } from "@/components/BookingButtons";
@@ -48,7 +48,7 @@ export default function ContactPage() {
         <h1 className="text-display text-white mb-4 max-w-lg">
           {c.title}
         </h1>
-        <p className="text-white/30 mb-12 text-subheading max-w-md">
+        <p className="text-white/60 mb-12 text-subheading max-w-md">
           {c.subtitle}
         </p>
       </FadeIn>
@@ -56,7 +56,7 @@ export default function ContactPage() {
       <div className="max-w-xl">
         <FadeIn delay={0.2}>
           {status === "sent" ? (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="glass-card p-10"
@@ -75,8 +75,8 @@ export default function ContactPage() {
                 </svg>
               </div>
               <p className="text-white text-lg mb-2">Message sent.</p>
-              <p className="text-white/35">We will be in touch shortly.</p>
-            </motion.div>
+              <p className="text-white/60">We will be in touch shortly.</p>
+            </m.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-7">
               <div className="hidden" aria-hidden="true">
@@ -91,7 +91,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-[13px] text-white/30 mb-2.5 tracking-wide"
+                  className="block text-[13px] text-white/60 mb-2.5 tracking-wide"
                 >
                   {c.form.name}
                 </label>
@@ -101,14 +101,14 @@ export default function ContactPage() {
                   type="text"
                   required
                   placeholder={c.form.namePlaceholder}
-                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
+                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-[13px] text-white/30 mb-2.5 tracking-wide"
+                  className="block text-[13px] text-white/60 mb-2.5 tracking-wide"
                 >
                   {c.form.email}
                 </label>
@@ -118,14 +118,14 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder={c.form.emailPlaceholder}
-                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
+                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-[13px] text-white/30 mb-2.5 tracking-wide"
+                  className="block text-[13px] text-white/60 mb-2.5 tracking-wide"
                 >
                   {c.form.message}
                 </label>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   required
                   rows={5}
                   placeholder={c.form.messagePlaceholder}
-                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500 resize-none"
+                  className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500 resize-none"
                 />
               </div>
 
@@ -145,7 +145,7 @@ export default function ContactPage() {
                 </p>
               )}
 
-              <motion.button
+              <m.button
                 type="submit"
                 disabled={status === "sending"}
                 className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
@@ -178,14 +178,14 @@ export default function ContactPage() {
                 ) : (
                   <span className="relative z-10">{c.form.send}</span>
                 )}
-              </motion.button>
+              </m.button>
             </form>
           )}
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <div className="mt-16">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-white/20 block mb-6">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-white/55 block mb-6">
               {c.orBook}
             </span>
             <BookingButtons />

@@ -71,6 +71,17 @@ export const ru: ContentDictionary = {
         { number: "04", text: "Приватная стратегическая беседа 1:1" },
       ],
     },
+    sessionLength: {
+      title: "Длительность сессии",
+      thirtyMinutes: "30 минут",
+      thirtyPrice: "$60",
+      bookThirty: "Забронировать 30-минутную сессию",
+      sixtyMinutes: "60 минут",
+      sixtyPrice: "$120",
+      bookSixty: "Забронировать 60-минутную сессию",
+      note:
+        "Сессии адаптируются под ваши приоритеты. Для подтверждения слота требуется оплата.",
+    },
     location: {
       title: "Формат",
       text: "Лично (Банг Тао, Пхукет) или онлайн.",
@@ -181,7 +192,15 @@ export const ru: ContentDictionary = {
   footer: {
     privacy: "Конфиденциальность",
     rights: "Все права защищены.",
-    telegramSupport: "Не получили ссылку на оплату? Telegram: @freelymoving",
     linkedin: "LinkedIn",
+    paymentHelpTitle: "Помощь с оплатой",
+    paymentHelpSummary: "Не получили ссылку Stripe для оплаты?",
+    paymentHelpShowSteps: "Что сделать",
+    paymentHelpSteps: [
+      "Проверьте папки Входящие и Спам на письмо от Keiran Flynn.",
+      "Подождите до 15 минут после бронирования.",
+      "Если письма нет, напишите в Telegram и укажите имя и email из бронирования.",
+    ],
+    paymentHelpCta: "Написать в Telegram",
   },
 };
