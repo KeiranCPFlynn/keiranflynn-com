@@ -19,7 +19,7 @@ export const en = {
     hero: {
       headline:
         "High-Level English Conversation for Founders and International Professionals",
-      subheadline: "Think, argue and operate at a higher level in English.",
+      subheadline: "Clear thinking. Clear language. High-stakes conversations.",
     },
     credibility: {
       items: [
@@ -44,6 +44,7 @@ export const en = {
         "Exam-only preparation",
         "Casual, low-cost tutoring",
         "If you want textbook drills or constant grammar correction, this is not it.",
+        "If you want constant interruption or textbook-style correction, this isn't it.",
       ],
     },
     whatWeWorkOn: {
@@ -54,6 +55,21 @@ export const en = {
         "Investor calls and leadership meetings",
         "Presentation preparation and delivery",
         "Executive presence and persuasive clarity",
+      ],
+    },
+    depthThinking: {
+      title: "Depth & Independent Thinking",
+      intro: "These sessions can go as deep as you need.",
+      focus:
+        "Business models. Product strategy. Hiring decisions. Market positioning. Execution plans.",
+      refinements: [
+        "If something lacks clarity, we examine it.",
+        "If an argument is weak, we strengthen it.",
+        "If assumptions need testing, we test them.",
+      ],
+      goals: [
+        "The goal is not agreement.",
+        "The goal is sharper thinking and clearer communication.",
       ],
     },
     howItWorks: {
@@ -96,7 +112,7 @@ export const en = {
         },
         {
           q: "Are sessions confidential?",
-          a: "Yes. Sessions are private and confidential. I do not share names, companies, or session details.",
+          a: "Yes. Sessions are private and confidential. I do not share names, companies, or details.",
         },
         {
           q: "Can I reschedule or cancel?",

@@ -185,6 +185,43 @@ export default function ConversationPage() {
 
       <div className="section-divider" />
 
+      {/* ==================== DEPTH & INDEPENDENT THINKING ==================== */}
+      <AnimatedSection>
+        <FadeIn>
+          <div className="accent-line mb-6" />
+          <h2 className="text-heading text-white mb-10">{c.depthThinking.title}</h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="max-w-3xl space-y-8">
+            <p className="text-white/60 text-[15px] leading-relaxed">
+              {c.depthThinking.intro}
+            </p>
+            <p className="text-white/60 text-[15px] leading-relaxed">
+              {c.depthThinking.focus}
+            </p>
+            <div className="space-y-4">
+              {c.depthThinking.refinements.map((line, i) => (
+                <p key={i} className="text-white/60 text-[15px] leading-relaxed">
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="space-y-4">
+              {c.depthThinking.goals.map((line, i) => (
+                <p
+                  key={i}
+                  className="text-white/70 text-[15px] leading-relaxed"
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </AnimatedSection>
+
+      <div className="section-divider" />
+
       {/* ==================== HOW IT WORKS ==================== */}
       <AnimatedSection>
         <FadeIn>
