@@ -1,5 +1,5 @@
-import { permanentRedirect } from "next/navigation";
+import ConversationPage from "@/components/pages/ConversationPage";
 
 export default function Home() {
-  permanentRedirect("/conversation");
+  return <ConversationPage />;
 }

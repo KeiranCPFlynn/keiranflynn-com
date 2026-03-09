@@ -30,7 +30,7 @@ export function Header() {
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
         <Link
-          href="/conversation"
+          href="/"
           className="text-[15px] font-semibold tracking-tight text-white hover:text-accent-gold transition-colors duration-500"
         >
           Keiran Flynn
@@ -38,7 +38,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-10">
-          <NavLink href="/conversation">{t.nav.conversation}</NavLink>
+          <NavLink href="/">{t.nav.conversation}</NavLink>
           <NavLink href="/about">{t.nav.about}</NavLink>
           <NavLink href="/contact">{t.nav.contact}</NavLink>
           <div className="w-px h-4 bg-white/[0.06]" />
@@ -84,7 +84,7 @@ export function Header() {
           >
             <div className="px-6 py-8 space-y-6">
               {[
-                { href: "/conversation", label: t.nav.conversation },
+                { href: "/", label: t.nav.conversation },
                 { href: "/about", label: t.nav.about },
                 { href: "/contact", label: t.nav.contact },
               ].map((item, i) => (

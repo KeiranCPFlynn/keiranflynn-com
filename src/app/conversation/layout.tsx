@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   description:
     "Strategic 1:1 English conversation for founders and international professionals in Phuket or online.",
   alternates: {
-    canonical: "/conversation",
+    canonical: "/",
   },
   openGraph: {
-    url: "/conversation",
+    url: "/",
     type: "website",
   },
 };

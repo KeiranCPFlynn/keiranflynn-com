@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: absoluteUrl("/conversation"),
+      url: absoluteUrl("/"),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,

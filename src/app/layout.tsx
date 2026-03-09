@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   publisher: "Keiran Flynn",
   category: "Education",
   alternates: {
-    canonical: "/conversation",
+    canonical: "/",
   },
   openGraph: {
     title: "Keiran Flynn | Executive English Conversation in Phuket & Online",

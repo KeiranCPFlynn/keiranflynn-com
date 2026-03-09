@@ -78,7 +78,7 @@ export default function ThanksPage() {
         <FadeIn delay={0.6}>
           <div className="mt-16">
             <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Link href="/conversation" className="btn-secondary">
+              <Link href="/" className="btn-secondary">
                 {th.backToHome}
               </Link>
             </m.div>

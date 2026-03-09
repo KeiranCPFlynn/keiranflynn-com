@@ -10,7 +10,7 @@ export function JsonLd() {
     name: "Keiran Flynn - Executive English Conversation",
     description:
       "High-level English conversation coaching for founders, executives, and internationally active professionals.",
-    url: `${siteUrl}/conversation`,
+    url: `${siteUrl}/`,
     areaServed: [
       { "@type": "Place", name: "Phuket, Thailand" },
       { "@type": "Place", name: "Online" },
