@@ -70,9 +70,9 @@ export async function POST(request: Request) {
     const transporter = getTransporter();
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER,
+      to: "freelymoving@gmail.com",
       replyTo: email,
-      subject: `Contact form: ${name}`,
+      subject: `[keiranflynn.com] Contact form: ${name}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
