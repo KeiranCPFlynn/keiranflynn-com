@@ -53,7 +53,7 @@ export function Footer() {
                   </ul>
                 </details>
                 <a
-                  href="https://t.me/freelymoving"
+                  href="https://t.me/keiranflynn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-white/[0.14] rounded-md text-[12px] tracking-wide text-white/90 hover:bg-white/[0.06] transition-colors"
