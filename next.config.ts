@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
@@ -10,6 +11,11 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion"],
   },
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
+
+export default withMDX(nextConfig);
