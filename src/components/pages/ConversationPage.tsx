@@ -358,24 +358,24 @@ export default function ConversationPage() {
       <AnimatedSection>
         <FadeIn>
           <div className="accent-line mb-6" />
-          <h2 className="text-heading text-white mb-14">Insights & Articles</h2>
+          <h2 className="text-heading text-white mb-14">{t.blog.previewTitle}</h2>
         </FadeIn>
         <div className="max-w-4xl mx-auto">
           <p className="text-white/60 mb-8 text-lg leading-relaxed">
-            Explore our blog for deep dives into high‑level English conversation, strategic communication, and professional thinking.
+            {t.blog.previewDescription}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/blog"
               className="btn-secondary"
             >
-              Visit the Blog
+              {t.blog.visitBlog}
             </Link>
             <Link
               href="/blog/english-under-pressure"
               className="text-sm text-white/75 hover:text-white transition-colors duration-500 tracking-wide"
             >
-              Read the latest article →
+              {t.blog.readLatest}
             </Link>
           </div>
         </div>

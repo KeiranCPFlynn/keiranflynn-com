@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/site";
 import { getSortedPosts } from "@/lib/blog";
+import { BlogPageHeader } from "@/components/blog/BlogPageHeader";
 
 const title = "Insights & Articles | Keiran Flynn";
 const description =
@@ -65,18 +66,7 @@ export default function BlogPage() {
             />
 
             <div className="max-w-4xl mx-auto px-6 sm:px-8 pt-36 sm:pt-44 pb-24 sm:pb-32">
-                {/* Header */}
-                <div className="mb-16">
-                    <div className="accent-line mb-8" />
-                    <h1 className="text-display text-white mb-6">
-                        Insights & Articles
-                    </h1>
-                    <p className="text-subheading text-white/55 max-w-2xl">
-                        Practical thinking on business English, strategic
-                        communication, and professional fluency for founders and
-                        senior leaders.
-                    </p>
-                </div>
+                <BlogPageHeader />
 
                 {/* Post grid */}
                 {posts.length === 0 ? (

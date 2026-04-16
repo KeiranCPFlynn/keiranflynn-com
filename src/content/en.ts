@@ -199,6 +199,14 @@ export const en = {
     ],
     backToHome: "Back to Home",
   },
+  blog: {
+    pageTitle: "Insights & Articles",
+    pageDescription: "Practical thinking on business English, strategic communication, and professional fluency for founders and senior leaders.",
+    previewTitle: "Insights & Articles",
+    previewDescription: "Practical thinking on business English, strategic communication, and professional fluency.",
+    visitBlog: "Visit the Blog",
+    readLatest: "Read the latest article →",
+  },
   footer: {
     privacy: "Privacy",
     rights: "All rights reserved.",
