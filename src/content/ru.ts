@@ -10,6 +10,7 @@ export const ru: ContentDictionary = {
     conversation: "Сессии",
     about: "Обо мне",
     contact: "Контакт",
+    blog: "Блог",
   },
   cta: {
     book60: "Записаться на 60 минут",

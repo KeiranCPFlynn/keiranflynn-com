@@ -120,3 +120,60 @@ export function getAllPostSlugs(): string[] {
         .filter((fileName) => fileName.endsWith(".mdx"))
         .map((fileName) => fileName.replace(/\.mdx$/, ""));
 }
+
+export function getPostsByTag(tag: string): BlogPost[] {
+    const allPosts = getSortedPosts();
+    return allPosts.filter(post => post.tags && post.tags.includes(tag));
+}
+
+export function getAllTags(): string[] {
+    const allPosts = getSortedPosts();
+    const tagSet = new Set<string>();
+    allPosts.forEach(post => {
+        if (post.tags) {
+            post.tags.forEach(tag => tagSet.add(tag));
+        }
+    });
+    return Array.from(tagSet).sort();
+}
+
+export function getRelatedPosts(currentSlug: string, limit: number = 3): BlogPost[] {
+    const currentPost = getPost(currentSlug);
+    if (!currentPost || !currentPost.tags || currentPost.tags.length === 0) {
+        // If no tags, return most recent posts excluding current
+        return getSortedPosts()
+            .filter(post => post.slug !== currentSlug)
+            .slice(0, limit);
+    }
+
+    const allPosts = getSortedPosts();
+    const scoredPosts = allPosts
+        .filter(post => post.slug !== currentSlug)
+        .map(post => {
+            let score = 0;
+            if (post.tags) {
+                // Count tag matches
+                const matchingTags = post.tags.filter(tag =>
+                    currentPost.tags!.includes(tag)
+                );
+                score = matchingTags.length;
+            }
+            return { post, score };
+        })
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score ||
+            new Date(b.post.rawDate).getTime() - new Date(a.post.rawDate).getTime())
+        .map(item => item.post)
+        .slice(0, limit);
+
+    // If not enough tag-matched posts, fill with most recent
+    if (scoredPosts.length < limit) {
+        const recentPosts = getSortedPosts()
+            .filter(post => post.slug !== currentSlug &&
+                !scoredPosts.some(p => p.slug === post.slug))
+            .slice(0, limit - scoredPosts.length);
+        return [...scoredPosts, ...recentPosts];
+    }
+
+    return scoredPosts;
+}

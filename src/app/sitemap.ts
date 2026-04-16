@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
-import { getSortedPosts } from "@/lib/blog";
+import { getSortedPosts, getAllTags } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -11,6 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.rawDate),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const tags = getAllTags();
+  const tagUrls = tags.map(tag => ({
+    url: absoluteUrl(`/blog/tag/${tag}`),
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
   }));
 
   return [
@@ -45,5 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...blogUrls,
+    ...tagUrls,
   ];
 }

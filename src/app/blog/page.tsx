@@ -91,12 +91,13 @@ export default function BlogPage() {
                                 {post.tags && post.tags.length > 0 && (
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {post.tags.slice(0, 2).map((tag) => (
-                                            <span
+                                            <Link
                                                 key={tag}
-                                                className="text-[10px] uppercase tracking-[0.18em] text-accent-gold/70 px-2 py-0.5 border border-accent-gold/20 rounded"
+                                                href={`/blog/tag/${tag}`}
+                                                className="text-[10px] uppercase tracking-[0.18em] text-accent-gold/70 hover:text-accent-gold hover:border-accent-gold/40 px-2 py-0.5 border border-accent-gold/20 rounded transition-colors duration-300"
                                             >
                                                 {tag.replace(/-/g, " ")}
-                                            </span>
+                                            </Link>
                                         ))}
                                     </div>
                                 )}

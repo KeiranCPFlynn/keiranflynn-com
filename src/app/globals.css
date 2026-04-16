@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
   --color-accent: #3d5a80;
@@ -183,4 +184,110 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Blog prose ===== */
+.prose {
+  --tw-prose-body: #d4d4d4;
+  --tw-prose-headings: #f0f0f0;
+  --tw-prose-lead: #d4d4d4;
+  --tw-prose-links: #b8a075;
+  --tw-prose-bold: #f0f0f0;
+  --tw-prose-counters: #b8a075;
+  --tw-prose-bullets: #b8a075;
+  --tw-prose-hr: rgba(255, 255, 255, 0.08);
+  --tw-prose-quotes: #d4d4d4;
+  --tw-prose-quote-borders: #b8a075;
+  --tw-prose-captions: #a0a0a0;
+  --tw-prose-code: #e0d4c0;
+  --tw-prose-pre-code: #e0d4c0;
+  --tw-prose-pre-bg: rgba(255, 255, 255, 0.04);
+  --tw-prose-th-borders: rgba(255, 255, 255, 0.12);
+  --tw-prose-td-borders: rgba(255, 255, 255, 0.06);
+}
+
+.prose h2 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.prose p {
+  line-height: 1.8;
+  color: rgba(229, 229, 229, 0.75);
+}
+
+.prose strong {
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+.prose a {
+  color: #b8a075;
+  text-decoration-color: rgba(184, 160, 117, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #d4b98a;
+}
+
+.prose blockquote {
+  border-left-color: #b8a075;
+  background: rgba(184, 160, 117, 0.04);
+  padding: 0.75em 1.25em;
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+}
+
+.prose code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose ul li::marker,
+.prose ol li::marker {
+  color: #b8a075;
+}
+
+.prose hr {
+  border-color: rgba(255, 255, 255, 0.08);
+  margin: 2.5em 0;
+}
+
+.prose table {
+  font-size: 0.875rem;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose thead th {
+  background: rgba(184, 160, 117, 0.07);
+  color: #f0f0f0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: left;
+  padding: 0.65em 1em;
+  border-bottom: 1px solid rgba(184, 160, 117, 0.2);
+}
+
+.prose tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.prose tbody td {
+  vertical-align: top;
+  padding: 0.65em 1em;
+  color: rgba(229, 229, 229, 0.75);
 }

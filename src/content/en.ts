@@ -8,6 +8,7 @@ export const en = {
     conversation: "Conversation",
     about: "About",
     contact: "Contact",
+    blog: "Blog",
   },
   cta: {
     book60: "Book 60-Minute Session",

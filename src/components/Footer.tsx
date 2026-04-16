@@ -80,6 +80,12 @@ export function Footer() {
               >
                 {t.footer.privacy}
               </Link>
+              <Link
+                href="/blog"
+                className="text-[13px] text-white/75 hover:text-white transition-colors duration-500 tracking-wide"
+              >
+                {t.nav.blog}
+              </Link>
               <a
                 href="https://www.linkedin.com/in/keiran-flynn/"
                 target="_blank"

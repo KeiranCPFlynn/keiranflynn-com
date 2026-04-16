@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getPost, getSortedPosts } from "@/lib/blog";
+import { getPost, getSortedPosts, getRelatedPosts } from "@/lib/blog";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -65,6 +65,31 @@ export default async function BlogPost({
 
     if (!post) return notFound();
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: absoluteUrl("/blog"),
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: absoluteUrl(`/blog/${slug}`),
+            },
+        ],
+    };
+
     const articleJsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -97,29 +122,35 @@ export default async function BlogPost({
         <>
             <script
                 type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
             />
 
             <div className="max-w-3xl mx-auto px-6 sm:px-8 pt-36 sm:pt-44 pb-24">
-                {/* Back link */}
-                <Link
-                    href="/blog"
-                    className="inline-flex items-center gap-2 text-[13px] text-white/40 hover:text-accent-gold transition-colors mb-12"
-                >
-                    ← All articles
-                </Link>
+                {/* Breadcrumb */}
+                <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] text-white/30 mb-10">
+                    <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
+                    <span>/</span>
+                    <Link href="/blog" className="hover:text-white/60 transition-colors">Blog</Link>
+                    <span>/</span>
+                    <span className="text-white/50 truncate max-w-[200px]">{post.title}</span>
+                </nav>
 
                 {/* Article header */}
                 <header className="mb-12">
                     {post.tags && post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-6">
                             {post.tags.map((tag) => (
-                                <span
+                                <Link
                                     key={tag}
-                                    className="text-[10px] uppercase tracking-[0.18em] text-accent-gold/70 px-2 py-0.5 border border-accent-gold/20 rounded"
+                                    href={`/blog/tag/${tag}`}
+                                    className="text-[10px] uppercase tracking-[0.18em] text-accent-gold/70 hover:text-accent-gold hover:border-accent-gold/40 px-2 py-0.5 border border-accent-gold/20 rounded transition-colors duration-300"
                                 >
                                     {tag.replace(/-/g, " ")}
-                                </span>
+                                </Link>
                             ))}
                         </div>
                     )}
@@ -141,6 +172,63 @@ export default async function BlogPost({
                 <article className="prose prose-invert max-w-none">
                     <MDXRemote source={post.content} />
                 </article>
+
+                {/* Related posts */}
+                {(() => {
+                    const relatedPosts = getRelatedPosts(post.slug, 3);
+                    if (relatedPosts.length === 0) return null;
+
+                    return (
+                        <div className="mt-16">
+                            <div className="flex items-center justify-between mb-8">
+                                <h2 className="text-[15px] font-medium text-white/70">
+                                    Related reading
+                                </h2>
+                                <Link
+                                    href="/blog"
+                                    className="text-[12px] text-white/40 hover:text-accent-gold transition-colors"
+                                >
+                                    All articles →
+                                </Link>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-4">
+                                {relatedPosts.map((related) => (
+                                    <article
+                                        key={related.slug}
+                                        className="glass-card p-5 flex flex-col"
+                                    >
+                                        <h3 className="text-[14px] font-medium leading-snug mb-2">
+                                            <Link
+                                                href={`/blog/${related.slug}`}
+                                                className="text-white hover:text-accent-gold transition-colors"
+                                            >
+                                                {related.title}
+                                            </Link>
+                                        </h3>
+                                        <p className="text-[12px] text-white/45 leading-relaxed mb-4 flex-1">
+                                            {related.description.length > 100
+                                                ? `${related.description.substring(0, 100)}...`
+                                                : related.description}
+                                        </p>
+                                        <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/[0.06]">
+                                            <div className="text-[11px] text-white/30">
+                                                <time dateTime={related.rawDate}>
+                                                    {related.date}
+                                                </time>
+                                            </div>
+                                            <Link
+                                                href={`/blog/${related.slug}`}
+                                                className="text-[11px] text-accent-gold hover:text-accent-gold/80 font-medium transition-colors"
+                                            >
+                                                Read
+                                            </Link>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                })()}
 
                 {/* CTA */}
                 <div className="mt-20 glass-card p-8 text-center">

@@ -22,11 +22,10 @@ export function Header() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.04] shadow-2xl shadow-black/20"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
         <Link
@@ -41,6 +40,7 @@ export function Header() {
           <NavLink href="/">{t.nav.conversation}</NavLink>
           <NavLink href="/about">{t.nav.about}</NavLink>
           <NavLink href="/contact">{t.nav.contact}</NavLink>
+          <NavLink href="/blog">{t.nav.blog}</NavLink>
           <div className="w-px h-4 bg-white/[0.06]" />
           <LanguageToggle locale={locale} setLocale={setLocale} />
         </nav>
@@ -87,6 +87,7 @@ export function Header() {
                 { href: "/", label: t.nav.conversation },
                 { href: "/about", label: t.nav.about },
                 { href: "/contact", label: t.nav.contact },
+                { href: "/blog", label: t.nav.blog },
               ].map((item, i) => (
                 <m.div
                   key={item.href}
@@ -140,21 +141,19 @@ function LanguageToggle({
     <div className="flex items-center text-[11px] tracking-wider">
       <button
         onClick={() => setLocale("en")}
-        className={`px-2.5 py-1.5 rounded-l transition-all duration-300 ${
-          locale === "en"
+        className={`px-2.5 py-1.5 rounded-l transition-all duration-300 ${locale === "en"
             ? "text-white bg-white/[0.08]"
             : "text-white/55 hover:text-white/75"
-        }`}
+          }`}
       >
         EN
       </button>
       <button
         onClick={() => setLocale("ru")}
-        className={`px-2.5 py-1.5 rounded-r transition-all duration-300 ${
-          locale === "ru"
+        className={`px-2.5 py-1.5 rounded-r transition-all duration-300 ${locale === "ru"
             ? "text-white bg-white/[0.08]"
             : "text-white/55 hover:text-white/75"
-        }`}
+          }`}
       >
         RU
       </button>
