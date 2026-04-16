@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getPost, getSortedPosts, getRelatedPosts } from "@/lib/blog";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 
@@ -170,7 +171,7 @@ export default async function BlogPost({
 
                 {/* Article body */}
                 <article className="prose prose-invert max-w-none">
-                    <MDXRemote source={post.content} />
+                    <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </article>
 
                 {/* Related posts */}
