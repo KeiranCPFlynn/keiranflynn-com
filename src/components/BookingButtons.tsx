@@ -3,8 +3,9 @@
 import { m } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
-const CAL_60 = "https://cal.com/keirancpflynn/60min";
+const CAL_FIT = "https://cal.com/keirancpflynn/10-min-fit-call";
 const CAL_30 = "https://cal.com/keirancpflynn/30min";
+const CAL_60 = "https://cal.com/keirancpflynn/60min";
 
 export function BookingButtons({ className = "" }: { className?: string }) {
   const { t } = useLanguage();
@@ -12,14 +13,14 @@ export function BookingButtons({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
       <m.a
-        href={CAL_60}
+        href={CAL_FIT}
         target="_blank"
         rel="noopener noreferrer"
         className="btn-primary group"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <span className="relative z-10">{t.cta.book60}</span>
+        <span className="relative z-10">{t.cta.bookFit}</span>
         <svg
           width="16"
           height="16"
@@ -41,6 +42,16 @@ export function BookingButtons({ className = "" }: { className?: string }) {
         whileTap={{ scale: 0.98 }}
       >
         {t.cta.book30}
+      </m.a>
+      <m.a
+        href={CAL_60}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-secondary"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {t.cta.book60}
       </m.a>
     </div>
   );

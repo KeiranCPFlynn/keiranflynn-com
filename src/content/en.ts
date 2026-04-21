@@ -11,8 +11,9 @@ export const en = {
     blog: "Blog",
   },
   cta: {
-    book60: "Book 60-Minute Session",
-    book30: "Intro Session - 30 Minutes",
+    bookFit: "Book Fit Call (free, 10 min)",
+    book30: "Book 30 Minute Session ($60)",
+    book60: "Book 60 Minute Session ($120)",
     paymentNotice:
       "Payment is required to confirm your session. A secure Stripe payment link will be sent after booking.",
   },
@@ -20,7 +21,7 @@ export const en = {
     hero: {
       headline:
         "High-Level English Conversation for Founders and International Professionals",
-      subheadline: "Clear thinking. Clear language. High-stakes conversations.",
+      subheadline: "For non-native English speakers running international businesses. Clear thinking. Clear language. High-stakes conversations.",
     },
     credibility: {
       items: [
@@ -32,10 +33,10 @@ export const en = {
     whoFor: {
       title: "Who This Is For",
       items: [
-        "Founders and operators building international businesses",
-        "Executives working across borders and cultures",
-        "Russian expats conducting business in English",
-        "Advanced speakers who want sharper precision and confidence",
+        "Founders and operators whose first language isn't English",
+        "Executives running international businesses in English",
+        "Russian speakers conducting business across borders",
+        "Advanced speakers who want precision and confidence, not lessons",
       ],
     },
     notFor: {
@@ -46,6 +47,13 @@ export const en = {
         "Casual, low-cost tutoring",
         "If you want textbook drills or constant grammar correction, this is not it.",
         "If you want constant interruption or textbook-style correction, this isn't it.",
+      ],
+    },
+    whatTheseSessionsAre: {
+      title: "What These Sessions Are",
+      paragraphs: [
+        "These are strategic conversations, not English lessons. You bring real work. We talk it through at the level you'd talk it through in your own language. Where English is getting in the way of your thinking or your argument, I notice it and we adjust.",
+        "Over time, the gap between the English version of you and the version of you in your own language gets smaller. You stop losing arguments you should win. You stop sounding more junior than you are.",
       ],
     },
     whatWeWorkOn: {
@@ -76,14 +84,20 @@ export const en = {
     howItWorks: {
       title: "How It Works",
       steps: [
-        { number: "01", text: "Book a session via the calendar" },
-        { number: "02", text: "Receive a secure Stripe payment link" },
-        { number: "03", text: "Session confirmed after payment" },
-        { number: "04", text: "Private 1:1 strategic conversation" },
+        { number: "01", text: "Book a free 10 minute fit call" },
+        { number: "02", text: "If it's a good match, book your first paid session" },
+        { number: "03", text: "Receive a secure Stripe payment link" },
+        { number: "04", text: "Session confirmed after payment" },
+        { number: "05", text: "Private 1:1 strategic conversation" },
       ],
     },
     sessionLength: {
       title: "Session Length",
+      fitCallLabel: "10 Minute Fit Call",
+      fitCallPrice: "Free",
+      fitCallDescription: "A short call to see if we'd work well together. Not a session. We talk briefly about what you're working on and whether weekly sessions would help.",
+      fitCallRecommended: "Recommended for new clients",
+      bookFitCall: "Book Fit Call",
       thirtyMinutes: "30 Minutes",
       thirtyPrice: "$60",
       bookThirty: "Book 30-Minute Session",
@@ -103,6 +117,10 @@ export const en = {
     faq: {
       title: "Frequently Asked Questions",
       items: [
+        {
+          q: "What's the fit call?",
+          a: "A free 10 minute call for people considering sessions. It's not a session. We talk briefly about what you're working on and I tell you honestly whether weekly sessions would be useful for you. If yes, we book your first paid session. If no, no pressure.",
+        },
         {
           q: "Is this a language lesson?",
           a: "No. This is a strategic conversation session. You already speak English well - we refine how you use it in high-stakes professional contexts.",

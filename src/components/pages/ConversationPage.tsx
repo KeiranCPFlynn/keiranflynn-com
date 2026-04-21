@@ -142,6 +142,25 @@ export default function ConversationPage() {
 
       <div className="section-divider" />
 
+      {/* ==================== WHAT THESE SESSIONS ARE ==================== */}
+      <AnimatedSection>
+        <FadeIn>
+          <div className="accent-line mb-6" />
+          <h2 className="text-heading text-white mb-10">{c.whatTheseSessionsAre.title}</h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="max-w-3xl space-y-6">
+            {c.whatTheseSessionsAre.paragraphs.map((p, i) => (
+              <p key={i} className="text-white/60 text-[15px] leading-relaxed">
+                {p}
+              </p>
+            ))}
+          </div>
+        </FadeIn>
+      </AnimatedSection>
+
+      <div className="section-divider" />
+
       {/* ==================== NOT FOR ==================== */}
       <AnimatedSection>
         <FadeIn>
@@ -232,7 +251,7 @@ export default function ConversationPage() {
           </h2>
         </FadeIn>
         <StaggerContainer
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6"
           stagger={0.15}
         >
           {c.howItWorks.steps.map((step) => (
@@ -256,52 +275,84 @@ export default function ConversationPage() {
           <div className="accent-line mb-6" />
           <h2 className="text-heading text-white mb-14">{c.sessionLength.title}</h2>
         </FadeIn>
-        <StaggerContainer
-          className="grid md:grid-cols-2 gap-6 max-w-4xl"
-          stagger={0.12}
-        >
-          <StaggerItem>
-            <div className="rounded-2xl border border-white/[0.1] bg-white/[0.02] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-5">
-                  {c.sessionLength.thirtyMinutes}
-                </p>
-                <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
-                  {c.sessionLength.thirtyPrice}
-                </p>
+        <div className="max-w-4xl space-y-6">
+          {/* Fit call card — full width, primary entry point */}
+          <StaggerContainer stagger={0}>
+            <StaggerItem>
+              <div className="rounded-2xl border-2 border-accent-gold/40 bg-gradient-to-b from-accent-gold/[0.06] to-white/[0.02] p-8 sm:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold mb-5">
+                    {c.sessionLength.fitCallLabel}
+                  </p>
+                  <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white mb-4">
+                    {c.sessionLength.fitCallPrice}
+                  </p>
+                  <p className="text-white/50 text-[14px] leading-relaxed max-w-lg">
+                    {c.sessionLength.fitCallDescription}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <span className="text-[11px] uppercase tracking-[0.15em] text-accent-gold/80 text-center">
+                    {c.sessionLength.fitCallRecommended}
+                  </span>
+                  <a
+                    href="https://cal.com/keirancpflynn/10-min-fit-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    {c.sessionLength.bookFitCall}
+                  </a>
+                </div>
               </div>
-              <a
-                href="https://cal.com/keirancpflynn/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary w-full"
-              >
-                {c.sessionLength.bookThirty}
-              </a>
-            </div>
-          </StaggerItem>
+            </StaggerItem>
+          </StaggerContainer>
 
-          <StaggerItem>
-            <div className="rounded-2xl border-2 border-white/[0.2] bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-5">
-                  {c.sessionLength.sixtyMinutes}
-                </p>
-                <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
-                  {c.sessionLength.sixtyPrice}
-                </p>
+          {/* Paid session cards */}
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" stagger={0.12}>
+            <StaggerItem>
+              <div className="rounded-2xl border border-white/[0.1] bg-white/[0.02] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mb-5">
+                    {c.sessionLength.thirtyMinutes}
+                  </p>
+                  <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
+                    {c.sessionLength.thirtyPrice}
+                  </p>
+                </div>
+                <a
+                  href="https://cal.com/keirancpflynn/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full"
+                >
+                  {c.sessionLength.bookThirty}
+                </a>
               </div>
-              <a
-                href="https://cal.com/keirancpflynn/60min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full"
-              >
-                {c.sessionLength.bookSixty}
-              </a>
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="rounded-2xl border border-white/[0.1] bg-white/[0.02] p-8 sm:p-10 flex h-full flex-col justify-between gap-10">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-5">
+                    {c.sessionLength.sixtyMinutes}
+                  </p>
+                  <p className="text-[clamp(2.4rem,6vw,3.5rem)] font-semibold tracking-[-0.035em] text-white">
+                    {c.sessionLength.sixtyPrice}
+                  </p>
+                </div>
+                <a
+                  href="https://cal.com/keirancpflynn/60min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full"
+                >
+                  {c.sessionLength.bookSixty}
+                </a>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
         <FadeIn delay={0.2}>
           <p className="mt-10 text-center text-[13px] leading-relaxed text-white/50">
             {c.sessionLength.note}
