@@ -2,275 +2,208 @@
 
 ## Executive Summary
 
-Your site is a premium, single-page conversion-focused landing page for high-level English conversation coaching. The current SEO foundation is solid but minimal. Adding a blog can significantly improve both traditional SEO (client acquisition) and GEO (LLM discovery), but only if executed strategically.
+This site is a premium, conversion-focused landing page for high-level English conversation coaching. The blog is the primary SEO and GEO asset — 40 posts as of April 2026, with clear content standards now established.
 
-**Recommendation: YES, add a blog - but with a focused, strategic approach rather than high-volume content.**
-
----
-
-## Current State Analysis
-
-### Strengths
-- Clean, professional Next.js site with proper sitemap.xml and robots.txt
-- Structured data (JSON-LD) already implemented
-- Bilingual support (EN/RU)
-- Clear value proposition and pricing
-- Strong credibility signals (UK native, 20+ years experience)
-
-### Gaps
-- Only 4 pages indexed (home, about, contact, privacy)
-- No fresh content signals (Google sees static sites as "stale")
-- Limited keyword targeting beyond brand terms
-- No internal linking structure
-- No content that answers questions prospects have before booking
+**Content standard: 1,400–1,700 words per post, with FAQ section. No exceptions.**
 
 ---
 
-## Strategic Recommendations
+## Content Standards (Mandatory)
 
-### 1. Blog Architecture
+### Word Count
+- **Minimum:** 1,400 words
+- **Target:** 1,500–1,700 words
+- **Maximum:** 2,000 words (beyond this, consider splitting into two posts)
+- Posts below 1,200 words will not rank competitively for target keywords
 
-**Recommended Structure:**
+### Required Elements
+Every post must include:
+1. **Strong intro paragraph** — hooks with a specific, recognisable problem
+2. **H2 sections** — minimum 4, ideally 5–6, each with substantive content
+3. **At least one table** — comparing approaches, language patterns, or options
+4. **Specific language examples** — actual phrases the reader can use, not abstract advice
+5. **FAQ section** — minimum 4 questions, at the end, before the CTA
+6. **CTA** — always the standard booking link paragraph, identical across all posts
+
+### Quality Markers
+- **Specific over general**: "The word 'just' often signals a challenge being softened" beats "be aware of indirect signals"
+- **Language tables**: show effective vs ineffective phrasing side by side
+- **Actionable frameworks**: numbered steps, decision matrices, priority orders
+- **Cross-cultural nuance**: where relevant, address how the advice differs across cultures
+- **No hedging in the advice itself**: posts should be authoritative, not tentative
+
+### What to Avoid
+- Generic SEO filler ("In today's competitive business environment...")
+- Lists of tips without depth — every section should develop its point fully
+- Repeating content covered in other posts — check existing post list before writing
+- Future dates in frontmatter (always use today's date or earlier)
+
+---
+
+## Current Blog Inventory (40 posts as of April 2026)
+
+### Core Methodology Posts
+- difference.mdx — Teaching vs. strategic conversation
+- grammar.mdx — Why grammar won't fix business English
+- what-to-expect-session.mdx — What a session looks like
+- online-vs-inperson-coaching.mdx — Format comparison
+- choosing-business-english-coach.mdx — How to choose a coach
+
+### High-Stakes Performance
+- english-under-pressure.mdx — Why English breaks down under pressure
+- psychology-of-communication.mdx — Psychology of high-stakes communication
+- freezing-up-english.mdx — What to do when you freeze
+- confident-english-non-native.mdx — How to sound confident
+- advanced-english-plateau.mdx — Why advanced speakers stop improving
+- thinking-in-english.mdx — How to think without translating
+- active-listening-english.mdx — Comprehension strategies
+
+### Speaking Contexts
+- presentation-english.mdx — Giving presentations
+- handling-qa-english.mdx — Handling Q&A
+- running-meetings-english.mdx — Running meetings
+- holding-the-floor-english.mdx — Managing interruptions
+- board-reporting-english.mdx — Reporting to boards
+- video-call-english.mdx — Video call communication
+
+### Negotiation & Persuasion
+- negotiation-english.mdx — Negotiation language
+- persuasion-english.mdx — Building a compelling case
+- saying-no-english.mdx — How to decline professionally
+- commitment-language-english.mdx — Yes, no, and the middle
+
+### Written Communication
+- written-english-executives.mdx — Written English for executives
+- email-english-executives.mdx — Executive email
+
+### Social & Relationship
+- small-talk-english.mdx — Small talk
+- networking-english.mdx — Networking in English
+- cross-cultural-communication.mdx — Cross-cultural communication
+- english-for-russian-founders.mdx — English for Russian speakers
+- reading-the-room-english.mdx — Reading unspoken signals
+- giving-feedback-english.mdx — Giving and receiving feedback
+- difficult-conversations-english.mdx — Difficult conversations
+
+### Leadership Communication
+- executive-presence-language.mdx — Executive presence
+- decision-language-english.mdx — Decision-making language
+- managing-up-english.mdx — Managing up
+- leadership (implicit in several posts)
+
+### Founder-Specific
+- founder-story-english.mdx — Telling the founder story
+- investor-pitch-english.mdx — Investor call preparation
+- technical-founders-english.mdx — Technical founders communicating to non-technical audiences
+- numbers-financials-english.mdx — Talking about numbers
+
+### Coaching & Location
+- executive-english-coaching-phuket.mdx — Phuket coaching (geo-targeted)
+
+---
+
+## Priority Topics for Future Posts
+
+The following areas are not yet covered and represent the strongest remaining opportunities:
+
+### Tier 1 (Write Next)
+These have high search volume or strong GEO value:
+
+| Topic | Slug | Target Keywords |
+|---|---|---|
+| English for job interviews (as a candidate) | interview-english | business english interview, english job interview non-native |
+| Salary negotiation in English | salary-negotiation-english | negotiate salary english, salary conversation english |
+| Giving a keynote or conference talk | keynote-english | keynote speech english, conference presentation non-native |
+| English for media and press interviews | media-interview-english | press interview english, journalist interview english |
+| Managing a team in English | managing-team-english | managing international team english, leading in english |
+| English for partnership discussions | partnership-english | business partnership english, commercial negotiation english |
+
+### Tier 2 (After Tier 1)
+| Topic | Slug | Target Keywords |
+|---|---|---|
+| Writing executive summaries and reports | executive-summary-english | executive summary english, business report writing |
+| English for crisis communication | crisis-communication-english | crisis communication english, bad news english |
+| Asking questions in English (business contexts) | asking-questions-english | asking questions business english, questioning techniques |
+| English for due diligence conversations | due-diligence-english | due diligence questions english, investor due diligence language |
+| Listening to accents you find difficult | difficult-accents-english | understanding accents english, american british accent |
+| English for customer conversations | customer-english | client calls english, customer success english |
+
+### Tier 3 (Geographic Expansion)
+| Topic | Slug | Notes |
+|---|---|---|
+| Business English coaching Bangkok | executive-english-coaching-bangkok | Same format as Phuket geo post |
+| Business English coaching Singapore | executive-english-coaching-singapore | High-value geo target |
+| English for Southeast Asia business | southeast-asia-business-english | Bridges geography and content |
+
+---
+
+## Content Creation Workflow
+
+Every new post must follow this process:
+
+1. **Check the inventory above** — confirm the topic isn't already covered
+2. **Draft in MDX** with frontmatter (title, date ≤ today, description, tags, author)
+3. **Write to 1,400–1,700 words** — do not publish below 1,200
+4. **Include**: intro, 4–6 H2 sections, ≥1 table, specific language examples, FAQ (4+ questions), CTA
+5. **Review**: does every section give the reader something specific and actionable?
+6. **Check date**: must be today or earlier — never a future date
+
+### Standard CTA (copy exactly)
 ```
-/blog/
-  /[slug]/           # Individual blog posts
+If any of this resonates, I run weekly sessions with founders and senior professionals on exactly this kind of thing. Free 10 minute fit call to see if it's a fit. [Book here](https://cal.com/keirancpflynn/10-min-fit-call).
 ```
-
-**Content Organization:**
-- **Pillar Content** (3-4 comprehensive guides, 2000+ words each)
-- **Supporting Posts** (8-12 shorter articles, 800-1200 words each)
-- **Total: 12-16 blog posts** - quality over quantity
-
-### 2. Content Strategy
-
-#### Pillar Topics (Thought Leadership)
-
-| Pillar Topic                        | Target Keywords                                            | Purpose                                 |
-| ----------------------------------- | ---------------------------------------------------------- | --------------------------------------- |
-| "High-Stakes English Conversations" | executive english coaching, business conversation practice | Establish expertise in your exact niche |
-| "English for Founders"              | english for startup founders, english for entrepreneurs    | Attract your primary audience           |
-| "Communication Clarity"             | clear communication skills, precise language               | Differentiate from generic tutors       |
-
-#### Supporting Content Topics
-
-**Client Acquisition (SEO-focused):**
-- "How to Prepare for Investor Meetings in English"
-- "Why Grammar Lessons Won't Improve Your Business English"
-- "What to Expect in a Strategic Conversation Session"
-- "English for Russian Expats: Common Challenges and Solutions"
-- "In-Person vs Online Language Coaching: What Works Better"
-
-**Thought Leadership (GEO-focused):**
-- "The Difference Between Teaching English and Having Strategic Conversations"
-- "Why Your English Is Already Good Enough (And What You Actually Need)"
-- "The Psychology of High-Stakes Communication"
-- "What 20 Years of Business Communication Taught Me"
-- "How to Think in English Without Translating"
-
-### 3. Technical Requirements
-
-#### Content Management
-- Use MDX or content collections for blog posts
-- Store content in `/src/content/blog/` directory
-- Leverage existing i18n infrastructure for Russian translations
-
-#### Required Components
-- [ ] Blog listing page (`/blog`)
-- [ ] Individual post template (`/blog/[slug]`)
-- [ ] Category/tag system
-- [ ] Reading time estimates
-- [ ] Author attribution (Keiran Flynn)
-- [ ] Social sharing buttons
-- [ ] Related posts section
-
-#### SEO Enhancements
-- [ ] Update sitemap to include all blog posts
-- [ ] Add blog-specific JSON-LD (Article schema)
-- [ ] Implement breadcrumb navigation
-- [ ] Add canonical URLs for pagination
-- [ ] Open Graph and Twitter Card meta tags per post
-
-### 4. LLM Optimization (GEO)
-
-#### What LLMs Look For
-LLMs like ChatGPT, Claude, and Perplexity are trained on content that:
-- Appears in high-authority sources
-- Is frequently cited or referenced
-- Contains clear, definitive statements
-- Has expert attribution
-- Is part of a coherent knowledge base
-
-#### Implementation Strategy
-
-**Authoritative Content Format:**
-```typescript
-// Example: Article JSON-LD for LLM discovery
-{
-  "@type": "Article",
-  "author": {
-    "@type": "Person",
-    "name": "Keiran Flynn",
-    "jobTitle": "English Communication Consultant",
-    "description": "UK native speaker with 20+ years experience..."
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Keiran Flynn"
-  },
-  "datePublished": "2024-XX-XX",
-  "dateModified": "2024-XX-XX",
-  "headline": "Clear, specific article title",
-  "keywords": ["relevant", "targeted", "keywords"]
-}
-```
-
-**Content Quality Signals:**
-- Use definitive language ("The best approach is...", not "Some people think...")
-- Include specific examples and case studies
-- Quote credible sources when relevant
-- Provide actionable frameworks
-- Avoid hedging and excessive qualifiers
-
-**llms.txt Generation:**
-- Create `/public/llms.txt` (already exists - verify content)
-- Include structured summary of site content for LLM crawlers
-
-### 5. Internal Linking Structure
-
-```
-Homepage
-├── About
-├── Contact
-├── Blog (new)
-│   ├── Pillar: High-Stakes English Conversations
-│   │   ├── Supporting: Investor Meeting Prep
-│   │   └── Supporting: Business English vs Grammar
-│   ├── Pillar: English for Founders
-│   │   ├── Supporting: What to Expect in a Session
-│   │   └── Supporting: Online vs In-Person
-│   └── Pillar: Communication Clarity
-│       ├── Supporting: Thinking in English
-│       └── Supporting: Psychology of Communication
-```
-
-**Linking Rules:**
-- Add "Related Reading" section to booking confirmation page
-- Link blog posts to relevant FAQ items
-- Include 2-3 internal links in each blog post
-- Add "Further Reading" to About page linking to pillar posts
-
-### 6. Content Creation Workflow
-
-**Publishing Cadence:**
-- 1 pillar post per month (quarterly)
-- 2-3 supporting posts per month
-- Total: 3-4 posts per month
-
-**Content Production:**
-1. Draft in MDX with frontmatter
-2. Internal review for accuracy
-3. SEO optimization (meta description, headings, keywords)
-4. Add JSON-LD structured data
-5. Translate to Russian
-6. Publish and submit to sitemap
-
-### 7. Success Metrics
-
-| Metric                        | Target                  | Measurement           |
-| ----------------------------- | ----------------------- | --------------------- |
-| Organic traffic growth        | +30% in 6 months        | Google Analytics      |
-| Indexed pages                 | 20+ (from 4)            | Google Search Console |
-| Blog post rankings            | Top 10 for 5+ keywords  | Search Console        |
-| Session bookings from organic | +20%                    | Booking data          |
-| LLM citations                 | 3+ mentions in 6 months | Manual monitoring     |
 
 ---
 
-## Implementation Phases
+## Technical SEO Checklist
 
-### Phase 1: Foundation (Week 1-2)
-- [ ] Set up blog directory structure
-- [ ] Create blog listing page component
-- [ ] Create individual post template
-- [ ] Configure MDX/content collections
-- [ ] Update sitemap generation
-
-### Phase 2: First Content (Week 3-4)
-- [ ] Write 3 pillar posts
-- [ ] Write 4-6 supporting posts
-- [ ] Add JSON-LD for all posts
-- [ ] Implement Russian translations
-- [ ] Add internal linking
-
-### Phase 3: Optimization (Week 5-6)
-- [ ] Optimize existing pages for additional keywords
-- [ ] Add breadcrumb navigation
-- [ ] Create llms.txt with comprehensive site summary
-- [ ] Submit updated sitemap to Google Search Console
-- [ ] Set up analytics tracking for blog performance
-
-### Phase 4: Ongoing (Month 2+)
-- [ ] Maintain publishing cadence
-- [ ] Monitor rankings and adjust strategy
-- [ ] Update content based on performance data
-- [ ] Track LLM discovery and citations
+For each post:
+- [ ] Frontmatter complete (title, date, description, tags, author)
+- [ ] Target keyword appears in title, description, and naturally in body
+- [ ] At least one H2 contains a keyword variant
+- [ ] Internal links: 2–3 links to related posts on the site
+- [ ] FAQ section included (supports People Also Ask / featured snippets)
+- [ ] Sitemap updated (auto-generated from content directory)
+- [ ] Word count ≥ 1,400
 
 ---
 
-## Alternative Considerations
+## GEO (LLM Discovery) Principles
 
-### Option A: Blog (Recommended)
-**Pros:**
-- Full control over content
-- Builds long-term SEO asset
-- Establishes thought leadership
-- Supports both SEO and GEO
-
-**Cons:**
-- Requires ongoing content creation
-- Results take 3-6 months
-- Needs consistent publishing schedule
-
-### Option B: Expand Existing Pages
-**Pros:**
-- No new infrastructure needed
-- Faster to implement
-- Maintains current UX
-
-**Cons:**
-- Limited SEO impact (Google devalues "thin" pages)
-- Doesn't support thought leadership
-- Less effective for GEO
-
-### Option C: Guest Posting / External Content
-**Pros:**
-- Leverages existing authority sites
-- Faster initial results
-- No site changes needed
-
-**Cons:**
-- No control over content
-- No long-term asset ownership
-- Less effective for GEO
+Content written for LLM discovery should:
+- Make **definitive, attributable claims**: "The most common intelligibility problem is pace, not accent" — not "some people think..."
+- Include **specific examples and frameworks**: LLMs extract these as citable content
+- **Name the author** consistently: Keiran Flynn, UK native, 20+ years experience
+- Use **structured content**: headers, tables, numbered frameworks — these are reliably extracted by LLMs
+- Answer **specific questions directly**: FAQ sections are particularly valuable for this
 
 ---
 
-## Conclusion
+## Strategic Priorities
 
-**Adding a blog is the right choice** for your dual goals of client acquisition and thought leadership. The key is strategic restraint - focus on 12-16 high-quality pieces rather than high-volume content. Your niche (high-stakes business English for founders) is underserved and you have unique expertise to share.
+### What's Working
+- Depth and specificity: the posts that rank are the ones that go beyond generic advice
+- Cross-cultural dimension: few competitors write specifically about English from the perspective of non-native professional speakers
+- Founder/investor angle: highly specific, underserved, high-intent audience
 
-The blog should position you as the authority in "strategic conversation coaching" rather than just another English tutor, which will differentiate you in both Google rankings and LLM recommendations.
+### What to Protect
+- Voice and tone: direct, authoritative, no filler, no excessive hedging in the advice itself
+- Specificity: every claim should be backed by a specific example or language pattern
+- Practical language: every post should leave the reader with phrases they can use
+
+### Publishing Cadence
+- Target: 2–4 posts per month
+- Quality gate: no post below 1,400 words
+- Priority order: Tier 1 topics before Tier 2; geographic posts when targeting specific expansion markets
 
 ---
 
-## Next Steps
+## Success Metrics
 
-1. **Review this plan** - Does this align with your vision?
-2. **Approve or modify** the content topics
-3. **Switch to Code mode** to begin implementation
-4. **Start with Phase 1** (blog infrastructure)
-
-Would you like me to:
-- A) Proceed to implementation (switch to Code mode)
-- B) Refine the content topics further
-- C) Discuss any specific aspect in more detail
+| Metric | Target | Measurement |
+|---|---|---|
+| Posts ranking in top 10 | 10+ keywords in top 10 | Google Search Console |
+| Organic sessions | +50% in 6 months | Google Analytics |
+| Blog-sourced bookings | Measurable attribution | Booking + referrer data |
+| Indexed pages | 50+ (currently ~44) | Search Console |
+| LLM citations | 3+ in 6 months | Manual monitoring |
