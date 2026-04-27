@@ -120,13 +120,13 @@ export default function ConversationLandingPage() {
             </div>
 
             <SlideIn direction="right" delay={0.4}>
-              <div className="hero-image-wrap max-w-[300px] mx-auto lg:mx-0 shadow-2xl shadow-black/50">
+              <div className="hero-image-wrap max-w-[420px] mx-auto lg:mx-0 shadow-2xl shadow-black/50">
                 <Image
-                  src="/Keiran Flynn 2.1 Medium.jpeg"
+                  src="/Keiran Flynn2.1 copy Medium.jpeg"
                   alt="Keiran Flynn, British English conversation teacher"
                   width={480}
                   height={600}
-                  sizes="(max-width: 1024px) 80vw, 360px"
+                  sizes="(max-width: 1024px) 85vw, 420px"
                   priority
                   className="w-full h-auto object-cover"
                 />
@@ -349,7 +349,7 @@ export default function ConversationLandingPage() {
             <SlideIn direction="right" delay={0.2}>
               <div className="hero-image-wrap max-w-[240px] mx-auto lg:mx-0 shadow-xl shadow-black/40">
                 <Image
-                  src="/keiran.jpg"
+                  src="/keiran-old.jpg"
                   alt="Keiran Flynn"
                   width={320}
                   height={400}
