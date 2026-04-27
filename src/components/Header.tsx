@@ -37,7 +37,6 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-10">
-          <NavLink href="/">{t.nav.conversation}</NavLink>
           <NavLink href="/about">{t.nav.about}</NavLink>
           <NavLink href="/contact">{t.nav.contact}</NavLink>
           <NavLink href="/blog">{t.nav.blog}</NavLink>
@@ -84,7 +83,6 @@ export function Header() {
           >
             <div className="px-6 py-8 space-y-6">
               {[
-                { href: "/", label: t.nav.conversation },
                 { href: "/about", label: t.nav.about },
                 { href: "/contact", label: t.nav.contact },
                 { href: "/blog", label: t.nav.blog },

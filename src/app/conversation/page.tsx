@@ -1,5 +1,5 @@
-import { permanentRedirect } from "next/navigation";
+import ConversationLandingPage from "@/components/pages/ConversationLandingPage";
 
-export default function ConversationPageRedirect() {
-  permanentRedirect("/");
+export default function ConversationPage() {
+  return <ConversationLandingPage />;
 }
