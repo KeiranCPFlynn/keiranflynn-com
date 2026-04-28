@@ -338,11 +338,7 @@ export default function ConversationLandingPage() {
                   way.
                 </p>
                 <p>
-                  I’ve spent thousands of hours teaching conversational English
-                  online to people all over the world. Before that I worked in
-                  music, film, and tech. I’ve lived in Thailand for a few years
-                  now, so I know what it’s like to navigate daily life in a
-                  language that isn’t your first.
+                  I'm TEFL-certified (120 hour, TEFL Academy) and I've spent thousands of hours teaching conversational English. Before that I worked in music, film, and tech. I've lived in Thailand for a few years now, so I know what it's like to navigate daily life in a language that isn't your first.
                 </p>
                 <p>
                   I’m not a strict teacher. I’m a patient, friendly person who
