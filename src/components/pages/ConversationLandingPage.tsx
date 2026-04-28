@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { m } from "framer-motion";
-import { FAQItem } from "@/components/FAQItem";
 import {
   FadeIn,
   SlideIn,
@@ -14,8 +13,9 @@ const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 const whoForItems = [
-  "You want more practice actually using English in daily life: at work, socially, with other parents at school, or just in everyday situations",
-  "You’d love a regular weekly conversation that’s just for you, with someone patient and easy to talk to",
+  "You’re a parent in Phuket and you’d love a regular adult conversation in English each week",
+  "You want to feel more confident at school meetings, on playdates, or chatting with other parents",
+  "English is part of your daily life in Phuket but doesn’t feel quite natural yet",
   "You’ve done English classes before and you don’t want another class. You want to actually use the language",
   "You want a friendly face, not a strict teacher",
 ];
@@ -96,8 +96,9 @@ export default function ConversationLandingPage() {
                 transition={{ duration: 1, delay: 0.55, ease }}
                 className="text-white/65 text-lg leading-relaxed mb-10 max-w-lg"
               >
-                Relaxed weekly chats with a native British speaker. Build your
-                confidence, expand your vocabulary, and enjoy the conversation.
+                Relaxed weekly chats for expat parents in Phuket. Build your
+                confidence, enjoy the conversation, get your English flowing
+                again.
               </m.p>
 
               <m.div
@@ -114,7 +115,7 @@ export default function ConversationLandingPage() {
                   Book a free 10 minute chat
                 </a>
                 <p className="mt-5 text-[13px] text-white/45 leading-relaxed">
-                  No commitment, no pressure. Let&apos;s see if it&apos;s a good fit.
+                  No commitment, no pressure. Let’s see if it’s a good fit.
                 </p>
               </m.div>
             </div>
@@ -145,13 +146,13 @@ export default function ConversationLandingPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="max-w-2xl space-y-5 text-white/70 text-[16px] leading-relaxed">
-              <p>This isn&apos;t a class. It&apos;s a conversation.</p>
+              <p>This isn’t a class. It’s a conversation.</p>
               <p>
                 We meet online for 30 minutes a week and we talk. About your
-                life, what you watched last night, something you read, whatever&apos;s
+                life, what you watched last night, something you read, whatever’s
                 on your mind. Sometimes we use a short article as a starting
                 point, something interesting to read and talk about together.
-                I&apos;ll gently correct things along the way.
+                I’ll gently correct things along the way.
               </p>
               <p>
                 Most people who do this notice two things after a few weeks.
@@ -169,7 +170,10 @@ export default function ConversationLandingPage() {
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <FadeIn>
             <div className="accent-line mb-5" />
-            <h2 className="text-heading text-white mb-10">Who it&apos;s for</h2>
+            <h2 className="text-heading text-white mb-4">Who it’s for</h2>
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <p className="text-white/50 text-[15px] mb-8">This is for you if:</p>
           </FadeIn>
           <StaggerContainer className="space-y-0 max-w-2xl" stagger={0.1}>
             {whoForItems.map((item, i) => (
@@ -329,20 +333,21 @@ export default function ConversationLandingPage() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-white/70 text-[16px] leading-relaxed">
                 <p>
-                  Hi, I&apos;m Keiran. I&apos;m British, based in Phuket, and I
-                  work with people online all over the world.
+                  Hi, I’m Keiran. I’m British, I live in Bang Tao with my
+                  partner and our cat Fig, and we’ve got a baby on the
+                  way.
                 </p>
                 <p>
-                  I&apos;ve spent thousands of hours teaching conversational
-                  English online to people all over the world. Before that I
-                  worked in music, film, and tech. I&apos;ve lived in a few
-                  different countries myself, so I know what it&apos;s like to
-                  navigate a new place in a language that isn&apos;t your first.
+                  I’ve spent thousands of hours teaching conversational English
+                  online to people all over the world. Before that I worked in
+                  music, film, and tech. I’ve lived in Thailand for a few years
+                  now, so I know what it’s like to navigate daily life in a
+                  language that isn’t your first.
                 </p>
                 <p>
-                  I&apos;m not a strict teacher. I&apos;m a patient, friendly
-                  person who loves a good chat. If that sounds like what
-                  you&apos;re looking for, let&apos;s talk.
+                  I’m not a strict teacher. I’m a patient, friendly person who
+                  loves a good chat. If that sounds like what you’re looking
+                  for, let’s talk.
                 </p>
               </div>
             </FadeIn>
@@ -364,6 +369,51 @@ export default function ConversationLandingPage() {
 
       <div className="section-divider" />
 
+      {/* ===== WHAT PEOPLE SAY ===== */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8">
+          <FadeIn>
+            <div className="accent-line mb-5" />
+            <h2 className="text-heading text-white mb-12">What people say</h2>
+          </FadeIn>
+          <StaggerContainer className="grid sm:grid-cols-3 gap-5" stagger={0.1}>
+            <StaggerItem>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
+                <p className="text-white/65 text-[15px] leading-relaxed flex-1">
+                  "Keiran makes you feel at ease straight away. I was quite shy
+                  about my English before but he has a way of keeping the
+                  conversation going without making you feel embarrassed. Highly
+                  recommend."
+                </p>
+                <p className="text-[13px] text-white/35">Yuki</p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
+                <p className="text-white/65 text-[15px] leading-relaxed flex-1">
+                  "I have tried a few conversation partners before and Keiran is
+                  by far the best. He listens properly and asks good
+                  follow-up questions. The time goes by very fast."
+                </p>
+                <p className="text-[13px] text-white/35">Maria</p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
+                <p className="text-white/65 text-[15px] leading-relaxed flex-1">
+                  "Very patient, warm, and genuinely interested in what you have
+                  to say. My confidence has improved a lot since we started. I
+                  wish I had found him sooner."
+                </p>
+                <p className="text-[13px] text-white/35">Hana</p>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
       {/* ===== FAQ ===== */}
       <section className="py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
@@ -371,9 +421,16 @@ export default function ConversationLandingPage() {
             <div className="accent-line mb-5" />
             <h2 className="text-heading text-white mb-12">Common questions</h2>
           </FadeIn>
-          <div className="max-w-2xl">
+          <div className="max-w-2xl space-y-0">
             {faqItems.map((item, i) => (
-              <FAQItem key={i} question={item.q} answer={item.a} />
+              <FadeIn key={i} delay={i * 0.05}>
+                <div className="border-b border-white/[0.05] last:border-0 py-7">
+                  <p className="text-[15px] text-white mb-3">{item.q}</p>
+                  <p className="text-white/60 text-[15px] leading-relaxed">
+                    {item.a}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -387,13 +444,13 @@ export default function ConversationLandingPage() {
           <FadeIn>
             <div className="accent-line mx-auto mb-8" />
             <h2 className="text-heading text-white mb-5">
-              Let&apos;s have a chat
+              Let’s have a chat
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white/60 text-lg leading-relaxed mb-12 max-w-sm mx-auto">
               The first one is free. 10 minutes on Zoom or Google Meet.
-              We&apos;ll see if it&apos;s a good fit and you can decide from
+              We’ll see if it’s a good fit and you can decide from
               there.
             </p>
           </FadeIn>
