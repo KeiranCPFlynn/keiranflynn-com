@@ -1,5 +1,5 @@
-import ConversationLandingPage from "@/components/pages/ConversationLandingPage";
+import ConversationPage from "@/components/pages/ConversationPage";
 
-export default function ConversationPage() {
-  return <ConversationLandingPage />;
+export default function Conversation() {
+  return <ConversationPage />;
 }
