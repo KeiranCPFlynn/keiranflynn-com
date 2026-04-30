@@ -2,43 +2,43 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Friendly English Conversation Practice in Phuket | Native British Speaker",
+  title: "Friendly English Conversation Practice | Native British Speaker",
   description:
-    "Relaxed weekly English conversation with a native British speaker in Phuket. 30 minute sessions, friendly approach, first session free.",
+    "Relaxed weekly English conversation with a native British speaker online. 30 minute sessions, friendly approach, first chat free.",
   keywords: [
-    "English conversation practice Phuket",
-    "native British English speaker Phuket",
-    "English for expats Phuket",
-    "English conversation for parents Phuket",
-    "English practice online Phuket",
-    "conversational English Thailand",
+    "English conversation practice online",
+    "native British English speaker",
+    "English for expats",
+    "English conversation for parents",
+    "English practice online",
+    "conversational English online",
   ],
   alternates: {
     canonical: "/conversation",
   },
   openGraph: {
-    title: "Friendly English Conversation Practice in Phuket | Native British Speaker",
+    title: "Friendly English Conversation Practice | Native British Speaker",
     description:
-      "Relaxed weekly English conversation with a native British speaker in Phuket. 30 minute sessions, friendly approach, first session free.",
+      "Relaxed weekly English conversation with a native British speaker online. 30 minute sessions, friendly approach, first chat free.",
     url: `${siteUrl}/conversation`,
     siteName: "Keiran Flynn",
     type: "website",
     locale: "en_GB",
     images: [
       {
-        url: "/keiran.jpg",
-        width: 742,
-        height: 928,
-        alt: "Keiran Flynn, British English conversation teacher in Phuket",
+        url: "/Keiran%20Flynn2.1%20copy%20Medium.jpeg",
+        width: 640,
+        height: 640,
+        alt: "Keiran Flynn, British English conversation teacher",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friendly English Conversation Practice in Phuket",
+    title: "Friendly English Conversation Practice | Native British Speaker",
     description:
-      "Relaxed weekly English conversation with a native British speaker. First session free.",
-    images: [{ url: "/keiran.jpg", alt: "Keiran Flynn in Phuket" }],
+      "Relaxed weekly English conversation with a native British speaker online. First chat free.",
+    images: [{ url: "/Keiran%20Flynn2.1%20copy%20Medium.jpeg", alt: "Keiran Flynn" }],
   },
   robots: {
     index: true,

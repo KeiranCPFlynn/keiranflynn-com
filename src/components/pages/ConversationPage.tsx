@@ -14,9 +14,9 @@ const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 const whoForItems = [
-  "You’re a parent in Phuket and you’d love a regular adult conversation in English each week",
-  "You want to feel more confident at school meetings, on playdates, or chatting with other parents",
-  "English is part of your daily life in Phuket but doesn’t feel quite natural yet",
+  "You’d love a regular adult conversation in English each week, from wherever you are",
+  "You want to feel more confident at work, in meetings, or just chatting day to day",
+  "English is part of your life but doesn’t feel quite natural yet",
   "You’ve done English classes before and you don’t want another class. You want to actually use the language",
   "You want a friendly face, not a strict teacher",
 ];
@@ -98,9 +98,9 @@ export default function ConversationPage() {
                 transition={{ duration: 1, delay: 0.55, ease }}
                 className="text-white/65 text-lg leading-relaxed mb-10 max-w-lg"
               >
-                Relaxed weekly chats for expat parents in Phuket. Build your
-                confidence, enjoy the conversation, get your English flowing
-                again.
+                Relaxed weekly chats, online, for anyone who wants to feel more
+                confident in English. Build your fluency, enjoy the
+                conversation, get your English flowing again.
               </m.p>
 
               <m.div
@@ -280,10 +280,11 @@ export default function ConversationPage() {
                   <p className="text-[11px] uppercase tracking-[0.18em] text-white/45 mb-4">
                     Four sessions
                   </p>
-                  <p className="text-2xl font-semibold text-white mb-2">
+                  <p className="text-2xl font-semibold text-white mb-1">
                     {currency === 'THB' ? '3,200 THB' : '$90'}
                   </p>
-                  <p className="text-[13px] text-white/35 mt-1">
+                  <p className="text-[12px] text-white/30 mb-2">for the full package</p>
+                  <p className="text-[13px] text-white/35">
                     30 minutes each, weekly
                   </p>
                   <p className="text-[13px] text-white/40 mt-3">
@@ -308,10 +309,11 @@ export default function ConversationPage() {
                   <p className="text-[11px] uppercase tracking-[0.18em] text-white/45 mb-4">
                     Eight sessions
                   </p>
-                  <p className="text-2xl font-semibold text-white mb-2">
+                  <p className="text-2xl font-semibold text-white mb-1">
                     {currency === 'THB' ? '5,600 THB' : '$160'}
                   </p>
-                  <p className="text-[13px] text-white/35 mt-1">
+                  <p className="text-[12px] text-white/30 mb-2">for the full package</p>
+                  <p className="text-[13px] text-white/35">
                     30 minutes each, weekly
                   </p>
                   <p className="text-[13px] text-accent-gold/60 mt-3">
