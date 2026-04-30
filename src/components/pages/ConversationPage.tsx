@@ -283,7 +283,9 @@ export default function ConversationPage() {
                   <p className="text-2xl font-semibold text-white mb-1">
                     {currency === 'THB' ? '3,200 THB' : '$90'}
                   </p>
-                  <p className="text-[12px] text-white/30 mb-2">for the full package</p>
+                  <p className="text-[12px] text-white/30 mb-2">
+                    {currency === 'THB' ? '800 THB per session' : '$22.50 per session'}
+                  </p>
                   <p className="text-[13px] text-white/35">
                     30 minutes each, weekly
                   </p>
@@ -312,7 +314,9 @@ export default function ConversationPage() {
                   <p className="text-2xl font-semibold text-white mb-1">
                     {currency === 'THB' ? '5,600 THB' : '$160'}
                   </p>
-                  <p className="text-[12px] text-white/30 mb-2">for the full package</p>
+                  <p className="text-[12px] text-white/30 mb-2">
+                    {currency === 'THB' ? '700 THB per session' : '$20 per session'}
+                  </p>
                   <p className="text-[13px] text-white/35">
                     30 minutes each, weekly
                   </p>
