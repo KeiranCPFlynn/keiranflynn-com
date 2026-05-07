@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: "hello@lunacradle.com",
       to: "freelymoving@gmail.com",
-      reply_to: email,
+      replyTo: email,
       subject: `[keiranflynn.com] Contact form: ${name}`,
       text: [`Name: ${name}`, `Email: ${email}`, ``, `Message:`, message].join(
         "\n"
