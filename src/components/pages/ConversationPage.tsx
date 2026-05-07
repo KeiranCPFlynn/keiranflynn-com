@@ -70,6 +70,35 @@ const faqItems = [
 export default function ConversationPage() {
   const year = new Date().getFullYear();
   const [currency, setCurrency] = useState<'THB' | 'USD'>('USD');
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    if (formData.get("_gotcha")) return;
+    setFormStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          _gotcha: formData.get("_gotcha"),
+        }),
+      });
+      if (res.ok) {
+        setFormStatus("sent");
+        form.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  }
 
   return (
     <>
@@ -488,16 +517,117 @@ export default function ConversationPage() {
         </div>
       </section>
 
+      {/* ===== Contact Form ===== */}
+      <section className="py-24 bg-[#0f0f0f]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8">
+          <FadeIn>
+            <div className="accent-line mb-8" />
+            <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] tracking-[-0.03em] text-white mb-4">
+              Get in touch
+            </h2>
+            <p className="text-white/55 mb-12 max-w-md">
+              Have a question before booking? Send a message and I'll get back to you.
+            </p>
+          </FadeIn>
+
+          <div className="max-w-xl">
+            <FadeIn delay={0.15}>
+              {formStatus === "sent" ? (
+                <m.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="glass-card p-10"
+                >
+                  <div className="w-12 h-12 rounded-full bg-accent-gold/[0.08] flex items-center justify-center mb-6">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-gold">
+                      <path d="M4 11l5 5 9-9" />
+                    </svg>
+                  </div>
+                  <p className="text-white text-lg mb-2">Message sent.</p>
+                  <p className="text-white/60">I'll be in touch shortly.</p>
+                </m.div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-7">
+                  <div className="hidden" aria-hidden="true">
+                    <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-name" className="block text-[13px] text-white/60 mb-2.5 tracking-wide">
+                      Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-email" className="block text-[13px] text-white/60 mb-2.5 tracking-wide">
+                      Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your@email.com"
+                      className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-message" className="block text-[13px] text-white/60 mb-2.5 tracking-wide">
+                      Message
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      required
+                      rows={5}
+                      placeholder="What would you like to know?"
+                      className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500 resize-none"
+                    />
+                  </div>
+
+                  {formStatus === "error" && (
+                    <p className="text-red-400/60 text-sm">Failed to send. Please try again.</p>
+                  )}
+
+                  <m.button
+                    type="submit"
+                    disabled={formStatus === "sending"}
+                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                    whileHover={{ scale: formStatus === "sending" ? 1 : 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {formStatus === "sending" ? (
+                      <span className="flex items-center gap-2 relative z-10">
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" className="opacity-25" />
+                          <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" className="opacity-75" />
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      <span className="relative z-10">Send message</span>
+                    )}
+                  </m.button>
+                </form>
+              )}
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ===== Minimal Footer ===== */}
       <footer className="border-t border-white/[0.08] py-8 bg-[#0f0f0f]">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row justify-between gap-3 text-[13px] text-white/45">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 text-[13px] text-white/45">
           <span>&copy; {year} Keiran Flynn</span>
-          <a
-            href="mailto:freelymoving@gmail.com"
-            className="hover:text-white/70 transition-colors duration-300"
-          >
-            freelymoving@gmail.com
-          </a>
         </div>
       </footer>
     </>
