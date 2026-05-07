@@ -1,7 +1,7 @@
 import { en } from "@/content/en";
+import { siteUrl } from "@/lib/site";
 
 export function JsonLd() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://keiranflynn.com";
 
   const professionalService = {
     "@context": "https://schema.org",

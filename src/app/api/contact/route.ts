@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
@@ -16,20 +16,6 @@ function isRateLimited(ip: string): boolean {
   if (recent.length >= RATE_LIMIT_MAX) return true;
   recent.push(now);
   return false;
-}
-
-function getTransporter() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASSWORD;
-  if (!host || !user || !pass) throw new Error("SMTP credentials not configured");
-
-  return nodemailer.createTransport({
-    host,
-    port: 465,
-    secure: true,
-    auth: { user, pass },
-  });
 }
 
 export async function POST(request: Request) {
@@ -67,19 +53,18 @@ export async function POST(request: Request) {
       );
     }
 
-    const transporter = getTransporter();
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) throw new Error("RESEND_API_KEY not configured");
+
+    const resend = new Resend(apiKey);
+    await resend.emails.send({
+      from: "hello@lunacradle.com",
       to: "freelymoving@gmail.com",
-      replyTo: email,
+      reply_to: email,
       subject: `[keiranflynn.com] Contact form: ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        ``,
-        `Message:`,
-        message,
-      ].join("\n"),
+      text: [`Name: ${name}`, `Email: ${email}`, ``, `Message:`, message].join(
+        "\n"
+      ),
     });
 
     return NextResponse.json({ success: true });
