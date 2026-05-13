@@ -81,6 +81,32 @@ export default function ConversationPage() {
         { pageLanguage: 'en', autoDisplay: false },
         'google_translate_element'
       );
+      // Rewrite options to English, drop unresolved codes, sort A–Z
+      const displayNames = new Intl.DisplayNames(['en'], { type: 'language' });
+      const forceEnglish = (attempts = 0) => {
+        const select = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
+        if (select && select.options.length > 1) {
+          const placeholder = Array.from(select.options).find(o => !o.value);
+          if (placeholder) placeholder.textContent = 'Translate';
+
+          const resolved: HTMLOptionElement[] = [];
+          Array.from(select.options).filter(o => o.value).forEach(opt => {
+            let name: string | undefined;
+            try { name = displayNames.of(opt.value); } catch { /* skip */ }
+            if (!name || name === opt.value) { opt.remove(); return; }
+            opt.textContent = name;
+            resolved.push(opt);
+          });
+          // Sort by moving nodes via appendChild (avoids full clear that triggers Google reinit)
+          resolved.sort((a, b) => (a.textContent ?? '').localeCompare(b.textContent ?? '', 'en'));
+          resolved.forEach(o => select.appendChild(o));
+          // Reset to placeholder so "Translate" is shown, not the last selected language
+          select.value = '';
+        } else if (attempts < 20) {
+          setTimeout(() => forceEnglish(attempts + 1), 200);
+        }
+      };
+      forceEnglish();
     };
   }, []);
 
