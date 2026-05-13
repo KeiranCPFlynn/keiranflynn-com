@@ -61,7 +61,7 @@ export async function POST(request: Request) {
       from: "hello@lunacradle.com",
       to: "freelymoving@gmail.com",
       replyTo: email,
-      subject: `[keiranflynn.com] Contact form: ${name}`,
+      subject: `Enquiry from keiranflynn.com - ${name}`,
       text: [`Name: ${name}`, `Email: ${email}`, ``, `Message:`, message].join(
         "\n"
       ),

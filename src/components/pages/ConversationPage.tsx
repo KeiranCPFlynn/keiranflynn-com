@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Script from "next/script";
 import { m } from "framer-motion";
 import {
   FadeIn,
@@ -70,6 +71,19 @@ const faqItems = [
 export default function ConversationPage() {
   const year = new Date().getFullYear();
   const [currency, setCurrency] = useState<'THB' | 'USD'>('USD');
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).googleTranslateElementInit = () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const gt = (window as any).google.translate;
+      new gt.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      );
+    };
+  }, []);
+
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [message, setMessage] = useState("");
 
@@ -109,6 +123,15 @@ export default function ConversationPage() {
 
   return (
     <>
+      {/* ===== TRANSLATE ===== */}
+      <div className="fixed top-4 right-4 z-50 gt-wrap">
+        <div id="google_translate_element" />
+      </div>
+      <Script
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        strategy="afterInteractive"
+      />
+
       {/* ===== HERO ===== */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">

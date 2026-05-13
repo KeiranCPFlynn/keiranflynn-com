@@ -186,6 +186,32 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* ===== Google Translate ===== */
+/* Suppress the top bar Google injects */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+
+/* Style the select to match dark theme */
+.gt-wrap .goog-te-gadget { font-size: 0 !important; color: transparent !important; }
+.gt-wrap .goog-te-combo {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  border-radius: 6px !important;
+  padding: 5px 10px !important;
+  font-size: 12px !important;
+  font-family: inherit !important;
+  letter-spacing: 0.04em !important;
+  cursor: pointer !important;
+  outline: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+.gt-wrap .goog-te-combo:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
 /* ===== Blog prose ===== */
 .prose {
   --tw-prose-body: #d4d4d4;
