@@ -71,6 +71,12 @@ export default function ConversationPage() {
   const year = new Date().getFullYear();
   const [currency, setCurrency] = useState<'THB' | 'USD'>('USD');
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  function handleGetInTouch(pkg: string) {
+    setMessage(`I'm interested in the ${pkg} package.`);
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }
 
   async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -91,6 +97,7 @@ export default function ConversationPage() {
       });
       if (res.ok) {
         setFormStatus("sent");
+        setMessage("");
         form.reset();
       } else {
         setFormStatus("error");
@@ -322,14 +329,12 @@ export default function ConversationPage() {
                     Best for getting started
                   </p>
                 </div>
-                <a
-                  href={BOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleGetInTouch("four sessions")}
                   className="btn-secondary w-full"
                 >
-                  Book free chat first
-                </a>
+                  Get in touch
+                </button>
               </div>
             </StaggerItem>
 
@@ -353,14 +358,12 @@ export default function ConversationPage() {
                     {currency === 'THB' ? 'Best value, save 800 THB' : 'Best value, save $20'}
                   </p>
                 </div>
-                <a
-                  href={BOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleGetInTouch("eight sessions")}
                   className="btn-secondary w-full"
                 >
-                  Book free chat first
-                </a>
+                  Get in touch
+                </button>
               </div>
             </StaggerItem>
           </StaggerContainer>
@@ -518,7 +521,7 @@ export default function ConversationPage() {
       </section>
 
       {/* ===== Contact Form ===== */}
-      <section className="py-24 bg-[#0f0f0f]">
+      <section id="contact" className="py-24 bg-[#0f0f0f]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <FadeIn>
             <div className="accent-line mb-8" />
@@ -590,6 +593,8 @@ export default function ConversationPage() {
                       required
                       rows={5}
                       placeholder="What would you like to know?"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="w-full bg-white/[0.02] border border-white/[0.05] rounded-lg px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:border-white/15 focus:bg-white/[0.04] transition-all duration-500 resize-none"
                     />
                   </div>
