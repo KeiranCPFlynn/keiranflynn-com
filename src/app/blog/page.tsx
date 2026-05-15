@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, siteUrl } from "@/lib/site";
 import { getSortedPosts } from "@/lib/blog";
 import { BlogPageHeader } from "@/components/blog/BlogPageHeader";
 
@@ -29,8 +29,6 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
     const posts = getSortedPosts();
-
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://keiranflynn.com";
 
     const blogJsonLd = {
         "@context": "https://schema.org",
