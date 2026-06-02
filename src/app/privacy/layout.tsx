@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy for Keiran Flynn executive English conversation sessions and contact form usage.",
+    "Privacy policy for Keiran Flynn AI product building enquiries, scheduling and contact form usage.",
   alternates: {
     canonical: "/privacy",
   },

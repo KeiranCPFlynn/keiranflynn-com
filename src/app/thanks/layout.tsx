@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Booking Received",
-  description: "Booking confirmation page for Keiran Flynn conversation sessions.",
+  title: "Thanks",
+  description: "Confirmation page for Keiran Flynn AI product building enquiries.",
   alternates: {
     canonical: "/thanks",
   },

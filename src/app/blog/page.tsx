@@ -4,9 +4,9 @@ import { absoluteUrl, siteUrl } from "@/lib/site";
 import { getSortedPosts } from "@/lib/blog";
 import { BlogPageHeader } from "@/components/blog/BlogPageHeader";
 
-const title = "Insights & Articles | Keiran Flynn";
+const title = "Conversation Archive";
 const description =
-    "Practical thinking on high-level business English, strategic communication, executive presence, and professional fluency for founders and senior leaders.";
+    "Conversation archive from Keiran Flynn, with older writing on English, executive communication and professional fluency.";
 
 export const metadata: Metadata = {
     title,
@@ -33,14 +33,14 @@ export default function BlogPage() {
     const blogJsonLd = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        name: "Keiran Flynn — Insights & Articles",
+        name: "Keiran Flynn Conversation Archive",
         description,
         url: absoluteUrl("/blog"),
         author: {
             "@type": "Person",
             "@id": `${siteUrl}/#person`,
             name: "Keiran Flynn",
-            jobTitle: "Strategic Communication Consultant",
+            jobTitle: "AI Product Builder",
             url: `${siteUrl}/about`,
         },
         blogPost: posts.map((post) => ({
@@ -82,7 +82,7 @@ export default function BlogPage() {
                                             <Link
                                                 key={tag}
                                                 href={`/blog/tag/${tag}`}
-                                                className="text-[10px] uppercase tracking-[0.18em] text-accent-gold/70 hover:text-accent-gold hover:border-accent-gold/40 px-2 py-0.5 border border-accent-gold/20 rounded transition-colors duration-300"
+                                                className="text-[10px] uppercase tracking-[0.18em] text-accent/70 hover:text-accent hover:border-accent/40 px-2 py-0.5 border border-accent/20 rounded transition-colors duration-300"
                                             >
                                                 {tag.replace(/-/g, " ")}
                                             </Link>
@@ -93,7 +93,7 @@ export default function BlogPage() {
                                 <h2 className="text-[17px] font-semibold leading-snug mb-3">
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="text-white hover:text-accent-gold transition-colors duration-300"
+                                        className="text-white hover:text-accent transition-colors duration-300"
                                     >
                                         {post.title}
                                     </Link>
@@ -111,9 +111,9 @@ export default function BlogPage() {
                                     </div>
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="text-[12px] text-accent-gold hover:text-accent-gold/80 font-medium transition-colors"
+                                        className="text-[12px] text-accent hover:text-accent/80 font-medium transition-colors"
                                     >
-                                        Read →
+                                        Read
                                     </Link>
                                 </div>
                             </article>
@@ -125,9 +125,9 @@ export default function BlogPage() {
                 <div className="mt-16 pt-8 border-t border-white/[0.06]">
                     <Link
                         href="/"
-                        className="text-[13px] text-white/40 hover:text-accent-gold transition-colors"
+                        className="text-[13px] text-white/40 hover:text-accent transition-colors"
                     >
-                        ← Back to home
+                        Back to home
                     </Link>
                 </div>
             </div>

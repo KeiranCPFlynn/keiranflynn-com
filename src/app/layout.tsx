@@ -12,33 +12,35 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Keiran Flynn | Executive English Conversation in Phuket & Online",
+    default: "Keiran Flynn | AI Product Builder",
     template: "%s - Keiran Flynn",
   },
   description:
-    "High-level English conversation coaching for founders and executives. UK-native consultant based in Phuket offering in-person and online 1:1 sessions.",
+    "AI product builder for founders, operators and teams building with coding agents. Product sprints, MVP builds and fractional AI product leadership.",
   keywords: [
-    "executive English coaching Phuket",
-    "business English coach Phuket",
-    "British English conversation coach",
-    "English communication for founders",
-    "advanced English speaking practice",
-    "professional English conversation online",
-    "executive communication coaching",
+    "AI product builder",
+    "AI product sprint",
+    "AI MVP build",
+    "coding agents",
+    "Claude Code",
+    "Codex",
+    "fractional AI product lead",
+    "agentic workflows",
+    "Next.js AI products",
   ],
   metadataBase: new URL(siteUrl),
   applicationName: "Keiran Flynn",
   authors: [{ name: "Keiran Flynn", url: siteUrl }],
   creator: "Keiran Flynn",
   publisher: "Keiran Flynn",
-  category: "Education",
+  category: "Technology",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Keiran Flynn | Executive English Conversation in Phuket & Online",
+    title: "Keiran Flynn | AI Product Builder",
     description:
-      "High-level English conversation coaching for founders and executives. In-person in Phuket or online.",
+      "AI product building, product sprints, MVP builds and fractional AI product leadership for teams building with coding agents.",
     siteName: "Keiran Flynn",
     url: siteUrl,
     type: "website",
@@ -48,19 +50,19 @@ export const metadata: Metadata = {
         url: "/keiran.jpg",
         width: 742,
         height: 928,
-        alt: "Portrait of Keiran Flynn in Phuket",
+        alt: "Portrait of Keiran Flynn",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Keiran Flynn - High-Level English Conversation",
+    title: "Keiran Flynn - AI Product Builder",
     description:
-      "High-level English conversation coaching for founders and executives.",
+      "AI product builder for founders, operators and teams building with coding agents.",
     images: [
       {
         url: "/keiran.jpg",
-        alt: "Portrait of Keiran Flynn in Phuket",
+        alt: "Portrait of Keiran Flynn",
       },
     ],
   },

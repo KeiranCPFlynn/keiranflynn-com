@@ -26,7 +26,7 @@ export function FAQItem({
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 ${
             open
-              ? "border-accent-gold/30 bg-accent-gold/[0.08]"
+              ? "border-accent/30 bg-accent/[0.08]"
               : "border-white/[0.06] group-hover:border-white/[0.12]"
           }`}
         >
@@ -38,7 +38,7 @@ export function FAQItem({
             stroke="currentColor"
             strokeWidth="1.5"
             className={`transition-colors duration-300 ${
-              open ? "text-accent-gold/70" : "text-white/55"
+              open ? "text-accent/70" : "text-white/55"
             }`}
           >
             <path d="M7 2v10M2 7h10" />

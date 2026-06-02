@@ -1,15 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { m } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
 
 const CAL_FIT = "https://cal.com/keirancpflynn/10-min-fit-call";
-const CAL_30 = "https://cal.com/keirancpflynn/30min";
-const CAL_60 = "https://cal.com/keirancpflynn/60min";
 
 export function BookingButtons({ className = "" }: { className?: string }) {
-  const { t } = useLanguage();
-
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
       <m.a
@@ -20,7 +16,7 @@ export function BookingButtons({ className = "" }: { className?: string }) {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <span className="relative z-10">{t.cta.bookFit}</span>
+        <span className="relative z-10">Book an AI Product Fit Call</span>
         <svg
           width="16"
           height="16"
@@ -33,26 +29,11 @@ export function BookingButtons({ className = "" }: { className?: string }) {
           <path d="M3 8h10M9 4l4 4-4 4" />
         </svg>
       </m.a>
-      <m.a
-        href={CAL_30}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-secondary"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        {t.cta.book30}
-      </m.a>
-      <m.a
-        href={CAL_60}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-secondary"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        {t.cta.book60}
-      </m.a>
+      <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+        <Link href="/work" className="btn-secondary">
+          See Work
+        </Link>
+      </m.div>
     </div>
   );
 }

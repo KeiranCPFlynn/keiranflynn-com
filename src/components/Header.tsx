@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
-import type { Locale } from "@/content";
+
+const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
+
+const navItems = [
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/writing", label: "Writing" },
+  { href: "/about", label: "About" },
+];
 
 export function Header() {
-  const { locale, setLocale, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,56 +28,59 @@ export function Header() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
           ? "bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.04] shadow-2xl shadow-black/20"
           : "bg-transparent"
-        }`}
+      }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
         <Link
           href="/"
-          className="text-[15px] font-semibold tracking-tight text-white hover:text-accent-gold transition-colors duration-500"
+          className="text-[15px] font-semibold tracking-tight text-white hover:text-accent transition-colors duration-500"
         >
           Keiran Flynn
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          <NavLink href="/about">{t.nav.about}</NavLink>
-          <NavLink href="/contact">{t.nav.contact}</NavLink>
-          <NavLink href="/blog">{t.nav.blog}</NavLink>
-          <div className="w-px h-4 bg-white/[0.06]" />
-          <LanguageToggle locale={locale} setLocale={setLocale} />
+        <nav className="hidden md:flex items-center gap-9">
+          {navItems.map((item) => (
+            <NavLink key={item.href} href={item.href}>
+              {item.label}
+            </NavLink>
+          ))}
+          <a
+            href={BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md border border-white/[0.14] px-4 py-2 text-[12px] font-medium tracking-[0.08em] text-white/90 transition-colors duration-300 hover:border-accent/50 hover:text-white"
+          >
+            Book a Call
+          </a>
         </nav>
 
-        {/* Mobile */}
-        <div className="flex items-center gap-4 md:hidden">
-          <LanguageToggle locale={locale} setLocale={setLocale} />
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="relative w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors"
-            aria-label="Toggle menu"
-          >
-            <m.span
-              animate={menuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
-              className="absolute w-5 h-px bg-current"
-              transition={{ duration: 0.3 }}
-            />
-            <m.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="absolute w-5 h-px bg-current"
-              transition={{ duration: 0.2 }}
-            />
-            <m.span
-              animate={menuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
-              className="absolute w-5 h-px bg-current"
-              transition={{ duration: 0.3 }}
-            />
-          </button>
-        </div>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="relative flex h-8 w-8 items-center justify-center text-white/65 transition-colors hover:text-white md:hidden"
+          aria-label="Toggle menu"
+        >
+          <m.span
+            animate={menuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
+            className="absolute h-px w-5 bg-current"
+            transition={{ duration: 0.3 }}
+          />
+          <m.span
+            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+            className="absolute h-px w-5 bg-current"
+            transition={{ duration: 0.2 }}
+          />
+          <m.span
+            animate={menuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
+            className="absolute h-px w-5 bg-current"
+            transition={{ duration: 0.3 }}
+          />
+        </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <m.nav
@@ -79,29 +88,39 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden bg-[#111111]/98 backdrop-blur-xl border-t border-white/[0.04]"
+            className="overflow-hidden border-t border-white/[0.04] bg-[#111111]/98 backdrop-blur-xl md:hidden"
           >
-            <div className="px-6 py-8 space-y-6">
-              {[
-                { href: "/about", label: t.nav.about },
-                { href: "/contact", label: t.nav.contact },
-                { href: "/blog", label: t.nav.blog },
-              ].map((item, i) => (
-                <m.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block text-lg text-white/75 hover:text-white transition-colors duration-300"
+            <div className="space-y-6 px-6 py-8">
+              {[...navItems, { href: BOOK_URL, label: "Book a Call" }].map(
+                (item, i) => (
+                  <m.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                   >
-                    {item.label}
-                  </Link>
-                </m.div>
-              ))}
+                    {item.href.startsWith("http") ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMenuOpen(false)}
+                        className="block text-lg text-white/75 transition-colors duration-300 hover:text-white"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block text-lg text-white/75 transition-colors duration-300 hover:text-white"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </m.div>
+                )
+              )}
             </div>
           </m.nav>
         )}
@@ -120,41 +139,10 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="group relative text-[13px] uppercase tracking-[0.12em] text-white/70 hover:text-white transition-colors duration-500"
+      className="group relative text-[13px] uppercase tracking-[0.12em] text-white/70 transition-colors duration-500 hover:text-white"
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-gold transition-all duration-500 group-hover:w-full" />
+      <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-500 group-hover:w-full" />
     </Link>
-  );
-}
-
-function LanguageToggle({
-  locale,
-  setLocale,
-}: {
-  locale: Locale;
-  setLocale: (l: Locale) => void;
-}) {
-  return (
-    <div className="flex items-center text-[11px] tracking-wider">
-      <button
-        onClick={() => setLocale("en")}
-        className={`px-2.5 py-1.5 rounded-l transition-all duration-300 ${locale === "en"
-            ? "text-white bg-white/[0.08]"
-            : "text-white/55 hover:text-white/75"
-          }`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => setLocale("ru")}
-        className={`px-2.5 py-1.5 rounded-r transition-all duration-300 ${locale === "ru"
-            ? "text-white bg-white/[0.08]"
-            : "text-white/55 hover:text-white/75"
-          }`}
-      >
-        RU
-      </button>
-    </div>
   );
 }

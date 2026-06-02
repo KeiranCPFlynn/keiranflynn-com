@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Keiran Flynn, UK-native consultant in Phuket helping founders and executives communicate with greater precision in English.",
+    "About Keiran Flynn, an AI product builder for founders, operators and teams building with coding agents.",
   alternates: {
     canonical: "/about",
   },

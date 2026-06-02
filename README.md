@@ -1,63 +1,47 @@
-# Keiran Flynn — Personal Brand Website
+# Keiran Flynn Personal Brand Website
 
-High-level English conversation sessions for founders, executives, and internationally active professionals. Phuket, Thailand.
+AI Product Builder website for founders, operators and teams building with coding agents.
 
 ## Tech Stack
 
-- Next.js 16 (App Router)
+- Next.js 16 App Router
 - TypeScript
 - Tailwind CSS v4
-- No heavy UI libraries
+- MDX archive posts
+- Resend contact form
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Copy environment variables
-cp .env.example .env.local
-
-# Run development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Deployment (Vercel)
+## Deployment
 
-1. Push this repository to GitHub
-2. Import the project in [Vercel](https://vercel.com)
-3. Set environment variables:
-   - `NEXT_PUBLIC_SITE_URL` — your production domain (e.g. `https://keiranflynn.com`)
-4. Deploy
+The site is intended for Vercel deployment.
+
+Set `NEXT_PUBLIC_SITE_URL` to the production domain, for example `https://www.keiranflynn.com`.
 
 ## Project Structure
 
-```
+```text
 src/
-  app/              # Next.js App Router pages
-    conversation/   # Main landing page
-    about/          # About page
-    contact/        # Contact form
-    privacy/        # Privacy policy
-    thanks/         # Post-booking confirmation
-  components/       # Shared UI components
-  content/          # EN + RU content dictionaries
-  context/          # Language context provider
+  app/
+    page.tsx          # AI Product Builder homepage
+    services/         # Commercial service offers
+    work/             # Product and advisory proof
+    writing/          # Primary writing surface
+    blog/             # Preserved conversation archive
+    conversation/     # Preserved old conversation offer
+    contact/          # AI product enquiry form
+    privacy/          # Privacy policy
+  components/         # Shared UI components
+  content/blog/       # MDX archive posts
 ```
 
-## Languages
+## Preservation
 
-- English (default)
-- Russian
-
-Content is managed via dictionary files in `src/content/`. Edit `en.ts` and `ru.ts` to update copy.
-
-## Booking
-
-Sessions are booked via Cal.com:
-- 60-minute session: `https://cal.com/keirancpflynn/60min`
-- 30-minute intro: `https://cal.com/keirancpflynn/30min`
-
-Payment is handled separately via Stripe links sent after booking.
+The pre-rebrand site is preserved on `archive/pre-ai-product-rebrand`.

@@ -19,8 +19,8 @@ export async function generateMetadata({
 
     if (posts.length === 0) return notFound();
 
-    const title = `Articles tagged "${tag.replace(/-/g, " ")}" | Keiran Flynn`;
-    const description = `Explore articles on ${tag.replace(/-/g, " ")} — practical insights on business English, strategic communication, and professional fluency.`;
+    const title = `Conversation archive posts tagged "${tag.replace(/-/g, " ")}"`;
+    const description = `Archive posts on ${tag.replace(/-/g, " ")} from older writing on English, executive communication and professional fluency.`;
     const canonicalUrl = absoluteUrl(`/blog/tag/${tag}`);
 
     return {
@@ -105,14 +105,14 @@ export default async function TagPage({
                     </h1>
                     <Link
                         href="/blog"
-                        className="text-[13px] text-white/40 hover:text-accent-gold transition-colors"
+                        className="text-[13px] text-white/40 hover:text-accent transition-colors"
                     >
-                        ← All articles
+                        All archive posts
                     </Link>
                 </div>
                 <p className="text-subheading text-white/55 max-w-2xl">
-                    Articles on {displayTag} — practical thinking on business English,
-                    strategic communication, and professional fluency for founders and senior leaders.
+                    Archive posts on {displayTag} from older writing on English,
+                    executive communication and professional fluency.
                 </p>
                 <div className="mt-4 text-[13px] text-white/35">
                     {posts.length} article{posts.length !== 1 ? "s" : ""}
@@ -129,7 +129,7 @@ export default async function TagPage({
                         <h2 className="text-[17px] font-semibold leading-snug mb-3">
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="text-white hover:text-accent-gold transition-colors duration-300"
+                                className="text-white hover:text-accent transition-colors duration-300"
                             >
                                 {post.title}
                             </Link>
@@ -147,9 +147,9 @@ export default async function TagPage({
                             </div>
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="text-[12px] text-accent-gold hover:text-accent-gold/80 font-medium transition-colors"
+                                className="text-[12px] text-accent hover:text-accent/80 font-medium transition-colors"
                             >
-                                Read →
+                                Read
                             </Link>
                         </div>
                     </article>
@@ -160,9 +160,9 @@ export default async function TagPage({
             <div className="mt-16 pt-8 border-t border-white/[0.06]">
                 <Link
                     href="/blog"
-                    className="text-[13px] text-white/40 hover:text-accent-gold transition-colors"
+                    className="text-[13px] text-white/40 hover:text-accent transition-colors"
                 >
-                    ← Back to all articles
+                    Back to all archive posts
                 </Link>
             </div>
         </div>

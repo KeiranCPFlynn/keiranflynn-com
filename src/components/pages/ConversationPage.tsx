@@ -161,7 +161,7 @@ export default function ConversationPage() {
       {/* ===== HERO ===== */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-accent-gold/[0.04] rounded-full blur-[140px]" />
+          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-accent/[0.04] rounded-full blur-[140px]" />
           <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[120px]" />
         </div>
 
@@ -266,7 +266,7 @@ export default function ConversationPage() {
             {whoForItems.map((item, i) => (
               <StaggerItem key={i}>
                 <div className="flex items-start gap-4 py-5 border-b border-white/[0.05] last:border-0">
-                  <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent-gold shrink-0" />
+                  <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                   <span className="text-white/70 text-[16px] leading-relaxed">
                     {item}
                   </span>
@@ -293,7 +293,7 @@ export default function ConversationPage() {
             {howItWorksSteps.map((step) => (
               <StaggerItem key={step.num}>
                 <div className="flex gap-5">
-                  <span className="text-[3.5rem] font-light leading-none text-accent-gold/25 shrink-0 mt-[-4px]">
+                  <span className="text-[3.5rem] font-light leading-none text-accent/25 shrink-0 mt-[-4px]">
                     {step.num}
                   </span>
                   <p className="text-white/70 text-[15px] leading-relaxed pt-2">
@@ -322,7 +322,7 @@ export default function ConversationPage() {
                     onClick={() => setCurrency(cur)}
                     className={`px-3 py-1 transition-colors duration-200 ${
                       currency === cur
-                        ? 'bg-accent-gold/20 text-accent-gold'
+                        ? 'bg-accent/20 text-accent'
                         : 'text-white/40 hover:text-white/60'
                     }`}
                   >
@@ -335,9 +335,9 @@ export default function ConversationPage() {
           <StaggerContainer className="grid sm:grid-cols-3 gap-5" stagger={0.1}>
             {/* Try it */}
             <StaggerItem>
-              <div className="rounded-2xl border border-accent-gold/25 bg-gradient-to-b from-accent-gold/[0.06] to-transparent p-7 flex flex-col gap-6 h-full">
+              <div className="rounded-2xl border border-accent/25 bg-gradient-to-b from-accent/[0.06] to-transparent p-7 flex flex-col gap-6 h-full">
                 <div className="flex-1">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-accent-gold/80 mb-4">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-accent/80 mb-4">
                     Try it
                   </p>
                   <p className="text-2xl font-semibold text-white mb-2">
@@ -403,7 +403,7 @@ export default function ConversationPage() {
                   <p className="text-[13px] text-white/35">
                     30 minutes each, weekly
                   </p>
-                  <p className="text-[13px] text-accent-gold/60 mt-3">
+                  <p className="text-[13px] text-accent/60 mt-3">
                     {currency === 'THB' ? 'Best value, save 800 THB' : 'Best value, save $20'}
                   </p>
                 </div>
@@ -444,7 +444,7 @@ export default function ConversationPage() {
                   way.
                 </p>
                 <p>
-                  I'm TEFL-certified (120 hour, TEFL Academy) and I've spent thousands of hours teaching conversational English. Before that I worked in music, film, and tech. I've lived in Thailand for a few years now, so I know what it's like to navigate daily life in a language that isn't your first.
+                  I&apos;m TEFL-certified (120 hour, TEFL Academy) and I&apos;ve spent thousands of hours teaching conversational English. Before that I worked in music, film, and tech. I&apos;ve lived in Thailand for a few years now, so I know what it&apos;s like to navigate daily life in a language that isn&apos;t your first.
                 </p>
                 <p>
                   I’m not a strict teacher. I’m a patient, friendly person who
@@ -482,10 +482,10 @@ export default function ConversationPage() {
             <StaggerItem>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
                 <p className="text-white/65 text-[15px] leading-relaxed flex-1">
-                  "Keiran makes you feel at ease straight away. I was quite shy
+                  &quot;Keiran makes you feel at ease straight away. I was quite shy
                   about my English before but he has a way of keeping the
                   conversation going without making you feel embarrassed. Highly
-                  recommend."
+                  recommend.&quot;
                 </p>
                 <p className="text-[13px] text-white/35">Yuki</p>
               </div>
@@ -493,9 +493,9 @@ export default function ConversationPage() {
             <StaggerItem>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
                 <p className="text-white/65 text-[15px] leading-relaxed flex-1">
-                  "I have tried a few conversation partners before and Keiran is
+                  &quot;I have tried a few conversation partners before and Keiran is
                   by far the best. He listens properly and asks good
-                  follow-up questions. The time goes by very fast."
+                  follow-up questions. The time goes by very fast.&quot;
                 </p>
                 <p className="text-[13px] text-white/35">Maria</p>
               </div>
@@ -503,9 +503,9 @@ export default function ConversationPage() {
             <StaggerItem>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 flex flex-col gap-6 h-full">
                 <p className="text-white/65 text-[15px] leading-relaxed flex-1">
-                  "Very patient, warm, and genuinely interested in what you have
+                  &quot;Very patient, warm, and genuinely interested in what you have
                   to say. My confidence has improved a lot since we started. I
-                  wish I had found him sooner."
+                  wish I had found him sooner.&quot;
                 </p>
                 <p className="text-[13px] text-white/35">Hana</p>
               </div>
@@ -578,7 +578,7 @@ export default function ConversationPage() {
               Get in touch
             </h2>
             <p className="text-white/55 mb-12 max-w-md">
-              Have a question before booking? Send a message and I'll get back to you.
+              Have a question before booking? Send a message and I&apos;ll get back to you.
             </p>
           </FadeIn>
 
@@ -590,13 +590,13 @@ export default function ConversationPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="glass-card p-10"
                 >
-                  <div className="w-12 h-12 rounded-full bg-accent-gold/[0.08] flex items-center justify-center mb-6">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-gold">
+                  <div className="w-12 h-12 rounded-full bg-accent/[0.08] flex items-center justify-center mb-6">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent">
                       <path d="M4 11l5 5 9-9" />
                     </svg>
                   </div>
                   <p className="text-white text-lg mb-2">Message sent.</p>
-                  <p className="text-white/60">I'll be in touch shortly.</p>
+                  <p className="text-white/60">I&apos;ll be in touch shortly.</p>
                 </m.div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="space-y-7">

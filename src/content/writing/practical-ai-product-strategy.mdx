@@ -1,0 +1,145 @@
+---
+title: "What Practical AI Product Strategy Actually Means for Founders"
+slug: "practical-ai-product-strategy"
+description: "A direct guide to building AI products that solve real user problems, not just demos. No hype—just practical judgement from a technical product builder."
+date: "2025-06-15"
+status: "draft"
+pillar: "AI product builder positioning"
+target_keyword: "practical AI product strategy"
+search_intent: "Founders and product leaders looking for a grounded framework to integrate AI into products without getting lost in the hype."
+tags:
+  - ai-product-building
+  - ai-strategy
+  - product-strategy
+  - founders
+suggested_internal_links:
+  - "/"
+  - "/conversation"
+  - "/about"
+  - "/writing/coding-agents-for-product-teams"
+---
+
+# Beyond the Hype: How Founders Can Build AI Products That Actually Solve Problems
+
+Most AI product strategy advice you run into starts with models, benchmarks, or the latest agent framework. It’s easy to consume and hard to use.
+
+Here’s what I’ve learned building AI-enabled products with small teams and as a technical product builder: strategy isn’t about picking the right model. It’s about making a set of human, product-level decisions that determine whether you ship something useful or just accumulate a folder of promising demos.
+
+Practical AI product strategy is a bias toward shipping, an understanding of where AI actually improves the product experience, and the honesty to leave AI out when it makes things worse. For founders, that means thinking less like a prompt engineer and more like a product leader who happens to be building in an AI-native era.
+
+## The AI Strategy That Matters Isn’t About Models
+
+I’ve watched teams spend weeks comparing GPT-4o, Claude, and Gemini for a feature that could have been built with a few well-structured API calls and a simple classification model. The model is implementation detail. It’s important, sure, but it’s not the strategy.
+
+Strategy answers different questions:
+
+- What user problem are we making easier?
+- What does the user already trust us to do?
+- What part of the workflow would benefit from non-deterministic output, and what part should stay deterministic?
+- Where does AI create a real experience improvement, not just a talking point?
+
+In a previous piece on [coding agents for product teams](/writing/coding-agents-for-product-teams), I talked about something similar: the work starts before the model. That principle scales beyond code generation. Whether you’re building a content assistant, an internal triage tool, or a customer-facing recommendation engine, the product work—deciding scope, designing failure states, choosing the simplest workflow—always comes first.
+
+## The Four Questions Every AI Product Decision Needs
+
+When I help teams think through an AI integration, I don’t start with a capabilities demo. I start with four questions. They’re deliberately simple because the complexity of AI needs simple guardrails.
+
+### 1. What should the system decide, suggest, draft, or ignore?
+
+Not every problem needs an AI answer. Some need search. Some need a filter. Some need a notification. Be explicit about what the AI will do and—just as important—what it won’t. A feature that “surfaces insights” is dangerously vague. A feature that “drafts a weekly report summary from the team’s Slack activity and flags three unusual patterns” is a product decision you can test.
+
+### 2. Where will the model fail, and what does the user see?
+
+AI fails in weird, unpredictable ways. If you treat failure as an edge case, your users will treat your product as unreliable. Design the failure experience deliberately. A suggestion that looks confident but is wrong harms trust more than a less ambitious feature that knows when to shut up. I’ll say more about this later, but the short version is: your strategy must include a failure UX, not just a happy path.
+
+### 3. How do we know it’s working?
+
+This is where most teams slip. They rely on demo-based testing—“look, it generated a good answer!”—and then struggle to understand why users abandon the feature. Practical product strategy demands a simple evaluation harness from day one. A few examples, judged by a human, repeated every time you change a prompt or model. If you can’t measure success in a repeatable way, you’re not building a product; you’re hoping.
+
+### 4. What’s the smallest version that delivers value?
+
+Shipping the smallest useful workflow isn’t just an engineering principle. It’s a strategy for learning what users actually need. I’ve seen internal tools ship as a single Slack command that summarises a Notion page, and customer-facing products start as a smart filter before becoming a full assistant. If the small version doesn’t already improve someone’s day, the big version won’t either.
+
+## Why “AI-First” Usually Fails for Founders
+
+Founders often ask me whether they should build an “AI-first” product. My honest response: you should build a “user-problem-first” product. AI is a tool, not a category.
+
+I’ve watched promising startups chase an AI-first vision that led them to bolt a chatbot onto a workflow that a simple search bar would have solved better. They spent months tuning prompts, fighting hallucinations, and building guardrails, all to deliver an experience that was slower and less reliable than what users already had.
+
+A practical AI product builder knows when to say no to AI. The best AI features are often nearly invisible: they reduce manual effort, improve consistency, or surface something a person would have missed. The story isn’t “we added AI”; it’s “this part of the workflow just got faster and less error-prone.” The AI is an implementation detail, not the value proposition.
+
+## Building Your AI Product Strategy on Boring Foundations
+
+I write a lot about shipping the boring parts—authentication, data pipelines, error handling, latency budgets—because those are the things that make AI products actually work in production. A slick demo falls apart the moment real users hit a timeout because your model call takes six seconds and there’s no loading state.
+
+Your product strategy should include:
+
+- **Data hygiene**: What data feeds the model? How is it cleaned, versioned, and monitored? Garbage in, garbage out isn’t a cliché; it’s the single biggest cause of AI product failures I see.
+- **Latency and fallback**: If the model call takes too long, what’s the degraded experience? Does the user see a skeleton, a cached result, or a deterministic fallback?
+- **Observability**: At minimum, you need to log prompt-response pairs, latency, error rates, and user feedback. Without that, you’re flying blind.
+
+These aren’t afterthoughts. They’re the infrastructure of trust. A product that is down 2% of the time because of API failures but handles them gracefully is years ahead of a product that works perfectly in demos and throws cryptic errors in production.
+
+## How to Evaluate AI Integration Points (Without a PhD)
+
+You don’t need a deep learning background to spot good AI opportunities. The heuristic I use with teams is simple: look for **high-volume, repetitive, low-stakes decisions** that a person currently makes with incomplete information.
+
+Examples that actually work in products today:
+
+- Triaging inbound support tickets to the right queue.
+- Drafting a first pass of a meeting summary that a human can quickly edit.
+- Classifying documents by type and extracting a few key fields.
+- Suggesting likely follow-up actions based on past patterns.
+
+What these all share: the cost of a wrong answer is tolerable, the output reduces manual toil, and a human can review or override. The worst AI features are the ones that make high-stakes autonomous decisions with no recourse—approving a loan, diagnosing a symptom, blocking a user. Not because AI can’t be accurate there, but because when it’s wrong, the damage erodes trust in a way that’s hard to rebuild.
+
+## The Strategy Is the Product, Not the Prompt
+
+Prompt engineering is useful. But strategy is deciding *what to prompt for*, *what to guard against*, and *what the user experience around the AI should be*. Those are product decisions, not craft-of-prompting decisions.
+
+I sometimes see teams treat the prompt as the entire feature. They craft a beautiful system prompt, show it off in a playground, and then wonder why the production experience feels hollow. The product is the workflow, the input UI, the output UX, the handling of uncertainty, the speed, the ability to correct mistakes. The prompt is one component. Your strategy should be about how all those components fit together to make a human’s life easier.
+
+### When to Use AI vs. Deterministic Logic
+
+A simple rule I follow: if the correct output can be derived with a deterministic algorithm—if-then rules, regular expressions, database lookups—then don’t use AI. AI is for messy, unstructured inputs where you’d otherwise need human judgement. Using a language model to format dates or check stock availability is like hiring a novelist to take meeting minutes: expensive, unpredictable, and unreliable in precisely the ways you don’t need.
+
+### Building a Strategy That Evolves
+
+A practical AI product strategy isn’t a one-time document. It’s a living set of decisions that you revisit as you learn how users actually behave. Start with the smallest useful workflow. Ship it. Instrument it. Watch what users love and where they get stuck. Then extend, refine, or occasionally kill the feature entirely. That’s product strategy, not AI strategy—which is exactly the point.
+
+## FAQ
+
+### What is the difference between AI product strategy and regular product strategy?
+
+It’s mostly the same discipline, with one big shift: non-determinism. Regular product strategy deals with predictable system behaviour. AI product strategy must account for probabilistic outputs, model drift, and the design of failure experiences. The core product skills—user empathy, scoping, shipping, measuring—still apply. The difference is that you’re now managing a component that can hallucinate, degrade silently, and cost you trust in milliseconds.
+
+### How do I know if my idea is good for AI?
+
+Use the heuristic from earlier: does it involve high-volume, repetitive, low-stakes decisions on messy data? If yes, it’s likely worth exploring. If the problem is deterministic, or the cost of a wrong answer is unbearably high without a human in the loop, reconsider whether AI is the right solution.
+
+### Do I need a technical co-founder to build an AI product?
+
+Strictly speaking, no—many founders use no-code tools and AI-assisted development to build early versions. But you do need someone on the team who understands the failure modes: latency, cost scaling, prompt injection, data privacy. That might be a technical co-founder, a senior engineer, or a deeply hands-on CTO. The risk isn’t that you can’t build a demo; it’s that you build a demo that can’t become a product.
+
+### What are common AI product strategy mistakes?
+
+The most common mistakes I see:
+- Choosing the model before defining the user problem.
+- Designing only the happy path.
+- Skipping evals and relying on spot-checking.
+- Underestimating latency and cost at scale.
+- Treating AI as the product rather than as a component of the product.
+
+### How do I measure AI product success?
+
+Start with simple, product-level metrics: time saved per task, error reduction, user satisfaction scores, feature adoption and retention. Pair those with model-level checks: a handful of test cases you evaluate manually every sprint to catch regressions. The combination tells you whether the AI feature is actually improving the product—or just adding noise.
+
+---
+
+**Suggested meta title:** "Practical AI Product Strategy for Founders: What Actually Works"
+
+**Suggested meta description:** "A direct, no-hype framework for making AI product decisions that ship. Written by a technical product builder who works with founders and small teams."
+
+**Internal link suggestions:** Link to the existing [Coding Agents for Product Teams](/writing/coding-agents-for-product-teams) article where the discussion of shipping the boring parts and smallest useful workflows can be expanded. The home page, conversation page, and about page are also natural navigation anchors.
+
+**Notes:** This article fills the SEO gap “AI product builder for founders” and targets the keyword “practical AI product strategy”. It intentionally expands on themes from the existing coding agents piece without duplicating it, moving the focus from coding agent workflows to the broader product-strategy decisions that precede and surround them. It avoids generic AI hype and consultant language, staying true to the direct, builder-experience voice.
