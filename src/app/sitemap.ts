@@ -80,6 +80,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
+      url: absoluteUrl("/llms.txt"),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.2,
+    },
+    {
+      url: absoluteUrl("/llms-full.txt"),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.2,
+    },
+    {
       url: absoluteUrl("/blog"),
       lastModified,
       changeFrequency: "yearly" as const,

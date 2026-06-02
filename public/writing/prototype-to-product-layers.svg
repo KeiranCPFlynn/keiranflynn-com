@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Prototype to product layers</title>
+  <desc id="desc">Five production layers most AI prototypes need before they become reliable products: access, data, failure handling, observability and maintainability.</desc>
+  <rect width="1200" height="675" fill="#0f0f13"/>
+  <rect x="56" y="54" width="1088" height="567" rx="18" fill="#121215" stroke="rgba(255,255,255,.12)"/>
+  <text x="92" y="124" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="36" font-weight="700">From AI prototype to product</text>
+  <text x="92" y="164" fill="rgba(245,244,241,.62)" font-family="Arial, sans-serif" font-size="18">The demo proves the idea. These layers make it usable by real people.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="128" y="464" width="944" height="70" rx="12" fill="#1a1a1f" stroke="#ee603b"/>
+    <text x="164" y="508" fill="#f5f4f1" font-size="24" font-weight="700">Maintainability</text>
+    <rect x="168" y="392" width="864" height="64" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="204" y="432" fill="#f5f4f1" font-size="22" font-weight="700">Observability</text>
+    <rect x="208" y="326" width="784" height="58" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="244" y="362" fill="#f5f4f1" font-size="21" font-weight="700">Failure handling</text>
+    <rect x="248" y="266" width="704" height="52" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="284" y="299" fill="#f5f4f1" font-size="20" font-weight="700">Real data</text>
+    <rect x="288" y="212" width="624" height="46" rx="12" fill="#ee603b"/>
+    <text x="324" y="242" fill="#1a0f08" font-size="19" font-weight="700">Identity and access</text>
+  </g>
+  <text x="92" y="586" fill="rgba(245,244,241,.64)" font-family="Arial, sans-serif" font-size="18">A prototype can skip these. A product cannot.</text>
+</svg>

@@ -1,13 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
 import { siteUrl } from "@/lib/site";
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
+  variable: "--font-display",
+});
+
+const body = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-body",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -47,9 +63,9 @@ export const metadata: Metadata = {
     locale: "en_GB",
     images: [
       {
-        url: "/keiran.jpg",
-        width: 742,
-        height: 928,
+        url: "/Keiran%20Flynn%202.1%20Medium.jpeg",
+        width: 596,
+        height: 596,
         alt: "Portrait of Keiran Flynn",
       },
     ],
@@ -61,7 +77,7 @@ export const metadata: Metadata = {
       "AI product builder for founders, operators and teams building with coding agents.",
     images: [
       {
-        url: "/keiran.jpg",
+        url: "/Keiran%20Flynn%202.1%20Medium.jpeg",
         alt: "Portrait of Keiran Flynn",
       },
     ],
@@ -85,8 +101,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>
+    <html lang="en">
+      <body className={`${display.variable} ${body.variable} ${mono.variable}`}>
         <ClientLayout>{children}</ClientLayout>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-13Z2FXVMFH"

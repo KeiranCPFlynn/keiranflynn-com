@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Coding agent product build loop</title>
+  <desc id="desc">A six step workflow for using coding agents in product teams: brief, context, implementation, review, workflow test, product decision.</desc>
+  <rect width="1200" height="675" fill="#0f0f13"/>
+  <rect x="48" y="48" width="1104" height="579" rx="18" fill="#121215" stroke="rgba(255,255,255,.12)"/>
+  <text x="86" y="114" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="36" font-weight="700">Coding agent build loop</text>
+  <text x="86" y="154" fill="rgba(245,244,241,.62)" font-family="Arial, sans-serif" font-size="18">Keep product judgment outside the agent. Use the agent for bounded implementation work.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(86 230)">
+      <rect width="150" height="96" rx="10" fill="#1a1a1f" stroke="#ee603b"/>
+      <text x="22" y="42" fill="#ff8a5c" font-size="14" font-weight="700">01</text>
+      <text x="22" y="70" fill="#f5f4f1" font-size="19" font-weight="700">Brief</text>
+    </g>
+    <g transform="translate(270 230)">
+      <rect width="150" height="96" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+      <text x="22" y="42" fill="#ff8a5c" font-size="14" font-weight="700">02</text>
+      <text x="22" y="70" fill="#f5f4f1" font-size="19" font-weight="700">Context</text>
+    </g>
+    <g transform="translate(454 230)">
+      <rect width="150" height="96" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+      <text x="22" y="42" fill="#ff8a5c" font-size="14" font-weight="700">03</text>
+      <text x="22" y="70" fill="#f5f4f1" font-size="19" font-weight="700">Build</text>
+    </g>
+    <g transform="translate(638 230)">
+      <rect width="150" height="96" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+      <text x="22" y="42" fill="#ff8a5c" font-size="14" font-weight="700">04</text>
+      <text x="22" y="70" fill="#f5f4f1" font-size="19" font-weight="700">Review</text>
+    </g>
+    <g transform="translate(822 230)">
+      <rect width="150" height="96" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+      <text x="22" y="42" fill="#ff8a5c" font-size="14" font-weight="700">05</text>
+      <text x="22" y="70" fill="#f5f4f1" font-size="19" font-weight="700">Test</text>
+    </g>
+    <g transform="translate(1006 230)">
+      <rect width="110" height="96" rx="10" fill="#ee603b"/>
+      <text x="20" y="42" fill="#1a0f08" font-size="14" font-weight="700">06</text>
+      <text x="20" y="70" fill="#1a0f08" font-size="19" font-weight="700">Decide</text>
+    </g>
+  </g>
+  <g stroke="rgba(255,255,255,.32)" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M240 278h24"/>
+    <path d="M424 278h24"/>
+    <path d="M608 278h24"/>
+    <path d="M792 278h24"/>
+    <path d="M976 278h24"/>
+  </g>
+  <g fill="rgba(245,244,241,.66)" font-family="Arial, sans-serif" font-size="18">
+    <text x="92" y="430">The agent writes code.</text>
+    <text x="92" y="462">The team owns scope, quality and the next product decision.</text>
+  </g>
+  <rect x="86" y="500" width="1028" height="56" rx="10" fill="rgba(238,96,59,.12)" stroke="rgba(238,96,59,.45)"/>
+  <text x="112" y="535" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="20">Useful agent work is narrow, reviewable and tied to a real user workflow.</text>
+</svg>

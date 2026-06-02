@@ -20,7 +20,7 @@ export async function generateMetadata({
 
     if (!post) return notFound();
 
-    const imageUrl = absoluteUrl("/keiran.jpg");
+    const imageUrl = absoluteUrl("/Keiran%20Flynn%202.1%20Medium.jpeg");
     const canonicalUrl = absoluteUrl(`/writing/${slug}`);
 
     return {
@@ -41,8 +41,8 @@ export async function generateMetadata({
             images: [
                 {
                     url: imageUrl,
-                    width: 1200,
-                    height: 630,
+                    width: 596,
+                    height: 596,
                     alt: post.title,
                 },
             ],
@@ -65,6 +65,14 @@ export default async function WritingPost({
     const post = getWritingPost(slug);
 
     if (!post) return notFound();
+
+    const contentImagePath = post.content.match(/!\[[^\]]+\]\((\/writing\/[^)]+)\)/)?.[1];
+    const articleImageUrl = absoluteUrl(contentImagePath || "/Keiran%20Flynn%202.1%20Medium.jpeg");
+    const headings = post.content
+        .split("\n")
+        .filter((line) => line.startsWith("## ") && !line.startsWith("## FAQ"))
+        .slice(0, 6)
+        .map((line) => line.replace(/^##\s+/, ""));
 
     const breadcrumbJsonLd = {
         "@context": "https://schema.org",
@@ -114,7 +122,7 @@ export default async function WritingPost({
             "@type": "WebPage",
             "@id": absoluteUrl(`/writing/${slug}`),
         },
-        image: absoluteUrl("/keiran.jpg"),
+        image: articleImageUrl,
         url: absoluteUrl(`/writing/${slug}`),
         ...(post.tags && { keywords: post.tags.join(", ") }),
     };
@@ -130,7 +138,7 @@ export default async function WritingPost({
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
             />
 
-            <div className="max-w-3xl mx-auto px-6 sm:px-8 pt-36 sm:pt-44 pb-24">
+            <div className="article-shell mx-auto px-6 sm:px-8 pt-36 sm:pt-44 pb-24">
                 <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] text-white/30 mb-10">
                     <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
                     <span>/</span>
@@ -139,7 +147,7 @@ export default async function WritingPost({
                     <span className="text-white/50 truncate max-w-[200px]">{post.title}</span>
                 </nav>
 
-                <header className="mb-12">
+                <header className="article-header mb-12">
                     {post.tags && post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-6">
                             {post.tags.map((tag) => (
@@ -166,7 +174,18 @@ export default async function WritingPost({
                     </div>
                 </header>
 
-                <article className="prose prose-invert max-w-none">
+                {headings.length > 0 && (
+                    <aside className="article-overview mb-12" aria-label="In this guide">
+                        <p>In this guide</p>
+                        <ul>
+                            {headings.map((heading) => (
+                                <li key={heading}>{heading}</li>
+                            ))}
+                        </ul>
+                    </aside>
+                )}
+
+                <article className="article-prose prose prose-invert max-w-none">
                     <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </article>
 

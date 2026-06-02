@@ -21,7 +21,16 @@
 - Built and scaled SchoolAI to 12,000+ users with zero paid acquisition.
 - Built LLMnesia, a live Chrome extension for local-first AI conversation search across major LLM platforms.
 - Built LunaCradle, a live AI-powered baby sleep guidance product using Next.js, Supabase, Stripe and an LLM provider.
-- Built Flow402, an x402, Base and USDC prototype, then shelved it after customer discovery showed weak near-term demand.
+- Built Flow402, an x402, Base and USDC agent payments prototype.
+- Built 10+ products, prototypes and demos across AI workflows, web3 experiments, internal tools and product sites, including LLMnesia Insights, Job Radar and this site.
+
+## Writing cluster
+- /writing/coding-agents-for-product-teams - practical guide to using coding agents inside product teams.
+- /writing/ai-prototype-to-product - how founders move from AI-generated prototype to production product.
+- /writing/practical-ai-product-strategy - product strategy framework for deciding where AI belongs in a product.
+
+## Positioning summary
+Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.
 
 ## Contact
 - Website contact form: https://keiranflynn.com/contact

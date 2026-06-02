@@ -1,209 +1,231 @@
-# SEO & GEO Strategy Plan for keiranflynn.com
+# AI Product SEO and LLM Discovery Blueprint
 
-## Executive Summary
+This site is now an AI product builder site, not an English-coaching content site. The writing section should function as a practical SEO blog and LLM-discoverable knowledge base for founders searching around AI product strategy, coding agents, prototype-to-product work and AI MVP builds.
 
-This site is a premium, conversion-focused landing page for high-level English conversation coaching. The blog is the primary SEO and GEO asset — 40 posts as of April 2026, with clear content standards now established.
+## Source Principles
 
-**Content standard: 1,400–1,700 words per post, with FAQ section. No exceptions.**
+Use these primary sources as the operating baseline:
 
----
+- Google AI features guidance: https://developers.google.com/search/docs/appearance/ai-overviews
+- Google people-first content guidance: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- Google structured data guidance: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+- OpenAI crawler documentation: https://platform.openai.com/docs/bots
+- OpenAI publisher FAQ: https://help.openai.com/en/articles/12627856-publishers-and-developers-faq
+- Bing Webmaster Guidelines: https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a
 
-## Content Standards (Mandatory)
+The practical interpretation:
 
-### Word Count
-- **Minimum:** 1,400 words
-- **Target:** 1,500–1,700 words
-- **Maximum:** 2,000 words (beyond this, consider splitting into two posts)
-- Posts below 1,200 words will not rank competitively for target keywords
+- There is no separate trick for AI Overviews or AI Mode. Google says normal SEO fundamentals still apply: crawlability, eligibility for snippets, helpful content and reliable technical implementation.
+- ChatGPT discovery depends on allowing OAI-SearchBot. GPTBot is separate and relates to training, not search inclusion.
+- Bing and Copilot rely on crawlability, indexing accuracy, freshness, structured content and clear authority signals.
+- Structured data helps machines understand the page, but it does not replace visible, useful content.
 
-### Required Elements
-Every post must include:
-1. **Strong intro paragraph** — hooks with a specific, recognisable problem
-2. **H2 sections** — minimum 4, ideally 5–6, each with substantive content
-3. **At least one table** — comparing approaches, language patterns, or options
-4. **Specific language examples** — actual phrases the reader can use, not abstract advice
-5. **FAQ section** — minimum 4 questions, at the end, before the CTA
-6. **CTA** — always the standard booking link paragraph, identical across all posts
+## Current Writing Inventory
 
-### Quality Markers
-- **Specific over general**: "The word 'just' often signals a challenge being softened" beats "be aware of indirect signals"
-- **Language tables**: show effective vs ineffective phrasing side by side
-- **Actionable frameworks**: numbered steps, decision matrices, priority orders
-- **Cross-cultural nuance**: where relevant, address how the advice differs across cultures
-- **No hedging in the advice itself**: posts should be authoritative, not tentative
-
-### What to Avoid
-- Generic SEO filler ("In today's competitive business environment...")
-- Lists of tips without depth — every section should develop its point fully
-- Repeating content covered in other posts — check existing post list before writing
-- Future dates in frontmatter (always use today's date or earlier)
-
----
-
-## Current Blog Inventory (40 posts as of April 2026)
-
-### Core Methodology Posts
-- difference.mdx — Teaching vs. strategic conversation
-- grammar.mdx — Why grammar won't fix business English
-- what-to-expect-session.mdx — What a session looks like
-- online-vs-inperson-coaching.mdx — Format comparison
-- choosing-business-english-coach.mdx — How to choose a coach
-
-### High-Stakes Performance
-- english-under-pressure.mdx — Why English breaks down under pressure
-- psychology-of-communication.mdx — Psychology of high-stakes communication
-- freezing-up-english.mdx — What to do when you freeze
-- confident-english-non-native.mdx — How to sound confident
-- advanced-english-plateau.mdx — Why advanced speakers stop improving
-- thinking-in-english.mdx — How to think without translating
-- active-listening-english.mdx — Comprehension strategies
-
-### Speaking Contexts
-- presentation-english.mdx — Giving presentations
-- handling-qa-english.mdx — Handling Q&A
-- running-meetings-english.mdx — Running meetings
-- holding-the-floor-english.mdx — Managing interruptions
-- board-reporting-english.mdx — Reporting to boards
-- video-call-english.mdx — Video call communication
-
-### Negotiation & Persuasion
-- negotiation-english.mdx — Negotiation language
-- persuasion-english.mdx — Building a compelling case
-- saying-no-english.mdx — How to decline professionally
-- commitment-language-english.mdx — Yes, no, and the middle
-
-### Written Communication
-- written-english-executives.mdx — Written English for executives
-- email-english-executives.mdx — Executive email
-
-### Social & Relationship
-- small-talk-english.mdx — Small talk
-- networking-english.mdx — Networking in English
-- cross-cultural-communication.mdx — Cross-cultural communication
-- english-for-russian-founders.mdx — English for Russian speakers
-- reading-the-room-english.mdx — Reading unspoken signals
-- giving-feedback-english.mdx — Giving and receiving feedback
-- difficult-conversations-english.mdx — Difficult conversations
-
-### Leadership Communication
-- executive-presence-language.mdx — Executive presence
-- decision-language-english.mdx — Decision-making language
-- managing-up-english.mdx — Managing up
-- leadership (implicit in several posts)
-
-### Founder-Specific
-- founder-story-english.mdx — Telling the founder story
-- investor-pitch-english.mdx — Investor call preparation
-- technical-founders-english.mdx — Technical founders communicating to non-technical audiences
-- numbers-financials-english.mdx — Talking about numbers
-
-### Coaching & Location
-- executive-english-coaching-phuket.mdx — Phuket coaching (geo-targeted)
-
----
-
-## Priority Topics for Future Posts
-
-The following areas are not yet covered and represent the strongest remaining opportunities:
-
-### Tier 1 (Write Next)
-These have high search volume or strong GEO value:
-
-| Topic | Slug | Target Keywords |
+| URL | Primary target | Status |
 |---|---|---|
-| English for job interviews (as a candidate) | interview-english | business english interview, english job interview non-native |
-| Salary negotiation in English | salary-negotiation-english | negotiate salary english, salary conversation english |
-| Giving a keynote or conference talk | keynote-english | keynote speech english, conference presentation non-native |
-| English for media and press interviews | media-interview-english | press interview english, journalist interview english |
-| Managing a team in English | managing-team-english | managing international team english, leading in english |
-| English for partnership discussions | partnership-english | business partnership english, commercial negotiation english |
+| /writing/coding-agents-for-product-teams | coding agents for product teams | Rewritten as practical guide |
+| /writing/ai-prototype-to-product | ai prototype to product | Strong long-form guide; cleaned public notes |
+| /writing/practical-ai-product-strategy | practical AI product strategy | Strong framework; cleaned public notes |
 
-### Tier 2 (After Tier 1)
-| Topic | Slug | Target Keywords |
-|---|---|---|
-| Writing executive summaries and reports | executive-summary-english | executive summary english, business report writing |
-| English for crisis communication | crisis-communication-english | crisis communication english, bad news english |
-| Asking questions in English (business contexts) | asking-questions-english | asking questions business english, questioning techniques |
-| English for due diligence conversations | due-diligence-english | due diligence questions english, investor due diligence language |
-| Listening to accents you find difficult | difficult-accents-english | understanding accents english, american british accent |
-| English for customer conversations | customer-english | client calls english, customer success english |
+## Content Standard
 
-### Tier 3 (Geographic Expansion)
-| Topic | Slug | Notes |
-|---|---|---|
-| Business English coaching Bangkok | executive-english-coaching-bangkok | Same format as Phuket geo post |
-| Business English coaching Singapore | executive-english-coaching-singapore | High-value geo target |
-| English for Southeast Asia business | southeast-asia-business-english | Bridges geography and content |
+Do not write "essays." Write useful search-facing guides.
 
----
+Every new writing post should satisfy a real query and be clear enough for a founder, search crawler or LLM answer system to understand without extra context.
 
-## Content Creation Workflow
+Target depth:
 
-Every new post must follow this process:
+- Short tactical post: 900-1,200 words only if the query is narrow.
+- Standard guide: 1,400-2,000 words.
+- Pillar guide: 2,000-3,000 words, split if it tries to answer more than one major intent.
 
-1. **Check the inventory above** — confirm the topic isn't already covered
-2. **Draft in MDX** with frontmatter (title, date ≤ today, description, tags, author)
-3. **Write to 1,400–1,700 words** — do not publish below 1,200
-4. **Include**: intro, 4–6 H2 sections, ≥1 table, specific language examples, FAQ (4+ questions), CTA
-5. **Review**: does every section give the reader something specific and actionable?
-6. **Check date**: must be today or earlier — never a future date
+Do not chase word count for its own sake. Google explicitly warns against writing to a preferred word count. Depth should come from answering the query better than competitors, not padding.
 
-### Standard CTA (copy exactly)
-```
-If any of this resonates, I run weekly sessions with founders and senior professionals on exactly this kind of thing. Free 10 minute fit call to see if it's a fit. [Book here](https://cal.com/keirancpflynn/10-min-fit-call).
-```
+## Required Structure for Future Posts
 
----
+Each post should include:
+
+1. Frontmatter:
+   - title
+   - date
+   - description
+   - tags
+   - author
+   - target_keyword
+   - search_intent
+
+2. Opening:
+   - Define the problem in the first 100 words.
+   - Use the target phrase naturally once.
+   - State the direct answer or thesis early.
+
+3. Body:
+   - 5-7 descriptive H2s.
+   - At least one comparison table.
+   - One concrete workflow, checklist or decision framework.
+   - Specific product examples from Keiran's work where relevant: LLMnesia, SchoolAI, LunaCradle, Flow402, LLMnesia Insights, Job Radar, this site.
+   - 2-4 internal links to related writing, services, work or contact pages.
+
+4. FAQ:
+   - 4-6 direct questions.
+   - Each answer should be self-contained and citable.
+   - Do not stuff keywords.
+
+5. CTA:
+   - Use only when it fits naturally.
+   - Prefer concise language: "If you are trying to turn an AI idea into a real product, book a 10-minute fit call."
+
+## LLM Discovery Standard
+
+LLM-discoverable content should be easy to extract, attribute and cite.
+
+Write with:
+
+- Clear definitions.
+- Short, direct answers under descriptive headings.
+- Comparison tables.
+- Named frameworks.
+- Visible author and topic expertise.
+- Canonical internal links.
+- No hidden reliance on images, SVGs or vague diagrams.
+- Updated `llms.txt` and `llms-full.txt` when positioning or article inventory changes.
+
+For each pillar article, add a paragraph that makes the page's key answer explicit. Example:
+
+"For product teams, coding agents are best used as execution partners for bounded software tasks, not as replacements for product judgment or engineering review."
+
+That sentence can stand alone in an AI answer with attribution.
 
 ## Technical SEO Checklist
 
 For each post:
-- [ ] Frontmatter complete (title, date, description, tags, author)
-- [ ] Target keyword appears in title, description, and naturally in body
-- [ ] At least one H2 contains a keyword variant
-- [ ] Internal links: 2–3 links to related posts on the site
-- [ ] FAQ section included (supports People Also Ask / featured snippets)
-- [ ] Sitemap updated (auto-generated from content directory)
-- [ ] Word count ≥ 1,400
 
----
+- [ ] URL is short and stable.
+- [ ] Title and H1 match the query intent but are not clickbait.
+- [ ] Meta description explains the practical value.
+- [ ] Canonical URL is correct.
+- [ ] Article JSON-LD is present.
+- [ ] Sitemap includes the page automatically.
+- [ ] Page is indexable and snippet-eligible.
+- [ ] No internal planning notes render publicly.
+- [ ] Tables render cleanly on mobile.
+- [ ] The article links to at least two related internal URLs.
+- [ ] `llms.txt` or `llms-full.txt` is updated for major new pillar posts.
 
-## GEO (LLM Discovery) Principles
+## Priority Topic Map
 
-Content written for LLM discovery should:
-- Make **definitive, attributable claims**: "The most common intelligibility problem is pace, not accent" — not "some people think..."
-- Include **specific examples and frameworks**: LLMs extract these as citable content
-- **Name the author** consistently: Keiran Flynn, UK native, 20+ years experience
-- Use **structured content**: headers, tables, numbered frameworks — these are reliably extracted by LLMs
-- Answer **specific questions directly**: FAQ sections are particularly valuable for this
+### Pillar Cluster: Coding Agents
 
----
-
-## Strategic Priorities
-
-### What's Working
-- Depth and specificity: the posts that rank are the ones that go beyond generic advice
-- Cross-cultural dimension: few competitors write specifically about English from the perspective of non-native professional speakers
-- Founder/investor angle: highly specific, underserved, high-intent audience
-
-### What to Protect
-- Voice and tone: direct, authoritative, no filler, no excessive hedging in the advice itself
-- Specificity: every claim should be backed by a specific example or language pattern
-- Practical language: every post should leave the reader with phrases they can use
-
-### Publishing Cadence
-- Target: 2–4 posts per month
-- Quality gate: no post below 1,400 words
-- Priority order: Tier 1 topics before Tier 2; geographic posts when targeting specific expansion markets
-
----
-
-## Success Metrics
-
-| Metric | Target | Measurement |
+| Topic | Slug | Search intent |
 |---|---|---|
-| Posts ranking in top 10 | 10+ keywords in top 10 | Google Search Console |
-| Organic sessions | +50% in 6 months | Google Analytics |
-| Blog-sourced bookings | Measurable attribution | Booking + referrer data |
-| Indexed pages | 50+ (currently ~44) | Search Console |
-| LLM citations | 3+ in 6 months | Manual monitoring |
+| Coding agents for product teams | coding-agents-for-product-teams | What they are and how teams should use them |
+| Claude Code vs Codex for product teams | claude-code-vs-codex-product-teams | Tool comparison for founders and PMs |
+| Agentic coding workflow | agentic-coding-workflow | Practical workflow/process query |
+| Coding agents for MVP development | coding-agents-mvp-development | Build path for founders |
+
+### Pillar Cluster: Prototype to Product
+
+| Topic | Slug | Search intent |
+|---|---|---|
+| From AI prototype to product | ai-prototype-to-product | How to harden a prototype |
+| AI MVP development process | ai-mvp-development-process | Steps and scope |
+| AI product launch checklist | ai-product-launch-checklist | Practical pre-launch checklist |
+| How to evaluate AI product ideas | evaluate-ai-product-ideas | Discovery and product strategy |
+
+### Pillar Cluster: AI Product Strategy
+
+| Topic | Slug | Search intent |
+|---|---|---|
+| Practical AI product strategy | practical-ai-product-strategy | Strategic framework |
+| When should a product use AI? | when-should-product-use-ai | Decision guide |
+| AI workflow automation for startups | ai-workflow-automation-startups | Founder/internal-tools query |
+| AI product failure states | ai-product-failure-states | UX and reliability query |
+
+### Pillar Cluster: LLM Discovery and AI Search
+
+| Topic | Slug | Search intent |
+|---|---|---|
+| LLM discovery for startups | llm-discovery-for-startups | How to make a site answer-engine friendly |
+| llms.txt for product sites | llms-txt-product-sites | Practical implementation |
+| SEO for AI product companies | seo-for-ai-product-companies | Positioning and technical SEO |
+| AI search visibility checklist | ai-search-visibility-checklist | Tactical checklist |
+
+## Repeatable Post Template
+
+Use this outline for future posts:
+
+```md
+---
+title: "Primary Keyword: Practical Angle"
+date: "YYYY-MM-DD"
+description: "Direct answer to the query and who it helps."
+tags: ["ai-product-building", "..."]
+author: "Keiran Flynn"
+target_keyword: "..."
+search_intent: "..."
+---
+
+# Primary Keyword: Practical Angle
+
+Direct opening. Define the problem. State the practical answer.
+
+## What [topic] means
+
+Definition and why it matters.
+
+## When it helps
+
+Specific use cases.
+
+## When it fails
+
+Tradeoffs and failure modes.
+
+## Practical workflow
+
+Numbered process.
+
+## Comparison table
+
+| Option | Use when | Avoid when |
+|---|---|---|
+
+## Example from product work
+
+Concrete example tied to LLMnesia, SchoolAI, LunaCradle, Flow402, Job Radar, LLMnesia Insights or this site.
+
+## FAQ
+
+### Question?
+
+Direct answer.
+
+## Bottom line
+
+Concise conclusion and optional CTA.
+```
+
+## Publishing Workflow
+
+1. Pick a topic from the map.
+2. Write the search intent in one sentence.
+3. Check existing site content for overlap.
+4. Draft the post using the template.
+5. Add internal links and one comparison table.
+6. Remove all planning notes before publishing.
+7. Run lint/build.
+8. Check the page visually on desktop and mobile.
+9. Update `llms.txt`/`llms-full.txt` if it is a pillar post.
+10. Submit or monitor through Google Search Console and Bing Webmaster Tools.
+
+## Quality Gate
+
+Do not publish if:
+
+- The post could apply to any AI consultant site.
+- It does not include a concrete workflow or decision framework.
+- It has no internal links.
+- It relies on vague claims like "AI will transform workflows."
+- It says "essay" or presents the content as personal reflection instead of useful guidance.
+- It exposes notes, suggested meta titles or draft instructions in rendered content.

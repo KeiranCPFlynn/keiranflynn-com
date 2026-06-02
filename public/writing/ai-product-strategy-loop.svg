@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AI product strategy loop</title>
+  <desc id="desc">A practical AI product strategy loop: problem, AI role, failure UX, measurement and smallest workflow.</desc>
+  <rect width="1200" height="675" fill="#0f0f13"/>
+  <rect x="54" y="54" width="1092" height="567" rx="18" fill="#121215" stroke="rgba(255,255,255,.12)"/>
+  <text x="92" y="124" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="36" font-weight="700">Practical AI product strategy</text>
+  <text x="92" y="164" fill="rgba(245,244,241,.62)" font-family="Arial, sans-serif" font-size="18">Decide where AI belongs before choosing tools, models or prompts.</text>
+  <circle cx="600" cy="352" r="142" fill="rgba(238,96,59,.10)" stroke="rgba(238,96,59,.48)" stroke-width="2"/>
+  <text x="532" y="342" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="24" font-weight="700">Useful</text>
+  <text x="500" y="374" fill="#f5f4f1" font-family="Arial, sans-serif" font-size="24" font-weight="700">workflow</text>
+  <g font-family="Arial, sans-serif" font-size="19" font-weight="700">
+    <rect x="110" y="300" width="210" height="82" rx="12" fill="#1a1a1f" stroke="#ee603b"/>
+    <text x="148" y="350" fill="#f5f4f1">User problem</text>
+    <rect x="380" y="205" width="210" height="82" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="430" y="255" fill="#f5f4f1">AI role</text>
+    <rect x="640" y="205" width="210" height="82" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="690" y="255" fill="#f5f4f1">Failure UX</text>
+    <rect x="880" y="300" width="210" height="82" rx="12" fill="#1a1a1f" stroke="rgba(255,255,255,.14)"/>
+    <text x="926" y="350" fill="#f5f4f1">Measure</text>
+    <rect x="495" y="490" width="210" height="82" rx="12" fill="#ee603b"/>
+    <text x="536" y="540" fill="#1a0f08">Ship slice</text>
+  </g>
+  <g stroke="rgba(255,255,255,.30)" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M320 322 C350 268, 366 250, 380 246"/>
+    <path d="M590 246 H640"/>
+    <path d="M850 246 C900 260, 920 285, 940 300"/>
+    <path d="M985 382 C920 470, 790 522, 706 530"/>
+    <path d="M495 530 C365 500, 240 430, 214 382"/>
+  </g>
+</svg>

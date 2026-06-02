@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookingButtons } from "@/components/BookingButtons";
+
+const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
 
 export const metadata: Metadata = {
   title: "AI Product Building Services",
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 
 const offers = [
   {
+    num: "01",
+    tag: "Discovery & shape",
     title: "AI Product Sprint",
     intro:
       "For founders or teams with a vague AI idea, messy workflow or early product concept.",
@@ -29,6 +32,8 @@ const offers = [
     ],
   },
   {
+    num: "02",
+    tag: "Build",
     title: "AI MVP Build Partner",
     intro:
       "For teams ready to build a scoped MVP, internal tool or AI-enabled workflow.",
@@ -38,13 +43,15 @@ const offers = [
       "Next.js app or prototype",
       "Supabase backend",
       "LLM API integration",
-      "RAG or structured knowledge flows where appropriate",
-      "Stripe/payment flow if relevant",
-      "PostHog/analytics setup",
+      "RAG or structured knowledge flows",
+      "Stripe / payment flow if relevant",
+      "PostHog / analytics setup",
       "Deployment and handover",
     ],
   },
   {
+    num: "03",
+    tag: "Ongoing",
     title: "Fractional AI Product Lead",
     intro:
       "For teams that need product and AI judgment but do not need a full-time hire.",
@@ -56,7 +63,7 @@ const offers = [
       "User stories and acceptance criteria",
       "Prototype review",
       "AI workflow design",
-      "Builder/developer direction",
+      "Builder / developer direction",
       "Analytics review",
       "Launch and iteration support",
     ],
@@ -65,62 +72,113 @@ const offers = [
 
 export default function ServicesPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 pt-36 pb-24 sm:px-8 sm:pt-44 sm:pb-32">
-      <div className="max-w-3xl">
-        <div className="accent-line mb-8" />
-        <h1 className="text-display mb-8 text-white">
-          AI Product Building Services
-        </h1>
-        <p className="text-subheading mb-12 text-white/65">
-          For founders, operators and small teams who need help turning AI ideas
-          into products, prototypes or internal systems.
-        </p>
-        <BookingButtons />
-      </div>
+    <>
+      <section className="page-head">
+        <div className="wrap">
+          <span className="eyebrow reveal">Services</span>
+          <h1 className="reveal" data-delay="60">
+            AI product building, <em>three ways</em> to work together
+          </h1>
+          <p className="lead reveal" data-delay="140">
+            For founders, operators and small teams who need help turning AI
+            ideas into products, prototypes or internal systems — with product
+            judgment, not just a working demo.
+          </p>
+          <div className="hero-cta reveal" data-delay="220">
+            <a
+              className="btn btn-primary"
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a fit call
+              <ArrowIcon />
+            </a>
+            <Link className="btn btn-ghost" href="/work">
+              See recent work
+            </Link>
+            <span className="note">10-min call · no pitch</span>
+          </div>
+        </div>
+      </section>
 
-      <div className="mt-20 grid gap-6">
-        {offers.map((offer) => (
-          <section key={offer.title} className="glass-card p-7 sm:p-9">
-            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-              <div>
-                <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-accent/80">
-                  Offer
-                </p>
-                <h2 className="mb-4 text-2xl font-semibold text-white">
-                  {offer.title}
-                </h2>
-                <p className="mb-5 text-[15px] leading-relaxed text-white/60">
-                  {offer.intro}
-                </p>
-                <p className="text-[15px] leading-relaxed text-white/75">
-                  {offer.copy}
-                </p>
-              </div>
-              <div>
-                <p className="mb-4 text-[11px] uppercase tracking-[0.18em] text-white/45">
-                  What it can include
-                </p>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {offer.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-md border border-white/[0.06] bg-white/[0.025] px-4 py-3 text-[14px] leading-relaxed text-white/65"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="offers">
+            {offers.map((offer) => (
+              <article className="offer reveal" key={offer.title}>
+                <div>
+                  <div className="o-meta">
+                    <span className="o-num">{offer.num}</span>
+                    <span className="o-tag">{offer.tag}</span>
+                  </div>
+                  <h2>{offer.title}</h2>
+                  <p className="o-intro">{offer.intro}</p>
+                  <p className="o-copy">{offer.copy}</p>
+                </div>
 
-      <div className="mt-16 border-t border-white/[0.08] pt-10">
-        <Link href="/work" className="text-[13px] text-white/55 hover:text-white">
-          See recent work
-        </Link>
-      </div>
-    </div>
+                <div>
+                  <p className="o-deliver">What it can include</p>
+                  <ul className="o-list">
+                    {offer.items.map((item) => (
+                      <li key={item}>
+                        <span className="dot" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section cta-band">
+        <div className="wrap">
+          <span
+            className="eyebrow reveal"
+            style={{ justifyContent: "center", marginBottom: "1.4rem" }}
+          >
+            Let&apos;s build
+          </span>
+          <h2 className="reveal" data-delay="60">
+            Not sure which one fits?
+          </h2>
+          <p className="reveal" data-delay="140">
+            Book a ten-minute fit call. We&apos;ll work out whether it&apos;s a
+            sprint, a build, or ongoing — and whether it&apos;s worth doing at all.
+          </p>
+          <div className="hero-cta reveal" data-delay="200">
+            <a
+              className="btn btn-primary"
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a fit call
+              <ArrowIcon />
+            </a>
+            <Link className="btn btn-ghost" href="/">
+              Back to home
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg className="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M3 8h10M9 4l4 4-4 4"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.6"
+      />
+    </svg>
   );
 }

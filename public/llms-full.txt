@@ -1,0 +1,60 @@
+# Keiran Flynn - AI Product Builder
+
+Canonical site: https://keiranflynn.com/
+
+Keiran Flynn helps founders, operators and small teams turn unclear AI ideas into scoped products, prototypes, internal tools and live MVPs. He works remotely from Thailand across product strategy, UX, technical architecture and full-stack build work using coding agents and modern AI tooling.
+
+## Core services
+
+- AI Product Sprints: clarify the problem, product shape, workflow and build path.
+- MVP Builds: build scoped AI products, internal tools, SaaS features and workflow systems.
+- Fractional AI Product Lead: product and technical judgment without a full-time hire.
+
+## Proof points
+
+- SchoolAI reached 12,000+ users with zero paid acquisition.
+- LLMnesia is a local-first Chrome extension for searching AI conversations across major LLM platforms.
+- LunaCradle is a live AI-powered baby sleep guidance product built with structured knowledge and personalised LLM output.
+- Flow402 is an agent payments prototype using x402, Base and USDC.
+- Additional builds and demos include LLMnesia Insights, Job Radar, product sites, web3 experiments and internal tools.
+- Keiran has 25+ years in tech and IT, with focused AI/product build work since 2022.
+
+## Main pages
+
+- Home: https://keiranflynn.com/
+- Services: https://keiranflynn.com/services
+- Work: https://keiranflynn.com/work
+- Writing: https://keiranflynn.com/writing
+- About: https://keiranflynn.com/about
+- Contact: https://keiranflynn.com/contact
+
+## Current AI product writing
+
+- Coding Agents for Product Teams: https://keiranflynn.com/writing/coding-agents-for-product-teams
+  Practical guide to using coding agents inside product teams. Covers what coding agents do, where they help, where they fail, and how founders should run agentic build loops.
+
+- From AI Prototype to Product: https://keiranflynn.com/writing/ai-prototype-to-product
+  Guide for founders moving from AI-generated prototypes to reliable products. Covers authentication, real data, failure handling, observability, maintainability and production slices.
+
+- Practical AI Product Strategy: https://keiranflynn.com/writing/practical-ai-product-strategy
+  Framework for deciding where AI belongs in a product, what to automate, how to design failure states and how to measure whether an AI feature is useful.
+
+## Topics the site is authoritative on
+
+- AI product strategy for founders
+- Coding agents for product teams
+- Agentic coding workflows
+- AI MVP builds
+- Prototype-to-product hardening
+- Practical AI product judgment
+- AI workflow tools
+- Next.js, Supabase, Stripe and Chrome extension product builds
+- Local-first AI tools
+- LLM search and AI conversation retrieval
+
+## Contact
+
+- Contact form: https://keiranflynn.com/contact
+- Fit call: https://cal.com/keirancpflynn/10-min-fit-call
+- LinkedIn: https://www.linkedin.com/in/keiran-flynn/
+- GitHub: https://github.com/KeiranCPFlynn

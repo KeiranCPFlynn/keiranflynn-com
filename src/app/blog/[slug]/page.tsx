@@ -20,7 +20,7 @@ export async function generateMetadata({
 
     if (!post) return notFound();
 
-    const imageUrl = absoluteUrl("/keiran.jpg");
+    const imageUrl = absoluteUrl("/Keiran%20Flynn%202.1%20Medium.jpeg");
     const canonicalUrl = absoluteUrl(`/blog/${slug}`);
 
     return {
@@ -41,8 +41,8 @@ export async function generateMetadata({
             images: [
                 {
                     url: imageUrl,
-                    width: 1200,
-                    height: 630,
+                    width: 596,
+                    height: 596,
                     alt: post.title,
                 },
             ],
@@ -65,6 +65,8 @@ export default async function BlogPost({
     const post = getPost(slug);
 
     if (!post) return notFound();
+
+    const imageUrl = absoluteUrl("/Keiran%20Flynn%202.1%20Medium.jpeg");
 
     const breadcrumbJsonLd = {
         "@context": "https://schema.org",
@@ -114,7 +116,7 @@ export default async function BlogPost({
             "@type": "WebPage",
             "@id": absoluteUrl(`/blog/${slug}`),
         },
-        image: absoluteUrl("/keiran.jpg"),
+        image: imageUrl,
         url: absoluteUrl(`/blog/${slug}`),
         ...(post.tags && { keywords: post.tags.join(", ") }),
     };

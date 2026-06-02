@@ -62,13 +62,13 @@ const work: WorkItem[] = [
   },
   {
     title: "Flow402",
-    status: "Shelved after discovery",
+    status: "Prototype",
     description:
-      "Web3 and agent payments prototype using x402, Base and USDC. Shelved after customer discovery showed weak near-term demand.",
+      "Web3 and agent payments prototype using x402, Base and USDC to explore machine-to-machine payment flows.",
     details: [
       "Agent payment prototype",
       "x402, Base and USDC",
-      "Discovery-led decision to stop",
+      "Discovery and timing validation",
     ],
   },
   {

@@ -5,8 +5,9 @@ const experience = [
   "Built and scaled SchoolAI to 12,000+ users with zero paid acquisition.",
   "Built LLMnesia, a live Chrome extension for local-first AI conversation search.",
   "Built LunaCradle, a live AI-powered baby sleep guidance product.",
-  "Built Flow402, then shelved it after customer discovery showed weak near-term demand.",
-  "25+ years of technical delivery and workflow problem-solving across SMEs, schools, product work and creative production.",
+  "Built Flow402, an agent payments prototype using x402, Base and USDC.",
+  "10+ products, prototypes and demos across AI workflows, web3 experiments, internal tools and product sites.",
+  "25+ years in tech and IT, with focused product and AI build work since 2022.",
 ];
 
 const tools = [
@@ -59,10 +60,10 @@ export default function AboutPage() {
           <div className="absolute -inset-3 -z-10 rounded-[1.75rem] bg-gradient-to-br from-accent/20 via-transparent to-accent-cyan/15 blur-2xl" />
           <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02]">
             <Image
-              src="/keiran.jpg"
+              src="/Keiran Flynn 2.1 Medium.jpeg"
               alt="Portrait of Keiran Flynn"
-              width={742}
-              height={928}
+              width={596}
+              height={596}
               priority
               className="h-auto w-full object-cover"
             />
