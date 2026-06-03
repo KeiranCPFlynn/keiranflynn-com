@@ -1,10 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { m } from "framer-motion";
 import { BookingButtons } from "@/components/BookingButtons";
 
+const SPRINT_MESSAGE =
+  "AI Product Sprint enquiry\n\nI'd like to buy an AI Product Sprint. Here's a bit about my idea or workflow:\n";
+
 export default function ContactPage() {
+  return (
+    <Suspense fallback={<ContactView />}>
+      <ContactWithParams />
+    </Suspense>
+  );
+}
+
+function ContactWithParams() {
+  const topic = useSearchParams().get("topic");
+  return <ContactView topic={topic} />;
+}
+
+function ContactView({ topic }: { topic?: string | null }) {
+  const isSprint = topic === "sprint";
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
@@ -44,7 +62,9 @@ export default function ContactPage() {
           <div className="accent-line mb-8" />
           <h1 className="text-display mb-6 text-white">Contact</h1>
           <p className="text-subheading mb-10 text-white/65">
-            Tell me what you are trying to build, test or unblock.
+            {isSprint
+              ? "Ready to buy an AI Product Sprint? Send a quick note and I'll reply with a payment link."
+              : "Tell me what you are trying to build, test or unblock."}
           </p>
           <BookingButtons />
         </div>
@@ -97,6 +117,7 @@ export default function ContactPage() {
                   name="message"
                   required
                   rows={7}
+                  defaultValue={isSprint ? SPRINT_MESSAGE : undefined}
                   placeholder="What are you trying to build, and where are you stuck?"
                   className="w-full resize-none rounded-lg border border-white/[0.05] bg-white/[0.02] px-5 py-4 text-white transition-all duration-500 placeholder:text-white/45 focus:border-white/15 focus:bg-white/[0.04] focus:outline-none"
                 />

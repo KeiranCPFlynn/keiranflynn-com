@@ -1584,6 +1584,45 @@ img {
   background: var(--accent);
 }
 
+.offer .o-price-block {
+  margin-bottom: 1.1rem;
+}
+
+.offer .o-price {
+  color: var(--ink);
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+}
+
+.offer .o-price-note {
+  margin-top: .4rem;
+  color: var(--ink-3);
+  font-size: .85rem;
+  line-height: 1.45;
+}
+
+.offer .o-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.offer .o-cta-alt {
+  color: var(--ink-3);
+  font-size: .85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .28s var(--ease-out);
+}
+
+.offer .o-cta-alt:hover {
+  color: var(--ink);
+}
+
 @media (max-width: 940px) {
   .hero-grid {
     grid-template-columns: 1fr;

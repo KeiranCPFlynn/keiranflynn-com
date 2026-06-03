@@ -11,11 +11,24 @@ export const metadata: Metadata = createPageMetadata({
   path: "/services",
 });
 
-const offers = [
+type Offer = {
+  num: string;
+  tag: string;
+  title: string;
+  intro: string;
+  copy: string;
+  items: string[];
+  price?: string;
+  priceNote?: string;
+};
+
+const offers: Offer[] = [
   {
     num: "01",
     tag: "Discovery & shape",
     title: "AI Product Sprint",
+    price: "$750, fixed fee",
+    priceNote: "Fee credited in full against a subsequent build.",
     intro:
       "For founders or teams with a vague AI idea, messy workflow or early product concept.",
     copy:
@@ -24,7 +37,7 @@ const offers = [
       "Product brief",
       "User flows",
       "Technical architecture",
-      "Prototype or demo where appropriate",
+      "Prototype or demo (where it makes sense)",
       "Build roadmap",
       "Risk and feasibility notes",
       "Recommended next steps",
@@ -112,8 +125,33 @@ export default function ServicesPage() {
                     <span className="o-tag">{offer.tag}</span>
                   </div>
                   <h2>{offer.title}</h2>
+                  {offer.price && (
+                    <div className="o-price-block">
+                      <p className="o-price">{offer.price}</p>
+                      <p className="o-price-note">{offer.priceNote}</p>
+                    </div>
+                  )}
                   <p className="o-intro">{offer.intro}</p>
                   <p className="o-copy">{offer.copy}</p>
+                  {offer.price && (
+                    <div className="o-cta">
+                      <Link
+                        className="btn btn-primary"
+                        href="/contact?topic=sprint"
+                      >
+                        Buy a Sprint
+                        <ArrowIcon />
+                      </Link>
+                      <a
+                        className="o-cta-alt"
+                        href={BOOK_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        or book a quick call first
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 <div>
