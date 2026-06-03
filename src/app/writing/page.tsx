@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, siteUrl } from "@/lib/site";
+import { createPageMetadata } from "@/lib/metadata";
 import { getSortedWritingPosts } from "@/lib/writing";
 
-const title = "Writing";
+const title = "AI Product Writing";
 const description =
     "Practical AI product guides on coding agents, prototype-to-product work, product strategy and AI workflows for founders and small teams.";
 
 export const metadata: Metadata = {
+    ...createPageMetadata({
+        title,
+        description,
+        path: "/writing",
+    }),
     title,
     description,
-    alternates: {
-        canonical: absoluteUrl("/writing"),
-    },
-    openGraph: {
-        title,
-        description,
-        url: absoluteUrl("/writing"),
-        siteName: "Keiran Flynn",
-        type: "website",
-    },
-    twitter: {
-        title,
-        description,
-    },
 };
 
 export default function WritingPage() {
@@ -86,12 +78,6 @@ export default function WritingPage() {
                                         {featuredPost.date}
                                     </time>
                                 </p>
-                                <Link
-                                    href="/blog"
-                                    className="mt-4 inline-block text-accent transition-colors hover:text-white"
-                                >
-                                    Conversation archive
-                                </Link>
                             </div>
                         )}
                     </div>
@@ -220,27 +206,6 @@ export default function WritingPage() {
                         )}
                     </>
                 )}
-
-                <div className="mt-12 rounded-lg border border-white/[0.08] bg-white/[0.02] p-6">
-                    <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
-                        <div>
-                            <p className="mb-2 text-[11px] uppercase tracking-[0.16em] text-white/42">
-                                Archive
-                            </p>
-                            <p className="text-[15px] leading-relaxed text-white/58">
-                                Older pieces on English, executive communication and
-                                conversation coaching live in the conversation archive.
-                            </p>
-                        </div>
-                        <Link
-                            href="/blog"
-                            className="text-[13px] text-accent transition-colors hover:text-white"
-                        >
-                            View archive
-                        </Link>
-                    </div>
-                </div>
-
                 <div className="mt-12 border-t border-white/[0.06] pt-8">
                     <Link
                         href="/"

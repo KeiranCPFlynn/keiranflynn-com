@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/metadata";
 
 const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "AI Product Building Services",
   description:
     "AI product sprints, MVP builds and fractional AI product leadership for founders, operators and small teams.",
-  alternates: {
-    canonical: "/services",
-  },
-};
+  path: "/services",
+});
 
 const offers = [
   {

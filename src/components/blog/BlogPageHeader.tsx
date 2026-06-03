@@ -8,7 +8,7 @@ export function BlogPageHeader() {
             <p className="text-subheading text-white/55 max-w-2xl">
                 Older writing on English, executive communication and
                 conversation coaching. These URLs remain available for readers
-                and search continuity.
+                who already have them bookmarked.
             </p>
         </div>
     );

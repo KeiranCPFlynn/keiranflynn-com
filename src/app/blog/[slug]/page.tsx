@@ -53,6 +53,10 @@ export async function generateMetadata({
             description: post.description,
             images: [imageUrl],
         },
+        robots: {
+            index: false,
+            follow: true,
+        },
     };
 }
 
@@ -147,13 +151,12 @@ export default async function BlogPost({
                     {post.tags && post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-6">
                             {post.tags.map((tag) => (
-                                <Link
+                                <span
                                     key={tag}
-                                    href={`/blog/tag/${tag}`}
-                                    className="text-[10px] uppercase tracking-[0.18em] text-accent/70 hover:text-accent hover:border-accent/40 px-2 py-0.5 border border-accent/20 rounded transition-colors duration-300"
+                                    className="rounded border border-accent/20 px-2 py-0.5 text-[10px] uppercase tracking-[0.18em] text-accent/70"
                                 >
                                     {tag.replace(/-/g, " ")}
-                                </Link>
+                                </span>
                             ))}
                         </div>
                     )}

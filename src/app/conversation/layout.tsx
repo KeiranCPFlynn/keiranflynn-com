@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     images: [{ url: "/Keiran%20Flynn2.1%20copy%20Medium.jpeg", alt: "Keiran Flynn" }],
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
     googleBot: {
-      index: true,
+      index: false,
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,

@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Work",
+export const metadata: Metadata = createPageMetadata({
+  title: "AI Product Work",
   description:
     "Selected AI product, growth tooling, automation and web3 prototype work by Keiran Flynn.",
-  alternates: {
-    canonical: "/work",
-  },
-};
+  path: "/work",
+});
 
 type WorkLink = {
   href: string;

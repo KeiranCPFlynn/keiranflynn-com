@@ -4,12 +4,20 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   compress: true,
+  turbopack: {
+    root: process.cwd(),
+  },
   async redirects() {
     return [
       {
         source: "/:path*",
         has: [{ type: "host", value: "keiranflynn.com" }],
         destination: "https://www.keiranflynn.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/blog/tag/:tag",
+        destination: "/blog",
         permanent: true,
       },
     ];
