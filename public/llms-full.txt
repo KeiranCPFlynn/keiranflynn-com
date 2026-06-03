@@ -39,6 +39,36 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - Practical AI Product Strategy: https://keiranflynn.com/writing/practical-ai-product-strategy
   Framework for deciding where AI belongs in a product, what to automate, how to design failure states and how to measure whether an AI feature is useful.
 
+- When Should a Product Use AI?: https://keiranflynn.com/writing/when-should-a-product-use-ai
+  Decision framework for identifying product workflows where AI improves the user outcome and where deterministic logic is safer.
+
+- How to Evaluate AI Product Ideas Before You Build: https://keiranflynn.com/writing/evaluate-ai-product-ideas
+  Framework for evaluating AI product ideas around user pain, workflow frequency, AI fit, risk and distribution before building.
+
+- Claude Code vs Codex for Product Teams: https://keiranflynn.com/writing/claude-code-vs-codex-product-teams
+  Comparison guide for product teams choosing coding agents based on workflow fit, reviewability and repo context.
+
+- An Agentic Coding Workflow for Product Teams: https://keiranflynn.com/writing/agentic-coding-workflow
+  End-to-end process for briefing coding agents, inspecting context, implementing bounded changes, reviewing diffs and testing workflows.
+
+- Coding Agents for Non-Technical Founders: https://keiranflynn.com/writing/coding-agents-non-technical-founders
+  Guide for non-technical founders using coding agents for prototypes, product briefs and scoped early builds without skipping review.
+
+- Hardening an AI Prototype for Real Users: https://keiranflynn.com/writing/hardening-ai-prototype
+  Production-readiness guide for adding data rules, failure states, observability, evaluation and maintainable structure to AI prototypes.
+
+- Turning a Lovable, Bolt or v0 AI Build Into a Real Product: https://keiranflynn.com/writing/no-code-ai-build-to-product
+  Guide for treating AI-generated app builds as product prototypes and rebuilding the production spine deliberately.
+
+- AI MVP Development Process: https://keiranflynn.com/writing/ai-mvp-development-process
+  Pillar guide to scoping, building and launching a focused AI MVP with bounded AI behavior and a reliable first workflow.
+
+- How Much Does an AI MVP Cost to Build?: https://keiranflynn.com/writing/ai-mvp-cost
+  Practical breakdown of AI MVP cost drivers including scope, data readiness, integrations, reliability and product clarity.
+
+- LLM Discovery for Startups: https://keiranflynn.com/writing/llm-discovery-for-startups
+  Pillar guide to making startup pages crawlable, specific, extractable and citeable by ChatGPT, AI Overviews and other answer engines.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

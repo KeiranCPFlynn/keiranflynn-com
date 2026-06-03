@@ -1,0 +1,166 @@
+---
+title: "AI MVP Development Process: From Idea to Usable Product"
+slug: "ai-mvp-development-process"
+description: "A practical AI MVP development process for founders who need to scope, build and launch a focused first product."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI MVP Build Process"
+target_keyword: "ai mvp development process"
+search_intent: "Founders and operators looking for a clear process to build an AI MVP."
+tags:
+  - ai-product-building
+  - ai-mvp
+  - product-development
+---
+
+An AI MVP development process should reduce uncertainty, not create a larger product-shaped guess. The work is to identify one painful workflow, decide the AI's role, build the smallest reliable version and learn from real use.
+
+The mistake is starting with the model or the interface. A model choice does not define the product. A polished generated prototype does not prove the workflow is ready. Start with the job the user needs done, then build only the system needed to complete that job with enough reliability to learn.
+
+This is the hub for the AI MVP build cluster. It connects strategy, coding agents, prototype hardening, cost and launch sequencing. For the strategy layer, see [practical AI product strategy](/writing/practical-ai-product-strategy).
+
+## What makes an AI MVP different
+
+A normal MVP already has to make hard scoping decisions. An AI MVP adds one more source of uncertainty: probabilistic output. The product may produce a different answer for similar inputs, fail in unexpected ways, cost money per use, respond slowly or sound confident when it is wrong.
+
+That changes the build process. You cannot treat the AI call as a small implementation detail. You need to design the workflow around it: what input is allowed, what context the model receives, what output format is expected, what the user can edit, what happens when the model fails and how the team knows whether quality is improving.
+
+The MVP should be narrow enough to observe. If the first version tries to cover every user, every workflow and every type of output, you will not know why it works or fails. A good AI MVP is a focused learning system.
+
+Key answer: The best AI MVPs give AI a bounded role inside a real workflow, then keep the user in control until the product has evidence of reliability.
+
+## Step 1: define the narrow problem
+
+Write the MVP in one sentence:
+
+`For [specific user], the product helps them [specific job] when [trigger], using AI to [bounded role].`
+
+This sentence forces scope. If it includes several users, several jobs or a vague phrase like "manage everything," the MVP is too broad.
+
+Good MVP scope looks like this: search past AI conversations locally, draft a support reply for agent review, generate a first sleep-plan recommendation from structured intake or extract invoice fields for human approval.
+
+Weak MVP scope sounds like a category: AI workspace for teams, personal assistant for everything, automated operations platform or AI cofounder. These might be visions, but they are not useful first builds.
+
+Specific wins because it can be built, tested and judged. A narrow MVP can still point toward a larger product, but it earns that expansion through evidence.
+
+## Step 2: decide the AI role
+
+AI can summarise, draft, classify, extract, recommend or act. Early MVPs should usually avoid autonomous action because the product has not yet earned trust.
+
+| AI role | MVP fit | Main risk |
+|---|---|---|
+| Summarise | Strong | Missing nuance |
+| Draft | Strong | User must review |
+| Classify | Strong when reviewable | Misrouting |
+| Extract | Strong with validation | Field errors |
+| Recommend | Medium | Trust and explanation |
+| Act autonomously | Weak early fit | High cost of error |
+
+The role determines the rest of the product. A drafting product needs editing and approval states. A classification product needs correction paths. An extraction product needs validation. A recommendation product needs explanation and user control. An autonomous action product needs logs, permissions, rollback and much stricter review.
+
+This connects to [when a product should use AI](/writing/when-should-a-product-use-ai): AI is useful when judgment over messy input improves the workflow. It is risky when the product needs exact truth and irreversible action.
+
+## Step 3: design the workflow around failure
+
+Every AI MVP should answer a set of failure questions before implementation starts.
+
+What happens when the model is wrong? What happens when it is slow? What happens when output is incomplete? What does the user see? Can the user edit, reject or retry? What gets logged? What should the product do if the model returns a format the UI cannot parse?
+
+These are not edge cases. They are normal product behavior for AI software. If there is no failure design, the MVP is still a demo.
+
+A reliable first version often has a smaller AI role than the demo. The demo may generate a full plan or full document. The MVP may generate a draft section, suggest three options or extract a few fields for review. The smaller role makes failure easier to handle and quality easier to evaluate.
+
+## Step 4: choose the smallest reliable slice
+
+The first product slice should include one access path if needed, one input flow, one AI workflow, one review or correction state, one saved output, basic logs and a feedback signal.
+
+For LunaCradle, a useful slice is not "all baby sleep guidance." It is structured intake, a personalised output and a way to make the result understandable. For LLMnesia, a useful slice is local conversation import and search. In both cases, the product becomes real when a user can complete one job without a live demo.
+
+The smallest reliable slice should be boringly complete. It should handle empty input, slow output and user rejection. It should store the right data and avoid storing data it does not need. It should make clear what the AI did and what the user controls.
+
+This is the difference between a prototype and an MVP. The prototype proves the idea can be understood. The MVP proves a workflow can be used.
+
+## Step 5: plan the technical spine
+
+An AI MVP needs a technical spine before it needs more features. The spine is the set of systems the product depends on to behave responsibly.
+
+For most AI MVPs, that includes authentication if user data exists, a database schema, permissions, model-call wrappers, prompt or instruction versioning, logging, error states, deployment configuration and a basic feedback loop.
+
+You do not need enterprise infrastructure on day one. You do need enough structure that the product can be debugged. If a user says the output was wrong, can you understand what happened? If latency spikes, can you see it? If a prompt change makes output worse, can you roll back or compare?
+
+For many founders, this is where the true MVP cost appears. The expensive part is not calling a model. It is building the system around the model so the product can be trusted.
+
+## Step 6: use coding agents for execution, not judgment
+
+Coding agents can speed up the build considerably when the product decisions are clear. They are useful for scaffolding forms and routes, adding data persistence, implementing model wrappers, creating loading and error states, writing tests and refactoring prototype code.
+
+They are much weaker when asked to invent the product while coding. A prompt like "build an AI MVP for customer support" leaves the agent to make too many decisions. A prompt like "add a reviewed draft response state to the support-ticket workflow using the existing ticket detail page" gives it a job that can be checked.
+
+Use the [agentic coding workflow](/writing/agentic-coding-workflow): brief, inspect, implement, review, test, decide. That keeps the product owner in control and gives the agent a narrow execution lane.
+
+## Step 7: launch to a small real audience
+
+An MVP is not complete until someone uses it for the real job. The first launch should be small enough that you can watch carefully, fix issues quickly and talk to users directly.
+
+Track whether users complete the workflow, whether they trust the AI output, how often they edit or reject it, where they get stuck and what they ask for next. Acceptance rate matters, but it is not the only signal. Heavy editing may mean the output is still valuable as a starting point. Rejection without retry may mean the product is missing the user's actual need.
+
+Do not launch the MVP and immediately build the roadmap you already had in mind. Let real usage change the roadmap. Sometimes the next step is more automation. Sometimes it is better input design. Sometimes it is removing a feature because the narrower workflow already does the job.
+
+## Step 8: decide what evidence justifies the next build
+
+Every MVP should define what evidence justifies the next investment. Without this, teams keep building because there is always more to add.
+
+Useful evidence might include repeated use by the same users, a meaningful reduction in manual work, high acceptance of AI output, users asking to invite teammates, willingness to pay or a clear pattern of use around one workflow.
+
+Weak evidence includes compliments, demo excitement, investor enthusiasm or the fact that the model output looks good in a few examples. Those signals can be encouraging, but they should not drive the roadmap alone.
+
+The process is simple: build the smallest reliable slice, watch real use, then decide. That discipline is what keeps an AI MVP from becoming an expensive prototype.
+
+## What to avoid in the first AI MVP
+
+The first AI MVP should avoid broad autonomy, unclear data access, multiple unrelated user roles and workflows that require perfect output to be useful. These choices may become appropriate later, but they are expensive early because they increase risk before the product has evidence.
+
+Avoid making the AI the entire interface unless the product truly needs open-ended conversation. Many useful AI products work better as structured workflows with AI inside them: a form, a draft, a review state, a saved result and a feedback loop. Structure helps users understand what to do and helps the team evaluate quality.
+
+Also avoid adding payments, team management and advanced settings before the core value is proven unless those pieces are required for the test. A founder may eventually need all of them, but each one adds design, engineering and support cost. The first MVP should make the central behavior observable.
+
+The question to ask about every feature is: does this help us learn whether the core workflow is valuable and reliable? If not, it probably belongs after the first launch.
+
+## The MVP handoff document
+
+Before build starts, create a short handoff document. It should include the one-sentence MVP, the target user, the core workflow, the AI role, required data, non-goals, failure states, success signals and launch audience.
+
+This document does not need to be long. Its value is alignment. It gives a coding agent, engineer, designer or product builder the same source of truth. It also prevents the founder from quietly expanding scope mid-build because every new request can be compared against the agreed MVP.
+
+For AI products, include two extra fields: what the model is not allowed to do, and what happens when the model is wrong. Those fields force the team to design trust before the product reaches users.
+
+## FAQ
+
+### What is an AI MVP?
+
+An AI MVP is the smallest reliable product slice that uses AI to help a specific user complete a specific job and gives the team enough evidence to decide what to build next.
+
+### How is an AI MVP different from a normal MVP?
+
+An AI MVP must handle probabilistic output. That means it needs failure states, review paths, logging and evaluation earlier than a deterministic product might.
+
+### Should I start with a prototype or production MVP?
+
+Start with a prototype if the workflow is unclear. Move to an MVP when you know the core job and need real user behavior, real data and reliability signals.
+
+### What should an AI MVP include?
+
+It should include one core workflow, real data where needed, bounded AI behavior, user review or correction, basic observability and a way to capture feedback.
+
+### Can coding agents build an AI MVP?
+
+They can accelerate implementation, but a human still needs to own scope, product judgment, security, review and launch decisions.
+
+### How do I avoid overbuilding the first version?
+
+Define the riskiest assumption, then build only the slice needed to test it. If a feature does not help you learn about the core workflow, defer it.
+
+## What to take from this
+
+An AI MVP is not a smaller version of your dream product. It is a focused learning system. Scope the workflow, bound the AI, harden one slice and launch to real users. If you want that process run with you, [review my services](/services).

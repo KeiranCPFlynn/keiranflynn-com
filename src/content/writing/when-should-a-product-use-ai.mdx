@@ -1,0 +1,125 @@
+---
+title: "When Should a Product Use AI?"
+slug: "when-should-a-product-use-ai"
+description: "A practical decision framework for deciding when AI improves a product and when deterministic software is the better choice."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "when to use ai in a product"
+search_intent: "Founders and product teams deciding whether an AI feature is worth building."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - product-decisions
+---
+
+The fastest way to weaken a product is to add AI where the user needed reliability, speed or a simple rule. The question is not whether a model can produce an impressive answer. The question is when to use AI in a product so the user gets a better outcome than they would from normal software.
+
+AI belongs in a product when the input is messy, the task needs judgment, the cost of a wrong answer is manageable, and the product gives the user a clear way to review, correct or ignore the output. If those conditions are missing, deterministic software is usually the better product decision.
+
+This is a narrower decision than the broader strategy work in [practical AI product strategy](/writing/practical-ai-product-strategy). Strategy asks where AI belongs in the product. This guide asks whether a specific feature should use AI at all.
+
+## AI is useful when the input is messy
+
+AI is strongest when users bring information that does not arrive in neat database fields: emails, call transcripts, support tickets, user research notes, PDFs, customer feedback, Slack threads, long documents or natural language requests. These inputs are difficult to handle with exact rules because the same meaning can appear in many forms.
+
+A support ticket might say "I cannot get into my account," "the login loop is back," or "your app keeps sending me to the same screen." A rule-based system can catch some phrases, but it will miss many versions of the same problem. A language model can classify the intent, suggest a likely category and draft a first response because the task depends on interpretation.
+
+That is the type of work AI is good at: translating messy human input into a useful intermediate output.
+
+The product question is what happens next. If the AI classifies the ticket and a support agent can review the category, the risk is limited. If the AI locks the user's account or sends a refund without review, the risk profile changes. The same model capability can be sensible in one product role and reckless in another.
+
+## Deterministic software is better when the answer must be exact
+
+If the correct answer can be calculated, looked up or validated with a rule, do not ask a language model to invent it. Use code, a query, a validation rule or a workflow state machine.
+
+AI is a poor default for payment status, permissions, inventory state, subscription access, date formatting, exact arithmetic, eligibility rules and anything where the product already has a source of truth. A model can help a user express what they want, but the final decision should be made by a reliable system.
+
+| Product need | Better default | Why |
+|---|---|---|
+| Format a date | Code | Exact, cheap and reliable |
+| Check subscription status | Database lookup | Requires truth, not judgment |
+| Summarise a sales call | AI with review | Messy input, judgment needed |
+| Route a support ticket | AI plus rules | Messy input, limited downside |
+| Approve a high-risk action | Human review or strict rules | Wrong output has serious cost |
+
+This distinction prevents a common product mistake: using AI as a universal interface layer. A conversational UI might be useful for collecting intent, but the underlying product still needs deterministic systems for anything that changes state.
+
+## The cost of being wrong decides the level of control
+
+Every AI feature needs a wrong-answer budget. If the model makes a mistake, what happens to the user, the business and the trust relationship?
+
+A wrong draft email is usually acceptable if the user reads it before sending. A wrong summary is acceptable if it is clearly marked as a draft and source material is available. A wrong classification may be acceptable if the user can correct it quickly. A wrong account decision, financial recommendation or irreversible workflow action needs much stronger safeguards.
+
+Key answer: A product should use AI when a useful first answer is more valuable than a guaranteed exact answer, and the user has a clear way to review, correct or ignore it.
+
+That sentence matters because it separates AI as a product assistant from AI as an unreviewed authority. Most early AI features should stay on the assistant side of that line.
+
+## Choose the AI role before choosing the model
+
+The phrase "add AI" is too vague to build against. Before choosing a model or writing prompts, decide what authority the AI has inside the workflow.
+
+There are five common roles:
+
+| AI role | What it does | Good early product fit |
+|---|---|---|
+| Suggest | Proposes an option | Strong |
+| Draft | Creates a first version | Strong |
+| Classify | Labels or routes input | Strong when reviewable |
+| Extract | Pulls fields from messy input | Strong with validation |
+| Act | Changes system state | Risky without controls |
+
+The first four can be used safely in many MVPs because the product can keep a human, rule or validation step in the loop. The fifth role needs more care. When AI can act, the product needs permissions, logs, rollback paths, confidence thresholds, monitoring and clear responsibility for failure.
+
+This is why many good AI products start narrower than the founder's original idea. The demo may show an assistant that "handles everything." The shippable product might only draft a response, extract a few fields or suggest a next step. That smaller role is not a lack of ambition. It is how trust is built.
+
+## A practical decision framework
+
+Use this framework before adding AI to any feature.
+
+First, describe the user workflow without mentioning AI. What is the user trying to get done? What input do they already have? What output do they need? What do they do after receiving it?
+
+Second, identify the judgment step. Where does a human currently read, interpret, classify, summarise, compare or draft? If there is no judgment step, AI may not be needed.
+
+Third, decide what stays deterministic. Permissions, payments, identity, saved records and critical state changes should be handled by reliable systems. AI can assist around them, but it should not quietly replace them.
+
+Fourth, design the failure state. What does the user see when the model is slow, uncertain, wrong or incomplete? If the answer is "we hope that does not happen," the feature is not ready.
+
+Fifth, define a success measure. Good measures include time saved, edit rate, acceptance rate, repeat use, error reduction or user confidence. A feature that produces fluent output but does not change user behavior is not a successful AI feature.
+
+## Examples of good and weak AI fit
+
+LLMnesia is useful because its product value is precise: local-first search across AI conversations on major LLM platforms. The core product depends on retrieval, local data handling and a focused interface. AI can support parts of discovery or organisation, but it does not need to be the whole product. The user value is control over past conversations.
+
+LunaCradle has a different shape. It uses structured intake and personalised LLM output for baby sleep guidance. In that kind of product, the AI role must be bounded by careful input design and clear expectations. The system should not pretend probabilistic guidance is the same as guaranteed truth.
+
+An internal operations tool has another shape again. AI might classify incoming requests, draft summaries or flag unusual items. But approvals, payments, permissions and final decisions should usually remain deterministic or human-reviewed until the system has earned more trust.
+
+Different products need different AI roles. Good product strategy makes that role explicit.
+
+## FAQ
+
+### How do I know if my product should use AI?
+
+Use AI when the task involves messy input, judgment, drafting, classification, extraction or summarisation, and when users can review or correct the output. Use normal software when the task requires exact truth, permissions, payment state, calculation or guaranteed behavior.
+
+### Should every SaaS product add AI?
+
+No. AI should improve a specific workflow. If the current workflow is already fast, exact and understandable, adding AI may make the product slower, less predictable and harder to trust.
+
+### What is the safest first AI feature?
+
+The safest first AI feature is usually a draft, summary, classification or recommendation that a human can review before it affects anything important. These roles create value without giving the model too much authority.
+
+### Is a chatbot the best way to add AI?
+
+Usually not. A chatbot is useful when users have open-ended questions or need a flexible interface. Many products need smaller AI features: better search, summaries, routing, extraction, drafting or review support.
+
+### What should never be handled only by AI?
+
+High-impact decisions, payments, permissions, account access and irreversible actions should not rely only on AI. Keep deterministic checks and human review where the cost of error is high.
+
+## What to take from this
+
+AI is a product choice, not a badge. Use it when it improves a real workflow and when the product can absorb mistakes without losing trust. If you are deciding where AI belongs in a product, [book a short fit call](/contact) and bring the workflow, not the feature idea.

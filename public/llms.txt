@@ -28,6 +28,16 @@
 - /writing/coding-agents-for-product-teams - practical guide to using coding agents inside product teams.
 - /writing/ai-prototype-to-product - how founders move from AI-generated prototype to production product.
 - /writing/practical-ai-product-strategy - product strategy framework for deciding where AI belongs in a product.
+- /writing/when-should-a-product-use-ai - decision framework for when AI improves a product and when deterministic software is better.
+- /writing/evaluate-ai-product-ideas - framework for testing AI product ideas before committing to a build.
+- /writing/claude-code-vs-codex-product-teams - comparison guide for choosing coding-agent workflows for product teams.
+- /writing/agentic-coding-workflow - end-to-end workflow for briefing, implementing, reviewing and testing agentic code changes.
+- /writing/coding-agents-non-technical-founders - guide for non-technical founders using coding agents safely.
+- /writing/hardening-ai-prototype - production-readiness guide for hardening an AI prototype before real users.
+- /writing/no-code-ai-build-to-product - guide to turning Lovable, Bolt or v0 builds into production-ready products.
+- /writing/ai-mvp-development-process - pillar guide to scoping, building and launching a focused AI MVP.
+- /writing/ai-mvp-cost - practical breakdown of AI MVP cost drivers and scope tradeoffs.
+- /writing/llm-discovery-for-startups - pillar guide to making startup content discoverable and citeable by AI answer engines.
 
 ## Positioning summary
 Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.

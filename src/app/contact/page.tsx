@@ -104,7 +104,7 @@ export default function ContactPage() {
 
               {status === "error" && (
                 <p className="text-sm text-red-400/70">
-                  Failed to send. Please try again or email directly.
+                  Failed to send. Please try again in a moment.
                 </p>
               )}
 

@@ -1,0 +1,119 @@
+---
+title: "Hardening an AI Prototype for Real Users"
+slug: "hardening-ai-prototype"
+description: "How to turn an AI prototype into a safer, more reliable product slice before real users depend on it."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "hardening ai prototype"
+search_intent: "Founders and product teams preparing an AI prototype for real users."
+tags:
+  - ai-product-building
+  - prototype-to-product
+  - product-reliability
+---
+
+An AI prototype proves that a workflow might be valuable. It does not prove that the workflow is safe, reliable or ready for real users. Hardening an AI prototype means adding the production layers that protect trust: data rules, failure handling, observability, review states, tests and maintainable code.
+
+The goal is not to make the prototype perfect. The goal is to make one real workflow dependable enough that users can try it without you standing beside them. That is the moment a demo starts becoming a product.
+
+This guide is a focused companion to [from AI prototype to product](/writing/ai-prototype-to-product), which covers the larger transition from generated demo to production system.
+
+## Pick one workflow to harden
+
+The first mistake is trying to harden the entire prototype. A demo often contains more surface area than the product has earned: dashboards, settings, profile screens, admin views, generated examples and speculative features. Hardening all of it spreads attention across too many assumptions.
+
+Pick the workflow that creates the most learning. A good candidate has a real user, real input, one AI action, one review moment and one saved result.
+
+For example, an AI drafting product might harden this slice: the user signs in, submits structured input, receives an AI-generated draft, edits or rejects it, then saves the final version. That slice is enough to test the core loop. It also exposes the important production questions: who owns the data, what gets sent to the model, what happens when output is bad and how feedback is captured.
+
+Everything outside that slice can wait.
+
+## Replace prototype data with real data rules
+
+Prototype data is forgiving. It is often mocked, local, static or assumed to be clean. Real data is inconsistent, private, incomplete and shaped by user behavior.
+
+Before real users touch the product, define what data is required, what data is optional, who can edit it, who can see it, what the model is allowed to receive, what gets stored and what gets deleted.
+
+| Prototype assumption | Production question |
+|---|---|
+| The input exists | What happens when it is empty? |
+| The data is clean | How do we validate it? |
+| One user owns everything | What are the permissions? |
+| The model can see all context | What context is allowed? |
+| Output is temporary | What should be stored and audited? |
+
+Most AI risk starts with vague data boundaries. A product that sends too much context to a model, stores private content unnecessarily or fails to separate users is not hardened. It is still a prototype with a nicer interface.
+
+## Add failure states before adding scope
+
+AI prototypes tend to show the happy path. Real users find the edges quickly. The model times out, returns malformed output, misses the point, refuses a request, produces something too long, produces something too short or responds in a format the UI cannot parse.
+
+Key answer: Hardening an AI prototype means designing for wrong, slow and incomplete output before increasing feature scope.
+
+The recovery path can be simple. Preserve the user's input. Show a retry option. Offer a deterministic fallback. Route to human review. Display a clear "we could not generate this" state. The worst outcome is a confident broken answer with no way back.
+
+This is a product design problem as much as an engineering problem. Users forgive limits when the product is honest and recoverable. They lose trust when the product behaves as if nothing can go wrong.
+
+## Instrument the AI behavior
+
+You cannot improve an AI workflow you cannot see. At minimum, log the prompt version, model response status, latency, error type, user feedback and whether the user accepted, edited or rejected the output.
+
+The point is not to collect everything. For sensitive products, you may deliberately avoid storing raw private content. The point is to observe product behavior. Are users editing every output heavily? Are failures clustered around a specific input type? Does latency spike when the prompt includes too much context? Are users retrying because the first answer is poor?
+
+Those signals tell you whether the AI is helping the workflow or simply producing plausible content.
+
+## Build a small evaluation set
+
+Do not rely on spot checks. Build a small set of representative inputs and review them whenever you change a prompt, model, retrieval step or output format.
+
+A useful early eval set includes normal examples, edge cases, bad inputs, confusing inputs and examples that previously failed. The expected result does not need to be a single exact answer. For many AI features, the expected result is a quality standard: accurate, grounded in source material, the right tone, no invented facts, correct format and useful to the user.
+
+This can start in a spreadsheet. It does not need to be a complex eval platform. What matters is repeatability. If every prompt change is judged by a different ad hoc example, you will miss regressions.
+
+## Refactor what blocks reliability
+
+Prototype code is often messy because it was built to prove a point quickly. Resist the urge to rewrite everything immediately. Refactor the parts that affect the hardened workflow: data access, AI call wrapper, output parsing, error handling, user feedback state and tests.
+
+This is where a controlled [agentic coding workflow](/writing/agentic-coding-workflow) can help. Coding agents are useful for adding tests, extracting duplicated logic, wiring logs and creating missing UI states. Keep the tasks narrow and review every diff.
+
+The goal is not architectural purity. The goal is a reliable product slice that can survive real use.
+
+## Know what ready for real users means
+
+An AI prototype is ready for a small real-user test when the core workflow can be completed without you narrating the demo. The user should understand what to enter, what the AI is doing, what they can change and what happens after they accept or reject the output.
+
+The product should also fail calmly. If the model call takes too long, the user should not lose their work. If generation fails, they should see a clear recovery path. If the output is weak, they should have an obvious way to edit, retry or reject it. If the product stores data, the ownership and visibility rules should be clear.
+
+This does not mean the product is finished. It means the test will produce useful evidence instead of support noise. When a user struggles, you want to learn something about the workflow, not discover that the product was missing basic production behavior.
+
+There is also a founder discipline here: do not invite real users into a workflow you cannot observe. If you cannot tell whether the AI succeeded, whether the user edited the result or where the flow failed, the test will mostly create anecdotes. A hardened slice gives you evidence.
+
+For most founders, that is the right threshold: not perfect, but coherent, observable and recoverable.
+
+## FAQ
+
+### What does hardening an AI prototype mean?
+
+It means making a prototype reliable enough for real users by adding data rules, failure handling, observability, review states, tests and maintainable structure around the core workflow.
+
+### How long does prototype hardening take?
+
+The timeline depends on scope. Hardening one focused workflow is much faster than hardening a broad demo with multiple roles, integrations and AI actions. The first step is to reduce the surface area.
+
+### Should I rewrite my prototype from scratch?
+
+Not automatically. Keep useful UI and product learning, but refactor or rebuild weak architecture where it affects reliability, security or maintainability.
+
+### What should I test first?
+
+Test the core user workflow with realistic inputs, empty inputs, slow model responses, malformed output and user rejection. These cases reveal most early reliability problems.
+
+### Can coding agents help harden prototypes?
+
+Yes, when tasks are bounded. Use them to add tests, logging, error states and refactors, then review the diff carefully.
+
+## What to take from this
+
+Hardening is the work that makes the prototype trustworthy. Pick one workflow, make failure visible, observe it, test it, then expand. If you need help turning a demo into a reliable product slice, [get in touch](/contact).

@@ -1,0 +1,127 @@
+---
+title: "How to Evaluate AI Product Ideas Before You Build"
+slug: "evaluate-ai-product-ideas"
+description: "A practical framework for testing AI product ideas before committing time, budget or engineering effort."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "how to evaluate ai product ideas"
+search_intent: "Founders and product leaders deciding which AI product ideas are worth building."
+tags:
+  - ai-product-building
+  - product-validation
+  - ai-strategy
+---
+
+Most AI product ideas sound better in a demo than they behave in a user's day. The model produces fluent output, the interface looks plausible, and the first reaction is positive because novelty does some of the selling. That is not validation. If you want to know how to evaluate AI product ideas, evaluate the workflow before you evaluate the model.
+
+A strong AI product idea has four qualities: a painful repeated workflow, messy input that benefits from judgment, a controlled cost of error and a reachable user group. If one of those is missing, the idea may still be interesting, but it is not ready for a serious build.
+
+This guide sits beside [practical AI product strategy](/writing/practical-ai-product-strategy). Strategy helps you decide where AI belongs in a product. Evaluation helps you decide whether the product idea is worth pursuing in the first place.
+
+## Translate the idea into a workflow
+
+The phrase "AI product idea" is usually too vague. The first job is to turn it into a workflow sentence:
+
+`For [specific user], when [trigger], the product helps them [job] by [AI role], with [human control or fallback].`
+
+For example:
+
+`For support leads, when a new ticket arrives, the product suggests a category and drafts a reply using the customer's message and approved help content, with agent review before sending.`
+
+That sentence exposes the important parts: the user, the moment of use, the input, the output, the AI role and the control mechanism. It also makes weak ideas obvious. If you cannot name the user, the trigger or the output, you are still describing a theme, not a product.
+
+Many early AI ideas fail this test. "AI for sales teams" is a market category. "Draft follow-up emails from call notes and CRM context for account executives who forget to follow up after demos" is a workflow. The second one can be tested.
+
+## Separate demo value from product value
+
+AI demos are unusually persuasive because they produce visible output quickly. A good answer appears on screen and everyone feels momentum. The problem is that demo value and product value are different.
+
+Demo value asks whether the idea is understandable and impressive. Product value asks whether the workflow changes behavior, saves time, improves quality, reduces risk or creates a buying reason.
+
+| Question | Demo answer | Product answer |
+|---|---|---|
+| Does it look impressive? | The output is fluent | The workflow saves time or improves quality |
+| Does it work once? | The sample input succeeds | Real inputs succeed often enough |
+| Is the model capable? | A model can produce the output | The product handles errors and edge cases |
+| Will people pay? | Users say it is interesting | Users have a painful budgeted problem |
+| Is the scope right? | The demo shows the vision | The first version tests one risky assumption |
+
+This distinction matters because founders often keep polishing the demo after the useful learning has stopped. The demo proves that people understand the concept. The next test is whether they will use the workflow when novelty is gone.
+
+## Score the idea on five dimensions
+
+Use a simple 1 to 5 score for each dimension. The exact score matters less than the discussion it forces.
+
+Pain asks how costly the current workflow is. Is it annoying, expensive, slow, risky or blocking growth? A mild inconvenience rarely supports a product unless the workflow happens constantly.
+
+Frequency asks how often the user faces the problem. A painful annual task may justify software in some categories, but most early AI products benefit from repeated use because repetition gives feedback and habit formation.
+
+AI fit asks whether the task needs judgment over messy input. If the product mostly needs exact rules, AI may be the wrong center of gravity.
+
+Risk asks what happens when the AI is wrong. Low-risk drafts and summaries are easier to ship than autonomous high-impact decisions.
+
+Distribution asks whether you can reach the people with the problem. A strong workflow with no practical path to users is a difficult business.
+
+Key answer: A good AI product idea combines a painful repeated workflow, messy input that benefits from judgment, a low or controlled cost of error and a reachable user group.
+
+## Run a manual test before you build
+
+Before writing code, simulate the AI with a manual or concierge version. Ask users for real inputs, produce the output yourself, and observe whether the result is useful enough to change behavior.
+
+If you are evaluating an AI investor-update assistant, ask a founder for raw notes and write the update manually. If the founder says "this is useful, can you do it again next week?" you have a stronger signal than a positive comment on a demo. If they do not care when the output is good, automation will not fix the problem.
+
+Manual tests reveal product rules that a prototype often hides:
+
+What context is required? What output format is actually useful? Which mistakes are acceptable? Which mistakes destroy trust? Where does the user want control? What language does the user use to describe success?
+
+Those answers become the build brief. They also help you avoid overbuilding. You may discover that the user does not need a full assistant. They may need a narrow draft, a structured summary or a review queue.
+
+## Identify the riskiest assumption
+
+Every AI product idea has a risk stack. Common risks include data access, output quality, user trust, workflow adoption, willingness to pay and distribution. Do not build a broad MVP that tests all of them weakly. Build the smallest test that attacks the riskiest assumption.
+
+If the biggest risk is data access, test whether users can connect or provide the data. If the biggest risk is output quality, run the manual version or a small eval set. If the biggest risk is workflow adoption, build a simple interface around the behavior and watch use. If the biggest risk is payment, sell the outcome before automating it.
+
+This is where the process connects to [when a product should use AI](/writing/when-should-a-product-use-ai). If the task is not a good fit for AI, no amount of model comparison will rescue the product.
+
+## Decide the smallest useful product
+
+The first build should prove the riskiest assumption with as little software as possible. This does not mean shipping something careless. It means removing everything that does not help you learn.
+
+For LLMnesia, the useful wedge is local-first search across AI conversations. It does not need to become a full knowledge-management platform before it delivers value. For SchoolAI, the useful lesson is that a product can reach serious usage when the problem, audience and distribution motion line up. In both cases, the product shape matters as much as the underlying technology.
+
+Good early AI products are often narrower than the founder's vision. The narrowness is useful because it lets you learn from real behavior instead of managing a large set of guesses.
+
+## Red flags before you build
+
+Pause before committing to a build if the idea is mostly "add a chatbot," if the user is not specific, if the input data is unavailable, if the output must be correct every time, if nobody understands the current manual workflow, or if distribution is a mystery.
+
+None of these red flags means the idea is impossible. They mean the next step is more discovery or scoping, not production development. If the idea survives, the next challenge is covered in [from AI prototype to product](/writing/ai-prototype-to-product): turning a promising version into a reliable product.
+
+## FAQ
+
+### What makes an AI product idea good?
+
+A good AI product idea solves a repeated painful workflow where users bring messy information and benefit from judgment, drafting, classification, extraction or summarisation. It also has a clear way to handle wrong output.
+
+### Should I build a prototype before validating the idea?
+
+Sometimes, but do not let the prototype replace validation. A manual test, workflow interview or concierge version often teaches more than a polished AI demo because it shows whether users care about the outcome.
+
+### How do I know if the idea is too broad?
+
+If the product requires the AI to understand every possible user goal, it is too broad. Narrow it to one user, one trigger, one input, one output and one review path.
+
+### What is the biggest AI product validation mistake?
+
+The biggest mistake is validating model capability instead of user behavior. A model producing a good answer once does not prove that users will adopt the product or pay for the workflow.
+
+### How should non-technical founders evaluate AI ideas?
+
+Non-technical founders should focus on the workflow, user pain, risk and distribution. Bring in technical help when the idea depends on data access, security, reliability or production architecture.
+
+## What to take from this
+
+Do not ask whether an AI idea is exciting. Ask whether it is specific, painful, reachable and safe enough to test. If you are sorting several AI ideas and need a buildable direction, [my services page](/services) explains how I turn vague concepts into scoped product work.

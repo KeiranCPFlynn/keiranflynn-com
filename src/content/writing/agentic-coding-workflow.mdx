@@ -1,0 +1,128 @@
+---
+title: "An Agentic Coding Workflow for Product Teams"
+slug: "agentic-coding-workflow"
+description: "A practical end-to-end workflow for using coding agents without losing product judgment, review quality or control."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "agentic coding workflow"
+search_intent: "Founders, PMs and engineers looking for a repeatable coding-agent workflow."
+tags:
+  - ai-product-building
+  - coding-agents
+  - agentic-workflows
+---
+
+An agentic coding workflow is not a giant prompt that asks an AI to build a product. It is a controlled operating loop for turning a scoped product decision into code, tests and a reviewed user workflow. The agent can inspect, write and debug. The team still owns the product call.
+
+The fastest teams are not the ones that give coding agents the most freedom. They are the ones that make tasks small enough for the agent to complete and for a human to verify. That is how speed turns into progress rather than cleanup.
+
+This expands the build loop from [coding agents for product teams](/writing/coding-agents-for-product-teams) into a practical process a founder, PM or small engineering team can repeat.
+
+## Start with a product brief, not a prompt
+
+Most weak agentic builds start with a prompt that sounds clear but leaves the product undefined. "Build an AI onboarding flow" feels specific until the agent has to decide who the user is, what data is collected, where it is stored, what happens when the model fails and how success is measured.
+
+A useful brief includes the user, current behavior, desired behavior, relevant files or product areas, acceptance criteria, constraints, non-goals and test expectations. This is the same discipline you would use with a human engineer. The difference is that a coding agent will move faster when the brief is incomplete, so the cost of vagueness shows up quickly.
+
+Weak brief:
+
+> Build an AI onboarding flow.
+
+Stronger brief:
+
+> In the workspace onboarding flow, add a step where the user can paste three example customer messages. Store them against the workspace, show an empty state when none exist and follow existing form styles. Do not add a new database client. Before editing, explain the files you plan to touch.
+
+The stronger brief gives the agent boundaries. It also gives the reviewer a standard for judging the result.
+
+## Inspect before implementation
+
+For any non-trivial change, ask the agent to inspect the repo before editing. This is one of the simplest ways to prevent wasted work.
+
+The first instruction can be:
+
+> Inspect the onboarding flow, form components and data access pattern. Report the files you plan to modify before making changes.
+
+This catches wrong assumptions early. If the agent names files that do not exist, proposes a new architecture that conflicts with the repo or misses an obvious local helper, you can correct direction before code is written.
+
+Inspection also helps the agent follow local patterns. In product work, consistency matters. A feature that works by ignoring the existing design system, analytics helper or data access layer creates maintenance cost even if it looks correct in isolation.
+
+## Keep each loop small enough to review
+
+Large agent tasks create large review problems. Break the work into loops that map to one behavior at a time.
+
+| Loop size | Example | Review difficulty |
+|---|---|---|
+| Small | Add one empty state | Low |
+| Medium | Add a form step with storage | Manageable |
+| Large | Rebuild onboarding and analytics | High |
+| Vague | Make onboarding better with AI | Unreviewable |
+
+Key answer: An agentic coding workflow works best when each agent task has one user-visible behavior, clear acceptance criteria and a review step before the next task begins.
+
+Small loops do not mean tiny ambition. They mean controlled execution. If the goal is a full AI onboarding system, the loops might be: add the example-input step, store the examples, call the model, show a draft, capture user feedback, then add analytics. Each loop can be tested and reviewed.
+
+## Review the diff before trusting the screen
+
+A generated screen can look right while the code underneath is fragile. Start review with the diff, then run the product.
+
+Look for changed files outside the brief, new dependencies, duplicate helpers, hardcoded data, missing validation, weak typing, unhandled loading states, missing error paths, security-sensitive assumptions and tests that assert implementation details instead of behavior.
+
+After the diff review, run the workflow like a user who does not know the happy path. Submit empty input. Submit long input. Disconnect or mock a failed API call. Try a smaller viewport. Refresh mid-flow. Check whether the product preserves user work when something fails.
+
+AI products need this discipline even more than deterministic products because model output introduces new failure modes. If a model returns malformed output or low-confidence content, the interface still needs to behave calmly.
+
+## Use a recovery protocol when the agent goes wrong
+
+Agents will fail. A good workflow assumes that and gives you a way to recover without losing the thread.
+
+When output is wrong, stop the agent and read the diff. Decide whether the issue was an unclear brief, insufficient context or poor implementation. Keep any narrow useful changes, discard the rest, and shrink the next task.
+
+Do not spend ten rounds negotiating with an agent about a broad instruction. If it keeps missing, the task is probably too large or the acceptance criteria are too vague. Make the next prompt concrete: name the file, name the behavior, name the constraint and name the test.
+
+Recovery is part of the workflow, not an exception to it.
+
+## Use agents for product hardening
+
+The best agentic coding work is often not the shiny feature. It is the hardening work that turns prototypes into products.
+
+Coding agents are useful for adding logging around model calls, building small evaluation sets, creating retry and fallback behavior, refactoring prototype code into maintainable modules, writing tests for edge cases and wiring analytics for accepted, edited or rejected AI output.
+
+That connects directly to [from AI prototype to product](/writing/ai-prototype-to-product). A coding agent helps because it speeds up the supporting work production requires. It does not remove the need to decide what "good" means.
+
+## Document the decisions the agent should not remake
+
+A productive agentic workflow accumulates product decisions as it goes. If the team decides that generated summaries must always be editable before saving, write that down. If the analytics event names are fixed, write that down. If model output should never be sent automatically, write that down.
+
+This documentation can live in a lightweight product spec, a repo guide or a short implementation note beside the feature. The format matters less than the habit. Without it, every new agent task becomes an opportunity to remake old decisions accidentally.
+
+The most useful notes are concrete. "Use the existing analytics helper" is better than "track analytics." "The user can accept, edit or reject the AI draft, and rejection should be logged with an optional reason" is better than "collect feedback." Coding agents follow constraints better when those constraints are explicit.
+
+This also helps human reviewers. When the diff arrives, the reviewer can compare it against the documented decision instead of relying on memory. Over time, this turns agentic development from a series of isolated prompts into a repeatable product system.
+
+## FAQ
+
+### What is an agentic coding workflow?
+
+An agentic coding workflow is a repeatable process where a coding agent inspects a repo, implements a bounded change, runs checks and iterates under human review.
+
+### How big should a coding-agent task be?
+
+One user-visible behavior is a good default. If the task changes many unrelated parts of the product, split it before asking the agent to implement.
+
+### Should the agent plan before coding?
+
+Yes, for non-trivial tasks. Ask it to inspect relevant files and state the planned edits. This helps catch wrong assumptions before code changes.
+
+### What should product managers do in the workflow?
+
+Product managers should define the user workflow, acceptance criteria, constraints and success measures. They should not outsource product decisions to the agent.
+
+### How do I know when to stop iterating?
+
+Stop when the behavior meets the acceptance criteria, tests pass and the product workflow handles realistic edge cases. Do not keep generating variants because the agent can.
+
+## What to take from this
+
+Agentic coding is effective when it is controlled: brief, inspect, implement, review, test, decide. If you are building an AI product and need a disciplined build loop, [see the services I offer](/services).

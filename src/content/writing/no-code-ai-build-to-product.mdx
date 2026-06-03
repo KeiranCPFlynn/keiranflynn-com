@@ -1,0 +1,122 @@
+---
+title: "Turning a Lovable, Bolt or v0 AI Build Into a Real Product"
+slug: "no-code-ai-build-to-product"
+description: "How founders can turn no-code and AI-generated app builds into production-ready products without shipping fragile demos."
+date: "2026-06-03"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "lovable bolt to production"
+search_intent: "Founders using AI app builders who need to move from demo to production."
+tags:
+  - ai-product-building
+  - prototype-to-product
+  - ai-app-builders
+---
+
+Tools like Lovable, Bolt and v0 are excellent for getting from idea to visible software. They are much weaker at proving that the software is ready for production. Turning a Lovable, Bolt or v0 build into a real product means treating the generated app as a prototype, then rebuilding or verifying the production layers deliberately.
+
+The generated build can be a useful artifact. It shows the workflow, the interface direction and often the emotional shape of the product. But it is not proof that the data model is right, the permissions are safe or the AI behavior will survive real users.
+
+This sits inside the bigger path from [AI prototype to product](/writing/ai-prototype-to-product). The important shift is from "the demo works" to "the product can be trusted."
+
+## Decide what the generated build actually proved
+
+A generated app can prove that people understand the idea. It can help a founder align stakeholders, test the sequence of screens, compare interaction patterns and discover which parts of the product feel valuable.
+
+That is real progress. Before AI app builders, many founders could not get to that level of clarity without a designer or engineer. A visible prototype changes the conversation.
+
+But the generated build usually has not proved the things production depends on. It has not proved that authentication is correct, that team permissions work, that private data is protected, that the database schema will survive future features, that AI output is reliable or that the codebase can be maintained.
+
+The right posture is respect without trust. Respect the prototype for the product learning it created. Do not trust it as a production foundation until it has been audited.
+
+## Audit before adding more features
+
+Founders often respond to a promising generated app by asking for more features. That is the wrong order. Before expanding, inspect the foundation.
+
+| Area | What to inspect | Common issue |
+|---|---|---|
+| Data | Tables, state and persistence | Mock data or fragile schema |
+| Auth | Login, sessions and roles | Missing permission model |
+| AI | Prompt, parsing and fallback | Happy path only |
+| UI | Loading, empty and error states | Default screen only |
+| Code | Components and duplication | Large files and weak boundaries |
+| Deployment | Env vars, secrets and logs | Local-only assumptions |
+
+This audit gives you a decision: keep, refactor or rebuild. Without it, every new feature adds weight to unknown foundations.
+
+For AI-heavy products, the AI audit deserves special attention. Where is the prompt stored? What user data is sent to the model? What happens when the model returns unexpected format? Is output reviewed before it affects a user? Are failures logged? If the answers are unclear, the product is not ready.
+
+## Keep the product learning, not necessarily the code
+
+The most valuable part of an AI-generated build is often not the code. It is the clarity it created.
+
+Keep the screens that helped users understand the value. Keep the copy that explained the workflow well. Keep interaction patterns that felt obvious. Keep sample data that made the use case concrete. Keep feedback from people who saw or used the demo.
+
+But do not keep fragile implementation out of attachment. Prototype code can be useful, but only if it survives review. A generated component that is clean and isolated may be worth preserving. A tangled page that mixes UI, data access, auth assumptions and model calls is often better treated as a visual spec.
+
+This distinction saves time. You are not throwing away the prototype. You are extracting its product learning and refusing to let weak code define the product's future.
+
+## Rebuild the production spine
+
+Every real product needs a production spine: the smallest set of systems that must be reliable before users can depend on it.
+
+For most AI products, that spine includes authentication, database schema, permissions, core workflow routes, the AI call wrapper, logging, error handling and deployment configuration. If the product charges money, payments join that spine. If it handles team accounts, roles and permissions become central.
+
+Key answer: A no-code or AI-generated app becomes a product only when its production spine is rebuilt or verified: auth, data, permissions, AI failure handling, observability and deployment.
+
+This work is less exciting than generating a new screen, but it is what separates a demo from a product. A user does not care that the first version was built quickly. They care whether their data is safe, their work is saved and the product behaves predictably.
+
+## Use coding agents for migration, not magic
+
+Coding agents are useful for moving generated app code into a cleaner structure. They can identify duplication, extract components, create tests, add error states and replace mock data with real calls. They are much less useful when asked to "make this production-ready" in one broad instruction.
+
+Break the work down. Ask the agent to extract the core form into a reusable component. Then ask it to replace mock data with a real database call. Then add input validation. Then add loading and error states. Then add a test around the submit flow. Then add logging around the model call.
+
+Each task should produce a diff small enough to review. The [agentic coding workflow](/writing/agentic-coding-workflow) is the pattern to use: brief, inspect, implement, review, test, decide.
+
+If you are non-technical, this is the point where a technical reviewer becomes important. You can use the agent to make progress, but you still need someone who can tell whether the foundation is safe.
+
+## Know when a clean rebuild is cheaper
+
+Sometimes the fastest route is a clean rebuild using the generated app as a visual and product spec. This is often true when the codebase has no clear structure, the data model is wrong, auth was bolted on late, components are copied everywhere, AI behavior is mixed directly into UI components or nobody can explain how deployment works.
+
+A clean rebuild can feel wasteful because the prototype appears to work. But fighting a fragile generated codebase can be more expensive than rebuilding the core workflow deliberately. The more private data, payments, user roles or AI failure modes the product has, the more valuable a clean foundation becomes.
+
+The decision is not ideological. Keep what is clean and useful. Rebuild what carries risk.
+
+## Plan the migration in phases
+
+The safest path from generated app to product is a phased migration. First, freeze the prototype as a reference. Stop adding features long enough to understand what exists. Second, document the core workflow, data objects and AI behavior in plain language. Third, rebuild or verify the production spine. Fourth, port only the UI and interactions that still serve the narrowed product.
+
+This order prevents a common mistake: migrating every part of the demo because it is already there. A prototype often contains speculative screens that helped sell the idea but do not belong in the first product. Moving those screens into production adds cost without adding learning.
+
+During migration, keep a visible checklist of what has been verified: auth, permissions, database schema, model calls, error states, logs, deployment and tests. When a piece has not been verified, call it out. The goal is to remove false certainty.
+
+The founder's job is to protect the product learning while letting the implementation become more disciplined. The builder's job is to turn the useful parts of the prototype into a system that can be changed safely.
+
+## FAQ
+
+### Can I ship a Lovable, Bolt or v0 app directly?
+
+You can ship simple demos, but you should not ship production software with real users, payments or private data until auth, data, permissions, failure handling and deployment have been reviewed.
+
+### What parts of an AI-generated app are worth keeping?
+
+Keep product learning, useful UI patterns, copy, sample flows and any code that survives review. Do not keep fragile architecture just because it works once.
+
+### Should I add more features before hardening?
+
+No. Hardening one core workflow is usually more valuable than adding more prototype surface area. More features make weak foundations harder to replace.
+
+### How do I know if I should rebuild?
+
+Rebuild if the generated code is hard to understand, mixes concerns, has weak data structure or makes auth, permissions and AI failure handling difficult to reason about.
+
+### Can a non-technical founder manage this process?
+
+Yes for discovery and prototype shaping. Before production, bring in technical review for security, data, payments, deployment and AI reliability.
+
+## What to take from this
+
+AI app builders are powerful for expressing product intent. Production still requires engineering judgment. Keep the prototype's lessons, then build the spine properly. For help doing that, [see my AI product services](/services).

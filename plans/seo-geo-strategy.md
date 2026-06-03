@@ -1,231 +1,323 @@
-# AI Product SEO and LLM Discovery Blueprint
+# AI Product Content System: SEO + GEO Master Plan
 
-This site is now an AI product builder site, not an English-coaching content site. The writing section should function as a practical SEO blog and LLM-discoverable knowledge base for founders searching around AI product strategy, coding agents, prototype-to-product work and AI MVP builds.
+This is the operating system for the `/writing` section of keiranflynn.com. It exists so that any capable model can read this one document, see the full topic universe, identify what has not been written yet, and produce a publishable post that fills a real gap.
 
-## Source Principles
+The site is an AI product builder knowledge base for founders, operators and small teams searching around AI product strategy, coding agents, prototype-to-product work, AI MVP builds, internal tools and AI search visibility.
 
-Use these primary sources as the operating baseline:
+## 1. How to use this plan
 
-- Google AI features guidance: https://developers.google.com/search/docs/appearance/ai-overviews
-- Google people-first content guidance: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-- Google structured data guidance: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
-- OpenAI crawler documentation: https://platform.openai.com/docs/bots
+This document is built to be handed directly to an AI. The loop is:
+
+1. Read Section 4 (Exhaustive Topic Map). Every row has a `Status`.
+2. Pick the highest-priority row where `Status = Gap`. Ties break toward rows that strengthen an existing cluster hub.
+3. Confirm the topic is not already covered by reading the current inventory (Section 3) and, if available, the live files in `src/content/writing/`.
+4. Write the post using the Content Standard (Section 6), GEO Standard (Section 7) and the generation prompt in `plans/mdx-post-generation-prompt.md`.
+5. Wire internal links per the Linking Architecture (Section 8).
+6. Run the Per-Post Quality Bar (Section 10) and Technical Checklist (Section 9).
+7. Save the `.mdx` file to `src/content/writing/<slug>.mdx`, update this plan's `Status` for that row to `Published`, and update `llms.txt` if it is a pillar post.
+
+One post per run. Finish it completely rather than starting several.
+
+**Two hand-off modes:**
+
+- **Coding agent** (has repo access): runs the full loop above, saves the `.mdx`, and updates this plan's `Status`. Use `plans/mdx-post-generation-prompt.md`.
+- **One-off chat AI** (no repo access, cannot update records): paste `plans/standalone-content-prompt.md` as-is. It self-selects a gap by fetching the live `llms.txt` / `sitemap.xml` and diffing against the embedded topic universe (falling back to the embedded universe if it cannot browse), then returns only MDX. You save the file and flip the `Status` yourself. Use a browsing-enabled model for best results.
+
+## 2. Positioning and audience
+
+**Positioning:** Keiran Flynn is an AI product builder, based in Thailand, working remotely with founders, operators and small teams. He turns vague AI ideas into scoped products, prototypes, internal tools and live MVPs.
+
+**Proof to draw on (use concretely, never invent metrics):**
+
+- SchoolAI: scaled to 12,000+ users with zero paid acquisition.
+- LLMnesia: live Chrome extension for local-first AI conversation search across major LLM platforms.
+- LunaCradle: live AI baby-sleep guidance product on Next.js, Supabase, Stripe and an LLM provider.
+- Flow402: x402, Base and USDC agent-payments prototype.
+- LLMnesia Insights, Job Radar, this site, and 10+ further products, prototypes and demos.
+
+**Stack to reference where relevant:** Claude Code, Codex, ChatGPT, Claude, Gemini, Next.js, Supabase, PostHog, Stripe, APIs, Chrome Extensions, agentic workflows.
+
+**Primary readers:**
+
+| Reader | What they are trying to do |
+|---|---|
+| Non-technical founder | Turn an AI idea or prototype into something real users can use |
+| Technical founder / solo builder | Use coding agents and AI well without shipping fragile software |
+| Operator / ops lead | Automate internal workflows with AI and internal tools |
+| Product manager at a small team | Bring AI into a product with sound judgment, not hype |
+| Growth / marketing lead | Make a product discoverable in AI search and LLM answers |
+
+Every post must serve at least one of these readers and leave them with a clearer decision than they had before.
+
+## 3. Current writing inventory
+
+| Slug | Cluster | Target keyword | Status |
+|---|---|---|---|
+| coding-agents-for-product-teams | B Coding Agents | coding agents for product teams | Published |
+| ai-prototype-to-product | C Prototype to Product | ai prototype to product | Published |
+| practical-ai-product-strategy | A AI Product Strategy | practical ai product strategy | Published |
+| when-should-a-product-use-ai | A AI Product Strategy | when to use ai in a product | Published |
+| evaluate-ai-product-ideas | A AI Product Strategy | how to evaluate ai product ideas | Published |
+| claude-code-vs-codex-product-teams | B Coding Agents | claude code vs codex | Published |
+| agentic-coding-workflow | B Coding Agents | agentic coding workflow | Published |
+| coding-agents-non-technical-founders | B Coding Agents | coding agents for non technical founders | Published |
+| hardening-ai-prototype | C Prototype to Product | hardening ai prototype | Published |
+| no-code-ai-build-to-product | C Prototype to Product | lovable bolt to production | Published |
+| ai-mvp-development-process | D AI MVP Build Process | ai mvp development process | Published |
+| ai-mvp-cost | D AI MVP Build Process | cost to build ai mvp | Published |
+| llm-discovery-for-startups | F LLM Discovery, GEO and AI Search Visibility | llm discovery for startups | Published |
+
+When a post is published, add its row here and flip its `Status` in Section 4.
+
+## 4. Exhaustive topic map
+
+This is the full content universe. `Stage` is funnel position: TOFU (awareness/informational), MOFU (consideration/comparison/framework), BOFU (decision/commercial). `Pri` is priority: P1 ship first, P2 next, P3 backlog. Cluster hubs are marked; a hub is the pillar page that spokes link up to.
+
+### Cluster A: AI Product Strategy
+
+Hub: `practical-ai-product-strategy` (Published).
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| Practical AI product strategy (hub) | practical-ai-product-strategy | practical ai product strategy | MOFU | P1 | Published |
+| When should a product use AI | when-should-a-product-use-ai | when to use ai in a product | MOFU | P1 | Published |
+| How to evaluate an AI product idea | evaluate-ai-product-ideas | how to evaluate ai product ideas | MOFU | P1 | Published |
+| AI feature vs AI product | ai-feature-vs-ai-product | ai feature vs ai product | TOFU | P2 | Gap |
+| AI product failure states and fallbacks | ai-product-failure-states | ai product failure modes | MOFU | P2 | Gap |
+| Pricing an AI product | pricing-an-ai-product | how to price an ai product | MOFU | P2 | Gap |
+| AI product metrics that matter | ai-product-metrics | ai product metrics | MOFU | P3 | Gap |
+| Build vs buy for AI features | ai-build-vs-buy | ai build vs buy | MOFU | P2 | Gap |
+| Scoping an AI product roadmap | ai-product-roadmap | ai product roadmap | MOFU | P3 | Gap |
+
+### Cluster B: Coding Agents and Agentic Workflows
+
+Hub: `coding-agents-for-product-teams` (Published).
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| Coding agents for product teams (hub) | coding-agents-for-product-teams | coding agents for product teams | MOFU | P1 | Published |
+| Claude Code vs Codex for product teams | claude-code-vs-codex-product-teams | claude code vs codex | MOFU | P1 | Published |
+| Agentic coding workflow, end to end | agentic-coding-workflow | agentic coding workflow | TOFU | P1 | Published |
+| Coding agents for MVP development | coding-agents-mvp-development | coding agents for mvp | MOFU | P2 | Gap |
+| How to review code written by AI agents | reviewing-ai-generated-code | reviewing ai generated code | MOFU | P2 | Gap |
+| Writing specs and prompts for coding agents | specs-for-coding-agents | how to prompt coding agents | TOFU | P2 | Gap |
+| When coding agents fail and how to recover | coding-agent-failure-modes | coding agent limitations | MOFU | P2 | Gap |
+| Coding agents for non-technical founders | coding-agents-non-technical-founders | coding agents for non technical founders | TOFU | P1 | Published |
+| Setting up a repo for agentic development | repo-setup-for-coding-agents | repo setup for ai agents | MOFU | P3 | Gap |
+| Vibe coding to production: what changes | vibe-coding-to-production | vibe coding to production | TOFU | P2 | Gap |
+
+### Cluster C: Prototype to Product
+
+Hub: `ai-prototype-to-product` (Published).
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| From AI prototype to product (hub) | ai-prototype-to-product | ai prototype to product | TOFU | P1 | Published |
+| Hardening an AI prototype for real users | hardening-ai-prototype | hardening ai prototype | MOFU | P1 | Published |
+| AI demo traps and how to avoid them | ai-demo-traps | ai demo vs product | MOFU | P2 | Gap |
+| Turning a v0 / Lovable / Bolt build into a real app | no-code-ai-build-to-product | lovable bolt to production | MOFU | P1 | Published |
+| Adding auth, data and payments to a prototype | prototype-to-production-infrastructure | prototype to production infrastructure | MOFU | P2 | Gap |
+| Testing and reliability for AI products | testing-ai-products | how to test ai products | MOFU | P2 | Gap |
+| Handling LLM cost and latency in production | llm-cost-and-latency | llm cost optimization | MOFU | P2 | Gap |
+| Observability and evals for AI features | ai-evals-and-observability | ai evals | MOFU | P3 | Gap |
+
+### Cluster D: AI MVP Build Process
+
+Hub: `ai-mvp-development-process` (Published).
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| AI MVP development process (hub) | ai-mvp-development-process | ai mvp development process | MOFU | P1 | Published |
+| How long it takes to build an AI MVP | ai-mvp-timeline | how long to build an ai mvp | MOFU | P2 | Gap |
+| How much an AI MVP costs to build | ai-mvp-cost | cost to build ai mvp | BOFU | P1 | Published |
+| AI product launch checklist | ai-product-launch-checklist | ai product launch checklist | MOFU | P2 | Gap |
+| Scoping an AI MVP without overbuilding | scoping-an-ai-mvp | how to scope an mvp | MOFU | P2 | Gap |
+| Choosing a tech stack for an AI MVP | ai-mvp-tech-stack | ai mvp tech stack | MOFU | P3 | Gap |
+| From idea to MVP in a sprint | ai-idea-to-mvp-sprint | ai idea to mvp | TOFU | P2 | Gap |
+
+### Cluster E: AI Internal Tools and Workflow Automation
+
+Hub: `ai-workflow-automation-for-startups` (Gap, P2, create as pillar).
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| AI workflow automation for startups (hub) | ai-workflow-automation-for-startups | ai workflow automation for startups | MOFU | P2 | Gap |
+| Building internal AI tools for a small team | internal-ai-tools-small-teams | internal ai tools | MOFU | P2 | Gap |
+| Automating ops with LLMs without breaking things | automating-ops-with-llms | automate operations with ai | MOFU | P3 | Gap |
+| When to automate vs keep a human in the loop | human-in-the-loop-ai | human in the loop ai | MOFU | P3 | Gap |
+| AI agents for back-office workflows | ai-agents-back-office | ai agents for operations | MOFU | P3 | Gap |
+| Connecting AI to your existing tools and data | ai-integration-existing-tools | connect ai to existing tools | MOFU | P3 | Gap |
+
+### Cluster F: LLM Discovery, GEO and AI Search Visibility
+
+Hub: `llm-discovery-for-startups` (Published). This cluster is both a topic and a demonstration of the site's own practice.
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| LLM discovery for startups (hub) | llm-discovery-for-startups | llm discovery for startups | MOFU | P1 | Published |
+| What is GEO (generative engine optimization) | what-is-geo | generative engine optimization | TOFU | P1 | Gap |
+| How to add llms.txt to a product site | llms-txt-for-product-sites | llms.txt | MOFU | P1 | Gap |
+| Getting cited by ChatGPT and AI Overviews | get-cited-by-ai-search | how to get cited by chatgpt | MOFU | P1 | Gap |
+| SEO for AI product companies | seo-for-ai-product-companies | seo for ai startups | MOFU | P2 | Gap |
+| AI search visibility checklist | ai-search-visibility-checklist | ai search visibility | MOFU | P2 | Gap |
+| Structured data for AI answer engines | structured-data-for-ai-search | structured data for ai search | MOFU | P3 | Gap |
+| Controlling AI crawlers (GPTBot, OAI-SearchBot) | ai-crawler-control | gptbot oai-searchbot | MOFU | P3 | Gap |
+| Writing content LLMs can extract and cite | writing-for-llm-extraction | content for llm citation | TOFU | P2 | Gap |
+
+### Cluster G: Founder Decision Guides
+
+No single hub; these link up to the most relevant pillar. High commercial pull.
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| Should you hire an AI product builder or an agency | ai-product-builder-vs-agency | ai consultant vs agency | BOFU | P2 | Gap |
+| Fractional AI product lead: what it is and when to use one | fractional-ai-product-lead | fractional ai product lead | BOFU | P2 | Gap |
+| Risks of building AI products and how to manage them | ai-product-risks | ai product risks | MOFU | P3 | Gap |
+| Common mistakes founders make with AI products | ai-product-mistakes | ai product mistakes | TOFU | P2 | Gap |
+| How to brief a developer or builder on an AI product | briefing-an-ai-build | how to brief an ai project | MOFU | P3 | Gap |
+
+### Cluster H: Working With an AI Product Builder (commercial)
+
+BOFU intent. These map directly to `/services` and `/contact`. Write sparingly and only when the query is real; over-producing commercial pages dilutes the cluster.
+
+| Topic | Slug | Target keyword | Stage | Pri | Status |
+|---|---|---|---|---|---|
+| What an AI product sprint includes | ai-product-sprint | ai product sprint | BOFU | P2 | Gap |
+| AI MVP build partner: how it works | ai-mvp-build-partner | ai mvp build partner | BOFU | P3 | Gap |
+| Working with a remote AI product builder | remote-ai-product-builder | hire ai product builder | BOFU | P3 | Gap |
+
+When all P1 rows are Published, move to P2, then P3. If every row in this map is Published, expand the map: add new rows under the closest cluster, keep slugs short and stable, and only add topics tied to a real query a target reader would type.
+
+## 5. Source principles
+
+Operate from the published guidance, not from SEO folklore:
+
+- Google AI features: https://developers.google.com/search/docs/appearance/ai-overviews
+- Google helpful content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- Google structured data: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+- OpenAI crawlers: https://platform.openai.com/docs/bots
 - OpenAI publisher FAQ: https://help.openai.com/en/articles/12627856-publishers-and-developers-faq
 - Bing Webmaster Guidelines: https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a
 
-The practical interpretation:
+Practical interpretation:
 
-- There is no separate trick for AI Overviews or AI Mode. Google says normal SEO fundamentals still apply: crawlability, eligibility for snippets, helpful content and reliable technical implementation.
-- ChatGPT discovery depends on allowing OAI-SearchBot. GPTBot is separate and relates to training, not search inclusion.
-- Bing and Copilot rely on crawlability, indexing accuracy, freshness, structured content and clear authority signals.
-- Structured data helps machines understand the page, but it does not replace visible, useful content.
+- There is no separate trick for AI Overviews or AI Mode. The same fundamentals apply: crawlability, snippet eligibility, helpful content, reliable technical implementation.
+- ChatGPT search inclusion depends on allowing OAI-SearchBot. GPTBot relates to training, not search inclusion. They are separate decisions.
+- Bing and Copilot rely on crawlability, accurate indexing, freshness, structured content and clear authority signals.
+- Structured data helps machines parse a page; it supplements visible, useful content, it does not replace it.
 
-## Current Writing Inventory
+## 6. Content standard
 
-| URL | Primary target | Status |
+Write useful, search-facing guides. Depth comes from answering the query better than the competing pages, not from a word target. Google explicitly warns against writing to a word count.
+
+**Depth guide:**
+
+| Type | Words | Use when |
 |---|---|---|
-| /writing/coding-agents-for-product-teams | coding agents for product teams | Rewritten as practical guide |
-| /writing/ai-prototype-to-product | ai prototype to product | Strong long-form guide; cleaned public notes |
-| /writing/practical-ai-product-strategy | practical AI product strategy | Strong framework; cleaned public notes |
+| Tactical post | 900-1,200 | The query is narrow and has one clear answer |
+| Standard guide | 1,400-2,000 | The query needs context, tradeoffs and a workflow |
+| Pillar / hub | 2,000-3,000 | The query is broad; spokes will link up to it |
 
-## Content Standard
+A post that tries to answer more than one major intent should be split.
 
-Do not write "essays." Write useful search-facing guides.
+**Canonical frontmatter.** The site loader (`src/lib/writing.ts`) reads `title`, `date`, `description`, `tags`, `author`. The remaining fields are planning metadata that travel with the file. Always include `author` so the byline renders. The slug is the filename; the `slug` field is informational only.
 
-Every new writing post should satisfy a real query and be clear enough for a founder, search crawler or LLM answer system to understand without extra context.
-
-Target depth:
-
-- Short tactical post: 900-1,200 words only if the query is narrow.
-- Standard guide: 1,400-2,000 words.
-- Pillar guide: 2,000-3,000 words, split if it tries to answer more than one major intent.
-
-Do not chase word count for its own sake. Google explicitly warns against writing to a preferred word count. Depth should come from answering the query better than competitors, not padding.
-
-## Required Structure for Future Posts
-
-Each post should include:
-
-1. Frontmatter:
-   - title
-   - date
-   - description
-   - tags
-   - author
-   - target_keyword
-   - search_intent
-
-2. Opening:
-   - Define the problem in the first 100 words.
-   - Use the target phrase naturally once.
-   - State the direct answer or thesis early.
-
-3. Body:
-   - 5-7 descriptive H2s.
-   - At least one comparison table.
-   - One concrete workflow, checklist or decision framework.
-   - Specific product examples from Keiran's work where relevant: LLMnesia, SchoolAI, LunaCradle, Flow402, LLMnesia Insights, Job Radar, this site.
-   - 2-4 internal links to related writing, services, work or contact pages.
-
-4. FAQ:
-   - 4-6 direct questions.
-   - Each answer should be self-contained and citable.
-   - Do not stuff keywords.
-
-5. CTA:
-   - Use only when it fits naturally.
-   - Prefer concise language: "If you are trying to turn an AI idea into a real product, book a 10-minute fit call."
-
-## LLM Discovery Standard
-
-LLM-discoverable content should be easy to extract, attribute and cite.
-
-Write with:
-
-- Clear definitions.
-- Short, direct answers under descriptive headings.
-- Comparison tables.
-- Named frameworks.
-- Visible author and topic expertise.
-- Canonical internal links.
-- No hidden reliance on images, SVGs or vague diagrams.
-- Updated `llms.txt` and `llms-full.txt` when positioning or article inventory changes.
-
-For each pillar article, add a paragraph that makes the page's key answer explicit. Example:
-
-"For product teams, coding agents are best used as execution partners for bounded software tasks, not as replacements for product judgment or engineering review."
-
-That sentence can stand alone in an AI answer with attribution.
-
-## Technical SEO Checklist
-
-For each post:
-
-- [ ] URL is short and stable.
-- [ ] Title and H1 match the query intent but are not clickbait.
-- [ ] Meta description explains the practical value.
-- [ ] Canonical URL is correct.
-- [ ] Article JSON-LD is present.
-- [ ] Sitemap includes the page automatically.
-- [ ] Page is indexable and snippet-eligible.
-- [ ] No internal planning notes render publicly.
-- [ ] Tables render cleanly on mobile.
-- [ ] The article links to at least two related internal URLs.
-- [ ] `llms.txt` or `llms-full.txt` is updated for major new pillar posts.
-
-## Priority Topic Map
-
-### Pillar Cluster: Coding Agents
-
-| Topic | Slug | Search intent |
-|---|---|---|
-| Coding agents for product teams | coding-agents-for-product-teams | What they are and how teams should use them |
-| Claude Code vs Codex for product teams | claude-code-vs-codex-product-teams | Tool comparison for founders and PMs |
-| Agentic coding workflow | agentic-coding-workflow | Practical workflow/process query |
-| Coding agents for MVP development | coding-agents-mvp-development | Build path for founders |
-
-### Pillar Cluster: Prototype to Product
-
-| Topic | Slug | Search intent |
-|---|---|---|
-| From AI prototype to product | ai-prototype-to-product | How to harden a prototype |
-| AI MVP development process | ai-mvp-development-process | Steps and scope |
-| AI product launch checklist | ai-product-launch-checklist | Practical pre-launch checklist |
-| How to evaluate AI product ideas | evaluate-ai-product-ideas | Discovery and product strategy |
-
-### Pillar Cluster: AI Product Strategy
-
-| Topic | Slug | Search intent |
-|---|---|---|
-| Practical AI product strategy | practical-ai-product-strategy | Strategic framework |
-| When should a product use AI? | when-should-product-use-ai | Decision guide |
-| AI workflow automation for startups | ai-workflow-automation-startups | Founder/internal-tools query |
-| AI product failure states | ai-product-failure-states | UX and reliability query |
-
-### Pillar Cluster: LLM Discovery and AI Search
-
-| Topic | Slug | Search intent |
-|---|---|---|
-| LLM discovery for startups | llm-discovery-for-startups | How to make a site answer-engine friendly |
-| llms.txt for product sites | llms-txt-product-sites | Practical implementation |
-| SEO for AI product companies | seo-for-ai-product-companies | Positioning and technical SEO |
-| AI search visibility checklist | ai-search-visibility-checklist | Tactical checklist |
-
-## Repeatable Post Template
-
-Use this outline for future posts:
-
-```md
+```yaml
 ---
-title: "Primary Keyword: Practical Angle"
+title: "Specific, search-friendly title"
+slug: "url-slug"
+description: "One sentence under 155 characters for searchers and humans."
 date: "YYYY-MM-DD"
-description: "Direct answer to the query and who it helps."
-tags: ["ai-product-building", "..."]
 author: "Keiran Flynn"
-target_keyword: "..."
-search_intent: "..."
+status: "published"
+pillar: "Cluster name from Section 4"
+target_keyword: "primary keyword"
+search_intent: "Who the reader is and what they need"
+tags:
+  - ai-product-building
+  - one-specific-topic
+  - another-specific-topic
 ---
-
-# Primary Keyword: Practical Angle
-
-Direct opening. Define the problem. State the practical answer.
-
-## What [topic] means
-
-Definition and why it matters.
-
-## When it helps
-
-Specific use cases.
-
-## When it fails
-
-Tradeoffs and failure modes.
-
-## Practical workflow
-
-Numbered process.
-
-## Comparison table
-
-| Option | Use when | Avoid when |
-|---|---|---|
-
-## Example from product work
-
-Concrete example tied to LLMnesia, SchoolAI, LunaCradle, Flow402, Job Radar, LLMnesia Insights or this site.
-
-## FAQ
-
-### Question?
-
-Direct answer.
-
-## Bottom line
-
-Concise conclusion and optional CTA.
 ```
 
-## Publishing Workflow
+**Structure of the body** (no top-level H1, the template renders the title):
 
-1. Pick a topic from the map.
+1. Opening: name the real problem in the first 100 words, use the target phrase once, naturally, and state the direct answer or thesis early.
+2. Body: 5-7 descriptive H2s; at least one comparison table that compares choices, risks or decisions; one concrete workflow, checklist or decision framework; specific examples from the proof list in Section 2 where they fit.
+3. FAQ: 4-6 questions people actually search, each answer self-contained and citable.
+4. Close: a concise conclusion, and a CTA only when it fits, e.g. "If you are turning an AI idea into a real product, book a 10-minute fit call."
+
+**Voice:**
+
+- Write like a senior product builder explaining what actually works.
+- Be specific: concrete workflows, failure modes, tradeoffs, named examples.
+- No fabricated stories, numbers or certainty.
+- No em dashes or en dashes. Use periods, commas, colons, semicolons or parentheses.
+- Avoid filler phrases: "the bottom line", "not just X but Y", "in today's fast-paced world", "unlock", "game-changer", "seamless", "delve", "landscape", "leverage" unless plainly best, "crucial" unless plainly best, "it depends" unless followed by a decision rule.
+
+## 7. GEO and LLM extraction standard
+
+LLM-discoverable content is content an answer engine can extract, attribute and cite. Write so that a single passage can stand alone in an AI answer with attribution.
+
+- Lead each section with a clear, direct answer under a descriptive heading; supporting detail follows.
+- Define terms explicitly before using them.
+- Use comparison tables and named frameworks; both are easy to lift and cite.
+- Make author and topic expertise visible.
+- Do not hide the key answer inside an image, SVG or vague diagram. Text carries the meaning.
+- For each pillar, include one explicit "key answer" sentence. Example: "For product teams, coding agents are best used as execution partners for bounded software tasks, not as replacements for product judgment or engineering review."
+- Update `public/llms.txt` and `public/llms-full.txt` whenever positioning changes or a pillar post ships: add the new URL to the Writing cluster with a one-line description.
+
+## 8. Internal linking architecture
+
+The site uses a hub-and-spoke model. Each cluster in Section 4 has a hub (pillar). Spokes link up to their hub; the hub links down to its strongest spokes.
+
+Every post links to:
+
+- Its cluster hub (or, for cross-cluster relevance, the nearest hub).
+- 1-3 sibling posts in the same or an adjacent cluster.
+- One commercial or conversion page where natural: `/services`, `/contact`, `/conversation`, `/work` or `/about`.
+
+Use descriptive anchor text that contains the target concept of the destination, not "click here". Add links only where they genuinely help the reader.
+
+## 9. Technical SEO checklist
+
+The infrastructure already exists: `src/app/sitemap.ts`, `src/app/robots.ts`, `src/components/JsonLd.tsx`, and Article JSON-LD on writing pages. Per post, confirm:
+
+- [ ] URL slug is short, descriptive and stable.
+- [ ] Title and H1 match query intent without clickbait.
+- [ ] Meta description (`description`) explains the practical value, under 155 characters.
+- [ ] `author: "Keiran Flynn"` is present so the byline and Article schema author render.
+- [ ] Article JSON-LD renders with correct title, date and author.
+- [ ] The page is indexable and snippet-eligible.
+- [ ] The page appears in the sitemap automatically after the file is added.
+- [ ] Tables render cleanly on mobile.
+- [ ] The post links to its hub plus at least two related internal URLs.
+- [ ] No planning notes, suggested titles or draft instructions render in the visible content.
+- [ ] `llms.txt` / `llms-full.txt` updated if it is a pillar post.
+
+## 10. Per-post quality bar
+
+A post is ready when:
+
+- It answers a specific query a target reader from Section 2 would type.
+- It contains a concrete workflow, checklist or decision framework.
+- It contains at least one comparison table that compares real choices, risks or decisions.
+- It uses at least one specific example from the proof list, where relevant.
+- It has the required internal links wired (Section 8).
+- It reads like grounded product advice, with a clear decision for the reader to take away.
+- It carries no fabricated metrics, stories or certainty, and no filler phrases from Section 6.
+- The frontmatter matches Section 6 exactly, including `author`.
+
+## 11. Publishing workflow
+
+1. Pick the highest-priority `Gap` row in Section 4.
 2. Write the search intent in one sentence.
-3. Check existing site content for overlap.
-4. Draft the post using the template.
-5. Add internal links and one comparison table.
-6. Remove all planning notes before publishing.
-7. Run lint/build.
-8. Check the page visually on desktop and mobile.
-9. Update `llms.txt`/`llms-full.txt` if it is a pillar post.
-10. Submit or monitor through Google Search Console and Bing Webmaster Tools.
-
-## Quality Gate
-
-Do not publish if:
-
-- The post could apply to any AI consultant site.
-- It does not include a concrete workflow or decision framework.
-- It has no internal links.
-- It relies on vague claims like "AI will transform workflows."
-- It says "essay" or presents the content as personal reflection instead of useful guidance.
-- It exposes notes, suggested meta titles or draft instructions in rendered content.
+3. Check Section 3 and the live files for overlap; if it overlaps an existing post, improve that post instead.
+4. Draft the post with the generation prompt (`plans/mdx-post-generation-prompt.md`) and this standard.
+5. Add internal links and at least one comparison table.
+6. Run the Quality Bar (Section 10) and Technical Checklist (Section 9).
+7. Save to `src/content/writing/<slug>.mdx`.
+8. Flip the row's `Status` to `Published` here and add it to Section 3.
+9. Run lint and build; check the page on desktop and mobile.
+10. Update `llms.txt` / `llms-full.txt` for pillar posts.
+11. Submit or monitor through Google Search Console and Bing Webmaster Tools.

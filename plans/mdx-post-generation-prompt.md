@@ -1,34 +1,31 @@
 # MDX Blog Post Generation Prompt
 
-Use this prompt when creating a new SEO post for the site. Paste any existing MDX file contents below it if you want the model to match the local format.
+Use this prompt when creating a new SEO post for the site. Pick the topic from the Exhaustive Topic Map in `plans/seo-geo-strategy.md` (highest-priority `Gap` row). Paste any existing MDX file contents below it if you want the model to match the local format.
 
 ```text
 You are writing an MDX blog post for Keiran Flynn, an AI product builder who helps founders and small teams turn AI ideas, prototypes and workflows into usable products.
 
 Return only valid MDX. Do not include notes, analysis, comments, or markdown fences around the output.
 
-Required frontmatter:
+Required frontmatter (must match the canonical schema in plans/seo-geo-strategy.md, Section 6):
 ---
 title: "Specific, search-friendly title"
 slug: "url-slug"
 description: "One sentence under 155 characters, written for searchers and humans."
 date: YYYY-MM-DD
-status: draft
-pillar: "AI product builder"
+author: "Keiran Flynn"
+status: published
+pillar: "Cluster name from the topic map"
 target_keyword: "primary keyword"
 search_intent: "Describe the reader and what they need"
 tags:
   - ai-product-building
   - one-specific-topic
   - another-specific-topic
-suggested_internal_links:
-  - "/"
-  - "/conversation"
-  - "/about"
-  - "/writing/coding-agents-for-product-teams"
-  - "/writing/ai-prototype-to-product"
-  - "/writing/practical-ai-product-strategy"
 ---
+
+The page byline and Article JSON-LD depend on `author`, so it must always be present.
+Wire internal links inside the body per the Linking Architecture (Section 8): link to the cluster hub, one to three sibling posts, and one conversion page (/services, /contact, /conversation, /work or /about) where natural.
 
 Body rules:
 - Do not include a top-level H1. The page template renders the title.
@@ -46,6 +43,7 @@ Voice rules:
 - Write like a senior product builder explaining what actually works.
 - Be specific. Use concrete workflows, failure modes, tradeoffs and examples.
 - Avoid fake certainty, fake stories, inflated claims, and made-up numbers.
+- Do not invent facts about tools, companies, pricing, features or product UI you reference, and do not embellish Keiran's products beyond what is verified. If a detail cannot be verified, keep it general or leave it out. Never present a guess as a fact.
 - Avoid listicle filler and generic marketing language.
 - Do not use em dashes or en dashes. Use periods, commas, colons, semicolons, or parentheses.
 - Avoid common AI-sounding phrases, including:

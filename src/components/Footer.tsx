@@ -7,11 +7,11 @@ const siteLinks = [
   { href: "/services", label: "Services" },
   { href: "/writing", label: "Writing" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const connectLinks = [
   { href: "https://cal.com/keirancpflynn/10-min-fit-call", label: "Book a call" },
-  { href: "mailto:freelymoving@gmail.com", label: "Email" },
   { href: "https://www.linkedin.com/in/keiran-flynn/", label: "LinkedIn" },
   { href: "https://github.com/KeiranCPFlynn", label: "GitHub" },
 ];
@@ -48,8 +48,8 @@ export function Footer() {
             <a
               key={link.href}
               href={link.href}
-              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {link.label}
             </a>
