@@ -1,0 +1,92 @@
+---
+title: "AI Product Launch Checklist: What to Verify Before You Ship"
+slug: "ai-product-launch-checklist"
+description: "A practical pre-launch checklist for AI products, covering reliability, cost, safety, data and the things teams forget until users hit them."
+date: "2026-06-04"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI MVP Build Process"
+target_keyword: "ai product launch checklist"
+search_intent: "Founders and product teams about to launch an AI product or MVP who want to confirm they have covered the essentials."
+tags:
+  - ai-product-building
+  - ai-mvp
+  - product-launch
+---
+
+You are close to launching an AI product and you want to know what you might be missing before real users arrive. An AI product launch checklist is not the same as a normal software launch checklist, because AI products fail in ways ordinary software does not: they produce confident wrong answers, their costs scale with usage in unpredictable ways, and their behavior shifts with inputs you cannot fully anticipate. The goal before launch is not perfection. It is making sure that when the AI is wrong, slow or expensive, your product handles it without harming users or your business.
+
+This guide is a practical pre-launch checklist grouped by what actually breaks AI products in their first weeks, plus how to decide what is launch-blocking versus what can follow.
+
+## What makes an AI launch different
+
+A normal software launch mostly asks whether the features work and the system stays up. An AI launch adds questions that have no equivalent in deterministic software: is the output good enough often enough, what happens when it is wrong, what does it cost per use, and is it safe against misuse. These are not edge concerns. They are the center of whether an AI product is viable in production.
+
+The reason is that AI output is probabilistic and fluent. It will sometimes be wrong, and it will be wrong confidently. A launch checklist for an AI product is therefore organized around containing that reality: evaluating quality, handling failure, controlling cost, and protecting users. Get those right and a rough product can launch safely. Get them wrong and a polished-looking product can do real damage on day one.
+
+Key answer: An AI product is ready to launch when wrong, slow or expensive AI behavior is contained by evaluation, fallbacks, cost controls and safety guardrails, not when the AI is perfect, because it will not be.
+
+## The pre-launch checklist
+
+Work through these groups. Mark each item done, deliberately deferred, or launch-blocking. The point is conscious decisions, not green checkmarks.
+
+| Area | Verify before launch |
+|---|---|
+| Output quality | You have defined what "good output" means and can evaluate it on real inputs |
+| Failure handling | Wrong, empty, slow or unsafe output has a real fallback, not a silent failure |
+| Cost control | You know cost per interaction and have limits, caps or alerts so usage cannot bankrupt you |
+| Latency | Response times are acceptable under expected load, with a plan for slow calls |
+| Data and privacy | You know what data is sent to the model, what is stored, and that it is allowed |
+| Safety and abuse | Guardrails against harmful, off-topic or adversarial use are in place |
+| Auth and permissions | Who can see and do what is enforced, including on AI actions |
+| Observability | You can see what users send, what the model returns, errors and cost in production |
+| Rollback | You can disable or revert the AI feature quickly if something goes wrong |
+| Support path | There is a way for users to report bad output and for you to respond |
+
+The two items teams most often skip are evaluation and cost control. Without evaluation you are launching on the assumption that fluent means correct. Without cost control a viral day can produce a bill that turns a success into a crisis.
+
+## A pre-launch workflow
+
+A checklist is only useful if you run it deliberately. This is the sequence I use in the final stretch before an AI product launch.
+
+1. Write down what correct output looks like for your core use case, in plain terms.
+2. Run the product on a realistic set of messy inputs, not the inputs you built it on, and score the output.
+3. Force each failure path on purpose: wrong output, empty output, timeout, model error, and confirm the fallback behaves.
+4. Measure cost and latency per interaction, project them at expected volume, and set caps and alerts.
+5. Confirm data handling: what leaves your system, what is stored, and whether you are allowed to do both.
+6. Add the kill switch: a fast way to disable the AI feature without taking down the whole product.
+7. Decide each open gap's status: launch-blocking, or a documented post-launch fix.
+
+This sequence assumes the production fundamentals from [hardening an AI prototype](/writing/hardening-ai-prototype) are already in place. The launch checklist confirms they hold up under the specific pressures of going live, and it is the final stage of the [AI MVP development process](/writing/ai-mvp-development-process).
+
+## Deciding what is launch-blocking
+
+Not every gap blocks a launch, and treating every item as mandatory either delays you forever or hides the items that genuinely matter. The test for a launch-blocker is simple: could this gap harm a user, breach data, or seriously damage the business on day one. If yes, it blocks. If it only degrades the experience or can be fixed quickly after launch, it can follow.
+
+By that test, missing safety guardrails on a user-facing generative feature, no cost cap on an expensive model, unhandled failure on the core action, or sending data you are not allowed to send are launch-blocking. A missing nice-to-have, an unoptimized cost that is still affordable, or a rough edge on a secondary flow are usually not. The discipline is to make these calls explicitly and write them down, so a deferred item is a decision you can revisit, not a thing you forgot. Scoping this way is the same judgment that keeps an MVP from overbuilding, covered in the [AI MVP development process](/writing/ai-mvp-development-process).
+
+## FAQ
+
+### What should be on an AI product launch checklist?
+
+Output quality and evaluation, failure handling and fallbacks, cost control, latency, data and privacy, safety and abuse guardrails, auth and permissions, observability, a rollback or kill switch, and a support path for bad output.
+
+### How is launching an AI product different from normal software?
+
+AI output is probabilistic and confidently wrong at times, and costs scale with usage. So an AI launch adds questions about output quality, failure handling, cost per use and safety that deterministic software does not have.
+
+### Does my AI product need to be perfect before launch?
+
+No. It needs wrong, slow or expensive behavior to be contained by evaluation, fallbacks, cost controls and guardrails. The AI will not be perfect; the product must handle that gracefully.
+
+### What is the most overlooked pre-launch item for AI products?
+
+Evaluation and cost control. Teams launch assuming fluent output is correct, and without cost caps a spike in usage can produce a damaging bill. Both should be settled before launch.
+
+### How do I decide what blocks a launch?
+
+Ask whether the gap could harm a user, breach data or seriously damage the business on day one. If yes, it blocks. If it only degrades experience or is quickly fixable afterward, document it and ship.
+
+## What to take from this
+
+Launching an AI product safely is about containing its failures, not eliminating them. Confirm you can evaluate output, handle failure, control cost and protect users, then decide deliberately what blocks the launch and what follows it. For the full build context, see the [AI MVP development process](/writing/ai-mvp-development-process), and if you want a pre-launch review before you ship, [start a conversation](/conversation).

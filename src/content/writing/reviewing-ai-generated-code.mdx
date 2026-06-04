@@ -1,0 +1,98 @@
+---
+title: "How to Review Code Written by AI Agents"
+slug: "reviewing-ai-generated-code"
+description: "A practical review process for code produced by coding agents, covering what to check, where agents fail, and how to keep velocity without shipping fragile software."
+date: "2026-06-04"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents"
+target_keyword: "reviewing ai generated code"
+search_intent: "Technical founders and developers who use coding agents and need a reliable way to review the output before it ships."
+tags:
+  - ai-product-building
+  - coding-agents
+  - code-review
+---
+
+Coding agents now write large amounts of working code quickly, which moves the bottleneck from writing to reviewing. Reviewing AI generated code well is the difference between fast, safe shipping and a codebase that quietly fills with plausible-looking bugs. The core idea is simple: review agent output against intent and risk, not against whether it runs, because agent code usually runs and still may be wrong in ways that surface later.
+
+This guide gives a concrete review process: what to check first, where agents reliably fail, and how to keep the speed advantage without lowering the bar that protects production.
+
+## Why agent code needs a different review reflex
+
+Human pull requests and agent pull requests fail in different places, so the same review habits do not transfer cleanly. A human author has held the whole change in their head and usually understands the why. An agent has produced a locally plausible change that may not reflect the actual goal, the surrounding system, or the constraints you never wrote down.
+
+The dangerous property of agent code is that it is confident and well-formatted. It compiles, it reads cleanly, it has reasonable variable names, and it often includes tests that pass. None of that confirms it does the right thing. So the review reflex shifts from "is this written competently" to "does this do what we actually intended, and what happens when it is wrong." You are reviewing judgment and risk, not style.
+
+Key answer: Review AI-generated code against intent, edge cases and blast radius, not just whether it runs, because agent output is usually syntactically correct and confidently presented even when the underlying logic is wrong.
+
+## What to check, in order
+
+A consistent order keeps reviews fast and catches the expensive problems first. Spend your attention where the risk is, not evenly across the diff.
+
+1. Intent: does the change actually solve the stated problem, not a nearby one?
+2. Scope: did the agent change only what it should, or did it touch unrelated files?
+3. Data and side effects: what does this read, write, delete or send, and is that correct?
+4. Edge cases: empty inputs, errors, timeouts, partial failures, concurrency.
+5. Security and secrets: auth checks, input handling, no leaked keys, no unsafe calls.
+6. Tests: do they assert the real behavior, or do they assert what the code happens to do?
+7. Fit: does it match existing patterns, or introduce a redundant new way to do something?
+8. Cost and performance: extra calls, N+1 queries, unnecessary LLM calls or large payloads.
+
+The most common miss is step six. Agents frequently write tests that lock in the current implementation rather than the intended behavior, so the suite passes while proving nothing. Read tests as a reviewer, not as a green checkmark.
+
+## Where coding agents reliably fail
+
+Knowing the recurring failure modes lets you aim review attention precisely instead of reading every line with equal suspicion.
+
+| Failure mode | What it looks like | What to do |
+|---|---|---|
+| Plausible but wrong logic | Confident code solving the wrong problem | Check against the original intent first |
+| Silent scope creep | Unrequested refactors or extra files changed | Reject and re-scope the task |
+| Tests that assert the implementation | Green suite that proves nothing | Rewrite tests around behavior |
+| Missing edge cases | Happy path only | Probe empty, error and failure inputs |
+| Invented APIs or fields | Calls to things that do not exist | Verify against real interfaces |
+| Duplicated patterns | A new way to do an existing thing | Point it at the existing utility |
+| Dropped constraints | Ignores a rule you never wrote down | Put the rule in the spec next time |
+
+Most of these trace back to an underspecified task. The better your brief, the fewer of these you see, which is why review and prompting are two halves of the same loop in an [agentic coding workflow](/writing/agentic-coding-workflow).
+
+## A review workflow that keeps velocity
+
+The goal is to keep the speed agents give you without letting risk through. This is the loop I use on product work.
+
+Start by reviewing the diff against the task you gave, not against the code in isolation. If the change does not map to the intent, stop and re-scope rather than fixing it line by line. For changes that touch data, auth, payments or anything user-facing, read every line and trace the failure paths. For low-risk, well-bounded changes, review the intent, the edges and the tests, and move on. Run the code and the tests yourself rather than trusting the agent's report that they pass. When you find a systematic mistake, fix the brief or the repo conventions so the agent stops repeating it, instead of correcting the same thing every time.
+
+This is where review connects to production readiness. Code that passes review still needs the data rules, failure states and observability described in [hardening an AI prototype](/writing/hardening-ai-prototype) before it carries real users.
+
+## Match review depth to risk
+
+Not every change deserves the same scrutiny, and treating them equally either slows you down or lets risk through. Calibrate by blast radius.
+
+High-risk changes, anything touching authentication, payments, data deletion, permissions or external sends, get a full line-by-line read and explicit failure-path testing. Medium-risk changes, new user-facing features and non-trivial logic, get an intent, edge-case and test review. Low-risk changes, copy, styling, isolated and well-tested utilities, get a quick intent and scope check. The mistake is the inverse: agonizing over a CSS tweak while skimming a change to the auth flow because both diffs looked clean. Spend the attention where being wrong is expensive.
+
+## FAQ
+
+### How is reviewing AI-generated code different from reviewing human code?
+
+The failure modes differ. Agent code is usually syntactically correct and confidently presented but may solve the wrong problem, miss edge cases or write tests that assert the implementation. Review intent and risk, not just competence and style.
+
+### Can I trust tests written by a coding agent?
+
+Only after reading them. Agents often write tests that lock in the current behavior rather than the intended behavior, so they pass without proving correctness. Check that tests assert what you actually want.
+
+### Do I still need to review code if the agent says tests pass?
+
+Yes. Passing tests confirm the code matches its tests, not that it matches your intent or handles failure. Run the tests yourself and review the change against the original task.
+
+### How do I review faster without lowering the bar?
+
+Match review depth to risk. Read high-risk changes line by line and trace failures; give low-risk, well-tested changes a quick intent and scope check. Fix recurring mistakes in the brief, not one diff at a time.
+
+### Why does agent code keep making the same mistakes?
+
+Usually because the task was underspecified or a constraint lives only in your head. Put recurring rules into the spec and repo conventions so the agent has them up front.
+
+## What to take from this
+
+Reviewing agent code is now a core engineering skill, and it rewards a different reflex: check intent, edges and blast radius, not just whether it runs. Calibrate depth to risk, read the tests, and feed recurring mistakes back into the brief. For the broader picture of using agents well on a product team, see [coding agents for product teams](/writing/coding-agents-for-product-teams), and if you want help setting up a safe agentic build process, [start a conversation](/conversation).

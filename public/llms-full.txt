@@ -75,6 +75,21 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - How to Add llms.txt to a Product Site: https://keiranflynn.com/writing/llms-txt-for-product-sites
   Guide to what an llms.txt file is, what it does and does not do, what to include, and how to add one to a product site, with a copyable template.
 
+- How to Get Cited by ChatGPT and AI Overviews: https://keiranflynn.com/writing/get-cited-by-ai-search
+  Guide to becoming a source AI answer engines quote and link, covering what gets cited, why strong pages get ignored, and a workflow to become citable.
+
+- How to Review Code Written by AI Agents: https://keiranflynn.com/writing/reviewing-ai-generated-code
+  Review process for coding-agent output covering what to check in order, where agents reliably fail, and how to match review depth to risk.
+
+- AI Feature vs AI Product: https://keiranflynn.com/writing/ai-feature-vs-ai-product
+  Framework for deciding whether an AI idea is a standalone product or a feature inside another product, why it matters, and what to do if it is a feature.
+
+- AI Demo Traps: https://keiranflynn.com/writing/ai-demo-traps
+  Why a great AI demo is not a product, the specific traps that make a demo look finished, and how to tell demo magic from production readiness.
+
+- AI Product Launch Checklist: https://keiranflynn.com/writing/ai-product-launch-checklist
+  Pre-launch checklist for AI products covering output quality, failure handling, cost, latency, data, safety and how to decide what is launch-blocking.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

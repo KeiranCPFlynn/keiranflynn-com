@@ -39,6 +39,11 @@
 - /writing/llm-discovery-for-startups - pillar guide to making startup content discoverable and citeable by AI answer engines.
 - /writing/what-is-geo - plain explanation of generative engine optimization and how it differs from SEO.
 - /writing/llms-txt-for-product-sites - what an llms.txt file is, what it does and how to add one to a product site.
+- /writing/get-cited-by-ai-search - how to become a source that ChatGPT and AI Overviews quote and link.
+- /writing/reviewing-ai-generated-code - a review process for code written by coding agents, covering failure modes and risk.
+- /writing/ai-feature-vs-ai-product - framework for telling whether an AI idea is a standalone product or a feature.
+- /writing/ai-demo-traps - why an impressive AI demo is not a product, and how to spot the gap.
+- /writing/ai-product-launch-checklist - pre-launch checklist for AI products covering reliability, cost, safety and data.
 
 ## Positioning summary
 Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.

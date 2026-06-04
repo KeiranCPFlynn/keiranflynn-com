@@ -1,0 +1,95 @@
+---
+title: "AI Feature vs AI Product: How to Tell the Difference"
+slug: "ai-feature-vs-ai-product"
+description: "A clear framework for deciding whether your AI idea is a feature inside something else or a standalone product, and why it matters."
+date: "2026-06-04"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "ai feature vs ai product"
+search_intent: "Founders deciding whether their AI idea is a standalone product or a feature, and what that means for how they build and sell it."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - product-strategy
+---
+
+You have an AI idea that works in a demo, and now you are not sure whether you are building a product or a feature that belongs inside someone else's product. The distinction in the AI feature vs AI product question is not about how impressive the AI is. It is about whether the thing solves a complete problem a customer will pay for and return to on its own, or whether it only has value as part of a workflow that something else already owns. Getting this wrong is one of the most expensive early mistakes a founder can make.
+
+This guide gives you a way to tell which one you have, why it changes everything downstream, and what to do in the common case where the honest answer is "a feature."
+
+## The core distinction
+
+An AI product solves a complete job on its own and is the thing the customer comes to use. An AI feature improves a job that is already owned by another product or workflow, and has little standalone value. The AI capability can be identical in both cases. What differs is whether a customer would adopt, pay for and return to it by itself.
+
+A quick test: if you removed the AI and asked whether the remaining thing is still a product someone would use, you learn a lot. If there is nothing left, you may have a feature dressed as a product. If there is still a coherent job being done, the AI is enhancing a real product. The danger with AI is that the demo is so compelling it hides the absence of a complete job underneath.
+
+Key answer: An AI product solves a complete, recurring job a customer will pay for on its own; an AI feature only adds value inside a product or workflow something else already owns, even if the underlying AI is equally impressive.
+
+## Why the distinction decides your strategy
+
+This is not a labeling exercise. Whether you have a feature or a product changes how you build, price, distribute and defend it. Treating a feature like a product leads to building a thin wrapper that a platform can absorb the moment it decides to. Treating a product like a feature leads to underbuilding the parts that actually make it a business.
+
+| Dimension | AI feature | AI product |
+|---|---|---|
+| Job it does | Improves an existing job | Completes a job on its own |
+| Where it lives | Inside another product or workflow | Is the thing the user opens |
+| Buyer behavior | Adopted as part of something else | Adopted, paid for and returned to directly |
+| Main risk | Absorbed by the platform that owns the job | Has to win the whole job, not just a step |
+| Distribution | Rides the host product's distribution | Must build its own distribution |
+| Defensibility | Weak unless tied to proprietary context | Comes from owning the workflow and data |
+
+The hardest version of this is the single-feature wrapper: a thin layer over a model API that does one helpful thing inside a workflow a larger platform already owns. It can demo beautifully and even get early traction, then evaporate when the platform ships the same feature natively. Recognizing that risk early is the point of the distinction.
+
+## A test to classify your idea
+
+Run your idea through these questions honestly. The goal is clarity, not a flattering answer.
+
+1. Does it complete a whole job, or improve one step of a job something else owns?
+2. Would a customer open it directly and return to it, or only encounter it inside another tool?
+3. Would they pay for it on its own, separate from the host product?
+4. If a major platform shipped this feature natively tomorrow, do you still have a business?
+5. What do you own that they do not: workflow, proprietary data, integrations, trust, distribution?
+6. Without the AI, is there still a product here?
+
+If you complete a whole job, get direct paid usage, and own something a platform cannot trivially copy, you likely have a product. If you improve one step inside someone else's workflow and have no moat beyond the model, you likely have a feature. Both can be valuable. They just demand different decisions, which is the heart of [practical AI product strategy](/writing/practical-ai-product-strategy).
+
+## What to do if it is a feature
+
+Discovering you have a feature is not bad news. It is direction. There are several strong paths, and the worst move is to ignore the finding and build a fragile standalone product anyway.
+
+You can build the feature inside a product you also own, so the AI enhances a job you control rather than one a platform controls. You can wrap the feature in enough surrounding workflow, data and integration that it grows into a product, because owning the workflow and the proprietary context is what turns a feature into something defensible. You can sell the feature to a company that owns the relevant product, as a capability rather than a company. Or you can pick a narrower job where the feature is actually the whole job for a specific user, which converts it into a product for that segment.
+
+The common thread is moving from "a thin layer over a model" toward "owning a job and the context around it." That is also what makes the difference between a demo and a product, covered in [from AI prototype to product](/writing/ai-prototype-to-product).
+
+## Watch the platform risk
+
+The defining risk for AI features is absorption. The platforms that provide the models, and the large products that own the workflows, are shipping native AI features quickly. A feature whose entire value is a thin layer over a model is exposed: the moment the platform ships it natively, your differentiation disappears.
+
+This does not mean features are doomed. It means a feature needs something the platform does not have to survive: proprietary data, deep integration into a specific workflow, regulatory or trust positioning, or distribution into an audience the platform does not reach. If your only advantage is access to the same model everyone else can call, assume that advantage is temporary and build toward owning a job and its context. The question to keep asking is the one from the classification test: if the platform shipped this tomorrow, what do I still own?
+
+## FAQ
+
+### What is the difference between an AI feature and an AI product?
+
+An AI product completes a whole job a customer will pay for and return to on its own. An AI feature only adds value inside a product or workflow that something else already owns, even when the underlying AI is identical.
+
+### Is it bad to have an AI feature instead of a product?
+
+No. Features can be valuable. The mistake is treating a feature like a standalone product, which leads to building a thin wrapper a platform can absorb. The fix is to own a job and the context around it.
+
+### How do I know if my AI idea is just a feature?
+
+Ask whether it completes a whole job, whether customers would open and pay for it directly, and whether you still have a business if a major platform shipped it natively. If it only improves one step of someone else's workflow and has no moat beyond the model, it is likely a feature.
+
+### Can an AI feature become an AI product?
+
+Yes, by wrapping it in enough workflow, proprietary data and integration that it owns a job, or by narrowing to a segment where the feature is the whole job. Both turn a feature into something defensible.
+
+### What is platform risk for AI features?
+
+It is the risk that the platform providing the model, or the product owning the workflow, ships your feature natively and erases your differentiation. Features survive it only with proprietary data, deep workflow integration, trust positioning or independent distribution.
+
+## What to take from this
+
+Whether you have an AI feature or an AI product is a strategy decision, not a label, and it should shape how you build, price and defend the thing. Run the classification test honestly, and if the answer is "feature," choose a deliberate path to own a job rather than a thin layer over a model. For the wider framework on where AI belongs, see [when a product should use AI](/writing/when-should-a-product-use-ai), and if you want a second opinion on whether you have a feature or a product, [start a conversation](/conversation).
