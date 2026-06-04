@@ -1,0 +1,152 @@
+---
+title: "How to Add llms.txt to a Product Site (And What It Actually Does)"
+slug: "llms-txt-for-product-sites"
+description: "A practical guide to writing and adding an llms.txt file to a product site, what it does, what it does not, and a template you can copy."
+date: "2026-06-04"
+author: "Keiran Flynn"
+status: "published"
+pillar: "LLM Discovery, GEO and AI Search Visibility"
+target_keyword: "llms.txt"
+search_intent: "Founders and developers who have heard of llms.txt and want to know whether to add one, what to put in it, and how."
+tags:
+  - ai-product-building
+  - llms-txt
+  - ai-search
+---
+
+You have seen other sites add an `llms.txt` file and you are wondering whether you should too, what goes in it, and whether it does anything at all. Here is the direct answer: an llms.txt file is a short, plain-text map of your site written for AI systems, placed at the root of your domain, that summarizes what you do and points to your most important pages. It is genuinely useful as a concise orientation file, but it is not an official ranking signal and it does not replace crawlable pages, real content or normal technical SEO.
+
+This guide explains what the file is, what it can and cannot do, what to put in it, and how to add one to a product site. It includes a template you can adapt today.
+
+## What llms.txt is
+
+An `llms.txt` file is a markdown-formatted text file served at `https://yourdomain.com/llms.txt`. Its purpose is to give AI systems a clean, human-readable summary of your site: who you are, what you offer, which pages matter, and what topics you are authoritative on. Think of it as a curated index written in prose rather than a machine schema.
+
+The idea borrows the convention of `robots.txt`: a well-known path at the site root that automated systems can check. The difference is intent. `robots.txt` tells crawlers what they may access. `llms.txt` tries to help a model quickly understand and represent your site without crawling every page first.
+
+Some teams also publish a longer companion file, often called `llms-full.txt`, with expanded descriptions of each important page. The short file is the map; the full file is the annotated version.
+
+Key answer: llms.txt is a root-level markdown file that summarizes your site and links its most important pages for AI systems, useful as orientation but not a substitute for crawlable content or a guaranteed ranking factor.
+
+## Does llms.txt actually do anything?
+
+This is the honest part most posts skip. As of now, llms.txt is a community convention, not an official standard that the major answer engines have committed to honoring. No major provider has published a guarantee that adding the file changes how you are ranked or cited. So you should not add it expecting a traffic bump.
+
+What it does do is real but modest. It gives any model or tool that does read it a clean, accurate, low-noise summary of your positioning and key pages, written by you instead of inferred from scattered marketing copy. It is cheap to maintain, it forces you to state your positioning clearly, and it cannot hurt if it is accurate. The downside risk is close to zero; the upside is partial and depends on adoption.
+
+Treat it the way you would treat a tidy, well-labeled lobby. It will not win you customers on its own, but it removes friction and ambiguity for anyone, human or machine, trying to understand what you do. The heavy lifting still comes from crawlable, specific pages, which is the core of [LLM discovery for startups](/writing/llm-discovery-for-startups).
+
+## llms.txt vs the files it gets confused with
+
+llms.txt sits alongside files that look similar but do different jobs. Confusing them leads to mistakes like blocking the crawlers you wanted to reach.
+
+| File | Audience | Job | Affects ranking? |
+|---|---|---|---|
+| `llms.txt` | AI systems | Summarize the site and link key pages | No official effect |
+| `llms-full.txt` | AI systems | Expanded, annotated version of the above | No official effect |
+| `robots.txt` | All crawlers | State what may or may not be crawled | Indirectly, by allowing or blocking |
+| `sitemap.xml` | Search engines | List all indexable URLs for discovery | Indirectly, aids crawling |
+
+The practical rule: `sitemap.xml` and `robots.txt` are the load-bearing technical files and you should get them right first. `llms.txt` is an additive, optional summary. It complements the sitemap; it does not replace it. If only one exists on your site, it should be the sitemap.
+
+## What to put in an llms.txt
+
+A good llms.txt is short, specific and honest. It should read like a confident one-page brief, not a keyword list. Include:
+
+1. A one-line description of who you are and what you do.
+2. The canonical site URL.
+3. Your most important pages with descriptive labels (services, work, writing, about, contact).
+4. A short service or product summary in plain language.
+5. Real proof points, stated without inflation.
+6. A list of your strongest content, each with a one-line description.
+7. A positioning summary naming the topics you are authoritative on.
+8. Contact links.
+
+Leave out anything you would not want quoted verbatim, anything vague, and anything you cannot back up. Because the whole point is accurate representation, an inflated or fuzzy llms.txt works against you.
+
+## A template you can copy
+
+Here is a minimal structure for a product site. Replace the content with your own specifics.
+
+```markdown
+# Your Company
+
+> One line: who you serve and what you build for them.
+
+## Canonical website
+- https://yourdomain.com/
+
+## Important pages
+- Services: https://yourdomain.com/services
+- Work: https://yourdomain.com/work
+- Writing: https://yourdomain.com/writing
+- About: https://yourdomain.com/about
+- Contact: https://yourdomain.com/contact
+
+## Service summary
+- What you do, stated concretely.
+- Who it is for and the outcome you produce.
+
+## Proof points
+- Real, specific, verifiable results. No invented metrics.
+
+## Writing
+- /writing/your-pillar-post - one-line description of the page.
+- /writing/another-post - one-line description of the page.
+
+## Positioning summary
+A short paragraph naming the topics you are authoritative on.
+
+## Contact
+- Contact form: https://yourdomain.com/contact
+```
+
+This site publishes both an `llms.txt` and a longer `llms-full.txt` using exactly this pattern, which is a small working example of the practice rather than a theory.
+
+## How to add it to a product site
+
+The mechanics are simple. The file just needs to be served as plain text at the root path.
+
+1. Create `llms.txt` (and optionally `llms-full.txt`) with the structure above.
+2. Place it where your framework serves static files from the domain root. In Next.js, that is the `public/` directory, so `public/llms.txt` is served at `/llms.txt`. Most static hosts work the same way.
+3. Deploy, then confirm it loads at `https://yourdomain.com/llms.txt` and renders as plain text, not HTML.
+4. Keep it in sync. Update it whenever your positioning, services or important pages change, and add new pillar pages to the writing list.
+5. Do not block it. Make sure `robots.txt` is not accidentally disallowing the crawlers you are trying to inform.
+
+That is the whole job. There is no registration step and no submission process; the file exists at a predictable path and that is enough for any tool that chooses to read it.
+
+## Common mistakes
+
+The recurring errors are easy to avoid once named. Letting the file drift out of date so it describes an old version of the company. Inflating proof points, which undermines the accuracy the file exists to provide. Treating it as a ranking trick and neglecting the actual pages. Duplicating the whole sitemap instead of curating the pages that matter. And listing pages that redirect or no longer exist, which sends any reader of the file to the wrong place.
+
+That last one is worth a habit: when you retire or move a section, update llms.txt in the same change, the same way you would update internal links. A summary file that points at dead or redirected URLs is worse than no summary at all.
+
+## FAQ
+
+### What is llms.txt?
+
+It is a markdown text file served at your domain root that summarizes your site for AI systems and links your most important pages. It is a community convention, not an official standard.
+
+### Does llms.txt improve my ranking in AI search?
+
+There is no official guarantee that it does. It can help any tool that reads it understand and represent you accurately, but the real ranking and citation work comes from crawlable, specific pages.
+
+### Where do I put the llms.txt file?
+
+At your domain root, so it loads at `/llms.txt`. In Next.js and most static hosts, place it in the `public/` directory. Confirm it serves as plain text.
+
+### What is the difference between llms.txt and robots.txt?
+
+`robots.txt` tells crawlers what they may access. `llms.txt` summarizes your site and points to key pages for AI systems. They serve different purposes and you should keep both correct.
+
+### Do I need llms-full.txt as well?
+
+It is optional. The short llms.txt is the map; llms-full.txt is an expanded, annotated version. Add the longer file only if you will keep it accurate.
+
+### Will llms.txt hurt my site if I get it wrong?
+
+The main risk is misrepresentation: an inaccurate or outdated file can describe you incorrectly or point to dead URLs. Keep it specific, honest and current and the downside is minimal.
+
+## What to take from this
+
+Add an llms.txt because it is cheap, forces clear positioning, and helps anyone reading it understand you accurately, not because it is a growth hack. Keep it short, honest and current, and make sure your real pages and sitemap are solid first. If you want help making your product legible to both people and AI answer engines, [start a conversation](/conversation).

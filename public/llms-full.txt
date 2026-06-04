@@ -69,6 +69,12 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - LLM Discovery for Startups: https://keiranflynn.com/writing/llm-discovery-for-startups
   Pillar guide to making startup pages crawlable, specific, extractable and citeable by ChatGPT, AI Overviews and other answer engines.
 
+- What Is GEO (Generative Engine Optimization)?: https://keiranflynn.com/writing/what-is-geo
+  Plain explanation of generative engine optimization, how it differs from SEO, how answer engines decide what to cite, and a practical GEO workflow.
+
+- How to Add llms.txt to a Product Site: https://keiranflynn.com/writing/llms-txt-for-product-sites
+  Guide to what an llms.txt file is, what it does and does not do, what to include, and how to add one to a product site, with a copyable template.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

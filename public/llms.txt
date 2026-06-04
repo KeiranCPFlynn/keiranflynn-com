@@ -11,7 +11,6 @@
 - Writing: https://keiranflynn.com/writing
 - About: https://keiranflynn.com/about
 - Contact: https://keiranflynn.com/contact
-- Conversation Archive: https://keiranflynn.com/blog
 - Conversation page: https://keiranflynn.com/conversation
 
 ## Service summary
@@ -38,6 +37,8 @@
 - /writing/ai-mvp-development-process - pillar guide to scoping, building and launching a focused AI MVP.
 - /writing/ai-mvp-cost - practical breakdown of AI MVP cost drivers and scope tradeoffs.
 - /writing/llm-discovery-for-startups - pillar guide to making startup content discoverable and citeable by AI answer engines.
+- /writing/what-is-geo - plain explanation of generative engine optimization and how it differs from SEO.
+- /writing/llms-txt-for-product-sites - what an llms.txt file is, what it does and how to add one to a product site.
 
 ## Positioning summary
 Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.
