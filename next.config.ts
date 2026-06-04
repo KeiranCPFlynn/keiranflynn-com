@@ -24,8 +24,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/blog/tag/:tag",
-        destination: "/blog",
+        // The /blog section (legacy business-English content) was retired and
+        // archived to archive/blog. Permanently send any old /blog URL to the
+        // current /writing section. See archive/blog/README.md.
+        source: "/blog/:path*",
+        destination: "/writing",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/writing",
         permanent: true,
       },
     ];

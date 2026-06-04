@@ -4,6 +4,8 @@ This is the operating system for the `/writing` section of keiranflynn.com. It e
 
 The site is an AI product builder knowledge base for founders, operators and small teams searching around AI product strategy, coding agents, prototype-to-product work, AI MVP builds, internal tools and AI search visibility.
 
+> Note: The old `/blog` section (legacy business-English coaching content, ~50 posts) was retired and moved to `archive/blog/`. It is no longer built or served, and `/blog/*` now 301-redirects to `/writing`. All current content lives under `src/content/writing/`. Do not add posts to `archive/`.
+
 ## 1. How to use this plan
 
 This document is built to be handed directly to an AI. The loop is:
