@@ -68,6 +68,7 @@ Every post must serve at least one of these readers and leave them with a cleare
 | ai-mvp-development-process | D AI MVP Build Process | ai mvp development process | Published |
 | ai-mvp-cost | D AI MVP Build Process | cost to build ai mvp | Published |
 | llm-discovery-for-startups | F LLM Discovery, GEO and AI Search Visibility | llm discovery for startups | Published |
+| what-is-geo | F LLM Discovery, GEO and AI Search Visibility | generative engine optimization | Published |
 
 When a post is published, add its row here and flip its `Status` in Section 4.
 
@@ -157,7 +158,7 @@ Hub: `llm-discovery-for-startups` (Published). This cluster is both a topic and 
 | Topic | Slug | Target keyword | Stage | Pri | Status |
 |---|---|---|---|---|---|
 | LLM discovery for startups (hub) | llm-discovery-for-startups | llm discovery for startups | MOFU | P1 | Published |
-| What is GEO (generative engine optimization) | what-is-geo | generative engine optimization | TOFU | P1 | Gap |
+| What is GEO (generative engine optimization) | what-is-geo | generative engine optimization | TOFU | P1 | Published |
 | How to add llms.txt to a product site | llms-txt-for-product-sites | llms.txt | MOFU | P1 | Gap |
 | Getting cited by ChatGPT and AI Overviews | get-cited-by-ai-search | how to get cited by chatgpt | MOFU | P1 | Gap |
 | SEO for AI product companies | seo-for-ai-product-companies | seo for ai startups | MOFU | P2 | Gap |
