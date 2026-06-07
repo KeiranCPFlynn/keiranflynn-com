@@ -25,7 +25,7 @@ tags:
 ---
 
 The page byline and Article JSON-LD depend on `author`, so it must always be present.
-Wire internal links inside the body per the Linking Architecture (Section 8): link to the cluster hub, one to three sibling posts, and one conversion page (/services, /contact, /conversation, /work or /about) where natural.
+Wire internal links inside the body per the Linking Architecture (Section 8): link to the cluster hub, one to three sibling posts, and one conversion page (/services, /contact, /work or /about) where natural.
 
 Body rules:
 - Do not include a top-level H1. The page template renders the title.

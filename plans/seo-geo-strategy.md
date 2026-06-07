@@ -295,7 +295,7 @@ Every post links to:
 
 - Its cluster hub (or, for cross-cluster relevance, the nearest hub).
 - 1-3 sibling posts in the same or an adjacent cluster.
-- One commercial or conversion page where natural: `/services`, `/contact`, `/conversation`, `/work` or `/about`.
+- One commercial or conversion page where natural: `/services`, `/contact`, `/work` or `/about`.
 
 Use descriptive anchor text that contains the target concept of the destination, not "click here". Add links only where they genuinely help the reader.
 

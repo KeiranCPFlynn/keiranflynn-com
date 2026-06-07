@@ -118,7 +118,7 @@ CONTEXT (do not invent facts beyond this):
 - Stack to reference where relevant: Claude Code, Codex, ChatGPT, Claude, Gemini, Next.js, Supabase, PostHog, Stripe, APIs, Chrome Extensions, agentic workflows.
 - Readers: non-technical founder, technical founder/solo builder, operator/ops lead, PM at a small team, growth/marketing lead. Write to whichever the topic implies.
 
-Internal links you may use: the /writing/ slugs you found in the inventory (link to the cluster hub plus 1 to 3 siblings), plus one conversion page from: / , /about , /services , /work , /contact , /conversation , /blog.
+Internal links you may use: the /writing/ slugs you found in the inventory (link to the cluster hub plus 1 to 3 siblings), plus one conversion page from: / , /about , /services , /work , /contact , /blog.
 
 The loader renders title, date, description, tags and author. The other fields are planning metadata that travel with the file. Output exactly this frontmatter shape, filled in:
 ---
