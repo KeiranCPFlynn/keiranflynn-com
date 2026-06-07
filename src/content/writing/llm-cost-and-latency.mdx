@@ -1,0 +1,101 @@
+---
+title: "Handling LLM Cost and Latency in Production"
+slug: "llm-cost-and-latency"
+description: "Practical levers for controlling LLM cost and latency in production without degrading the quality users actually notice."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "llm cost optimization"
+search_intent: "Builders running an AI product in production who need to control inference cost and response latency without hurting quality."
+tags:
+  - ai-product-building
+  - llm-cost
+  - performance
+---
+
+In a prototype, LLM cost and latency are invisible: you make a few calls, they are cheap and fast enough, and nobody notices. In production they become two of the constraints that decide whether the product works as a business and whether users stay. Cost scales with usage, so your most engaged users can become your most expensive, and latency scales with how much you ask the model to do, so a feature that felt instant in testing can feel sluggish under real load. Handling LLM cost and latency means pulling the right levers to keep both in check without degrading the quality users actually notice.
+
+This guide covers where cost and latency come from, the levers that move them, how to cut both without hurting quality, and the mistakes that either blow up the bill or make the product feel slow.
+
+## Where cost and latency come from
+
+LLM cost and latency both come from the same source: how much work you ask the model to do, how often. Cost is driven by the number of calls, the size of the input and output, and the model you choose. Latency is driven by how much the model has to generate and how big the request is. Because they share a root cause, many levers improve both at once, and a few trade one against the other.
+
+Key answer: Control LLM cost and latency by reducing unnecessary work, calling the model less, sending less, generating less, and routing simple tasks to cheaper, faster models, while reserving the expensive model for the tasks that actually need it.
+
+The framing that helps is to treat every model call as something you have to justify. Many production AI products call the largest model for everything, send more context than the task needs, and generate verbose output, then are surprised by the bill and the lag. Most cost and latency problems are not inherent; they are unnecessary work that nobody trimmed.
+
+## The levers and what they affect
+
+| Lever | Effect on cost | Effect on latency | Quality risk |
+|---|---|---|---|
+| Cache repeated requests | Large reduction | Large reduction | None if cached correctly |
+| Route simple tasks to a cheaper model | Large reduction | Reduction | Low, if routing is sound |
+| Trim the context you send | Reduction | Reduction | Low, if you keep what matters |
+| Limit output length | Reduction | Reduction | Low, if the task allows it |
+| Stream the response | None | Large perceived reduction | None |
+| Batch where possible | Reduction | Varies | None |
+| Use the largest model for everything | Increase | Increase | None, but wasteful |
+
+The highest-leverage moves are caching, model routing and streaming. Caching eliminates repeated work entirely. Routing reserves the expensive model for the hard tasks and sends the easy ones to a cheaper, faster one. Streaming does not reduce actual latency but dramatically improves perceived latency, which is what users feel. Most products can apply all three with little quality risk. The connection to whether the business works at all runs through [how to price an AI product](/writing/pricing-an-ai-product): cost control and pricing together decide your unit economics.
+
+## A workflow for getting both under control
+
+You cannot optimize what you have not measured, so start there.
+
+1. Measure cost and latency by feature. Find where the money and the time actually go. It is usually concentrated in a few calls, not spread evenly.
+2. Cache the repeatable. Identical or near-identical requests should not hit the model twice. This is the cheapest win and often the biggest.
+3. Route by difficulty. Send simple, high-volume tasks to a smaller, cheaper, faster model and reserve the large model for tasks that genuinely need it. Most products overuse the largest model.
+4. Trim what you send. Send the context the task needs, not everything you have. Smaller inputs cost less and return faster.
+5. Limit what you generate. Cap output length where the task allows. Shorter outputs are cheaper and faster, and often clearer.
+6. Stream the user-facing responses. So the user sees output appearing immediately even when total generation takes a moment. Perceived speed is what they judge.
+7. Set a per-user usage limit. So a single heavy user cannot run unbounded cost, the same protection that belongs in your pricing.
+
+> The most common production cost mistake is using the largest, slowest model for every task, including the easy ones. Routing the simple high-volume work to a smaller model usually cuts both the bill and the latency more than any other single change, with almost no quality loss.
+
+This is the operational side of [hardening an AI prototype for real users](/writing/hardening-ai-prototype) and a standard item on the [AI product launch checklist](/writing/ai-product-launch-checklist).
+
+## Cutting cost and latency without hurting quality
+
+The fear that holds teams back is that cutting cost or latency means cutting quality. For the high-leverage levers, it usually does not. Caching returns the same answer faster and cheaper. Streaming changes nothing about the answer. Trimming context to what the task needs often improves quality, because irrelevant context can distract the model. Routing only hurts quality if you send a hard task to a model that cannot handle it, which careful routing avoids.
+
+The levers that do risk quality are aggressive output truncation and routing too much to a model that is too small. The way to manage that risk is to evaluate. Use an eval set, covered in [testing and reliability for AI products](/writing/testing-ai-products), to check that a cost or latency change did not lower output quality before you ship it. With evals in place, you can optimize confidently instead of guessing, because you can see the quality impact of each change rather than hoping there is none.
+
+## Common mistakes
+
+The first mistake is optimizing before measuring, guessing at where cost and latency come from and tuning the wrong thing. Measure by feature first.
+
+The second is using the largest model for everything, including trivial tasks, which inflates both the bill and the latency for no quality benefit.
+
+The third is no caching, so the product pays full price and full latency for requests it has already answered.
+
+The fourth is ignoring perceived latency, making users stare at a spinner while a long response generates, when streaming would have shown progress immediately.
+
+The fifth is cutting quality blindly, trimming cost without checking the impact, and shipping a cheaper product that is also noticeably worse. Use evals to keep quality honest while you optimize. All of this is part of [practical AI product strategy](/writing/practical-ai-product-strategy): cost and latency are product decisions, not afterthoughts.
+
+## FAQ
+
+### How do I reduce LLM costs in production?
+
+Measure cost by feature first, then cache repeated requests, route simple high-volume tasks to a smaller cheaper model and reserve the large model for hard tasks, trim the context you send to what the task needs, and limit output length where possible. Caching and model routing are usually the biggest wins.
+
+### How do I make an AI product feel faster?
+
+Reduce real latency by sending less, generating less and routing simple tasks to faster models, and reduce perceived latency by streaming responses so users see output appearing immediately. Streaming does not change total generation time but dramatically improves how fast the product feels, which is what users judge.
+
+### Does cutting LLM cost hurt quality?
+
+The high-leverage levers usually do not. Caching returns the same answer, streaming changes nothing about the answer, and trimming context to what the task needs can even improve quality. The levers that risk quality are aggressive output truncation and routing hard tasks to too-small a model. Use an evaluation set to verify quality before shipping a cost change.
+
+### Should I use the biggest model for everything?
+
+No. Using the largest model for every task, including easy ones, is the most common cost and latency mistake. Route simple, high-volume tasks to a smaller, cheaper, faster model and reserve the large model for tasks that genuinely need it. This usually cuts both cost and latency with little quality loss.
+
+### How do I stop one user from running up huge LLM costs?
+
+Set a per-user usage limit, the same protection that belongs in your pricing model. Combined with caching, routing and trimmed requests, a usage cap prevents a single heavy user from generating unbounded cost on a flat fee.
+
+## What to take from this
+
+LLM cost and latency both come from how much work you ask the model to do, so the levers overlap: cache the repeatable, route simple tasks to cheaper faster models, trim what you send and generate, and stream user-facing responses. Measure first, protect against runaway usage, and use evals so you can optimize without quietly lowering quality. If you are running an AI product whose cost or latency is becoming a problem, [start a conversation](/conversation).

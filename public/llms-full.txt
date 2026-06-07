@@ -90,6 +90,39 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - AI Product Launch Checklist: https://keiranflynn.com/writing/ai-product-launch-checklist
   Pre-launch checklist for AI products covering output quality, failure handling, cost, latency, data, safety and how to decide what is launch-blocking.
 
+- AI Workflow Automation for Startups: https://keiranflynn.com/writing/ai-workflow-automation-for-startups
+  Pillar guide to automating repetitive operational work with AI, what to automate, where to keep a human in the loop, and how to build automations that survive real use.
+
+- Building Internal AI Tools for a Small Team: https://keiranflynn.com/writing/internal-ai-tools-small-teams
+  Guide to building internal AI tools a small team trusts and adopts, covering what to build first, verifiability, ownership and build-versus-buy.
+
+- How to Price an AI Product: https://keiranflynn.com/writing/pricing-an-ai-product
+  Framework for pricing an AI product when costs scale with usage, covering pricing models, protecting margin against heavy users, and common pricing mistakes.
+
+- AI Build vs Buy: https://keiranflynn.com/writing/ai-build-vs-buy
+  Layer-by-layer decision framework for building versus buying an AI capability, with a rule for where building is worth it and where it is wasted.
+
+- Coding Agents for MVP Development: https://keiranflynn.com/writing/coding-agents-mvp-development
+  How to use coding agents to build an MVP fast while keeping ownership of architecture, data model and core logic so it stays maintainable.
+
+- Writing Specs and Prompts for Coding Agents: https://keiranflynn.com/writing/specs-for-coding-agents
+  How to write specs and prompts that produce bounded, correct changes from coding agents instead of confident wrong code.
+
+- Vibe Coding to Production: https://keiranflynn.com/writing/vibe-coding-to-production
+  What actually changes when moving a vibe-coded build to production, and which shortcuts must be undone before real users arrive.
+
+- Adding Auth, Data and Payments to a Prototype: https://keiranflynn.com/writing/prototype-to-production-infrastructure
+  How to add the production spine, authentication, real data and payments, to an AI prototype in the right order without rebuilding it.
+
+- Testing and Reliability for AI Products: https://keiranflynn.com/writing/testing-ai-products
+  How to test AI products with non-deterministic output, combining deterministic tests around the AI with evaluation of the AI output itself.
+
+- Handling LLM Cost and Latency in Production: https://keiranflynn.com/writing/llm-cost-and-latency
+  Practical levers for controlling LLM cost and latency in production, caching, model routing, trimming and streaming, without degrading quality.
+
+- SEO for AI Product Companies: https://keiranflynn.com/writing/seo-for-ai-product-companies
+  How AI companies should approach SEO when search includes AI Overviews and answer engines, covering shared fundamentals, extractability and common myths.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

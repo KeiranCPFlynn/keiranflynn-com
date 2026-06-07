@@ -1,0 +1,103 @@
+---
+title: "How to Price an AI Product"
+slug: "pricing-an-ai-product"
+description: "A practical framework for pricing an AI product when your costs scale with usage and customers expect software margins."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "how to price an ai product"
+search_intent: "Founders setting pricing for an AI product who need to reconcile usage-based costs with customer willingness to pay and protect their margin."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - pricing
+---
+
+Pricing an AI product is harder than pricing normal software because your cost of goods is not near zero. Every request a customer makes can call a model that costs you real money, so a pricing model that ignores usage can turn your most active customers into your biggest losses. At the same time, customers anchor on software pricing and expect predictable bills. Pricing an AI product well means reconciling variable costs with the flat, predictable pricing buyers want, without either subsidizing heavy users into the ground or pricing so defensively that nobody adopts.
+
+This guide gives you a way to choose a pricing model, protect your margin against runaway usage, and avoid the traps that catch AI founders who price like a traditional SaaS company.
+
+## Why AI pricing is different
+
+Traditional software has marginal costs close to zero, so flat per-seat pricing works: an extra user costs you almost nothing. AI products break that assumption. The marginal cost of an active user can be significant because inference is metered, and a single power user can generate more cost than several light users pay in combined subscriptions. Pricing that ignores this creates a structural problem where success increases losses.
+
+Key answer: Price an AI product so your revenue scales with the cost a customer creates. Use flat pricing only when you can cap or predict usage, and protect every plan with usage limits so a heavy user cannot turn into a loss.
+
+The core tension is that customers want predictable bills and you have variable costs. The job of your pricing model is to absorb that variability without exposing the customer to a confusing meter or exposing yourself to unbounded loss. Every workable AI pricing model is some way of resolving that tension.
+
+## The main pricing models and when each fits
+
+There is no single right model. The right one depends on how usage varies across your customers and how much value a single action delivers.
+
+| Model | How it works | Best when | Main risk |
+|---|---|---|---|
+| Flat subscription with usage caps | One price, a hard or soft limit on usage | Usage is predictable across customers | Heavy users hit the cap and churn, or you set the cap too high |
+| Usage-based (pay per unit) | Customer pays per request, token or action | Usage varies widely and tracks value | Unpredictable bills scare buyers off |
+| Tiered (good/better/best) | Flat tiers with increasing usage allowances | Customers cluster into usage bands | Wrong tier boundaries leave money on the table |
+| Per-seat with fair-use limits | Price per user, capped usage per seat | Value scales with team size | A few power users blow past fair use |
+| Hybrid (base plus usage) | Flat base fee plus metered overage | You want predictability and cost protection | More complex to explain and bill |
+
+The hybrid model, a flat base plus metered overage above an included allowance, is the most common resolution to the tension because it gives customers a predictable floor while protecting you against heavy use. Tiered pricing works well when your customers naturally cluster into usage bands. Pure usage-based pricing is honest about cost but creates bill anxiety, so it fits developer and infrastructure products more than it fits products sold to non-technical buyers.
+
+## A workflow for setting your price
+
+Pricing is not a one-time guess. It is a process of understanding your costs, your value and your customers' willingness to pay, then choosing the model that fits.
+
+1. Calculate your true cost per active user. Include inference, infrastructure and any human review. Look at your heaviest realistic user, not the average, because that user defines your risk.
+2. Estimate the value a customer gets. Price against the value delivered, not against your cost. Cost sets your floor; value sets your ceiling.
+3. Map how usage varies across customers. If everyone uses roughly the same amount, flat pricing can work. If usage varies widely, you need usage-based or hybrid pricing.
+4. Choose the model that matches that variance. Match the model to how your customers actually use the product, using the table above.
+5. Set limits on every plan. Even flat plans need a usage cap or fair-use policy so a single user cannot become a loss. This is non-negotiable.
+6. Price for the margin you need, then test. Start higher than feels comfortable; it is easier to discount than to raise prices later.
+7. Watch your unit economics after launch. Track cost per customer against revenue per customer by segment, and adjust before a loss-making segment grows.
+
+> The pricing mistake that quietly kills AI products is flat pricing with no usage cap. It feels customer-friendly until your most engaged users cost more than they pay, and growth makes the problem worse instead of better.
+
+This connects to the wider question of whether your idea is even a standalone product worth pricing, covered in [AI feature vs AI product](/writing/ai-feature-vs-ai-product), and to the cost side of the equation in [how much an AI MVP costs to build](/writing/ai-mvp-cost).
+
+## Protecting your margin against runaway usage
+
+The single most important thing AI pricing must do is prevent a customer from costing you more than they pay. This is not pessimism; it is the structural reality of metered inference. Build the protection into both pricing and product.
+
+In pricing, every plan needs a usage limit, whether a hard cap, a fair-use policy, or metered overage above an included amount. The limit does not have to be aggressive. It just has to exist, so an outlier user cannot run unbounded cost on a flat fee.
+
+In product, add controls that keep cost in check without degrading the experience: cache repeated requests, use a smaller and cheaper model for simple tasks and reserve the expensive model for hard ones, and set sensible defaults so the product does not call the model more than it needs to. The cost levers on the engineering side are covered in [handling LLM cost and latency in production](/writing/llm-cost-and-latency). Pricing and cost control work together; neither alone is enough.
+
+## Common pricing mistakes
+
+The first mistake is pricing against cost instead of value. Cost tells you the floor below which you lose money. It does not tell you what the product is worth to the customer, which is usually much higher. Price against value and use cost only as a floor.
+
+The second is flat pricing with no cap, covered above. It is the most common and most damaging.
+
+The third is launching too cheap to seem accessible, then discovering you cannot raise prices without angering early customers. Start higher than feels comfortable. Discounting down is easy; pricing up is painful.
+
+The fourth is a pricing model so complex that buyers cannot predict their bill. Variable costs are your problem to absorb, not the customer's problem to decode. A hybrid base-plus-overage model is usually as complex as a non-technical buyer will tolerate.
+
+The fifth is never revisiting pricing as costs change. Model prices, usage patterns and your own efficiency all shift. Treat pricing as something you tune, not something you set once. This is part of [practical AI product strategy](/writing/practical-ai-product-strategy): pricing is a strategic lever, not an afterthought.
+
+## FAQ
+
+### How should I price an AI product?
+
+Price so your revenue scales with the cost each customer creates. Calculate your true cost for a heavy user, estimate the value the product delivers, and choose a model that matches how usage varies: flat with caps when usage is predictable, hybrid base-plus-overage or usage-based when it varies widely. Always include a usage limit on every plan.
+
+### Should an AI product use usage-based or flat pricing?
+
+Use flat pricing only when usage is predictable across customers and you can cap it. Use usage-based or hybrid pricing when usage varies widely, because flat pricing with no limit lets heavy users cost more than they pay. A hybrid model, a flat base plus metered overage, gives customers predictability while protecting your margin.
+
+### How do I stop an AI product from losing money on heavy users?
+
+Put a usage limit on every plan, whether a hard cap, fair-use policy or metered overage. In the product, cache repeated requests, route simple tasks to cheaper models, and set defaults that avoid unnecessary model calls. Pricing limits and product cost controls work together.
+
+### Should I price an AI product against my cost or its value?
+
+Price against the value the customer gets. Cost sets the floor below which you lose money, but value, usually much higher than cost, sets what you can charge. Pricing against cost alone leaves significant revenue on the table.
+
+### When should I revisit AI product pricing?
+
+Revisit pricing when model prices change, when your usage patterns shift, when a customer segment starts running negative unit economics, or when you have improved efficiency enough to change your floor. Treat pricing as a lever you tune, not a number you set once.
+
+## What to take from this
+
+Pricing an AI product comes down to making revenue scale with the cost each customer creates, pricing against value rather than cost, and putting a usage limit on every plan so success never turns into loss. Pick the model that matches how your customers actually use the product, start higher than feels comfortable, and watch unit economics by segment after launch. If you are setting pricing for an AI product and want a second opinion on the model and the margin math, [start a conversation](/conversation).

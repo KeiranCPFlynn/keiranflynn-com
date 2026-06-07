@@ -1,0 +1,96 @@
+---
+title: "AI Build vs Buy: How to Decide for an AI Feature"
+slug: "ai-build-vs-buy"
+description: "A decision framework for choosing whether to build an AI capability yourself or buy it, based on differentiation, control and cost."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "ai build vs buy"
+search_intent: "Founders and product leads deciding whether to build an AI capability in-house or use an existing API, model or vendor."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - build-vs-buy
+---
+
+The AI build versus buy decision trips up teams because the obvious answer, build the thing that makes you different and buy everything else, is correct but unhelpful until you know which parts of an AI product actually make you different. With AI, the model itself is almost never the differentiator, because your competitors can call the same model. What differentiates you is the workflow around it, the proprietary data you feed it, and the experience you build on top. Teams that build the wrong layer waste months recreating a commodity; teams that buy the wrong layer hand their advantage to a vendor.
+
+This guide gives you a way to decide build versus buy for each layer of an AI product, with a clear rule for where building is worth it and where it is wasted effort.
+
+## The principle: build your differentiation, buy the commodity
+
+The durable rule is simple to state and harder to apply: build the parts that make you different and that you must control, and buy the parts that are commodities where a vendor will do it better and cheaper than you can. The hard part is correctly identifying which layer is your differentiation, because with AI it is rarely the layer founders instinctively want to build.
+
+Key answer: For AI products, the foundation model is almost always a buy, because you cannot out-build a frontier lab and your competitors use the same models anyway. Build the workflow, the proprietary data layer and the product experience, because those are where your advantage actually lives.
+
+The instinct to build the model, fine-tune aggressively, or self-host infrastructure usually comes from wanting control or fearing dependence on a vendor. Those concerns are real but rarely justify the cost early. The model is the most commoditized and fastest-improving layer in the stack. Building there means competing with companies spending billions, while the layer that would actually differentiate you sits unbuilt.
+
+## A layer-by-layer breakdown
+
+It helps to stop thinking of an AI product as one build-or-buy decision and instead see it as a stack of layers, each with its own answer.
+
+| Layer | Default decision | Why |
+|---|---|---|
+| Foundation model | Buy (API) | You cannot out-build a frontier lab; competitors use the same models |
+| Infrastructure and hosting | Buy early, revisit at scale | Managed services are cheaper until volume justifies control |
+| Fine-tuning or custom models | Buy or skip early | Rarely worth it before you have data and a proven need |
+| Proprietary data layer | Build | Your data and context are your real moat |
+| Workflow and orchestration | Build | How you chain and constrain the AI is your product |
+| Product experience and UX | Build | The experience users come back for is yours to own |
+| Evals and observability | Buy tools, own the criteria | Use existing tooling, but the quality bar is yours |
+
+The pattern is that the lower layers, the model and infrastructure, are commodities you should buy until scale changes the math. The upper layers, your data, workflow and experience, are where you build because that is what a competitor cannot copy by calling the same API. This is the same logic that separates an [AI feature from an AI product](/writing/ai-feature-vs-ai-product): owning the workflow and the context is what makes the thing defensible.
+
+## A workflow for deciding
+
+For any AI capability you are considering, run it through this sequence before committing engineering time.
+
+1. Ask whether this layer differentiates you. If a competitor calling the same model could replicate it trivially, it is not your differentiation, so buy or use a standard tool.
+2. Ask whether you must control it. Some non-differentiating layers still need to be owned for compliance, data residency or reliability reasons. Control can justify building even without differentiation.
+3. Estimate the real cost of building, including maintenance. Building is never a one-time cost. You own the upkeep, the upgrades and the on-call forever. Most build decisions underweight maintenance.
+4. Estimate the cost and risk of buying, including lock-in. A vendor saves you build time but creates dependence. Judge how replaceable the vendor is and how much of your value flows through them.
+5. Default to buy for commodity layers, build for differentiation. When the layer is the model or infrastructure, buy unless control forces otherwise. When it is your data, workflow or experience, build.
+6. Revisit at scale. A buy that made sense at low volume can flip to a build when volume makes the unit economics or control worth it. Build-versus-buy is not permanent.
+
+> The most expensive AI build mistake is rebuilding a commodity. Months spent self-hosting models or recreating infrastructure are months not spent on the workflow and data that would have actually made you hard to copy.
+
+This decision is part of [practical AI product strategy](/writing/practical-ai-product-strategy), and the cost side of building feeds directly into [how much an AI MVP costs to build](/writing/ai-mvp-cost).
+
+## Common build-versus-buy mistakes
+
+The first mistake is building the model layer. Fine-tuning or self-hosting early, before you have the data or a proven need, burns time on the fastest-moving commodity in the stack. Use a frontier model API and revisit only when scale or a specific need justifies it.
+
+The second is buying your differentiation. Outsourcing the workflow, the data layer or the core experience to a vendor hands your potential moat to someone else. If it is what makes you different, build it.
+
+The third is underestimating maintenance. Teams compare the build cost to the buy cost and forget that building means owning the thing forever: upgrades, security, on-call, the lot. The true cost of build is build plus maintenance for the life of the product.
+
+The fourth is treating the decision as permanent. The right answer changes with scale. A managed service that is obviously correct at low volume can become worth replacing at high volume. Revisit the big build-versus-buy calls as the business grows.
+
+The fifth is building because it is interesting. Engineers enjoy building infrastructure. That is a reason to be suspicious of a build decision, not a reason to make one. Build what differentiates the product, not what is fun to build.
+
+## FAQ
+
+### Should I build or buy my AI model?
+
+Buy it. Use a frontier model through an API. You cannot out-build a major lab, your competitors use the same models, and the model layer improves faster than you could keep up with. Building or self-hosting a model rarely pays off before significant scale or a specific, proven need.
+
+### What part of an AI product should I build myself?
+
+Build the layers that differentiate you and that a competitor calling the same model cannot copy: your proprietary data layer, your workflow and orchestration, and your product experience. These are where your real advantage lives.
+
+### When does it make sense to build instead of buy for AI?
+
+Build when the layer differentiates you, when you must control it for compliance or reliability reasons, or when scale has made the unit economics of owning it better than paying a vendor. For commodity layers like the model and infrastructure, default to buy until one of those conditions is clearly met.
+
+### What is the biggest AI build-versus-buy mistake?
+
+Rebuilding a commodity, usually by self-hosting models or recreating infrastructure early, while the layers that would actually differentiate the product, the data and workflow, sit unbuilt. The second biggest is buying your differentiation by handing the core workflow or data layer to a vendor.
+
+### Does the build-versus-buy decision change over time?
+
+Yes. A buy that is correct at low volume can flip to a build at scale when control or unit economics justify it. Treat the major build-versus-buy calls as decisions to revisit as the business grows, not permanent commitments.
+
+## What to take from this
+
+The AI build-versus-buy decision resolves cleanly once you see the product as layers: buy the model and infrastructure because they are commodities you cannot out-build, and build your data layer, workflow and experience because that is where your advantage lives. Account for maintenance in every build, beware building what is merely interesting, and revisit the big calls at scale. If you are deciding what to build and what to buy for an AI product, [start a conversation](/conversation).

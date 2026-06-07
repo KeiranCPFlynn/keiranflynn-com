@@ -1,0 +1,100 @@
+---
+title: "Writing Specs and Prompts for Coding Agents"
+slug: "specs-for-coding-agents"
+description: "How to write specs and prompts that get reliable work out of a coding agent, instead of plausible code that does the wrong thing."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "how to prompt coding agents"
+search_intent: "Builders using coding agents who want to write briefs and prompts that produce correct, bounded changes rather than confident wrong code."
+tags:
+  - ai-product-building
+  - coding-agents
+  - prompting
+---
+
+The quality of what a coding agent produces is set mostly before it writes a line, by the spec you give it. A vague prompt gets you plausible code that does roughly what you asked, which is often the wrong thing built confidently. A precise spec gets you a bounded change that does exactly what you meant. The skill in working with coding agents is not prompt trickery. It is the old skill of writing a clear specification, applied to a reader that takes you literally and fills every gap with a guess.
+
+This guide covers what makes a coding-agent spec work, a structure you can reuse, how to scope a task so the agent stays reliable, and the briefing mistakes that produce confident wrong code.
+
+## Why the spec decides the outcome
+
+A coding agent does what you specify and guesses at what you leave out. Unlike a human engineer, it will not pause to ask whether you really meant to skip validation or whether this edge case matters. It fills the gap with the most statistically likely choice, which is frequently not what your product needs. So the quality of the output is bounded by the quality of the spec: ambiguity in equals defects out.
+
+Key answer: Get reliable work from a coding agent by writing a spec that states the goal, the constraints, the relevant context and what done looks like, so the agent has nothing important left to guess.
+
+This reframes prompting. The goal is not to find magic words. It is to remove ambiguity. Every place your spec is vague is a place the agent will make a decision you did not make, and you will only find out when you read the diff or, worse, when a user does. The effort you spend tightening the spec is repaid in defects you never have to debug.
+
+## What a good coding-agent spec contains
+
+A reusable structure beats improvised prompts. A strong spec covers five things.
+
+| Element | What it answers | Why it matters |
+|---|---|---|
+| Goal | What outcome you want and why | Lets the agent make sensible choices in gaps |
+| Scope and constraints | What to change and what to leave alone | Stops the agent rewriting things you did not ask it to |
+| Context | Relevant files, patterns, conventions | Keeps the change consistent with the existing code |
+| Acceptance criteria | What done looks like, including edge cases | Gives the agent and you a shared definition of correct |
+| Out of scope | What explicitly not to do | Prevents scope creep and unwanted refactors |
+
+The two elements teams most often skip are constraints and acceptance criteria. Without constraints, the agent helpfully refactors code you did not want touched. Without acceptance criteria, neither you nor the agent has a shared definition of correct, so the agent declares victory on the happy path and the edge cases are silently unhandled. Stating both turns a hopeful request into a checkable task.
+
+## A reusable spec structure
+
+You do not need a heavy template. A short, consistent structure gets most of the benefit.
+
+1. State the goal in one or two sentences. What should be true after this change, and why. The why lets the agent make good decisions where the spec is silent.
+2. Name the scope. Which files, components or areas this touches, and which it must not. Be explicit about what to leave alone.
+3. Point at the context. The existing patterns to follow, the conventions to match, the relevant files to read first. Tell it to match the surrounding code.
+4. List acceptance criteria. The concrete behaviors that must hold, including the edge cases and failure cases you care about. This is your definition of done.
+5. State what is out of scope. The refactors, optimizations or extras you do not want, so the agent stays bounded.
+6. Ask for tests where they matter. Specify that the change should be covered, so correctness is checkable rather than asserted.
+
+> The single highest-leverage line in a coding-agent spec is the list of acceptance criteria, including edge cases. It converts "build this" into "build this and here is how we will both know it is right," which is the difference between plausible code and correct code.
+
+This is the briefing half of the full [agentic coding workflow](/writing/agentic-coding-workflow), and it pairs directly with the review half in [reviewing AI-generated code](/writing/reviewing-ai-generated-code): a clear spec gives the review a definition of correct to check against.
+
+## Scoping the task so the agent stays reliable
+
+Coding agents are reliable on bounded tasks and unreliable on open-ended ones. A large part of writing a good spec is sizing the task correctly. A task like "build the billing system" is too big: the agent will make dozens of unstated decisions and the diff will be too large to review well. A task like "add a usage-limit check to the existing billing endpoint, returning a clear error when the limit is exceeded" is the right size: one outcome, clear boundaries, reviewable in one sitting.
+
+When a task feels too big to specify precisely, that is the signal to split it. Break it into slices that each have a clear goal and acceptance criteria, and run them one at a time. Smaller bounded tasks are not slower overall; they produce changes you can actually review and trust, which avoids the rework that big unreviewable diffs create. The relationship between task size and reliability is the same one covered in [coding agents for MVP development](/writing/coding-agents-mvp-development).
+
+## Common briefing mistakes
+
+The first mistake is the one-line prompt for a non-trivial change. "Add authentication" leaves the agent to decide the method, the storage, the session handling and the failure cases, and it will pick for you. Specify what you actually need.
+
+The second is no constraints, so the agent refactors and renames things you did not ask it to touch, producing a diff full of unrelated changes that are hard to review.
+
+The third is no acceptance criteria, so done means "the happy path runs" and every edge case is unhandled. State the edge cases that matter.
+
+The fourth is no context, so the agent invents a new pattern instead of matching your existing code, leaving the codebase inconsistent. Point it at the patterns to follow.
+
+The fifth is over-stuffing one spec, asking for a large multi-part change in a single prompt. The output is too big to review and mixes concerns. Split it into bounded tasks. Getting these right is most of what makes coding agents usable for non-technical founders too, covered in [coding agents for non-technical founders](/writing/coding-agents-non-technical-founders).
+
+## FAQ
+
+### How do I write a good prompt for a coding agent?
+
+Write a spec rather than a one-line request. State the goal and why, the scope and what to leave alone, the relevant context and conventions to follow, the acceptance criteria including edge cases, and what is out of scope. The goal is to remove ambiguity so the agent has nothing important left to guess.
+
+### Why does my coding agent produce code that does the wrong thing?
+
+Usually because the spec was ambiguous. A coding agent does what you specify and guesses at what you leave out, filling gaps with the most likely choice rather than what your product needs. Tightening the spec, especially the constraints and acceptance criteria, removes the gaps where it guesses wrong.
+
+### What is the most important part of a coding-agent spec?
+
+The acceptance criteria, including the edge cases and failure cases you care about. They give you and the agent a shared definition of correct, which turns a hopeful request into a checkable task and prevents the agent from declaring success on the happy path alone.
+
+### How big should a task for a coding agent be?
+
+Big enough to be one clear outcome, small enough to specify precisely and review in one sitting. If a task feels too big to write clear acceptance criteria for, split it into bounded slices and run them one at a time. Smaller bounded tasks are more reliable than large open-ended ones.
+
+### Do I need to tell a coding agent what not to do?
+
+Yes. Without explicit scope limits, agents tend to refactor, rename and change code you did not ask them to touch, producing large diffs that are hard to review. Stating what is out of scope keeps the change bounded and reviewable.
+
+## What to take from this
+
+Getting reliable work from a coding agent is the old discipline of writing a clear spec, aimed at a reader that takes you literally and guesses at every gap. State the goal, the scope, the context, the acceptance criteria with edge cases, and what is out of scope, then size the task so it is reviewable. Do that and you get bounded correct changes instead of confident wrong code. If you want help setting up a spec-and-review workflow for coding agents on your team, [start a conversation](/conversation).

@@ -1,0 +1,102 @@
+---
+title: "Vibe Coding to Production: What Actually Changes"
+slug: "vibe-coding-to-production"
+description: "What it really takes to move from vibe coding to a production app, and which shortcuts you have to undo before real users arrive."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "vibe coding to production"
+search_intent: "Builders who used vibe coding to make something work and now need to understand what changes to take it to production reliably."
+tags:
+  - ai-product-building
+  - coding-agents
+  - vibe-coding
+---
+
+Vibe coding, building by prompting an AI and accepting whatever runs without reading much of the code, is a genuinely good way to find out if an idea works. It is a terrible way to run something real users depend on, and the gap between the two is wider than it looks. The thing you vibe-coded runs in your demo because you fed it clean inputs and avoided the edge cases. Production is the opposite: hostile inputs, concurrent users, things failing, and no one watching the terminal. Moving from vibe coding to production is not polishing what you have. It is deliberately rebuilding the parts you skipped.
+
+This guide covers what vibe coding gets you, what production actually requires, what you have to undo before launch, and how to make the transition without throwing away the speed that made vibe coding worth it.
+
+## What vibe coding is good for and where it stops
+
+Vibe coding is excellent for discovery: proving an idea works, exploring an interface, getting something on screen fast enough to react to. In that mode, not reading the code is a feature, because the goal is learning whether the thing is worth building at all, not building it well. The output is a prototype that demonstrates the idea.
+
+Key answer: Vibe coding produces a prototype that proves an idea. Production requires the parts vibe coding skips, validation, error handling, security, tests and observability, so the move to production is a deliberate hardening pass, not a coat of polish.
+
+Where vibe coding stops is the moment someone other than you depends on the thing. The code runs, but nobody decided the architecture, nothing handles bad input, secrets may be sitting in the client, there are no tests, and when something breaks in production you have no way to even know. None of that matters in discovery. All of it matters the instant you have users. The danger is mistaking "it runs" for "it is ready," because a vibe-coded app runs convincingly right up until a real user does something you did not anticipate.
+
+## Vibe coding versus production: what changes
+
+| Concern | Vibe coding | Production |
+|---|---|---|
+| Inputs | Clean, the ones you tried | Hostile, malformed, unexpected |
+| Errors | Crash or ignore | Caught, handled, surfaced safely |
+| Architecture | Whatever the AI produced | Decided, with clear boundaries |
+| Security | Often an afterthought | Auth, secrets, data rules enforced |
+| Tests | None | Cover the core logic and critical paths |
+| Observability | The terminal | Logging and monitoring you can act on |
+| Data | Throwaway or local | Real, with migrations and backups |
+| Reviewing the code | Skipped | Read and understood before users rely on it |
+
+The right-hand column is not gold-plating. It is the minimum for software other people depend on. The reason the transition surprises people is that none of these gaps are visible in a demo. The app looks finished. The work of going to production is making the invisible parts real, which is most of the work the vibe-coding phase deliberately skipped.
+
+## A workflow for the transition
+
+You do not have to rebuild from scratch, and you should not throw away a prototype that proved the idea. You harden it deliberately. This is the loop.
+
+1. Read the code you shipped past. You cannot make code reliable that you do not understand. Go through what the AI built and learn what is actually there. This is also where you find the security surprises.
+2. Decide the architecture and data model. If nobody chose these, choose them now, before you build more on top. Restructure where the prototype's choices will not hold.
+3. Add input validation and error handling everywhere users touch. Production inputs are hostile. Decide what happens for every bad input rather than letting it crash.
+4. Fix the security basics. Move secrets out of the client, enforce authentication and authorization, and apply data-access rules. These are the mistakes that turn into incidents.
+5. Add tests on the core logic and critical paths. So you can change the code without breaking it silently. A prototype with no tests resists every safe change.
+6. Add observability. Logging and monitoring so that when something breaks in production, you find out and can diagnose it. Without this you are blind.
+7. Handle real data properly. Migrations, backups and the difference between throwaway data and data a user would be upset to lose.
+
+> A vibe-coded app that runs in your demo is roughly halfway to production, and the missing half is all the unglamorous work, validation, security, tests and observability, that does not show up in a demo and is exactly what real users will expose.
+
+This is the same path as turning any AI prototype into a product, covered in depth in [hardening an AI prototype for real users](/writing/hardening-ai-prototype), and it applies just as much to builds that came out of no-code tools, covered in [turning a Lovable or Bolt build into a real product](/writing/no-code-ai-build-to-product).
+
+## Keeping the speed
+
+The point of vibe coding is speed, and the transition to production does not have to surrender it. The way to keep moving fast is to switch modes rather than slow everything down. In discovery, vibe-code freely. Once the idea is proven, switch to a bounded, reviewed agentic workflow: specify each hardening task clearly, let the agent implement it, and review the diff. You keep using AI for the speed; you stop accepting unread output for the parts that now matter.
+
+The mistake on both sides is staying in one mode too long. Vibe coding past the point where people depend on the thing ships fragile software. But becoming cautious about everything, including the next disposable experiment, throws away the speed advantage. Match the mode to the stakes: loose and fast for discovery, bounded and reviewed for production. How to run that reviewed mode is covered in the [agentic coding workflow](/writing/agentic-coding-workflow) and in [writing specs for coding agents](/writing/specs-for-coding-agents).
+
+## Common mistakes in the transition
+
+The first mistake is shipping the prototype as the product. It runs in the demo, so it goes to users unchanged, and the first unexpected input breaks it. The prototype proved the idea; it is not the product.
+
+The second is never reading the code. You cannot harden what you do not understand, and the security surprises are hiding in the code you skipped past.
+
+The third is skipping security because it is invisible. Secrets in the client and missing access rules do not show up in a demo and do show up in an incident.
+
+The fourth is no observability, so when production breaks, you have no idea why, and debugging becomes guesswork against live users.
+
+The fifth is rebuilding from scratch out of caution. A prototype that proved the idea is worth keeping; harden it deliberately rather than discarding the learning. For the wider context of running coding agents through this whole arc, see [coding agents for product teams](/writing/coding-agents-for-product-teams).
+
+## FAQ
+
+### Is vibe coding good for anything?
+
+Yes. Vibe coding is excellent for discovery: quickly proving whether an idea works, exploring an interface, and getting something on screen to react to. Not reading the code is fine in that mode because the goal is learning, not building something reliable. It stops being appropriate the moment real users depend on the thing.
+
+### What does it take to move vibe-coded software to production?
+
+The parts vibe coding skips: input validation, error handling, security basics like moving secrets out of the client and enforcing access rules, tests on the core logic, observability so you can diagnose failures, and proper handling of real data. It is a deliberate hardening pass, not a coat of polish.
+
+### Can I ship a vibe-coded app to real users?
+
+Not as-is. A vibe-coded app runs in a demo because it sees clean inputs and avoids edge cases. Production brings hostile inputs, concurrent users and failures with nobody watching. Harden it first: read the code, decide the architecture, add validation, fix security, add tests and observability.
+
+### Do I have to rebuild a vibe-coded app from scratch?
+
+Usually not. If the prototype proved the idea, keep it and harden it deliberately rather than discarding the learning. You will restructure the parts whose choices will not hold and add the missing production layers, but throwing it all away wastes the value the prototype delivered.
+
+### How do I keep moving fast when taking vibe code to production?
+
+Switch modes rather than slowing everything down. Vibe-code freely in discovery, then move to a bounded, reviewed agentic workflow once the idea is proven: specify each hardening task, let the agent implement it, and review the diff. You keep the AI speed and stop accepting unread output for the parts that now matter.
+
+## What to take from this
+
+Vibe coding is the right way to prove an idea and the wrong way to run something real, and the move between them is a deliberate hardening pass, not polish. Read the code, decide the architecture, add the validation, security, tests and observability that never show up in a demo, and switch from loose mode to a bounded reviewed workflow as the stakes rise. If you have a vibe-coded build that works and needs to survive real users, [start a conversation](/conversation).

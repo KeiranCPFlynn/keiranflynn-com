@@ -1,0 +1,98 @@
+---
+title: "Testing and Reliability for AI Products"
+slug: "testing-ai-products"
+description: "How to test an AI product when the output is non-deterministic, so you can ship changes without quietly breaking quality."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "how to test ai products"
+search_intent: "Builders who need to test AI features whose outputs are non-deterministic and cannot be checked with traditional pass-fail assertions."
+tags:
+  - ai-product-building
+  - testing
+  - reliability
+---
+
+Testing an AI product breaks the assumption that normal testing relies on: that the same input produces the same output. A language model can give a different answer to the same prompt, and a "correct" answer can take many forms, so a traditional pass-fail assertion does not fit. This is why so many AI products ship with no real testing and discover quality regressions only when users complain. Testing an AI product means accepting non-determinism and building a different kind of safety net: deterministic tests around the AI, and evaluation of the AI itself against examples and criteria rather than exact matches.
+
+This guide covers what you can test traditionally, how to evaluate the non-deterministic parts, how to catch quality regressions before users do, and the mistakes that leave AI products effectively untested.
+
+## Why testing AI products is different
+
+A normal test asserts that an input produces an exact expected output. AI output is non-deterministic and open-ended: the same prompt can produce varied wording, and many different responses can all be correct. An exact-match assertion either fails constantly on acceptable answers or has to be loosened until it tests nothing. So the question is not "did the output equal the expected string" but "was the output good enough against criteria that define good."
+
+Key answer: Test an AI product in two layers. Use deterministic tests for the code around the AI, the inputs, parsing, control flow and integrations, and use evaluation against example sets and quality criteria for the AI's own output, since exact-match assertions do not fit non-deterministic responses.
+
+The mistake teams make is concluding that because the AI output cannot be unit-tested traditionally, the product cannot be tested at all. Most of an AI product is ordinary code that can and should be tested normally. And the AI part can be evaluated systematically, just with a different method. Untestable is the wrong conclusion; differently testable is the right one.
+
+## What to test and how
+
+| Part of the product | How to test it | What it catches |
+|---|---|---|
+| Input handling and validation | Deterministic unit tests | Bad input, edge cases, malformed data |
+| Output parsing and post-processing | Deterministic unit tests | Breakage when the model output shape varies |
+| Control flow and integrations | Deterministic integration tests | Broken wiring, failed external calls |
+| Failure and fallback paths | Deterministic tests | Whether the product degrades safely when the model fails |
+| AI output quality | Evaluation against example sets | Quality regressions, bad answers, drift |
+| Prompt and model changes | Evaluation, before and after | Whether a change improved or quietly degraded quality |
+
+The split is the whole strategy. Everything that is not the model's free-form output is ordinary code, and deterministic tests cover it well, including the critical failure and fallback paths that decide whether your product breaks safely. The model's output is evaluated against a set of representative examples and quality criteria. Together they give you a safety net for both halves of the product. This is the testing layer of [hardening an AI prototype for real users](/writing/hardening-ai-prototype).
+
+## Evaluating the non-deterministic part
+
+Evaluation, often called evals, is how you test the AI output you cannot assert exact matches against. The core idea is to build a set of representative inputs with a definition of what a good output looks like, and check the model's output against that definition rather than against one exact string.
+
+1. Build an evaluation set of real, representative inputs. Pull from actual usage where possible, including the hard cases and the cases that have failed before. This set is your benchmark.
+2. Define what good looks like for each. Sometimes a known correct answer, sometimes criteria like "contains the right facts," "follows the format," or "refuses unsafe requests." The criteria are your definition of quality.
+3. Choose how to grade. For structured outputs, check the structure and required fields programmatically. For open-ended outputs, grade against criteria, which can include using a model to judge against a rubric, with human spot-checks to keep the judge honest.
+4. Run the evals on every prompt or model change. Before and after, so you can see whether a change improved quality or quietly degraded it. This is the regression net for the AI itself.
+5. Track the scores over time. So drift and slow degradation are visible rather than discovered through complaints.
+
+> Without an evaluation set, every prompt tweak and model change is a blind guess: you change something, it looks fine on the one example you tried, and you find out three days later that it got worse for a case you forgot. An eval set turns "looks fine" into "measurably better or worse."
+
+This pairs with [reviewing AI-generated code](/writing/reviewing-ai-generated-code), which covers testing the code an agent writes rather than the output the model produces.
+
+## Catching regressions before users do
+
+The reason to invest in this is regressions. AI products degrade in ways traditional software does not: a prompt change made for one case quietly worsens another, a model update shifts behavior, or the distribution of real inputs drifts away from what you built for. None of these announce themselves. Without a safety net, you learn about them from users.
+
+The net has two parts. Before shipping, run the deterministic tests and the eval set so a change cannot silently break the code or the output quality. In production, monitor real outputs and key quality signals so drift and new failure cases surface as data rather than as complaints. The combination means most regressions are caught by you, before a user is affected, which is the entire point of testing. This is a core item on the [AI product launch checklist](/writing/ai-product-launch-checklist).
+
+## Common testing mistakes
+
+The first mistake is concluding the product cannot be tested. Most of it is ordinary code; test that normally and evaluate the AI part separately.
+
+The second is testing only the happy path. The failure and fallback paths are what determine whether your product breaks safely when the model is slow, wrong or down, and they are exactly what teams forget to test.
+
+The third is no evaluation set, so every prompt and model change is a blind guess validated against the single example the developer happened to try.
+
+The fourth is over-tight assertions on AI output, demanding exact-match strings that fail on acceptable answers, which leads teams to delete the tests entirely. Grade against criteria instead.
+
+The fifth is testing once and never again, so regressions from model updates and input drift accumulate silently. Run the evals on every change and monitor in production. The broader discipline this sits inside is [practical AI product strategy](/writing/practical-ai-product-strategy): reliability is a product decision, not a final QA step.
+
+## FAQ
+
+### How do you test an AI product with non-deterministic output?
+
+Test in two layers. Use ordinary deterministic tests for the code around the AI, input handling, parsing, control flow, integrations and fallback paths. Evaluate the AI's own output against a set of representative example inputs and quality criteria, rather than asserting exact-match strings, because the same prompt can produce varied but acceptable answers.
+
+### What are evals for AI products?
+
+Evals are evaluations of AI output against a set of representative inputs and a definition of what a good output looks like. Instead of checking for one exact string, you grade outputs against criteria, such as containing the right facts, following the format, or refusing unsafe requests, and run them on every prompt or model change to catch regressions.
+
+### Can AI features be unit-tested?
+
+The code around an AI feature can be unit-tested normally: input validation, output parsing, control flow and fallback logic. The model's free-form output cannot be checked with exact-match unit tests, so it is evaluated against example sets and criteria instead. Concluding the whole feature is untestable is the common mistake.
+
+### How do I stop an AI product from quietly degrading?
+
+Build an evaluation set and run it on every prompt and model change so a change cannot silently lower quality, and monitor real outputs and quality signals in production so drift and new failure cases surface as data. Together these catch most regressions before users are affected.
+
+### Should I use a model to grade AI output?
+
+For open-ended outputs, using a model to judge against a clear rubric is a practical way to scale evaluation, but keep human spot-checks to make sure the judge stays honest. For structured outputs, check the structure and required fields programmatically, which is more reliable than a model judge.
+
+## What to take from this
+
+Testing an AI product means accepting non-determinism and building two layers of safety net: deterministic tests for the ordinary code and the fallback paths, and evaluation against example sets and criteria for the model's output. Build an eval set from real inputs, run it on every change, and monitor quality in production so regressions are data you catch rather than complaints you receive. If you are making an AI feature reliable enough to depend on, [start a conversation](/conversation).

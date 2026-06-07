@@ -1,0 +1,100 @@
+---
+title: "Coding Agents for MVP Development"
+slug: "coding-agents-mvp-development"
+description: "How to use coding agents to build an MVP fast without shipping software that collapses the moment real users arrive."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "coding agents for mvp"
+search_intent: "Founders and small teams who want to use coding agents to build an MVP quickly but need to avoid creating an unmaintainable, fragile codebase."
+tags:
+  - ai-product-building
+  - coding-agents
+  - mvp
+---
+
+Coding agents have made it genuinely possible to build an MVP in days that would have taken weeks, which is why so many of them collapse under the first real users. The speed is real, but speed without structure produces a codebase nobody understands, with no tests, no error handling, and decisions buried in code that the agent made and nobody reviewed. Using coding agents for MVP development well means keeping the speed while building something you can actually extend, debug and trust once people depend on it.
+
+This guide covers what to let coding agents build, how to structure an agent-driven MVP so it does not become unmaintainable, where to slow down, and the failure modes that turn a fast build into a slow rebuild.
+
+## Where coding agents help most in an MVP
+
+Coding agents are at their best on bounded, well-specified tasks: scaffolding a project, building standard CRUD flows, wiring up authentication and payments with established libraries, writing the glue between an API and a UI, and generating tests for code that already exists. These are the parts of an MVP that are necessary, repetitive and well-trodden, which is exactly where agents are reliable.
+
+Key answer: Use coding agents for the bounded, conventional parts of an MVP, scaffolding, standard flows, integrations and glue code, and keep human judgment on architecture, data modeling and the core logic that makes the product work.
+
+Agents are weakest where an MVP needs judgment: how to model your data, where to draw the boundaries between parts of the system, how to handle the failure cases specific to your product, and the core logic that is the actual point of the thing. These need decisions that depend on context the agent does not have. The reliable division of labor is to let the agent execute the conventional work fast and reserve your attention for the decisions that are expensive to get wrong.
+
+## What to let the agent build versus what to own
+
+| Work | Coding agent | Human judgment |
+|---|---|---|
+| Project scaffolding and setup | Lead | Review the choices |
+| Standard CRUD and forms | Lead | Spot-check |
+| Auth and payments via known libraries | Lead | Verify the security-sensitive parts |
+| API-to-UI glue code | Lead | Light review |
+| Data model and schema | Assist | Own the decision |
+| System boundaries and architecture | Assist | Own the decision |
+| Core product logic | Assist | Own and review closely |
+| Failure handling for your specific cases | Assist | Define the cases |
+
+The "lead" rows are where you let the agent move fast and review at low depth, because mistakes there are conventional and cheap to fix. The "own the decision" rows are where you think first and have the agent implement your decision, because a wrong data model or a tangled architecture is expensive to unwind after the MVP has users. This mirrors the division in the broader [agentic coding workflow](/writing/agentic-coding-workflow).
+
+## A workflow for an agent-built MVP
+
+The difference between a fast MVP you can extend and a fast MVP you have to rebuild is almost entirely in how you run the agent. This is the loop.
+
+1. Decide the architecture and data model yourself first. Write down the core entities and how the system is split before the agent writes anything. These are the decisions you own.
+2. Work in bounded tasks, not "build the app." Give the agent one well-specified slice at a time. Bounded tasks are where agents are reliable; open-ended ones are where they wander.
+3. Review every diff, especially the core logic. Read what the agent wrote before you build on it. Unreviewed code is the foundation of an unmaintainable MVP. The review process is covered in [reviewing AI-generated code](/writing/reviewing-ai-generated-code).
+4. Ask for tests on the parts that matter. The agent can write them. An MVP with no tests on its core logic breaks silently the first time you change something.
+5. Keep the structure clean as you go. When the agent produces tangled code, have it refactor before moving on. Mess compounds; cleaning it later costs more.
+6. Handle the failure cases for your product. Agents default to the happy path. You define what happens when input is bad, the model is wrong, or a call fails.
+7. Stop and harden before real users. Treat the working MVP as a prototype and deliberately add the production spine, covered in [hardening an AI prototype](/writing/hardening-ai-prototype).
+
+> A coding agent will happily build you a working MVP with no tests, no error handling and an architecture nobody decided. It runs in the demo and falls apart in week two. The speed is only a win if you keep ownership of the decisions the agent should not be making.
+
+## Where to slow down
+
+The whole value of coding agents is speed, so the skill is knowing the few places where slowing down saves you a rebuild. Slow down on the data model, because changing it after you have real data is painful. Slow down on system boundaries, because a tangled architecture gets harder to fix with every feature. Slow down on the core logic that makes the product work, because that is the part you cannot afford to have subtly wrong. And slow down on anything touching security, payments or user data, because those mistakes are the expensive kind.
+
+Everywhere else, let the agent run. The mistake is uniform caution, reviewing scaffolding as carefully as core logic, which throws away the speed advantage. Match your attention to the cost of being wrong: deep on the decisions that are expensive to reverse, light on the conventional work that is cheap to fix.
+
+## Common failure modes
+
+The first failure is treating the agent's output as finished software. A working MVP from an agent is a prototype, not a product. It runs, but it has not been hardened, tested or reviewed for the cases that matter.
+
+The second is no architecture decision. Letting the agent decide the data model and system structure by default produces something that works now and resists every change later. Own those decisions.
+
+The third is skipping review to go faster. The time saved by not reviewing is borrowed against the time you will spend debugging code nobody understands. Review the core, always.
+
+The fourth is no tests. Agents will build without tests unless asked. An MVP with no tests on its core logic is a product that breaks every time you touch it. Ask for tests on what matters.
+
+The fifth is never hardening. The MVP works in the demo and ships straight to users with no error handling, no observability and no failure states. The move from working build to reliable product is a deliberate step, not something that happens automatically. For the full picture of running agents day to day, see [coding agents for product teams](/writing/coding-agents-for-product-teams).
+
+## FAQ
+
+### Can I build an MVP entirely with coding agents?
+
+You can build most of an MVP with coding agents, especially the scaffolding, standard flows, integrations and glue code. But you should own the architecture, data model and core product logic yourself and have the agent implement those decisions, because those are the parts that are expensive to get wrong and hard to fix later.
+
+### What should coding agents not do in an MVP?
+
+Coding agents should not make the architectural and data-modeling decisions, define the failure handling specific to your product, or be trusted unreviewed on the core logic and anything touching security, payments or user data. Let them execute these, but you decide and review them.
+
+### How do I keep an agent-built MVP from becoming unmaintainable?
+
+Decide the architecture and data model yourself first, work in bounded tasks, review every diff, ask for tests on the parts that matter, keep the structure clean as you go by refactoring tangled code immediately, and harden the MVP deliberately before real users arrive.
+
+### Is a coding-agent MVP production-ready?
+
+No. A working MVP from a coding agent is a prototype. It runs but usually lacks tests, error handling, observability and the failure states real users will hit. Treat it as a prototype and add the production spine deliberately before launch.
+
+### Where should I slow down when using coding agents for an MVP?
+
+Slow down on the data model, system boundaries, core product logic, and anything touching security, payments or user data, because mistakes there are expensive to reverse. Let the agent move fast on scaffolding, standard flows and glue code, where mistakes are conventional and cheap to fix.
+
+## What to take from this
+
+Coding agents make MVP development genuinely fast, but the speed only pays off if you keep ownership of the decisions that are expensive to reverse: architecture, data model and core logic. Let the agent lead on the conventional work, review the core, ask for tests, and harden before real users. If you are building an MVP with coding agents and want it fast without becoming a rebuild, [start a conversation](/conversation).

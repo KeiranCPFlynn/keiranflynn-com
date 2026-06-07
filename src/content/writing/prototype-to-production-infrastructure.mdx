@@ -1,0 +1,99 @@
+---
+title: "Adding Auth, Data and Payments to a Prototype"
+slug: "prototype-to-production-infrastructure"
+description: "How to add the production spine, authentication, real data and payments, to an AI prototype without rebuilding it from scratch."
+date: "2026-06-07"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "prototype to production infrastructure"
+search_intent: "Founders with a working AI prototype who need to add authentication, persistent data and payments to make it a real product."
+tags:
+  - ai-product-building
+  - prototype-to-product
+  - infrastructure
+---
+
+A working AI prototype usually has no real users, no real data and no way to charge anyone, because those three things are exactly what you skip to build fast. Turning it into a product means adding the production spine: authentication so people have accounts, persistent data so their work survives, and payments so the thing can make money. These are the parts that are unglamorous, security-sensitive and easy to get subtly wrong, which is why so many prototypes stall right here. The good news is you rarely need to rebuild. You need to add the spine deliberately and in the right order.
+
+This guide covers what the production spine actually requires, the order to add it in, the decisions that matter for each piece, and the mistakes that turn this stage into a security incident.
+
+## What the production spine is
+
+The production spine is the set of infrastructure a prototype lacks but a product cannot do without: identity, persistence and billing. Authentication establishes who a user is. A real data layer makes their work persistent, private and recoverable. Payments turn usage into revenue. Each one introduces security and reliability concerns the prototype never had to handle.
+
+Key answer: Add the production spine in order, authentication first, then a real data layer with access rules, then payments, because each layer depends on the one before it and skipping the foundations creates security holes that are expensive to fix later.
+
+The reason order matters is dependency. Payments assume accounts. A data layer with proper access control assumes you know who the user is. If you add billing before identity, or store user data before you have access rules, you build on sand and end up reworking it. Build the foundation first, then the layers that sit on it.
+
+## The three layers and what each requires
+
+| Layer | What it adds | Decisions that matter | Common mistake |
+|---|---|---|---|
+| Authentication | Accounts and identity | Auth method, session handling, password and recovery flows | Rolling your own instead of a proven provider |
+| Data layer | Persistent, private, recoverable data | Schema, access rules, migrations, backups | No row-level access control, so users can read each other's data |
+| Payments | Revenue and plans | Provider, plan model, webhook handling, failed-payment logic | Trusting the client, mishandling webhooks |
+
+The pattern across the mistakes is the same: these are the layers where a subtle error becomes a security or money problem rather than a cosmetic bug. That is why the right move is to use proven providers for auth and payments rather than building them yourself, and to get the data access rules right before any real user data exists. This is the infrastructure half of the broader move covered in [hardening an AI prototype for real users](/writing/hardening-ai-prototype).
+
+## A workflow for adding the spine
+
+The order is the point. Each step assumes the one before it is done.
+
+1. Add authentication first, using a proven provider. Identity is the foundation everything else depends on. Use an established auth provider rather than building your own; auth is the wrong place to be clever.
+2. Design the data model and access rules together. Decide the schema and, at the same time, who can read and write each piece. Access control is not a later addition; it is part of the model.
+3. Enforce access at the data layer, not just the UI. Hiding a button is not security. The data layer itself must reject requests for data a user is not allowed to see.
+4. Add migrations and backups before real data arrives. Once users have data, you need a safe way to change the schema and a way to recover from a mistake. Set this up before it matters.
+5. Add payments with a proven provider. Use an established payments provider, model your plans, and treat the provider as the source of truth for what a customer has paid for.
+6. Handle the payment edge cases. Webhooks, failed payments, cancellations, refunds and plan changes. The happy path is easy; the edge cases are where billing bugs and angry customers come from.
+7. Connect billing to access. A user's plan should drive what they can do. Enforce that on the server, never trusting the client to report its own plan.
+
+> The two infrastructure mistakes that hurt most are rolling your own authentication and skipping data access rules. Both are invisible in a demo and both turn into the kind of incident that ends trust in a product. Use proven providers and enforce access at the data layer.
+
+For builds that came out of a no-code tool, the same spine applies, and the specific path is covered in [turning a Lovable or Bolt build into a real product](/writing/no-code-ai-build-to-product). The connection to billing also ties into [how to price an AI product](/writing/pricing-an-ai-product), since your plan model and your pricing model have to agree.
+
+## Decisions that matter for each layer
+
+For authentication, the decision that matters most is to not build it yourself. Use a proven provider and configure it well: sensible session handling, secure recovery flows, and the right method for your users. The cost of a homegrown auth bug is far higher than the cost of integrating a provider.
+
+For the data layer, the decision that matters is enforcing access control at the data layer, not the interface. The most common prototype-to-production security hole is a backend that returns any record if you ask for it, with the UI being the only thing that hides other users' data. Real access control lives in the data layer and rejects unauthorized requests regardless of what the UI does.
+
+For payments, the decision that matters is treating the payments provider as the source of truth and enforcing entitlements on the server. The client can be manipulated, so what a user is allowed to do must be checked server-side against what the provider says they have paid for. Getting this right is part of the [AI product launch checklist](/writing/ai-product-launch-checklist).
+
+## Common mistakes
+
+The first mistake is wrong order: adding payments or storing user data before authentication is solid, which means reworking the foundation later.
+
+The second is rolling your own authentication. It is the classic place where a subtle mistake becomes a breach. Use a proven provider.
+
+The third is UI-only access control. Hiding data in the interface while the backend will hand it to anyone who asks is the most common prototype security hole. Enforce access at the data layer.
+
+The fourth is no migrations or backups. The first schema change after you have real users, or the first accidental deletion, becomes a crisis instead of a routine operation.
+
+The fifth is trusting the client on payments: letting the front end decide what a user has access to, which is trivial to bypass. Entitlements are a server-side decision based on the provider's record. This is core [practical AI product strategy](/writing/practical-ai-product-strategy) applied to infrastructure: the unglamorous layers are where products actually break.
+
+## FAQ
+
+### In what order should I add auth, data and payments to a prototype?
+
+Authentication first, then a real data layer with access rules, then payments. Each layer depends on the one before it: a proper data layer needs to know who the user is, and payments assume users have accounts. Building them out of order means reworking the foundation later.
+
+### Should I build my own authentication for a product?
+
+No. Use a proven authentication provider. Authentication is security-sensitive and easy to get subtly wrong, and a homegrown auth bug is one of the most expensive mistakes a product can make. Integrate an established provider and configure it carefully.
+
+### What is the most common security mistake when productionizing a prototype?
+
+UI-only access control: hiding other users' data in the interface while the backend returns any record on request. Real access control must live in the data layer and reject unauthorized requests regardless of what the UI shows. Set up access rules alongside the data model, before real user data exists.
+
+### How should I handle payments when turning a prototype into a product?
+
+Use a proven payments provider, treat it as the source of truth for what a customer has paid for, and enforce entitlements on the server rather than trusting the client. Handle the edge cases, failed payments, cancellations, refunds and plan changes, because that is where billing bugs come from.
+
+### Do I need to rebuild my prototype to add production infrastructure?
+
+Usually not. You add the production spine, auth, data and payments, deliberately on top of the prototype, restructuring only where its choices will not hold. The work is adding the layers a prototype skips, not discarding the prototype that proved the idea.
+
+## What to take from this
+
+Adding the production spine to a prototype means authentication, a real data layer and payments, in that order, because each depends on the one before. Use proven providers for auth and payments, enforce access control at the data layer rather than the UI, set up migrations and backups before real data arrives, and check entitlements on the server. Get these unglamorous layers right and the prototype becomes a product. If you have a working AI prototype that needs its production spine built, [start a conversation](/conversation).
