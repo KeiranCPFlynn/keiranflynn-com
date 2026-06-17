@@ -80,22 +80,32 @@ Every post must serve at least one of these readers and leave them with a cleare
 | pricing-an-ai-product | A AI Product Strategy | how to price an ai product | Published |
 | ai-build-vs-buy | A AI Product Strategy | ai build vs buy | Published |
 | ai-product-failure-states | A AI Product Strategy | ai product failure modes | Published |
+| ai-product-metrics | A AI Product Strategy | ai product metrics | Published |
+| ai-product-roadmap | A AI Product Strategy | ai product roadmap | Published |
 | coding-agents-mvp-development | B Coding Agents | coding agents for mvp | Published |
 | specs-for-coding-agents | B Coding Agents | how to prompt coding agents | Published |
 | vibe-coding-to-production | B Coding Agents | vibe coding to production | Published |
 | coding-agent-failure-modes | B Coding Agents | coding agent limitations | Published |
+| repo-setup-for-coding-agents | B Coding Agents | repo setup for ai agents | Published |
 | prototype-to-production-infrastructure | C Prototype to Product | prototype to production infrastructure | Published |
 | testing-ai-products | C Prototype to Product | how to test ai products | Published |
 | llm-cost-and-latency | C Prototype to Product | llm cost optimization | Published |
+| ai-evals-and-observability | C Prototype to Product | ai evals | Published |
 | seo-for-ai-product-companies | F LLM Discovery, GEO and AI Search Visibility | seo for ai startups | Published |
 | ai-mvp-timeline | D AI MVP Build Process | how long to build an ai mvp | Published |
 | scoping-an-ai-mvp | D AI MVP Build Process | how to scope an mvp | Published |
 | ai-idea-to-mvp-sprint | D AI MVP Build Process | ai idea to mvp | Published |
+| ai-mvp-tech-stack | D AI MVP Build Process | ai mvp tech stack | Published |
+| automating-ops-with-llms | E AI Internal Tools and Workflow Automation | automate operations with ai | Published |
+| human-in-the-loop-ai | E AI Internal Tools and Workflow Automation | human in the loop ai | Published |
+| ai-agents-back-office | E AI Internal Tools and Workflow Automation | ai agents for operations | Published |
+| ai-integration-existing-tools | E AI Internal Tools and Workflow Automation | connect ai to existing tools | Published |
 | ai-search-visibility-checklist | F LLM Discovery, GEO and AI Search Visibility | ai search visibility | Published |
 | writing-for-llm-extraction | F LLM Discovery, GEO and AI Search Visibility | content for llm citation | Published |
 | ai-product-builder-vs-agency | G Founder Decision Guides | ai consultant vs agency | Published |
 | fractional-ai-product-lead | G Founder Decision Guides | fractional ai product lead | Published |
 | ai-product-mistakes | G Founder Decision Guides | ai product mistakes | Published |
+| ai-product-sprint | H Working With an AI Product Builder | ai product sprint | Published |
 
 When a post is published, add its row here and flip its `Status` in Section 4.
 
@@ -115,9 +125,9 @@ Hub: `practical-ai-product-strategy` (Published).
 | AI feature vs AI product | ai-feature-vs-ai-product | ai feature vs ai product | TOFU | P2 | Published |
 | AI product failure states and fallbacks | ai-product-failure-states | ai product failure modes | MOFU | P2 | Published |
 | Pricing an AI product | pricing-an-ai-product | how to price an ai product | MOFU | P2 | Published |
-| AI product metrics that matter | ai-product-metrics | ai product metrics | MOFU | P3 | Gap |
+| AI product metrics that matter | ai-product-metrics | ai product metrics | MOFU | P3 | Published |
 | Build vs buy for AI features | ai-build-vs-buy | ai build vs buy | MOFU | P2 | Published |
-| Scoping an AI product roadmap | ai-product-roadmap | ai product roadmap | MOFU | P3 | Gap |
+| Scoping an AI product roadmap | ai-product-roadmap | ai product roadmap | MOFU | P3 | Published |
 
 ### Cluster B: Coding Agents and Agentic Workflows
 
@@ -133,7 +143,7 @@ Hub: `coding-agents-for-product-teams` (Published).
 | Writing specs and prompts for coding agents | specs-for-coding-agents | how to prompt coding agents | TOFU | P2 | Published |
 | When coding agents fail and how to recover | coding-agent-failure-modes | coding agent limitations | MOFU | P2 | Published |
 | Coding agents for non-technical founders | coding-agents-non-technical-founders | coding agents for non technical founders | TOFU | P1 | Published |
-| Setting up a repo for agentic development | repo-setup-for-coding-agents | repo setup for ai agents | MOFU | P3 | Gap |
+| Setting up a repo for agentic development | repo-setup-for-coding-agents | repo setup for ai agents | MOFU | P3 | Published |
 | Vibe coding to production: what changes | vibe-coding-to-production | vibe coding to production | TOFU | P2 | Published |
 
 ### Cluster C: Prototype to Product
@@ -149,7 +159,7 @@ Hub: `ai-prototype-to-product` (Published).
 | Adding auth, data and payments to a prototype | prototype-to-production-infrastructure | prototype to production infrastructure | MOFU | P2 | Published |
 | Testing and reliability for AI products | testing-ai-products | how to test ai products | MOFU | P2 | Published |
 | Handling LLM cost and latency in production | llm-cost-and-latency | llm cost optimization | MOFU | P2 | Published |
-| Observability and evals for AI features | ai-evals-and-observability | ai evals | MOFU | P3 | Gap |
+| Observability and evals for AI features | ai-evals-and-observability | ai evals | MOFU | P3 | Published |
 
 ### Cluster D: AI MVP Build Process
 
@@ -162,7 +172,7 @@ Hub: `ai-mvp-development-process` (Published).
 | How much an AI MVP costs to build | ai-mvp-cost | cost to build ai mvp | BOFU | P1 | Published |
 | AI product launch checklist | ai-product-launch-checklist | ai product launch checklist | MOFU | P2 | Published |
 | Scoping an AI MVP without overbuilding | scoping-an-ai-mvp | how to scope an mvp | MOFU | P2 | Published |
-| Choosing a tech stack for an AI MVP | ai-mvp-tech-stack | ai mvp tech stack | MOFU | P3 | Gap |
+| Choosing a tech stack for an AI MVP | ai-mvp-tech-stack | ai mvp tech stack | MOFU | P3 | Published |
 | From idea to MVP in a sprint | ai-idea-to-mvp-sprint | ai idea to mvp | TOFU | P2 | Published |
 
 ### Cluster E: AI Internal Tools and Workflow Automation
@@ -173,10 +183,10 @@ Hub: `ai-workflow-automation-for-startups` (Published).
 |---|---|---|---|---|---|
 | AI workflow automation for startups (hub) | ai-workflow-automation-for-startups | ai workflow automation for startups | MOFU | P2 | Published |
 | Building internal AI tools for a small team | internal-ai-tools-small-teams | internal ai tools | MOFU | P2 | Published |
-| Automating ops with LLMs without breaking things | automating-ops-with-llms | automate operations with ai | MOFU | P3 | Gap |
-| When to automate vs keep a human in the loop | human-in-the-loop-ai | human in the loop ai | MOFU | P3 | Gap |
-| AI agents for back-office workflows | ai-agents-back-office | ai agents for operations | MOFU | P3 | Gap |
-| Connecting AI to your existing tools and data | ai-integration-existing-tools | connect ai to existing tools | MOFU | P3 | Gap |
+| Automating ops with LLMs without breaking things | automating-ops-with-llms | automate operations with ai | MOFU | P3 | Published |
+| When to automate vs keep a human in the loop | human-in-the-loop-ai | human in the loop ai | MOFU | P3 | Published |
+| AI agents for back-office workflows | ai-agents-back-office | ai agents for operations | MOFU | P3 | Published |
+| Connecting AI to your existing tools and data | ai-integration-existing-tools | connect ai to existing tools | MOFU | P3 | Published |
 
 ### Cluster F: LLM Discovery, GEO and AI Search Visibility
 
@@ -212,7 +222,7 @@ BOFU intent. These map directly to `/services` and `/contact`. Write sparingly a
 
 | Topic | Slug | Target keyword | Stage | Pri | Status |
 |---|---|---|---|---|---|
-| What an AI product sprint includes | ai-product-sprint | ai product sprint | BOFU | P2 | Gap |
+| What an AI product sprint includes | ai-product-sprint | ai product sprint | BOFU | P2 | Published |
 | AI MVP build partner: how it works | ai-mvp-build-partner | ai mvp build partner | BOFU | P3 | Gap |
 | Working with a remote AI product builder | remote-ai-product-builder | hire ai product builder | BOFU | P3 | Gap |
 

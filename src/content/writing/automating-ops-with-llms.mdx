@@ -1,0 +1,230 @@
+---
+title: "Automating Ops With LLMs Without Breaking Things"
+slug: "automating-ops-with-llms"
+description: "How to automate operations with AI while protecting quality, approvals, data and accountability."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Internal Tools and Workflow Automation"
+target_keyword: "automate operations with ai"
+search_intent: "Operators and founders who want to automate internal operations with LLMs without creating fragile systems."
+tags:
+  - ai-product-building
+  - ai-automation
+  - internal-tools
+---
+
+To automate operations with AI safely, start with narrow workflows, keep humans in control where judgment matters and log every important step. LLMs are useful for drafting, extracting, classifying and summarising operational work. They are risky when given broad authority without review.
+
+The danger is not that AI automation never works. The danger is that it works well enough in a demo to get trusted before the system has permissions, fallback behavior and accountability.
+
+This guide extends [AI workflow automation for startups](/writing/ai-workflow-automation-for-startups) and [internal AI tools for small teams](/writing/internal-ai-tools-small-teams).
+
+## Pick boring, high-friction workflows
+
+The best first operations automations are not glamorous. They are repetitive, well-understood and annoying enough that the team will use a better process.
+
+Good candidates:
+
+1. Summarising support tickets.
+2. Drafting customer replies for review.
+3. Extracting invoice or contract fields.
+4. Classifying inbound requests.
+5. Preparing weekly internal reports.
+6. Turning call notes into CRM updates.
+7. Routing operational tasks to the right owner.
+
+Key answer: LLM operations automation works best when AI handles bounded preparation work and humans retain approval over high-impact decisions or external actions.
+
+Avoid starting with a vague "AI operations agent." Start with one workflow that has a clear input, output, owner and review path.
+
+## Decide the automation level
+
+Not every workflow should be fully automated. Use levels.
+
+| Level | AI role | Human role | Good for |
+|---|---|---|---|
+| Assist | Suggests or summarises | Decides everything | New or high-risk workflows |
+| Draft | Creates first version | Reviews and edits | Replies, reports, documents |
+| Recommend | Suggests action | Approves or rejects | Routing, prioritisation |
+| Execute with approval | Prepares action | Approves before execution | CRM updates, emails |
+| Execute automatically | Acts directly | Monitors exceptions | Low-risk, proven workflows |
+
+Most early automations should stop at draft, recommend or execute with approval. Full automation comes after evidence.
+
+This is where [human in the loop AI](/writing/human-in-the-loop-ai) becomes an operating principle, not a slogan.
+
+## Map the real workflow first
+
+Before building, map the current workflow:
+
+1. Trigger.
+2. Input sources.
+3. Current owner.
+4. Decision points.
+5. Tools touched.
+6. Output.
+7. Quality checks.
+8. Failure handling.
+9. Cost of a mistake.
+
+Then decide what AI should handle. Do not automate a workflow nobody understands. If the manual process is inconsistent, AI will often amplify that inconsistency.
+
+A workflow map also reveals integration needs. If the automation must read from Gmail, write to a CRM and notify Slack, the integration design may be more important than the model prompt.
+
+## Put permissions around action
+
+Operations work touches real systems. The automation should only access what it needs and only perform allowed actions.
+
+| Risk | Control |
+|---|---|
+| Wrong customer email | Human approval before sending |
+| Bad CRM update | Preview and edit before write |
+| Sensitive data exposure | Limit sources and redact logs |
+| Duplicate task creation | Idempotency and checks |
+| Wrong routing | Easy reassignment and feedback |
+| Silent failure | Alerts and audit logs |
+
+Permissions should be designed before the automation gets connected to important tools. A low-risk internal draft is different from an automation that changes billing status or sends customer-facing messages.
+
+## Log enough to debug
+
+Operational automations need auditability. When something goes wrong, the team should know what happened.
+
+Log:
+
+1. Trigger event.
+2. Source records used.
+3. Prompt or instruction version.
+4. Model and output status.
+5. User approval or rejection.
+6. External action taken.
+7. Error and retry state.
+8. Owner or reviewer.
+
+Do not log sensitive raw data unnecessarily. But do log enough to reconstruct the decision path.
+
+Without logs, the team will lose trust after the first surprising result.
+
+## Start with one team and one workflow
+
+Ops automation spreads quickly when it works. Resist the urge to automate every department at once.
+
+Start with one team that feels the pain and can give fast feedback. Launch the workflow in assisted or reviewed mode. Watch where users edit, reject, retry or abandon. Then improve before expanding.
+
+This is the same discipline as an [AI MVP](/writing/ai-mvp-development-process): one workflow, real use, then expansion.
+
+## Create an automation brief
+
+Before building, write a short automation brief:
+
+| Field | Question |
+|---|---|
+| Workflow | What exact process is being improved? |
+| Owner | Who is responsible for the workflow? |
+| Trigger | What starts the automation? |
+| Inputs | What data does the AI need? |
+| Output | What should AI produce? |
+| Review | Who approves or edits the output? |
+| Action | What external system changes, if any? |
+| Failure | What happens when AI is wrong or unavailable? |
+| Metric | How will the team know it helped? |
+
+This brief keeps the automation tied to operations value. It also makes implementation safer because the developer or coding agent does not have to infer policy.
+
+## Roll out in stages
+
+Use staged rollout:
+
+1. Shadow mode: AI produces output but no one relies on it.
+2. Assisted mode: AI output is reviewed by a human.
+3. Approved action: AI prepares an action, human approves.
+4. Limited automation: AI acts automatically for low-risk cases.
+5. Exception handling: AI routes uncertain cases to humans.
+
+Shadow mode is useful when trust is low or mistakes are expensive. Assisted mode is usually where the first real value appears. Full automation should be earned.
+
+## What to measure
+
+Measure whether the workflow improved, not whether AI was active.
+
+Track:
+
+1. Time saved per completed task.
+2. Review acceptance rate.
+3. Correction rate.
+4. Escalation rate.
+5. Error or incident count.
+6. Team adoption.
+7. Cost per completed workflow.
+
+If the automation saves time but increases incidents, it is not ready for broader rollout. If users keep editing the same output field, improve the input or prompt before expanding.
+
+## Examples of safe first automations
+
+A good first automation has a clear boundary and a forgiving failure mode.
+
+| Workflow | AI role | Human control |
+|---|---|---|
+| Support triage | Classify and summarize tickets | Agent can reassign |
+| Sales follow-up | Draft reply from CRM context | Founder edits before send |
+| Invoice intake | Extract fields | Finance approves fields |
+| Weekly reporting | Summarise metrics and notes | Operator reviews before sharing |
+| Hiring pipeline | Summarise candidate notes | Hiring manager decides |
+
+These workflows create value before full autonomy. They also generate useful feedback because humans can correct the AI at the point of work.
+
+## Examples to avoid early
+
+Avoid early automations where mistakes are hard to see or reverse.
+
+Be careful with:
+
+1. Sending customer messages without review.
+2. Changing billing or account status automatically.
+3. Deleting or merging records.
+4. Making compliance decisions.
+5. Approving refunds or payments.
+6. Updating legal or financial documents without specialist review.
+
+These may be possible later, but they need more evidence, permissions, auditability and rollback.
+
+## Who should own AI ops automation
+
+Every automation needs an owner from the operating team, not only a developer. The owner understands the workflow, decides what quality means and handles exceptions.
+
+The technical builder owns implementation quality. The operational owner owns workflow quality. Without both, the automation can become technically functional but operationally untrusted.
+
+Set a regular review for the first month after launch. Look at corrections, incidents, adoption and time saved. Then decide whether to expand, adjust or stop.
+
+## Maintenance after launch
+
+Ops workflows change. A customer category changes, a CRM field is renamed, a policy shifts or a team creates a new exception path. The automation needs maintenance when the workflow changes.
+
+Keep a small change log for instruction updates, integration changes and new exception cases. Review it when quality drops. Many AI automation problems are not model problems. They are workflow drift that nobody fed back into the system.
+
+## FAQ
+
+### How can I automate operations with AI?
+
+Choose a repetitive workflow, define the input and output, give AI a bounded role, add human review where needed and log actions for accountability.
+
+### What operations tasks are good for LLMs?
+
+LLMs are useful for summarising, drafting, classifying, extracting, routing and preparing reports from messy text.
+
+### Should AI agents run operations automatically?
+
+Only after the workflow is proven, low risk and observable. Start with human approval for external actions or high-impact decisions.
+
+### What is the biggest risk in AI ops automation?
+
+The biggest risk is giving AI authority before the workflow has permissions, review paths, fallback states and logs.
+
+### Do I need custom software for AI ops automation?
+
+Sometimes. Simple workflows may use existing tools. Custom internal tools are useful when data, review, permissions or auditability matter.
+
+## What to take from this
+
+AI can make operations faster, but only if the workflow is bounded and accountable. Automate preparation before action, keep review where risk is high and log what matters. If you need a practical internal automation built, [get in touch](/contact).

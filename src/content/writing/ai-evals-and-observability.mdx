@@ -1,0 +1,234 @@
+---
+title: "Observability and Evals for AI Features"
+slug: "ai-evals-and-observability"
+description: "How to use AI evals and observability to improve output quality, reliability, cost and user trust."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Prototype to Product"
+target_keyword: "ai evals"
+search_intent: "Product teams and founders who need practical observability and evaluation for AI features in production."
+tags:
+  - ai-product-building
+  - ai-evals
+  - product-reliability
+---
+
+AI evals and observability help a team understand whether an AI feature is producing useful output, failing safely, staying within cost and improving over time. Without them, quality debates become anecdotal and every prompt change becomes a guess.
+
+You do not need a complex evaluation platform on day one. You do need enough visibility to answer basic questions: what input did the model receive, what output did it produce, how long did it take, what did it cost and what did the user do next?
+
+This is part of [testing AI products](/writing/testing-ai-products) and [hardening an AI prototype](/writing/hardening-ai-prototype) for real users.
+
+## Observability and evals are different
+
+Observability tells you what happened in the live system. Evals help you judge whether output quality is good enough against representative cases.
+
+| Practice | Main question | Example |
+|---|---|---|
+| Observability | What happened in production? | A model call timed out or output was rejected |
+| Evals | Is output quality acceptable? | A test set compares prompt versions |
+| Analytics | Did users complete the workflow? | Acceptance rate changed after a release |
+| Logging | What data explains an event? | Prompt version, model, latency and error |
+
+Key answer: Observability shows how an AI feature behaves in real use, while evals give the team a repeatable way to compare output quality before and after changes.
+
+Both matter. Observability without evals tells you something broke but not always how to improve. Evals without observability can look good in a test set while the real product fails.
+
+## What to log for an AI feature
+
+Log enough to debug and improve the product without storing unnecessary sensitive data.
+
+Useful fields include:
+
+1. Workflow name.
+2. Prompt or instruction version.
+3. Model name.
+4. Input category or safe summary.
+5. Output status.
+6. Structured validation result.
+7. Latency.
+8. Token usage or cost estimate.
+9. Retry count.
+10. User action: accepted, edited, rejected or abandoned.
+11. Error type.
+12. Fallback used.
+
+Be careful with raw user data. Some products should avoid storing prompts or outputs, or should redact sensitive fields. The logging design should match the product's privacy and risk profile.
+
+For cost and latency, see [LLM cost and latency](/writing/llm-cost-and-latency).
+
+## Build a small eval set
+
+An eval set is a collection of representative examples used to compare AI behavior. It should include normal cases, hard cases and cases the product should refuse or route differently.
+
+| Case type | Why it matters |
+|---|---|
+| Normal case | Confirms the expected workflow works |
+| Hard case | Tests ambiguity and missing context |
+| Edge case | Tests unusual but plausible input |
+| Bad fit | Ensures the system does not over-answer |
+| Regression case | Protects against previously fixed failures |
+
+Start with 20 to 50 examples if that is all you have. A small, real eval set is better than a large synthetic one that misses the product's actual risk.
+
+For each example, define what good output means. That might be exact fields, allowed categories, required reasoning, forbidden claims or human rating criteria.
+
+## Choose the right eval type
+
+Different AI features need different evals.
+
+| Feature type | Useful eval |
+|---|---|
+| Classification | Accuracy against labeled examples |
+| Extraction | Field precision, completeness and validation |
+| Drafting | Human review rubric and edit distance |
+| Recommendation | Reason quality, source use and safety checks |
+| Search or retrieval | Relevant result found in top positions |
+| Agent workflow | Task success, side effects and rollback behavior |
+
+Do not force every AI feature into one eval method. A classification eval can be more objective than a writing eval. A recommendation eval may need human judgment because usefulness depends on context.
+
+The goal is repeatable comparison, not perfect measurement.
+
+## Connect evals to product metrics
+
+Evals should not live separately from product outcomes. A prompt can score better in evals while users accept fewer outputs because the style is less useful.
+
+Pair evals with product metrics:
+
+1. Acceptance rate.
+2. Edit rate.
+3. Rejection reasons.
+4. Workflow completion.
+5. Retry rate.
+6. Support issues.
+7. Cost per completed workflow.
+8. Latency.
+
+This is where [AI product metrics](/writing/ai-product-metrics) and evals meet. The eval tells you whether the output improved on known cases. The product metric tells you whether users experienced the improvement.
+
+## Use observability to find the next eval cases
+
+Production logs should feed the eval set. When users reject output, hit a fallback or report a bad answer, turn representative examples into regression cases.
+
+This creates a quality loop:
+
+1. Observe a production failure.
+2. Add a safe representative case to the eval set.
+3. Improve prompt, context, model choice or workflow.
+4. Run evals before release.
+5. Watch production metrics after release.
+
+Over time, the eval set becomes a memory of what the product has learned.
+
+## Do not overbuild eval infrastructure too early
+
+Early products need useful evals, not a perfect evaluation platform. Start with a spreadsheet, JSON file or small script if that is enough. Add tooling when the volume, risk or team size justifies it.
+
+What matters early:
+
+1. Representative examples.
+2. Clear quality criteria.
+3. Prompt and model versioning.
+4. Repeatable runs.
+5. Human review where needed.
+6. Connection to product metrics.
+
+Infrastructure should serve decisions. If the team cannot explain what it will change based on an eval result, the eval is probably too abstract.
+
+## What to review before a prompt change ships
+
+Prompt changes are product changes. Treat them with the same discipline as code changes when the output affects users.
+
+Before shipping a prompt change, check:
+
+1. Which behavior is supposed to improve?
+2. Which eval cases should change?
+3. Which regression cases must not get worse?
+4. What model and instruction version are being compared?
+5. What production metric will be watched after release?
+6. How will the team roll back?
+
+This avoids the common loop where teams keep editing prompts based on the last bad example. The last bad example matters, but it should become part of a broader test set.
+
+## Evals for product judgment
+
+Some output cannot be judged by exact accuracy. A product recommendation, sleep guidance draft, strategy summary or customer reply may be useful even if there are many acceptable versions.
+
+For these cases, use a rubric:
+
+| Criterion | What to check |
+|---|---|
+| Relevance | Does it answer the user's actual input? |
+| Completeness | Does it cover required points? |
+| Grounding | Does it avoid unsupported claims? |
+| Actionability | Can the user take the next step? |
+| Tone | Is it appropriate for the context? |
+| Safety | Does it avoid forbidden advice or action? |
+
+Human review is slower than automatic scoring, but it can be more honest for judgment-heavy products. Over time, repeated human judgments can reveal patterns that become automated checks.
+
+## Privacy and data retention
+
+Observability should not become a shadow database of sensitive user data. Decide what to store, what to redact and how long to keep it.
+
+For some products, store only metadata and safe summaries. For others, storing full inputs may be necessary for debugging and user support. The right choice depends on the product's risk, user expectations and legal obligations.
+
+The important part is making the decision deliberately. Do not accidentally retain sensitive prompts because logging was added in a hurry.
+
+## Release gates for AI quality
+
+Use evals and observability to define release gates. A release gate is a condition that must be true before the change reaches users.
+
+Examples:
+
+| Change | Release gate |
+|---|---|
+| New prompt | No regression on key eval cases |
+| New model | Quality improves or cost drops without latency harm |
+| New input type | Validation catches missing or malformed data |
+| New automation step | Human approval and rollback are in place |
+| New retrieval source | Source attribution works on test cases |
+
+Release gates do not need to be heavyweight. They need to be explicit. If a change can affect output quality, the team should know how it was checked.
+
+## Build a quality review rhythm
+
+For early products, review AI quality weekly. Look at a sample of accepted outputs, rejected outputs, edited outputs and failures. Compare them with logs and product metrics.
+
+The review should ask:
+
+1. What failures repeated?
+2. Which corrections were common?
+3. Which prompt or context changes helped?
+4. Which eval cases should be added?
+5. Which product change would reduce review burden?
+
+This rhythm keeps evals connected to real user behavior instead of becoming a separate technical exercise.
+
+## FAQ
+
+### What are AI evals?
+
+AI evals are repeatable tests or review processes used to judge AI output quality against representative examples and criteria.
+
+### What is AI observability?
+
+AI observability is the logging and monitoring that shows how an AI feature behaves in production, including latency, errors, cost, output status and user actions.
+
+### Do I need evals for an AI MVP?
+
+Yes, but they can be simple. Start with representative examples and a clear quality rubric before building complex infrastructure.
+
+### Should evals be automatic or human-reviewed?
+
+Use automatic evals for objective tasks like classification or extraction. Use human review for judgment-heavy tasks like drafting and recommendations.
+
+### How do evals improve product quality?
+
+They make quality changes comparable. The team can test whether a prompt, model or workflow change improves known cases before shipping.
+
+## What to take from this
+
+Observability tells you what happened. Evals help you decide whether output is improving. Together, they turn AI quality from opinion into a product feedback loop. If you need this built into an AI MVP, [review my services](/services).

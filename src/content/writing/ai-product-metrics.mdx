@@ -1,0 +1,211 @@
+---
+title: "AI Product Metrics That Actually Matter"
+slug: "ai-product-metrics"
+description: "A practical guide to AI product metrics for measuring usage, quality, trust, cost and workflow value."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "ai product metrics"
+search_intent: "Founders and product teams deciding which metrics to track for AI features and AI products."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - product-metrics
+---
+
+AI product metrics should tell you whether the product helps a user complete a real job, whether the output is trusted, whether the workflow is reliable and whether the cost is sustainable. Counting generations alone is not enough.
+
+The problem with many AI dashboards is that they measure model activity rather than product value. A user can generate many outputs because the product is useful, or because the first five attempts were bad. The metric only becomes useful when it is tied to the workflow.
+
+This guide builds on [practical AI product strategy](/writing/practical-ai-product-strategy): the product decides what matters, not the model.
+
+## Start with the job, not the model call
+
+The first metric question is not "how many prompts did users send?" It is "what job did the user complete?"
+
+For a drafting product, the job might be a reviewed message sent. For an extraction product, it might be a verified record created. For a recommendation product, it might be a decision made with confidence. For a search product like LLMnesia, it might be a successful retrieval that helps the user continue work.
+
+| Product type | Weak metric | Better metric |
+|---|---|---|
+| Drafting | Generations | Draft accepted, edited or sent |
+| Search | Queries | Successful result opened or reused |
+| Extraction | Model calls | Fields verified without correction |
+| Recommendation | Answers produced | Recommendation accepted with reason |
+| Automation | Tasks attempted | Tasks completed without escalation |
+
+Key answer: The most useful AI product metrics connect AI output to completed user workflows, trust signals, reliability and unit economics.
+
+Model-level metrics matter, but they should support product decisions rather than replace them.
+
+## Measure workflow completion
+
+Workflow completion is the first product health signal. It shows whether users can get through the job the product promises.
+
+Track:
+
+1. Start rate.
+2. Completion rate.
+3. Drop-off step.
+4. Time to complete.
+5. Retry rate.
+6. Manual fallback use.
+7. Return usage.
+
+For AI products, retry rate needs interpretation. A retry can mean the user is engaged and refining. It can also mean output quality is poor. Pair retry data with edit, rejection and completion data before drawing conclusions.
+
+If users start but do not finish, inspect the workflow before blaming the model. The input may be too long, the output may take too much time, the next step may be unclear or the user may not trust the result.
+
+## Measure output quality through user behavior
+
+AI output quality is difficult to measure with one number. User behavior gives useful signals when designed carefully.
+
+Track:
+
+| Signal | What it may indicate |
+|---|---|
+| Accept rate | Output is useful enough to continue |
+| Edit rate | Output is useful but needs adjustment |
+| Rejection rate | Output misses the user's need |
+| Regeneration rate | User wants a better version |
+| Copy or export | Output has downstream value |
+| Correction categories | Specific quality problems |
+| Support notes | Failures users care enough to report |
+
+Do not treat high edit rate as automatic failure. In drafting workflows, heavy editing may still save time. In extraction workflows, frequent edits may indicate reliability problems. Context matters.
+
+The best AI products collect lightweight feedback at the point of use. A rejection reason is more valuable than a generic thumbs down because it tells the team what to fix.
+
+## Measure trust and control
+
+Trust is not a mood. It shows up in behavior. Users trust an AI product when they keep using it, review output efficiently, accept suggestions where appropriate and understand how to recover from mistakes.
+
+Useful trust metrics include:
+
+1. Repeat use by the same user.
+2. Acceptance after review.
+3. Use of source or explanation panels.
+4. Fallback completion.
+5. User corrections over time.
+6. Escalation rate.
+7. Complaints about wrong or confusing output.
+
+Trust can also be damaged by speed, interface design and unclear responsibility. A correct answer that appears with no explanation may be less trusted than a slightly imperfect draft with visible sources and easy editing.
+
+This connects to [AI product failure states](/writing/ai-product-failure-states). Trust improves when failures are visible and recoverable.
+
+## Measure cost and latency together
+
+AI products have variable cost and latency. Track both by workflow, not only globally.
+
+| Metric | Why it matters |
+|---|---|
+| Cost per completed workflow | Shows product economics |
+| Cost per accepted output | Separates useful output from wasted calls |
+| Tokens by feature | Identifies expensive flows |
+| Latency by model call | Shows where users wait |
+| Retry cost | Reveals quality and prompt issues |
+| Cache hit rate | Shows reuse opportunities |
+
+Cost alone can lead to bad decisions. The cheapest model may produce lower-quality output that creates more retries. The fastest model may be good enough for classification but weak for complex recommendations.
+
+For implementation details, see [handling LLM cost and latency](/writing/llm-cost-and-latency).
+
+## Measure reliability around the AI
+
+Many AI product failures happen around the model rather than inside it. The app times out, a parser fails, a source document is missing, a permission check is weak or a queue gets stuck.
+
+Track:
+
+1. Model-call error rate.
+2. Timeout rate.
+3. Structured output validation failures.
+4. Missing input errors.
+5. Permission denials.
+6. Queue failures.
+7. Failed retries.
+8. Manual recovery rate.
+
+These metrics help separate model quality from system reliability. If structured output validation fails often, the fix may be schema design, prompt constraints or parser handling. If timeouts dominate, the fix may be streaming, async jobs or a narrower task.
+
+## A simple AI metrics dashboard
+
+For an early AI MVP, keep the dashboard small:
+
+| Category | Metric |
+|---|---|
+| Usage | Active users and workflow starts |
+| Value | Workflow completions and repeat use |
+| Quality | Accept, edit, reject and retry rates |
+| Trust | Review completion and fallback success |
+| Reliability | Error, timeout and validation failure rates |
+| Economics | Cost per completed workflow and latency |
+
+This is enough to decide what to improve next. More metrics can come later.
+
+## Metric mistakes to avoid
+
+AI product teams often over-measure the easy things and under-measure the product-critical things.
+
+Avoid:
+
+1. Treating model calls as success.
+2. Treating low latency as quality.
+3. Treating low cost as good economics without acceptance data.
+4. Treating thumbs-up feedback as the only quality signal.
+5. Comparing prompts only by subjective opinion.
+6. Ignoring failed or abandoned workflows.
+7. Averaging across very different user jobs.
+
+The biggest mistake is measuring the AI layer without measuring the surrounding workflow. A perfect model response can still fail if the user does not understand it, trust it or know what to do next.
+
+## How to review metrics weekly
+
+Use a simple weekly review:
+
+| Question | Why it matters |
+|---|---|
+| Did more users complete the core workflow? | Shows product value |
+| Did acceptance or edit patterns change? | Shows quality movement |
+| Where did users retry or abandon? | Shows friction |
+| What failures appeared in logs? | Shows reliability issues |
+| What did the product cost per completed workflow? | Shows economics |
+| What should change next? | Turns data into roadmap decisions |
+
+This review should produce one or two product actions, not a report nobody uses. For example, improve input structure, add a source view, change the output format, reduce latency on one step or add an eval case for a repeated failure.
+
+Metrics earn their keep when they change what the team builds next.
+
+## Tie metrics to launch gates
+
+Before launch, decide which metrics are launch-blocking and which are learning signals.
+
+For an internal tool, a high edit rate may be acceptable if the workflow still saves time. For a customer-facing recommendation, the same edit rate may signal a trust problem. For an extraction product, validation failures may block launch because bad fields corrupt the workflow.
+
+Define the gates in plain language. "We can launch to ten friendly users if the core workflow completes, errors are visible and every AI output is reviewable." That is more useful than a dashboard full of numbers with no decision rule.
+
+## FAQ
+
+### What are AI product metrics?
+
+AI product metrics measure whether an AI feature creates workflow value, produces trusted output, behaves reliably and has sustainable cost and latency.
+
+### Is generation count a useful AI metric?
+
+It is useful as activity data, but not as a value metric. Pair it with completion, acceptance, retry and cost data.
+
+### How do you measure AI output quality?
+
+Use acceptance, edit, rejection, regeneration, correction reasons, support feedback and evals where appropriate.
+
+### What is the most important AI product metric?
+
+For most early products, completed workflows and repeat use matter more than raw model usage.
+
+### Should AI metrics include cost?
+
+Yes. Track cost per completed workflow or accepted output, not only total API spend.
+
+## What to take from this
+
+AI product metrics should connect model behavior to product value. Measure completed workflows, output quality, trust, reliability, cost and latency. If you need the metrics designed before launch, [review my services](/services).

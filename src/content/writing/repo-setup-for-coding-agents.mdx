@@ -1,0 +1,245 @@
+---
+title: "Repo Setup for Coding Agents"
+slug: "repo-setup-for-coding-agents"
+description: "How to set up a repository so coding agents can make safer, smaller and easier-to-review changes."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "repo setup for ai agents"
+search_intent: "Technical founders and product teams preparing a codebase for reliable work with coding agents."
+tags:
+  - ai-product-building
+  - coding-agents
+  - developer-workflow
+---
+
+Repo setup for AI agents matters because coding agents work best when the codebase has clear structure, repeatable commands, local examples and small reviewable tasks. A messy repo does not stop an agent from writing code. It stops the team from trusting the result.
+
+The goal is not to create a special codebase for agents. The goal is to make the repo easier for humans and agents to understand, change and verify.
+
+This guide extends [coding agents for product teams](/writing/coding-agents-for-product-teams) and [specs for coding agents](/writing/specs-for-coding-agents).
+
+## Start with clear project instructions
+
+Every agent-friendly repo should have a short instruction file that explains how the project works. It should be specific enough to guide changes, but short enough to read before work starts.
+
+Include:
+
+1. Project purpose.
+2. Tech stack.
+3. Folder structure.
+4. Commands for install, dev, lint, test and build.
+5. Environment assumptions.
+6. Coding conventions.
+7. Testing expectations.
+8. Deployment notes.
+9. Things agents should not change without explicit instruction.
+
+Key answer: A repo is ready for coding agents when the agent can find the right files, follow local patterns, run verification and produce a small diff without guessing the project's rules.
+
+This instruction file also helps new human contributors. If it only helps the agent, it is probably too artificial.
+
+## Make commands boring and reliable
+
+Agents need reliable commands. If the build requires tribal knowledge, hidden services or manual steps, the agent will either fail or hallucinate success.
+
+At minimum, document:
+
+| Command | Purpose |
+|---|---|
+| Install | Recreate dependencies |
+| Dev | Run local app |
+| Lint | Catch style and basic errors |
+| Typecheck | Catch contract errors |
+| Test | Run automated tests |
+| Build | Verify production output |
+
+The commands should work from the repository root where possible. If tests require services, fixtures or environment variables, document that clearly.
+
+Do not rely on the agent's summary of success. Make it run the relevant command and report the result.
+
+## Keep structure predictable
+
+Agents follow patterns. If the repo has many ways to do the same thing, the agent may choose the wrong one.
+
+Predictable structure helps:
+
+1. Pages and routes live in expected folders.
+2. Shared components are easy to find.
+3. Server utilities are separate from UI.
+4. API clients are centralized.
+5. Model calls are wrapped in one layer.
+6. Tests sit near the code or in a documented location.
+7. Content has consistent frontmatter or schema.
+
+This does not mean over-engineering. It means avoiding a codebase where every feature invented its own pattern.
+
+When patterns vary for good reasons, document the decision. Agents can follow exceptions when the exceptions are explicit.
+
+## Centralize risky boundaries
+
+AI agents are most dangerous when important boundaries are scattered. Auth checks, payment logic, data access, model calls and external API writes should have clear homes.
+
+| Boundary | Why centralize it |
+|---|---|
+| Auth and permissions | Prevents bypassing access rules |
+| Database access | Keeps data contracts consistent |
+| Model calls | Enables logging, cost control and prompt versioning |
+| External API writes | Makes side effects reviewable |
+| Payment logic | Reduces billing mistakes |
+| Email or notification sending | Prevents accidental sends |
+
+If an agent needs to change one of these boundaries, the review bar should be higher. Clear boundaries make review possible.
+
+For AI products, centralizing model calls is especially useful. It supports evals, observability, retries and cost tracking later.
+
+## Add examples the agent can copy
+
+Agents do better when they can copy local examples. If you ask for a new settings page, a similar existing page is more useful than a general instruction.
+
+Good examples include:
+
+1. A representative page.
+2. A form with validation.
+3. A server action or API route.
+4. A database query.
+5. A test file.
+6. A loading and error state.
+7. A component using the design system.
+
+When prompting the agent, point to the example. "Follow the pattern in this file" is clearer than "make it consistent."
+
+This is also why duplicate-but-clear code can be better than premature abstraction in early products. Agents can follow concrete patterns more reliably than hidden conventions.
+
+## Design for small diffs
+
+An agent-friendly repo makes it easy to change one thing at a time. Large, tangled files create broad diffs and harder review.
+
+Use:
+
+1. Local components for coherent UI pieces.
+2. Shared utilities for repeated behavior.
+3. Clear file ownership.
+4. Typed interfaces or schemas where useful.
+5. Tests around important contracts.
+6. Formatting that reduces noisy diffs.
+
+Small diffs matter because review is the control point. If a coding agent changes 25 files for a small task, the team is less likely to review carefully.
+
+For failure handling, read [coding agent failure modes](/writing/coding-agent-failure-modes).
+
+## A repo readiness checklist
+
+Before giving a coding agent important work, check:
+
+1. The project has clear setup instructions.
+2. Core commands run locally.
+3. Environment variables are documented.
+4. Existing patterns are easy to find.
+5. Risky boundaries are centralized.
+6. Tests exist for important behavior.
+7. Generated files and build artifacts are ignored.
+8. The agent can run verification without manual secrets.
+9. The review process is clear.
+10. Tasks are small enough to inspect.
+
+You do not need all of this before using agents for tiny tasks. You do need it before trusting agents with product-critical changes.
+
+## Add guardrails for generated changes
+
+Coding agents should know the boundaries of acceptable changes. Put those boundaries in project instructions and reinforce them in prompts.
+
+Useful guardrails:
+
+1. Do not change public routes unless requested.
+2. Do not alter auth or permissions without explicit approval.
+3. Do not add dependencies without explaining why.
+4. Do not rewrite working files for style alone.
+5. Do not touch payment, email or external write paths casually.
+6. Keep generated content out of source unless requested.
+7. Run the relevant verification command.
+
+Guardrails do not make agents timid. They keep the diff aligned with the user's goal.
+
+## Make reviews easier
+
+Repo setup should help the human reviewer. A good agent workflow makes it obvious what changed and how to check it.
+
+That means:
+
+| Review aid | Why it helps |
+|---|---|
+| Small commits or diffs | Easier inspection |
+| Tests near behavior | Clear verification |
+| Named helpers | Easier intent reading |
+| Consistent file locations | Faster navigation |
+| No generated noise | Less review fatigue |
+| Clear error handling | Easier risk review |
+
+If every agent change requires heroic review, the repo is not ready for agent-heavy work. The point is not to remove review. The point is to make review realistic.
+
+## Use issues or task briefs
+
+For repeated work, create a small task template:
+
+1. User outcome.
+2. Files likely involved.
+3. Existing patterns to follow.
+4. Non-goals.
+5. Data or permission concerns.
+6. Verification command.
+7. Manual check if needed.
+
+This template gives the agent enough shape to work and gives the reviewer enough shape to judge the result. It also prevents the common pattern where the agent implements a technically plausible answer to the wrong product request.
+
+## Handle dependencies carefully
+
+Agents may add packages to solve problems quickly. That can be fine, but dependencies create maintenance and security surface.
+
+Set a rule: new dependencies need a reason. The agent should explain what the package does, why existing tools are insufficient and where it is used. For small utilities, local code may be better than a new package. For complex domains, a mature library may be safer than hand-rolled logic.
+
+Dependency decisions should be stricter around auth, payments, cryptography, file parsing and browser automation because mistakes there carry more risk.
+
+## Keep environment setup visible
+
+Environment variables are a common source of agent confusion. Document required variables, which ones are optional and which ones are never needed in local development.
+
+Do not put secrets in instructions. Do include safe placeholders and explain what each value controls.
+
+For example:
+
+| Variable type | Documentation needed |
+|---|---|
+| Database URL | Required for local app or only production? |
+| API key | Which feature needs it? |
+| Webhook secret | How to test without live payments? |
+| App URL | Used for callbacks or metadata? |
+
+Clear environment setup reduces false failures and prevents agents from making insecure guesses.
+
+## FAQ
+
+### How should I prepare a repo for coding agents?
+
+Document commands, structure, conventions and boundaries. Add tests around important behavior and point agents to local examples.
+
+### Do coding agents need special files?
+
+They benefit from project instructions, but the best setup is a normal, well-structured repo with clear commands and reviewable patterns.
+
+### Should agents run tests?
+
+Yes. Agents should run the verification that matches the change, such as lint, typecheck, unit tests, build or browser checks.
+
+### What parts of a repo are risky for agents?
+
+Auth, permissions, payments, database writes, external API side effects and model-call infrastructure deserve extra review.
+
+### Can non-technical founders set this up?
+
+They can document product intent and workflows, but a technical reviewer should help with tests, boundaries and deployment-sensitive areas.
+
+## What to take from this
+
+Coding agents perform better in repos that are easy to understand and verify. Write instructions, centralize risky boundaries, provide examples and keep diffs small. If your product needs an agent-ready build workflow, [review my services](/services).

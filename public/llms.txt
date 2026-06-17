@@ -65,6 +65,16 @@
 - /writing/ai-product-builder-vs-agency - founder guide to choosing between an AI product builder, agency, freelancer or internal hire.
 - /writing/fractional-ai-product-lead - when to use fractional AI product leadership for strategy, scoping and execution.
 - /writing/ai-product-mistakes - common AI product mistakes founders make when moving from idea or demo to product.
+- /writing/ai-product-sprint - what an AI product sprint includes and when founders should use one before a build.
+- /writing/ai-product-metrics - AI product metrics for usage, quality, trust, reliability, cost and latency.
+- /writing/ai-product-roadmap - how to scope an AI product roadmap around evidence, workflow value and reliability.
+- /writing/repo-setup-for-coding-agents - how to prepare repositories for safer, smaller coding-agent changes.
+- /writing/ai-evals-and-observability - practical observability and evals for AI features in production.
+- /writing/ai-mvp-tech-stack - how to choose an AI MVP tech stack around workflow, data and maintenance needs.
+- /writing/automating-ops-with-llms - how to automate operations with LLMs while protecting approvals and accountability.
+- /writing/human-in-the-loop-ai - when to keep humans in AI workflows and when automation is safe.
+- /writing/ai-agents-back-office - how to use AI agents for back-office workflows with permissions, approvals and logs.
+- /writing/ai-integration-existing-tools - how to connect AI to existing tools and data without brittle integrations.
 
 ## Positioning summary
 Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.

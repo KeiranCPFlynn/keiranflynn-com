@@ -1,0 +1,229 @@
+---
+title: "Choosing a Tech Stack for an AI MVP"
+slug: "ai-mvp-tech-stack"
+description: "How to choose an AI MVP tech stack without overbuilding, locking yourself in or skipping reliability."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI MVP Build Process"
+target_keyword: "ai mvp tech stack"
+search_intent: "Founders and builders choosing the right stack for a first AI MVP."
+tags:
+  - ai-product-building
+  - ai-mvp
+  - tech-stack
+---
+
+An AI MVP tech stack should help you build one reliable workflow quickly, observe real use and change direction without a costly rebuild. The best stack is rarely the most fashionable. It is the stack that fits the product's data, integrations, AI role, reliability needs and team skill.
+
+The mistake is choosing tools before the product shape is clear. A model provider, vector database or agent framework does not define the product. The workflow does.
+
+Use this guide after [scoping an AI MVP](/writing/scoping-an-ai-mvp) and before committing to the [AI MVP development process](/writing/ai-mvp-development-process).
+
+## Start with stack requirements
+
+Before choosing tools, write the requirements:
+
+1. What user data will be stored?
+2. Does the product need auth?
+3. Does the AI need retrieval from documents or databases?
+4. Is output structured or freeform?
+5. Does the user review output before action?
+6. What integrations are required for version one?
+7. What latency is acceptable?
+8. What cost per workflow is acceptable?
+9. Who will maintain the product?
+
+Key answer: Choose an AI MVP tech stack by working backward from the workflow, data, review path, integrations and maintenance needs, not from the newest AI tooling.
+
+These answers determine whether you need a simple web app, a browser extension, an internal dashboard, a queue, a vector store, a payment system or only a model wrapper.
+
+## The common AI MVP stack layers
+
+Most AI MVPs have several layers. Not every product needs every layer on day one.
+
+| Layer | Purpose | Common choices |
+|---|---|---|
+| Frontend | User workflow and review | Next.js, React, native app, extension UI |
+| Backend | Data, auth, business logic | Next.js routes, API server, serverless functions |
+| Database | User data and workflow state | Postgres, Supabase, managed SQL |
+| AI provider | Model calls | OpenAI, Anthropic, Google or routed providers |
+| Retrieval | Context from documents or records | Postgres search, embeddings, vector database |
+| Jobs | Long-running or async work | Queues, cron, background workers |
+| Payments | Billing and access | Stripe or platform billing |
+| Analytics | Product learning | PostHog, logs, custom events |
+
+For many MVPs, a simple stack is enough: Next.js, a managed database, a model provider wrapper, basic analytics and deployment on a reliable platform. Add more only when the workflow requires it.
+
+## When to use a simple stack
+
+Use a simple stack when the MVP has one workflow, limited integrations, structured input and reviewable AI output.
+
+Simple stack example:
+
+1. Next.js for app and API routes.
+2. Supabase or Postgres for auth and data.
+3. One model provider behind a wrapper.
+4. PostHog or simple analytics for workflow events.
+5. Stripe only if payments are part of the test.
+6. Vercel or similar hosting.
+
+This kind of stack fits many first products because it keeps the product understandable. LunaCradle, for example, is the kind of product where structured intake, saved output, payment and model calls matter more than exotic AI infrastructure.
+
+Simple does not mean careless. You still need validation, error states, logs and failure handling.
+
+## When you need retrieval or embeddings
+
+Retrieval is useful when the AI needs to answer from a specific body of information: documents, knowledge bases, conversations, support tickets or internal records.
+
+Do not add a vector database just because the product uses AI. Ask:
+
+| Question | If yes |
+|---|---|
+| Does the model need external source material? | Retrieval may help |
+| Is keyword search enough for the first version? | Start simpler |
+| Are sources large or semantically messy? | Embeddings may help |
+| Must answers cite exact sources? | Design source tracking |
+| Is data private or user-specific? | Build permissions carefully |
+
+For a product like LLMnesia, search and local data handling are central to the product. For a drafting MVP using structured form input, retrieval may be unnecessary at first.
+
+## Avoid premature agent frameworks
+
+Agent frameworks can be useful, but many MVPs do not need them. If the first version requires one AI step, one review state and one saved result, a direct model wrapper is usually clearer.
+
+Use agentic orchestration when the product genuinely needs multiple steps, tool use, branching, memory or autonomous planning. Even then, keep boundaries explicit.
+
+| Need | Stack choice |
+|---|---|
+| One model response | Simple model wrapper |
+| Structured extraction | Model wrapper plus schema validation |
+| Retrieval answer | Retrieval layer plus model wrapper |
+| Multi-step workflow | Queue or orchestrated job |
+| Autonomous action | Strong permissions, logs and rollback |
+
+The earlier the product is, the more you should value inspectability.
+
+## Plan for observability from day one
+
+Your AI MVP stack should make basic observability easy. Track prompt version, model, latency, cost estimate, validation result, user action and errors.
+
+You do not need a heavy platform immediately. You do need the ability to answer: what happened and why?
+
+For more detail, see [observability and evals for AI features](/writing/ai-evals-and-observability).
+
+## A stack decision checklist
+
+Before committing, check:
+
+1. The stack fits the first workflow.
+2. The team can maintain it.
+3. Auth and data boundaries are clear.
+4. Model calls are centralized.
+5. Integrations are limited to what the MVP needs.
+6. There is a path for logging and analytics.
+7. The stack can support failure states.
+8. Deployment is straightforward.
+9. Costs are understandable.
+10. There is no tool included only because it is fashionable.
+
+The right MVP stack should feel slightly boring. That is usually a good sign.
+
+## What to avoid in an AI MVP stack
+
+Avoid stack choices that make the first product harder to learn from.
+
+Common mistakes:
+
+1. Adding a vector database before retrieval is needed.
+2. Adding an agent framework for a single model call.
+3. Splitting frontend and backend too early without a reason.
+4. Choosing a tool nobody on the team can maintain.
+5. Building a custom auth system when managed auth is enough.
+6. Adding payments before value or access control requires them.
+7. Storing raw sensitive data without a retention decision.
+8. Scattering model calls across the app.
+
+The issue is not that these tools are bad. The issue is timing. Early products need clarity more than architectural ambition.
+
+## Keep model choice replaceable
+
+Model providers change quickly. Your product should not make every workflow depend on provider-specific details unless there is a strong reason.
+
+Use a model wrapper that handles:
+
+| Concern | Why |
+|---|---|
+| Prompt or instruction version | Supports rollback and evals |
+| Model selection | Enables comparison |
+| Logging | Supports debugging and cost tracking |
+| Retries and timeouts | Improves reliability |
+| Structured validation | Protects downstream UI |
+| Error mapping | Creates useful user-facing fallbacks |
+
+This wrapper does not need to be elaborate. It just keeps the AI boundary clear.
+
+## Match stack to maintenance reality
+
+A founder-built MVP, agency-built MVP and internal-team MVP may need different stack choices because maintenance differs. A stack is not only a launch decision. It is a support decision.
+
+If the founder will maintain the product, prefer fewer moving parts. If an internal team will own it, match the team's existing tools. If an external builder creates it, require clear documentation, environment setup and handoff notes.
+
+The best stack is the one that can still be understood after the first launch.
+
+## Stack choices by MVP type
+
+Different MVPs need different emphasis.
+
+| MVP type | Stack emphasis |
+|---|---|
+| Internal AI tool | Auth, permissions, data access and audit logs |
+| Consumer AI app | UX, payments, onboarding and cost control |
+| Browser extension | Local storage, permissions and sync behavior |
+| B2B workflow tool | Integrations, roles and review states |
+| Content or search product | Retrieval, indexing and source visibility |
+| Agentic automation | Tool access, queues, approvals and rollback |
+
+This is why copying another product's stack can mislead you. The visible interface may be similar while the hard parts are completely different.
+
+## The stack handoff
+
+If an external builder creates the MVP, require a stack handoff. It should include:
+
+1. Architecture overview.
+2. Environment variables.
+3. Deployment steps.
+4. Database schema notes.
+5. Model-call wrapper location.
+6. Logging and analytics events.
+7. Known limitations.
+8. How to run tests and build.
+9. Where future work should happen.
+
+The handoff is part of the product. Without it, the MVP may launch but become hard to maintain.
+
+## FAQ
+
+### What is the best tech stack for an AI MVP?
+
+There is no universal best stack. For many web-based AI MVPs, a simple stack with Next.js, managed Postgres, a model provider wrapper, analytics and reliable hosting is enough.
+
+### Do I need a vector database for an AI MVP?
+
+Only if the AI needs semantic retrieval from a body of source material. Many first MVPs can start with structured input or simpler search.
+
+### Should I use an agent framework?
+
+Use one only when the workflow needs multi-step tool use or autonomous behavior. For many MVPs, a direct model wrapper is simpler and easier to inspect.
+
+### Should payments be in the first AI MVP?
+
+Include payments if willingness to pay or access control is part of the test. Otherwise, defer until workflow value is clearer.
+
+### How do I avoid lock-in?
+
+Centralize model calls, keep data in a portable store, avoid unnecessary provider-specific abstractions and document the assumptions behind each tool choice.
+
+## What to take from this
+
+Choose the stack that makes one workflow reliable, observable and easy to change. Start simple, centralize model calls and add AI infrastructure only when the product needs it. For help choosing and building that stack, [review my services](/services).

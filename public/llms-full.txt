@@ -153,6 +153,36 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - Common AI Product Mistakes Founders Make: https://keiranflynn.com/writing/ai-product-mistakes
   Practical guide to avoiding common AI product mistakes around scope, demos, failure states and product judgment.
 
+- What an AI Product Sprint Includes: https://keiranflynn.com/writing/ai-product-sprint
+  Guide to AI product sprints, including preparation, workflow mapping, risk testing, MVP scope and build handoff.
+
+- AI Product Metrics That Actually Matter: https://keiranflynn.com/writing/ai-product-metrics
+  Practical metrics for AI products across workflow completion, output quality, trust, reliability, cost and latency.
+
+- How to Scope an AI Product Roadmap: https://keiranflynn.com/writing/ai-product-roadmap
+  Framework for building an AI roadmap around evidence, reliability, workflow value and staged expansion.
+
+- Repo Setup for Coding Agents: https://keiranflynn.com/writing/repo-setup-for-coding-agents
+  How to prepare repositories so coding agents can make safer, smaller and easier-to-review changes.
+
+- Observability and Evals for AI Features: https://keiranflynn.com/writing/ai-evals-and-observability
+  Guide to AI evals, logging, release gates and production observability for improving AI feature quality.
+
+- Choosing a Tech Stack for an AI MVP: https://keiranflynn.com/writing/ai-mvp-tech-stack
+  Practical guidance for choosing an AI MVP stack around workflow, data, model calls, reliability and maintenance.
+
+- Automating Ops With LLMs Without Breaking Things: https://keiranflynn.com/writing/automating-ops-with-llms
+  Guide to safe LLM operations automation with bounded workflows, approvals, logs and staged rollout.
+
+- Human in the Loop AI: When to Automate and When to Review: https://keiranflynn.com/writing/human-in-the-loop-ai
+  Decision guide for human review, approval, escalation and automation boundaries in AI workflows.
+
+- AI Agents for Back-Office Workflows: https://keiranflynn.com/writing/ai-agents-back-office
+  How to use AI agents for back-office operations with limited tools, permissions, approvals and auditability.
+
+- Connecting AI to Your Existing Tools and Data: https://keiranflynn.com/writing/ai-integration-existing-tools
+  Guide to connecting AI to existing tools, data sources and APIs without unsafe or brittle workflows.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

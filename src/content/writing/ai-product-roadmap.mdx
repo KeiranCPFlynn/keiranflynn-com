@@ -1,0 +1,224 @@
+---
+title: "How to Scope an AI Product Roadmap"
+slug: "ai-product-roadmap"
+description: "A practical framework for building an AI product roadmap around workflows, risk, evidence and reliability."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI Product Strategy"
+target_keyword: "ai product roadmap"
+search_intent: "Founders and product teams planning an AI product roadmap after an idea, prototype or first MVP."
+tags:
+  - ai-product-building
+  - ai-product-strategy
+  - product-roadmap
+---
+
+An AI product roadmap should sequence learning, reliability and workflow expansion. It should not be a long list of AI features. The best roadmap starts narrow, proves one workflow, then expands only where user behavior justifies it.
+
+AI roadmaps go wrong when teams roadmap model capabilities instead of product outcomes. "Add chat," "add agents," "add memory" and "add automation" are not roadmap items until they are tied to a user job, risk and success signal.
+
+Start with [practical AI product strategy](/writing/practical-ai-product-strategy), then use this guide to turn the strategy into build order.
+
+## Roadmap by evidence, not excitement
+
+The first roadmap question is what evidence should unlock the next investment. Without that discipline, AI products keep expanding because every demo suggests another feature.
+
+| Evidence | Roadmap implication |
+|---|---|
+| Users complete one workflow repeatedly | Improve quality and speed |
+| Users edit output heavily but still use it | Improve input and drafting support |
+| Users reject output without retry | Revisit AI role or problem fit |
+| Users ask for team use | Consider sharing, roles and permissions |
+| Costs rise with usage | Optimize model routing and caching |
+| Users ask for integrations | Add the highest-value source first |
+
+Key answer: An AI product roadmap should expand from proven workflow value, not from the list of things the model could theoretically do.
+
+This keeps the roadmap grounded in behavior instead of hype.
+
+## Use roadmap layers
+
+AI product work has several layers. A useful roadmap separates them so reliability work is not crowded out by feature work.
+
+| Layer | Roadmap question |
+|---|---|
+| Workflow | What user job are we improving? |
+| AI quality | What output needs to improve? |
+| Trust | How does the user review, understand or override AI? |
+| Data | What context or source material is needed? |
+| Reliability | What failure modes must be handled? |
+| Economics | What cost and latency constraints exist? |
+| Distribution | How will the right users discover and adopt it? |
+
+A roadmap that only includes visible features will underfund the invisible layers. That is dangerous in AI products because trust, data and reliability are often the product.
+
+For prototype-stage work, [AI prototype to product](/writing/ai-prototype-to-product) explains why these layers matter.
+
+## Sequence the first three releases
+
+A practical AI roadmap often starts with three releases.
+
+### Release 1: focused workflow
+
+The first release proves that one user can complete one job. It includes bounded AI behavior, review, saved output, basic logging and a small launch audience.
+
+Do not add broad customization yet. First prove the default workflow.
+
+### Release 2: quality and trust
+
+The second release improves the core workflow based on real use. That may mean better input structure, clearer explanations, faster responses, source visibility, improved review tools or targeted evals.
+
+This release is often less flashy than new features, but it is where the product becomes credible.
+
+### Release 3: expansion
+
+The third release can expand scope if evidence supports it. Expansion might mean a new integration, a second workflow, team use, payments, automation or a new customer segment.
+
+Do not expand all dimensions at once. Add one meaningful new surface and watch the effect.
+
+## Decide what not to roadmap yet
+
+Roadmaps should contain deliberate omissions. If everything is planned, nothing is prioritized.
+
+Common items to defer:
+
+1. Multiple user segments.
+2. Open-ended agent behavior.
+3. Full admin dashboards.
+4. Large integration libraries.
+5. Custom prompt builders.
+6. Advanced analytics.
+7. Multiple pricing models.
+8. White-label features.
+
+These may become important later. The question is whether the next release needs them to learn or create value.
+
+Use [scoping an AI MVP](/writing/scoping-an-ai-mvp) when the first version is still unclear.
+
+## Balance product bets and technical debt
+
+AI products accumulate unusual debt: prompt debt, eval debt, context debt, model wrapper debt and failure-state debt. The roadmap should make room for these, or the product becomes harder to trust.
+
+| Debt type | What it looks like | Roadmap response |
+|---|---|---|
+| Prompt debt | Untracked prompt changes | Version and review prompts |
+| Eval debt | No way to compare quality | Add representative test sets |
+| Context debt | AI receives messy or stale data | Clean source selection |
+| Wrapper debt | Model calls scattered through app | Centralize model access |
+| Failure debt | Errors handled inconsistently | Standardize fallback states |
+
+This work rarely sells the roadmap in a meeting, but it protects the product.
+
+## Build roadmap checkpoints
+
+Every roadmap item should have a checkpoint. The checkpoint defines what evidence you need before continuing.
+
+Examples:
+
+1. Increase completion rate before adding a second workflow.
+2. Reduce validation failures before supporting more input types.
+3. Confirm repeat use before building team accounts.
+4. Measure cost per completed workflow before scaling acquisition.
+5. Validate willingness to pay before building complex billing.
+
+Checkpoints prevent automatic momentum. They make the roadmap responsive to evidence.
+
+## Roadmap the non-feature work
+
+AI roadmaps often understate work that users do not see directly. That work can determine whether users trust the product.
+
+Include items such as:
+
+1. Prompt versioning.
+2. Output validation.
+3. Source tracking.
+4. Latency improvement.
+5. Cost monitoring.
+6. Permission review.
+7. Audit logs.
+8. Eval set creation.
+9. Fallback design.
+10. Support tooling.
+
+These are not engineering chores detached from product value. They are the systems that make the AI feature usable repeatedly.
+
+For example, adding a new generation mode may look more exciting than adding source visibility. But if users do not trust the existing output, source visibility may create more value than another mode.
+
+## How to use roadmap horizons
+
+Use three horizons instead of a fixed long-term feature list.
+
+| Horizon | Focus | Planning detail |
+|---|---|---|
+| Now | Current workflow and reliability | Specific tasks and acceptance criteria |
+| Next | Evidence-backed expansion | Candidate features with decision gates |
+| Later | Strategic possibilities | Themes, not committed features |
+
+This structure gives direction without pretending the team knows everything early. The "later" horizon can hold ideas like agents, team accounts, more integrations or new segments. The "now" horizon should stay disciplined.
+
+## Roadmap example
+
+For an AI drafting product, the roadmap might look like this:
+
+1. Release one: draft one message type from structured input.
+2. Release two: add review improvements, source snippets and rejection reasons.
+3. Release three: add one integration after repeated use proves value.
+4. Later: team templates, automation rules and reporting.
+
+That sequence is better than launching with every channel, every template and automatic sending. It lets the team learn what users trust before expanding authority.
+
+## How to handle model changes in the roadmap
+
+Model changes should be treated as product changes when they affect user output. Do not roadmap "upgrade the model" as if it is automatically better.
+
+Before a model change, ask:
+
+1. What product metric should improve?
+2. Which workflows will be affected?
+3. Does the new model change latency or cost?
+4. Does output style change in a way users will notice?
+5. Do evals show improvement on representative cases?
+6. Can the team roll back quickly?
+
+Sometimes the right roadmap item is not a stronger model. It may be better source selection, clearer input, a smaller output format or a review screen that helps users trust the existing result.
+
+## Communicating the roadmap
+
+For founders and small teams, the roadmap should explain decisions in plain language. A useful roadmap note says: "We are improving review and source visibility before adding more automation because users still need confidence in the current output."
+
+That kind of reasoning helps stakeholders understand why reliability work comes before a more exciting feature. It also gives the team a way to say no without sounding slow.
+
+Roadmaps are alignment tools. If nobody can explain why an item is next, it probably should not be next.
+
+## When to rewrite the roadmap
+
+Rewrite the roadmap when evidence changes the product shape. That might happen when users ignore the AI output, use the product for a different job, ask for team workflows earlier than expected or reveal that an integration is more important than the original feature plan.
+
+Changing the roadmap is not failure. Refusing to change it after real evidence appears is the failure.
+
+## FAQ
+
+### What is an AI product roadmap?
+
+An AI product roadmap is a sequenced plan for improving workflows, AI quality, trust, data, reliability and expansion based on user evidence.
+
+### How is an AI roadmap different from a normal product roadmap?
+
+It needs more explicit planning around AI output quality, failure modes, model cost, latency, data context and human review.
+
+### Should the roadmap include model upgrades?
+
+Only when a model upgrade supports a product outcome such as better quality, lower cost, lower latency or safer output.
+
+### How far ahead should an AI roadmap go?
+
+Plan directionally, but keep near-term releases evidence-driven. AI products change quickly when real users meet real model behavior.
+
+### What should come after an AI MVP?
+
+Usually quality, trust and reliability improvements before broad feature expansion.
+
+## What to take from this
+
+An AI roadmap should move from focused workflow to quality, trust and then expansion. Let user behavior unlock the next investment. If you need help turning AI strategy into a practical roadmap, [get in touch](/contact).
