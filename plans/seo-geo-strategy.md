@@ -79,13 +79,23 @@ Every post must serve at least one of these readers and leave them with a cleare
 | internal-ai-tools-small-teams | E AI Internal Tools and Workflow Automation | internal ai tools | Published |
 | pricing-an-ai-product | A AI Product Strategy | how to price an ai product | Published |
 | ai-build-vs-buy | A AI Product Strategy | ai build vs buy | Published |
+| ai-product-failure-states | A AI Product Strategy | ai product failure modes | Published |
 | coding-agents-mvp-development | B Coding Agents | coding agents for mvp | Published |
 | specs-for-coding-agents | B Coding Agents | how to prompt coding agents | Published |
 | vibe-coding-to-production | B Coding Agents | vibe coding to production | Published |
+| coding-agent-failure-modes | B Coding Agents | coding agent limitations | Published |
 | prototype-to-production-infrastructure | C Prototype to Product | prototype to production infrastructure | Published |
 | testing-ai-products | C Prototype to Product | how to test ai products | Published |
 | llm-cost-and-latency | C Prototype to Product | llm cost optimization | Published |
 | seo-for-ai-product-companies | F LLM Discovery, GEO and AI Search Visibility | seo for ai startups | Published |
+| ai-mvp-timeline | D AI MVP Build Process | how long to build an ai mvp | Published |
+| scoping-an-ai-mvp | D AI MVP Build Process | how to scope an mvp | Published |
+| ai-idea-to-mvp-sprint | D AI MVP Build Process | ai idea to mvp | Published |
+| ai-search-visibility-checklist | F LLM Discovery, GEO and AI Search Visibility | ai search visibility | Published |
+| writing-for-llm-extraction | F LLM Discovery, GEO and AI Search Visibility | content for llm citation | Published |
+| ai-product-builder-vs-agency | G Founder Decision Guides | ai consultant vs agency | Published |
+| fractional-ai-product-lead | G Founder Decision Guides | fractional ai product lead | Published |
+| ai-product-mistakes | G Founder Decision Guides | ai product mistakes | Published |
 
 When a post is published, add its row here and flip its `Status` in Section 4.
 
@@ -103,7 +113,7 @@ Hub: `practical-ai-product-strategy` (Published).
 | When should a product use AI | when-should-a-product-use-ai | when to use ai in a product | MOFU | P1 | Published |
 | How to evaluate an AI product idea | evaluate-ai-product-ideas | how to evaluate ai product ideas | MOFU | P1 | Published |
 | AI feature vs AI product | ai-feature-vs-ai-product | ai feature vs ai product | TOFU | P2 | Published |
-| AI product failure states and fallbacks | ai-product-failure-states | ai product failure modes | MOFU | P2 | Gap |
+| AI product failure states and fallbacks | ai-product-failure-states | ai product failure modes | MOFU | P2 | Published |
 | Pricing an AI product | pricing-an-ai-product | how to price an ai product | MOFU | P2 | Published |
 | AI product metrics that matter | ai-product-metrics | ai product metrics | MOFU | P3 | Gap |
 | Build vs buy for AI features | ai-build-vs-buy | ai build vs buy | MOFU | P2 | Published |
@@ -121,7 +131,7 @@ Hub: `coding-agents-for-product-teams` (Published).
 | Coding agents for MVP development | coding-agents-mvp-development | coding agents for mvp | MOFU | P2 | Published |
 | How to review code written by AI agents | reviewing-ai-generated-code | reviewing ai generated code | MOFU | P2 | Published |
 | Writing specs and prompts for coding agents | specs-for-coding-agents | how to prompt coding agents | TOFU | P2 | Published |
-| When coding agents fail and how to recover | coding-agent-failure-modes | coding agent limitations | MOFU | P2 | Gap |
+| When coding agents fail and how to recover | coding-agent-failure-modes | coding agent limitations | MOFU | P2 | Published |
 | Coding agents for non-technical founders | coding-agents-non-technical-founders | coding agents for non technical founders | TOFU | P1 | Published |
 | Setting up a repo for agentic development | repo-setup-for-coding-agents | repo setup for ai agents | MOFU | P3 | Gap |
 | Vibe coding to production: what changes | vibe-coding-to-production | vibe coding to production | TOFU | P2 | Published |
@@ -148,12 +158,12 @@ Hub: `ai-mvp-development-process` (Published).
 | Topic | Slug | Target keyword | Stage | Pri | Status |
 |---|---|---|---|---|---|
 | AI MVP development process (hub) | ai-mvp-development-process | ai mvp development process | MOFU | P1 | Published |
-| How long it takes to build an AI MVP | ai-mvp-timeline | how long to build an ai mvp | MOFU | P2 | Gap |
+| How long it takes to build an AI MVP | ai-mvp-timeline | how long to build an ai mvp | MOFU | P2 | Published |
 | How much an AI MVP costs to build | ai-mvp-cost | cost to build ai mvp | BOFU | P1 | Published |
 | AI product launch checklist | ai-product-launch-checklist | ai product launch checklist | MOFU | P2 | Published |
-| Scoping an AI MVP without overbuilding | scoping-an-ai-mvp | how to scope an mvp | MOFU | P2 | Gap |
+| Scoping an AI MVP without overbuilding | scoping-an-ai-mvp | how to scope an mvp | MOFU | P2 | Published |
 | Choosing a tech stack for an AI MVP | ai-mvp-tech-stack | ai mvp tech stack | MOFU | P3 | Gap |
-| From idea to MVP in a sprint | ai-idea-to-mvp-sprint | ai idea to mvp | TOFU | P2 | Gap |
+| From idea to MVP in a sprint | ai-idea-to-mvp-sprint | ai idea to mvp | TOFU | P2 | Published |
 
 ### Cluster E: AI Internal Tools and Workflow Automation
 
@@ -179,10 +189,10 @@ Hub: `llm-discovery-for-startups` (Published). This cluster is both a topic and 
 | How to add llms.txt to a product site | llms-txt-for-product-sites | llms.txt | MOFU | P1 | Published |
 | Getting cited by ChatGPT and AI Overviews | get-cited-by-ai-search | how to get cited by chatgpt | MOFU | P1 | Published |
 | SEO for AI product companies | seo-for-ai-product-companies | seo for ai startups | MOFU | P2 | Published |
-| AI search visibility checklist | ai-search-visibility-checklist | ai search visibility | MOFU | P2 | Gap |
+| AI search visibility checklist | ai-search-visibility-checklist | ai search visibility | MOFU | P2 | Published |
 | Structured data for AI answer engines | structured-data-for-ai-search | structured data for ai search | MOFU | P3 | Gap |
 | Controlling AI crawlers (GPTBot, OAI-SearchBot) | ai-crawler-control | gptbot oai-searchbot | MOFU | P3 | Gap |
-| Writing content LLMs can extract and cite | writing-for-llm-extraction | content for llm citation | TOFU | P2 | Gap |
+| Writing content LLMs can extract and cite | writing-for-llm-extraction | content for llm citation | TOFU | P2 | Published |
 
 ### Cluster G: Founder Decision Guides
 
@@ -190,10 +200,10 @@ No single hub; these link up to the most relevant pillar. High commercial pull.
 
 | Topic | Slug | Target keyword | Stage | Pri | Status |
 |---|---|---|---|---|---|
-| Should you hire an AI product builder or an agency | ai-product-builder-vs-agency | ai consultant vs agency | BOFU | P2 | Gap |
-| Fractional AI product lead: what it is and when to use one | fractional-ai-product-lead | fractional ai product lead | BOFU | P2 | Gap |
+| Should you hire an AI product builder or an agency | ai-product-builder-vs-agency | ai consultant vs agency | BOFU | P2 | Published |
+| Fractional AI product lead: what it is and when to use one | fractional-ai-product-lead | fractional ai product lead | BOFU | P2 | Published |
 | Risks of building AI products and how to manage them | ai-product-risks | ai product risks | MOFU | P3 | Gap |
-| Common mistakes founders make with AI products | ai-product-mistakes | ai product mistakes | TOFU | P2 | Gap |
+| Common mistakes founders make with AI products | ai-product-mistakes | ai product mistakes | TOFU | P2 | Published |
 | How to brief a developer or builder on an AI product | briefing-an-ai-build | how to brief an ai project | MOFU | P3 | Gap |
 
 ### Cluster H: Working With an AI Product Builder (commercial)

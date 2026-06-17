@@ -1,0 +1,191 @@
+---
+title: "Scoping an AI MVP Without Overbuilding"
+slug: "scoping-an-ai-mvp"
+description: "A practical framework for scoping an AI MVP around one user, one workflow and one reliable learning goal."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI MVP Build Process"
+target_keyword: "how to scope an mvp"
+search_intent: "Founders and operators who need to scope an AI MVP tightly enough to build, launch and learn."
+tags:
+  - ai-product-building
+  - ai-mvp
+  - product-strategy
+---
+
+How to scope an MVP becomes harder when AI is involved because the demo can look broad before the product is ready. A model can produce text, plans, summaries or recommendations across many use cases, but the MVP should still focus on one user, one workflow and one learning goal.
+
+The goal is not to build the smallest thing possible. It is to build the smallest reliable thing that can teach you whether the product should exist in this form.
+
+If you already have a prototype, read this alongside [hardening an AI prototype](/writing/hardening-ai-prototype). Scoping decides what deserves hardening.
+
+## Start with the learning goal
+
+An AI MVP should answer one main question. The question is usually about user value, workflow fit, output trust or willingness to pay.
+
+Weak learning goals sound like this:
+
+| Weak goal | Better goal |
+|---|---|
+| See if people like it | Learn whether recruiters use AI-drafted outreach after editing |
+| Test AI for operations | Learn whether ops staff trust extracted invoice fields after review |
+| Build an AI assistant | Learn whether founders complete a structured planning workflow |
+| Launch a sleep product | Learn whether parents find a generated plan understandable enough to act on |
+
+Key answer: Scope an AI MVP around the smallest workflow that can test the riskiest assumption, while keeping the AI role bounded and the user able to review or correct output.
+
+Once the learning goal is clear, feature decisions become easier. If a feature does not help answer that question, it probably belongs later.
+
+## Choose one user and one job
+
+Many AI ideas become too broad because the model can serve many users. A founder imagines sales, support, operations, marketing and leadership all using the same assistant. That may be a future platform. It is not a good first scope.
+
+Pick the user whose pain is sharpest and whose workflow you can observe. Then describe the job in plain language:
+
+`When [situation happens], [user] needs to [job], but [current friction].`
+
+For example:
+
+`When a parent completes a sleep intake, they need a clear first plan, but generic advice does not reflect their child's situation.`
+
+`When a founder searches old AI conversations, they need to find a past answer quickly, but the context is scattered across tools.`
+
+These are narrow enough to build around. They also point to real product behavior: intake, output, search, review, save, retry.
+
+## Bound the AI role
+
+AI should have a job description inside the MVP. Do not let it become the whole product by default.
+
+| AI role | Good MVP scope | Risk if too broad |
+|---|---|---|
+| Summarise | Summarise one document type | Misses nuance across sources |
+| Draft | Draft a response for review | User trusts unreviewed output |
+| Extract | Extract defined fields | Invalid or missing fields |
+| Classify | Route items into known categories | Misrouting without correction |
+| Recommend | Suggest next steps with reasons | Advice feels arbitrary |
+| Act | Perform a task automatically | Errors become operational damage |
+
+Early MVPs usually work best when AI prepares work and humans decide. This keeps the product useful while quality is still being tested.
+
+For more on whether AI belongs in the product at all, see [when a product should use AI](/writing/when-should-a-product-use-ai).
+
+## Define non-goals before features
+
+Non-goals protect the MVP. They make it possible to say no without reopening the entire strategy.
+
+Good non-goals are specific:
+
+1. No team accounts in version one.
+2. No autonomous sending or publishing.
+3. No support for unstructured file uploads.
+4. No custom prompt builder for users.
+5. No admin dashboard beyond basic review.
+6. No second customer segment until the first workflow is validated.
+
+Non-goals are not a lack of ambition. They are a way to preserve speed and learning. The product can grow after evidence appears.
+
+Without non-goals, every interesting idea becomes "small." Five small additions can double the build.
+
+## Scope the complete slice, not scattered features
+
+An MVP should be complete across one workflow rather than shallow across many. Users should be able to start, finish and recover from the main job.
+
+For an AI MVP, a complete slice usually includes:
+
+| Layer | Minimum needed |
+|---|---|
+| Input | Structured fields or controlled source material |
+| AI behavior | Bounded instruction and expected output shape |
+| Review | User can inspect, edit, accept or reject |
+| Storage | Useful result and relevant context are saved |
+| Failure | Slow, wrong or missing output has a recovery path |
+| Feedback | Team can see quality signals |
+| Launch | A small audience can use it without a live demo |
+
+This is why a real MVP can take more work than a demo. The demo only needs to impress. The MVP needs to survive use.
+
+## Use a scope filter for every feature
+
+When a new feature appears, run it through this filter:
+
+1. Does it help the target user complete the core job?
+2. Does it reduce the riskiest uncertainty?
+3. Is it required for a real user to try the product?
+4. Does it reduce AI failure or increase trust?
+5. Can we learn without it?
+
+If the answer to the fifth question is yes, defer it.
+
+This filter is especially useful when using coding agents. Agents can build extra features quickly, which makes scope creep feel harmless. It is not harmless if it delays learning or increases maintenance. Use [specs for coding agents](/writing/specs-for-coding-agents) to keep implementation aligned with the MVP boundary.
+
+## A one-page AI MVP scope
+
+Before building, write this:
+
+| Field | Answer |
+|---|---|
+| Target user | Who exactly is version one for? |
+| Trigger | When does the user need this? |
+| Core job | What job are they trying to complete? |
+| AI role | Summarise, draft, classify, extract, recommend or act? |
+| Input | What data or context does the product need? |
+| Output | What does the user receive? |
+| Review path | How can the user correct or reject output? |
+| Failure path | What happens when AI is wrong, slow or unavailable? |
+| Success signal | What behavior tells us this is valuable? |
+| Non-goals | What are we explicitly not building? |
+
+This document should be short enough to read before every build session. If it becomes a long product requirements document, the scope is probably drifting.
+
+## What belongs after the MVP
+
+A strong MVP scope usually leaves good ideas out. That can feel uncomfortable, especially when the future product is clear in the founder's head. The answer is not to forget those ideas. The answer is to place them after the first learning goal.
+
+Common post-MVP features include team accounts, advanced settings, custom prompts, analytics dashboards, integrations beyond the first source, billing complexity, multiple output formats, onboarding segmentation and admin controls. Many of these are valuable. They are just rarely needed to learn whether the core workflow is valuable.
+
+Create a "later" list with a reason for each item:
+
+| Later item | Why it waits |
+|---|---|
+| Team accounts | Individual value is not proven yet |
+| Custom templates | First output format still needs validation |
+| Payment tiers | Pricing unit is not clear yet |
+| Multiple integrations | One source is enough for first use |
+| Admin dashboard | Manual review is acceptable during launch |
+
+This keeps strategic ideas visible without letting them invade the first build. After launch, promote items from "later" only when user behavior justifies them.
+
+## Scope changes during the build
+
+Scope will change as you learn. The discipline is to decide consciously.
+
+When a new request appears, label it as one of three things: required for launch, useful after launch or evidence that the original scope was wrong. Required-for-launch changes should be rare and tied to the core job. Useful-after-launch changes go to the later list. If the original scope was wrong, stop and revise the build brief instead of patching around it.
+
+This keeps the MVP from becoming a compromise between every idea the team had during implementation.
+
+## FAQ
+
+### What should be included in an AI MVP?
+
+An AI MVP should include one core workflow, bounded AI behavior, structured input, user review, saved output, failure handling and a feedback signal.
+
+### How do I avoid overbuilding an MVP?
+
+Define the riskiest assumption and build only what is needed to test it with real users. Write non-goals before implementation starts.
+
+### Should an AI MVP include payments?
+
+Include payments only if willingness to pay is the core thing you need to test or access control requires it. Otherwise, payments can wait until the workflow value is clearer.
+
+### Can a no-code AI prototype become an MVP?
+
+Yes, if the scope is narrowed and the product gains real data handling, failure states, review paths and reliability. See [turning a no-code AI build into a product](/writing/no-code-ai-build-to-product).
+
+### How many features should an MVP have?
+
+As few as possible while still letting a real user complete the core job and giving the team evidence for the next decision.
+
+## What to take from this
+
+Scope is the product decision that makes the MVP possible. Pick one user, one job, one AI role and one learning goal. Build the complete slice around that. For help shaping that scope into a buildable plan, [review the services page](/services).

@@ -1,0 +1,152 @@
+---
+title: "Coding Agent Failure Modes: When AI Coding Breaks Down"
+slug: "coding-agent-failure-modes"
+description: "A practical guide to coding agent limitations, failure modes and recovery patterns for product teams."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Coding Agents and Agentic Workflows"
+target_keyword: "coding agent limitations"
+search_intent: "Product teams and founders using coding agents who need to understand where agents fail and how to recover."
+tags:
+  - ai-product-building
+  - coding-agents
+  - agentic-workflows
+---
+
+Coding agent limitations show up when the task is underspecified, the codebase has hidden constraints or the agent is asked to make product judgment while writing code. Agents can move quickly, but speed does not remove the need for scope, review and tests.
+
+The failure pattern is familiar: the first result looks plausible, then a small change breaks routing, state, types, accessibility, auth or data handling. The agent was not malicious or useless. It was operating with incomplete context and too much freedom.
+
+If you use [coding agents for product teams](/writing/coding-agents-for-product-teams), you need a recovery workflow, not blind trust or blanket rejection.
+
+## The most common coding agent failure modes
+
+Coding agents fail in predictable ways. Once the team can name those failures, it can brief agents better and review output faster.
+
+| Failure mode | What happens | Why it happens | Recovery |
+|---|---|---|---|
+| Scope drift | Agent changes unrelated files | The request was broad | Narrow the task and inspect diff |
+| Local inconsistency | New code ignores existing patterns | Agent missed local conventions | Point to examples and refactor |
+| Hidden contract break | Types pass but behavior changes | Tests did not cover the contract | Add regression test |
+| Overbuilt abstraction | Agent creates generic machinery | It optimizes for completeness | Replace with simpler local code |
+| False confidence | Agent claims success without proof | No verification command ran | Run tests and inspect output |
+| State bug | UI works once then breaks | Interaction path was not exercised | Use browser or component testing |
+| Security gap | Auth or data boundary is weak | Requirement was implicit | State permission rules explicitly |
+
+Key answer: Coding agents fail least often when tasks are bounded, codebase patterns are explicit, the diff is reviewed by a human and verification is required before the work is accepted.
+
+The practical goal is not to avoid all failures. It is to make failures cheap, visible and recoverable.
+
+## Agents struggle with product ambiguity
+
+A coding agent is much better at execution than at deciding what the product should become. If the prompt says "make onboarding better," the agent has to invent the user, goal, copy, state model and success criteria. The result may be coherent but still wrong.
+
+Better prompts define the job:
+
+| Weak request | Better request |
+|---|---|
+| Improve onboarding | Add a two-step onboarding form that collects role and team size, stores it on the user profile and redirects to the dashboard |
+| Fix search | Preserve the current search UI, add empty and loading states, and write a test for no results |
+| Make this production ready | Add auth guard, input validation, error state and logging to this route only |
+| Add AI | Add a reviewed draft step using the existing ticket data and do not send messages automatically |
+
+The agent can still suggest alternatives, but the product owner should decide the workflow. For MVPs, this matters because scope is fragile. The agent can build fast enough to make overbuilding feel painless until maintenance begins.
+
+Use the [agentic coding workflow](/writing/agentic-coding-workflow): brief, implement, inspect, test and decide. Do not collapse those steps into one large prompt.
+
+## Agents miss local codebase conventions
+
+Even strong agents can miss how a specific repo wants work done. They may introduce a new styling pattern, duplicate a helper, choose a different data-fetching approach or bypass an established component.
+
+This is not just aesthetic. Local conventions encode product behavior, accessibility decisions, deployment constraints and maintenance habits. A route that "works" but ignores the app's auth helper can create a real bug.
+
+The fix is to include local examples in the brief:
+
+1. Point to the closest existing page, component or API route.
+2. State which patterns must be reused.
+3. Tell the agent what must not change.
+4. Ask for the smallest diff that completes the task.
+5. Review the diff before expanding scope.
+
+For repeated work, invest in repo instructions. A short contributor guide for agents can cover commands, naming, folder structure, component patterns, environment assumptions and test expectations.
+
+## Agents can hide complexity behind passing builds
+
+A passing build is useful, but it is not proof that the product behavior is correct. Agents often satisfy syntax, types and linting before satisfying the actual user flow.
+
+This is especially true in frontend work. A change may compile while a button is unreachable on mobile, a loading state overlaps content, a modal traps focus incorrectly or a mutation silently fails. The build did not test the user path.
+
+Verification should match the risk:
+
+| Change type | Minimum verification |
+|---|---|
+| Copy or metadata | Build or lint |
+| UI state | Browser check across relevant states |
+| Data mutation | Unit or integration test plus manual flow |
+| Auth or permissions | Negative test for blocked access |
+| AI workflow | Structured bad-input tests and logging check |
+| Payment or email | Sandbox end-to-end test |
+
+When a coding agent says "done," translate that into "ready for review." The work is complete only after the human has inspected the diff and the right verification has run.
+
+## How to recover when an agent goes off track
+
+Do not keep prompting on top of a confused direction. Stop, inspect the diff and decide whether the work is salvageable.
+
+If the diff is small and mostly correct, write a correction prompt that names the exact problem and the files to touch. If the diff is broad, revert only the agent's attempt if that is safe in your workflow, then restart with a narrower task. If the change exposed unclear requirements, pause implementation and rewrite the spec.
+
+A useful recovery prompt looks like this:
+
+> Keep the existing implementation structure. Fix only the validation behavior in `src/app/api/...`. Do not change the UI. Add a test for empty input and invalid JSON. Explain any remaining risk after running the test.
+
+That prompt limits movement. It names the boundary, expected test and review output. Agents tend to recover better from precise constraints than from frustration.
+
+## Use agents where mistakes are easy to inspect
+
+Agents are strongest when the work has visible output, local patterns and bounded acceptance criteria. They are weaker when the task crosses product strategy, ambiguous UX, hidden business rules or sensitive data boundaries.
+
+Good agent tasks include route scaffolding, component extraction, schema updates, test creation, refactors with clear targets, migration of repeated patterns and implementation of already-designed workflows.
+
+Riskier tasks include inventing a pricing model, redesigning onboarding without user context, changing auth flows, wiring payments from scratch, creating legal or medical output and making autonomous product decisions.
+
+This does not mean you cannot use agents on risky areas. It means the human brief and review need to be stronger. For commercial AI products, [reviewing AI-generated code](/writing/reviewing-ai-generated-code) is part of the build process.
+
+## A practical coding agent control loop
+
+Use this loop for important work:
+
+1. **Frame:** Write the user outcome, files likely involved, non-goals and verification command.
+2. **Constrain:** Point to existing patterns and define what the agent must not change.
+3. **Implement:** Let the agent make the smallest complete diff.
+4. **Inspect:** Review changed files before running broad follow-up prompts.
+5. **Verify:** Run tests, build, browser checks or logs based on risk.
+6. **Decide:** Accept, request a narrow fix or restart from a cleaner prompt.
+
+This loop is slower than blind prompting for the first five minutes and faster over a real project. It prevents the compounding cost of plausible but wrong code.
+
+## FAQ
+
+### What are coding agent limitations?
+
+Coding agents are limited by ambiguous requirements, incomplete repo context, hidden product constraints, weak tests and the need for human judgment around tradeoffs and user impact.
+
+### Can coding agents write production code?
+
+Yes, but production code still needs human review, local pattern alignment, tests and verification. The agent can write the diff; it should not be the only reviewer.
+
+### Why do coding agents change unrelated files?
+
+They often do this when the task is broad or when they infer a larger refactor than needed. Narrow prompts and explicit non-goals reduce this behavior.
+
+### How do you review AI-generated code?
+
+Review the diff for behavior, scope, security, data handling, tests and consistency with local patterns. Do not rely only on the agent's summary.
+
+### Should non-technical founders use coding agents?
+
+They can, but they need tighter scope, external review for important changes and a bias toward small product slices. Start with [coding agents for non-technical founders](/writing/coding-agents-non-technical-founders).
+
+## What to take from this
+
+Coding agents are useful execution partners when the team owns scope and review. Their failures are manageable if tasks are bounded, local conventions are explicit and "done" means verified. For help turning agent speed into a reliable product workflow, [see how I work](/work).

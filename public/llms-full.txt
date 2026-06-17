@@ -123,6 +123,36 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - SEO for AI Product Companies: https://keiranflynn.com/writing/seo-for-ai-product-companies
   How AI companies should approach SEO when search includes AI Overviews and answer engines, covering shared fundamentals, extractability and common myths.
 
+- AI Product Failure States: https://keiranflynn.com/writing/ai-product-failure-states
+  Guide to AI product failure modes, fallback design, review paths and user trust before launch.
+
+- Coding Agent Failure Modes: https://keiranflynn.com/writing/coding-agent-failure-modes
+  Practical guide to coding agent limitations, common failure patterns and recovery workflows for product teams.
+
+- How Long Does It Take to Build an AI MVP?: https://keiranflynn.com/writing/ai-mvp-timeline
+  Timeline guide for AI MVP builds, covering scope, data, integrations, reliability and launch readiness.
+
+- Scoping an AI MVP Without Overbuilding: https://keiranflynn.com/writing/scoping-an-ai-mvp
+  Framework for scoping an AI MVP around one user, one workflow, one AI role and one learning goal.
+
+- From AI Idea to MVP in a Sprint: https://keiranflynn.com/writing/ai-idea-to-mvp-sprint
+  Sprint process for narrowing a broad AI idea into a workflow, prototype and buildable MVP scope.
+
+- AI Search Visibility Checklist for Product Sites: https://keiranflynn.com/writing/ai-search-visibility-checklist
+  Checklist for making product pages crawlable, specific, extractable and easier for AI answer engines to cite.
+
+- Writing Content LLMs Can Extract and Cite: https://keiranflynn.com/writing/writing-for-llm-extraction
+  Guide to writing direct, structured, citable content for LLM discovery and AI search visibility.
+
+- AI Product Builder vs Agency: Which Should You Hire?: https://keiranflynn.com/writing/ai-product-builder-vs-agency
+  Founder guide to choosing between an AI product builder, agency, freelancer or internal hire.
+
+- Fractional AI Product Lead: What It Is and When to Use One: https://keiranflynn.com/writing/fractional-ai-product-lead
+  Guide to fractional AI product leadership for strategy, scoping, build direction and prototype review.
+
+- Common AI Product Mistakes Founders Make: https://keiranflynn.com/writing/ai-product-mistakes
+  Practical guide to avoiding common AI product mistakes around scope, demos, failure states and product judgment.
+
 ## Topics the site is authoritative on
 
 - AI product strategy for founders

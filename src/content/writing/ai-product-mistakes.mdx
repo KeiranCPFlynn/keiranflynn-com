@@ -1,0 +1,172 @@
+---
+title: "Common AI Product Mistakes Founders Make"
+slug: "ai-product-mistakes"
+description: "The most common AI product mistakes founders make when moving from idea, demo or prototype to a real product."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "Founder Decision Guides"
+target_keyword: "ai product mistakes"
+search_intent: "Founders and small teams who want to avoid common AI product mistakes before building or launching."
+tags:
+  - ai-product-building
+  - founder-guides
+  - ai-product-strategy
+---
+
+AI product mistakes usually start before implementation. Founders over-scope the first version, treat a demo as proof, skip failure design or use AI where a simpler workflow would be better. The result is not always a broken product. Often it is a product that is impressive in a demo and weak in real use.
+
+The good news is that many mistakes are avoidable. They come from predictable patterns, especially when teams move quickly from excitement to build.
+
+Use this guide alongside [how to evaluate AI product ideas](/writing/evaluate-ai-product-ideas) before committing serious time or budget.
+
+## Mistake 1: starting with the model instead of the job
+
+The model is not the product. It is one part of the system. A founder who starts with "we will use the latest model" can easily miss the actual user workflow.
+
+Start with:
+
+1. Who is the user?
+2. What are they trying to do?
+3. When does the problem occur?
+4. What makes the current workflow painful?
+5. What should AI do inside that workflow?
+
+| Model-first thinking | Job-first thinking |
+|---|---|
+| We need an AI assistant | Support reps need reviewed draft replies |
+| We need an AI coach | Parents need a plan based on structured intake |
+| We need AI memory | Users need to search past AI conversations locally |
+| We need automation | Ops needs invoice fields extracted for approval |
+
+Key answer: The best AI products start with a specific job and give AI a bounded role inside that job, rather than starting with a model and searching for use cases.
+
+For the broader strategy, see [when a product should use AI](/writing/when-should-a-product-use-ai).
+
+## Mistake 2: treating the demo as validation
+
+An AI demo can look convincing with curated inputs and live explanation. A product has to work when users bring messy data, misunderstand the interface, retry, leave, return and judge the output without you narrating it.
+
+Demo excitement is a weak signal. Stronger signals include repeated use, willingness to complete the workflow, acceptance or useful editing of AI output, requests to save or share results and willingness to pay.
+
+A demo answers "can this be imagined?" An MVP answers "can this be used?"
+
+This is the difference described in [AI demo traps](/writing/ai-demo-traps). Do not let applause replace evidence.
+
+## Mistake 3: over-scoping the first version
+
+AI makes broad scope feel tempting because the model can respond to many requests. That does not mean the product should.
+
+Common over-scoping moves include:
+
+1. Serving multiple user types on day one.
+2. Supporting open-ended chat when a structured workflow would be clearer.
+3. Adding team management before individual value is proven.
+4. Building admin dashboards before there is real usage.
+5. Automating actions before recommendations are trusted.
+6. Adding many integrations before one workflow works.
+
+The fix is a narrow MVP scope: one user, one job, one AI role, one launch audience. See [scoping an AI MVP](/writing/scoping-an-ai-mvp).
+
+## Mistake 4: ignoring failure states
+
+AI output can be wrong, incomplete, slow, vague or overconfident. If the product does not handle that, the first bad response becomes a trust problem.
+
+Failure design should cover:
+
+| Failure | Product response |
+|---|---|
+| Wrong answer | Allow review, correction and rejection |
+| Missing fields | Validate output and ask for missing input |
+| Slow response | Preserve state and show progress |
+| Bad context | Show source input and allow edits |
+| Unsafe action | Require approval before execution |
+| Model unavailable | Offer retry or manual path |
+
+This does not mean every product needs heavy safety infrastructure. It means failure should be visible and recoverable. For deeper planning, read [AI product failure states](/writing/ai-product-failure-states).
+
+## Mistake 5: hiding too much behind chat
+
+Chat is flexible, but it is not always the best product interface. Many AI products work better with structured inputs, clear review screens and saved outputs.
+
+Open chat can be weak when the user does not know what to ask, the product needs specific data, output must follow a format or the workflow has a clear sequence. In those cases, structure helps both the user and the model.
+
+Use chat when conversation is genuinely the workflow. Use forms, steps, tables, editors and review states when the user needs a task completed reliably.
+
+For example, a baby-sleep guidance product benefits from structured intake because the output depends on specific context. A conversation search tool benefits from search and filters, not only a chat box.
+
+## Mistake 6: skipping observability and feedback
+
+If users say "the answer was wrong," can you understand why? If costs spike, can you see which workflow caused it? If a prompt change reduces quality, can you compare it to the previous version?
+
+AI products need basic observability earlier than founders expect. That can include prompt versions, model-call logs, latency, error rates, output rejection, edit patterns and user feedback.
+
+You do not need enterprise systems for a first MVP. You do need enough visibility to debug real use. Without it, every issue becomes anecdotal.
+
+This is part of turning [an AI prototype into a product](/writing/ai-prototype-to-product). Products need feedback loops.
+
+## Mistake 7: pricing before value is understood
+
+Pricing matters, but early pricing work can become abstract if the workflow value is not clear. Founders sometimes debate subscriptions, credits and usage tiers before anyone has used the product repeatedly.
+
+Price around the value unit once it is visible. The value unit might be saved time, completed reports, generated plans, reviewed tickets, searched conversations or automated workflows. The right model depends on how users experience value and how costs scale.
+
+For a deeper guide, read [pricing an AI product](/writing/pricing-an-ai-product).
+
+## Mistake 8: outsourcing judgment to coding agents
+
+Coding agents are useful for implementation. They are not a replacement for product judgment. If the prompt is vague, the agent will fill gaps with plausible decisions.
+
+Use agents for bounded tasks: scaffold a flow, add validation, write tests, refactor a component, implement a reviewed output state. Do not ask them to decide the market, user, workflow and business model in the same step.
+
+The more coding agents accelerate execution, the more important the brief becomes. See [specs for coding agents](/writing/specs-for-coding-agents).
+
+## A pre-build reset for founders
+
+Before starting an AI build, run a short reset. It can save weeks of correction.
+
+Write one page with:
+
+| Question | Required answer |
+|---|---|
+| Who is the first user? | A specific role or customer segment |
+| What job are they doing? | One workflow, not a category |
+| Why does AI help? | Messy input, judgment, drafting, extraction or recommendation |
+| What should AI not do? | Boundaries and unsafe actions |
+| How will users review output? | Edit, accept, reject or escalate |
+| What failure is most likely? | Wrong, slow, missing, vague or unsafe output |
+| What evidence matters? | Behavior that justifies the next build |
+
+If any answer is vague, the project is not ready for full implementation. It may be ready for a sprint, prototype or technical spike.
+
+## How to recover if you already made one
+
+If you recognise one of these mistakes in an existing build, do not automatically rebuild everything. First, narrow the product back to the core workflow. Remove or hide features that distract from it. Add review and failure states where trust is weak. Improve input structure before changing models. Add observability before making large prompt changes.
+
+Many AI products can be rescued by reducing scope and making the workflow clearer. The repair work is less glamorous than a fresh build, but it often produces a better product.
+
+## FAQ
+
+### What is the biggest AI product mistake?
+
+The biggest mistake is building around AI capability instead of a specific user job. The product should start with the workflow, then define the AI role.
+
+### Why do AI demos fail as products?
+
+Demos use curated inputs and guided explanation. Products face messy data, user confusion, reliability needs, saved state, failure modes and support expectations.
+
+### Should every AI product use chat?
+
+No. Chat is useful for open-ended conversation, but structured workflows often produce better reliability, clearer inputs and easier review.
+
+### How do I avoid overbuilding an AI product?
+
+Define one user, one job, one AI role and one success signal. Treat every extra feature as guilty until it proves it helps the first learning goal.
+
+### Can coding agents create product mistakes?
+
+Yes, when prompts are vague. They can implement the wrong scope quickly. Use clear specs, small tasks and human review.
+
+## What to take from this
+
+Most AI product mistakes are scope and judgment mistakes. Start with the job, keep the AI role bounded, design for failure and learn from real use. If you want help avoiding these traps in a first build, [review my services](/services).

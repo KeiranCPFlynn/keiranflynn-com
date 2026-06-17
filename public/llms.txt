@@ -55,6 +55,16 @@
 - /writing/testing-ai-products - how to test AI products whose output is non-deterministic.
 - /writing/llm-cost-and-latency - practical levers for controlling LLM cost and latency in production.
 - /writing/seo-for-ai-product-companies - SEO and GEO approach for AI companies across classic and AI search.
+- /writing/ai-product-failure-states - how to identify AI product failure modes and design fallbacks before launch.
+- /writing/coding-agent-failure-modes - where coding agents fail and how product teams can recover safely.
+- /writing/ai-mvp-timeline - realistic AI MVP timeline ranges and the scope factors that change them.
+- /writing/scoping-an-ai-mvp - framework for scoping an AI MVP around one user, one workflow and one learning goal.
+- /writing/ai-idea-to-mvp-sprint - sprint process for turning a broad AI idea into a focused MVP decision.
+- /writing/ai-search-visibility-checklist - practical checklist for improving product visibility in AI search and answer engines.
+- /writing/writing-for-llm-extraction - how to write content LLMs can extract and cite accurately.
+- /writing/ai-product-builder-vs-agency - founder guide to choosing between an AI product builder, agency, freelancer or internal hire.
+- /writing/fractional-ai-product-lead - when to use fractional AI product leadership for strategy, scoping and execution.
+- /writing/ai-product-mistakes - common AI product mistakes founders make when moving from idea or demo to product.
 
 ## Positioning summary
 Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.

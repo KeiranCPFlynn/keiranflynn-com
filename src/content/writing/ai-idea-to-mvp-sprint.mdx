@@ -1,0 +1,193 @@
+---
+title: "From AI Idea to MVP in a Sprint"
+slug: "ai-idea-to-mvp-sprint"
+description: "A sprint plan for turning an AI idea into a focused MVP scope, prototype and first build decision."
+date: "2026-06-17"
+author: "Keiran Flynn"
+status: "published"
+pillar: "AI MVP Build Process"
+target_keyword: "ai idea to mvp"
+search_intent: "Founders with an AI idea who need a sprint process to validate scope and move toward an MVP."
+tags:
+  - ai-product-building
+  - ai-mvp
+  - product-sprint
+---
+
+Turning an AI idea to MVP is a sprint problem before it is a build problem. The first job is to narrow the idea, test the riskiest assumption and decide whether there is a focused product slice worth building.
+
+Most AI ideas are too broad at the start. "AI for customer success," "AI coach," "AI operations assistant" and "AI research tool" can all become useful products, but they are not MVP scopes. A sprint turns the category into a workflow.
+
+This post gives a practical five-day process. Use it with the [AI MVP development process](/writing/ai-mvp-development-process) when you are ready to build the first reliable version.
+
+## What a sprint should prove
+
+An AI sprint should not try to prove that AI is impressive. That is too easy and not very useful. It should prove whether a specific user would trust a specific AI-assisted workflow enough to use it.
+
+The sprint should answer:
+
+1. Who is the first user?
+2. What job are they trying to complete?
+3. What part of the job should AI handle?
+4. What input does the AI need?
+5. What output is useful enough to review or act on?
+6. What can go wrong?
+7. What should the MVP include?
+
+Key answer: The purpose of an AI idea sprint is to turn a broad AI concept into a narrow workflow, test whether the AI role is useful and produce a buildable MVP scope.
+
+If the sprint ends with a bigger idea than it started with, it failed. A good sprint ends with a sharper decision.
+
+## Day 1: define the user and job
+
+Start with the user, not the model. Write down the exact person the first version is for and the moment they feel the problem.
+
+Use this structure:
+
+`When [trigger], [user] needs to [job], but [friction].`
+
+Examples:
+
+| Broad idea | Sprint framing |
+|---|---|
+| AI sales assistant | When a founder receives an inbound lead, they need to draft a relevant reply quickly, but context is scattered |
+| AI sleep coach | When a parent completes intake, they need guidance that reflects their situation, but generic advice is hard to apply |
+| AI knowledge search | When a user remembers an answer from a past AI chat, they need to find it, but conversations are split across tools |
+
+This framing exposes whether the idea has a product shape. If you cannot name the trigger and job, do not build yet.
+
+## Day 2: map the workflow and AI role
+
+Map the current workflow in five to seven steps. Then mark where AI could help.
+
+AI can summarise, draft, extract, classify, recommend or act. Early MVPs should usually avoid autonomous action unless the risk is low and rollback is clear.
+
+For each possible AI role, ask:
+
+1. Does AI reduce effort or improve judgment?
+2. What context does it need?
+3. Can the user review the output?
+4. What happens when output is wrong?
+5. Is the AI role narrow enough to test?
+
+This step often reveals that the product needs better input design more than a stronger model. A structured intake, clean source selection or smaller output format can improve quality more than another prompt rewrite.
+
+## Day 3: prototype the riskiest moment
+
+Do not prototype the whole app. Prototype the moment that carries the most uncertainty.
+
+That might be the model output, the intake form, the review screen, the search result, the recommendation explanation or the handoff from AI to human action.
+
+| Risk | Prototype |
+|---|---|
+| Model may not produce useful output | Test representative inputs and expected output format |
+| User may not trust the answer | Prototype review screen with sources or reasoning |
+| Workflow may feel too slow | Test loading, saved state and asynchronous completion |
+| Data may be too messy | Test extraction and validation on real samples |
+| Scope may be too broad | Prototype one narrow path only |
+
+The prototype can be rough. The point is to learn before building the full system. A founder using tools like Lovable, Bolt, Claude Code or Codex should still keep the prototype tied to one question. See [vibe coding to production](/writing/vibe-coding-to-production) for what changes after the demo.
+
+## Day 4: define the MVP slice
+
+Convert the learning into a build scope. The MVP slice should include the smallest complete workflow a real user can try.
+
+Write:
+
+1. One-sentence MVP.
+2. Target user.
+3. Core workflow.
+4. AI role.
+5. Required data.
+6. Review and edit path.
+7. Failure states.
+8. Non-goals.
+9. Launch audience.
+10. Success signal.
+
+For example, LLMnesia is not "AI memory for everything" at the MVP level. A tighter slice is local-first search across AI conversations. LunaCradle is not "parenting AI" at the MVP level. A tighter slice is structured intake leading to personalised baby-sleep guidance.
+
+Specificity makes the product buildable.
+
+## Day 5: decide build, revise or stop
+
+The final sprint day is a decision day. Do not automatically proceed to build because the sprint produced artifacts.
+
+Use this decision table:
+
+| Sprint result | Decision |
+|---|---|
+| User and job are clear, AI output is useful, risk is manageable | Build the MVP |
+| User is clear but output quality is weak | Improve input design or narrow the AI role |
+| Output is strong but workflow is vague | Run more discovery before build |
+| Workflow requires high-risk automation | Add review, audit and permission design before build |
+| No urgent user pain appears | Stop or choose a different problem |
+
+Stopping is a good outcome if it prevents months of building a vague product. A sprint should protect time and budget.
+
+## What to build after the sprint
+
+If the decision is to build, start with the technical spine:
+
+1. Basic app structure.
+2. Auth if user data requires it.
+3. Database schema.
+4. Input flow.
+5. Model-call wrapper.
+6. Structured output validation.
+7. Review or correction state.
+8. Saved result.
+9. Logging and feedback.
+10. Small launch flow.
+
+This is the point where coding agents can help. Give them the sprint output as the brief. Do not ask them to rediscover the product while coding.
+
+If cost is the next question, read [how much an AI MVP costs](/writing/ai-mvp-cost). Cost and timeline both follow scope.
+
+## What to prepare before the sprint
+
+The sprint moves faster if the founder brings real material instead of abstract ambition. Useful inputs include customer notes, support tickets, example documents, sales calls, screenshots of the current workflow, manual process steps, existing prototypes and examples of good and bad outputs.
+
+Do not sanitize the inputs too much. Messy examples reveal product truth. If the AI only works on perfect examples, the sprint needs to discover that before the MVP is scoped.
+
+Bring at least three representative cases:
+
+| Case type | Why it matters |
+|---|---|
+| Normal case | Shows the expected workflow |
+| Hard case | Reveals edge cases and missing context |
+| Bad fit | Defines what the product should reject or route elsewhere |
+
+The bad-fit case is often the most useful. It prevents the product from pretending to serve everyone.
+
+## What the sprint should not do
+
+The sprint should not turn into a full roadmap workshop, a branding exercise or a search for every possible AI feature. It should produce a decision about one MVP slice.
+
+Avoid adding extra audiences during the sprint. Avoid changing the success signal every day. Avoid judging the idea only by whether the model can produce impressive text. The sprint should stay close to the real user job and the evidence needed for the next build decision.
+
+## FAQ
+
+### Can I go from AI idea to MVP in one week?
+
+You can often go from idea to validated scope and prototype in one week. A reliable MVP may still need additional build time depending on data, integrations and risk.
+
+### What should an AI product sprint produce?
+
+It should produce a target user, workflow map, AI role, tested risky moment, MVP scope, non-goals, success signal and build decision.
+
+### Should the sprint include coding?
+
+Yes, if coding helps test the riskiest assumption. Do not code broad product infrastructure before the workflow is clear.
+
+### What if the AI output is not good enough?
+
+Narrow the task, improve the input, constrain sources or keep the human more involved. If output still fails the workflow, do not build the MVP yet.
+
+### Who should be involved in the sprint?
+
+Include the founder or product owner, someone who understands the user workflow and the person responsible for building or reviewing the MVP.
+
+## What to take from this
+
+An AI sprint turns excitement into a decision. Narrow the user, map the workflow, test the risky moment and build only if the MVP scope is clear. If you want that sprint run with a product builder, [get in touch](/contact).
