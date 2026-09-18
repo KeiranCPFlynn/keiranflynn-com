@@ -22,8 +22,8 @@ const PRODUCTS: Record<
     name: "SchoolAI",
     status: "Live",
     desc: "AI education platform for teachers and admins, scaled through SEO and organic content.",
-    metric: "12,000+",
-    metricLabel: "active users",
+    metric: "SEO-led",
+    metricLabel: "growth with zero paid acquisition",
   },
   tool: {
     chip: "Internal tool",
@@ -31,8 +31,8 @@ const PRODUCTS: Record<
     name: "LLMnesia",
     status: "Live",
     desc: "Local-first Chrome extension that indexes and searches AI conversations across 13 platforms.",
-    metric: "1,600+",
-    metricLabel: "organic installs, private by default",
+    metric: "13 platforms",
+    metricLabel: "local-first, private by default",
   },
   mvp: {
     chip: "MVP feature",
