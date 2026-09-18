@@ -20,10 +20,11 @@ type WorkItem = {
   category: string;
   status: string;
   role: string;
-  description: string;
+  problem: string;
   outcome: string;
+  decisions: string[];
+  learned?: string;
   stack: string[];
-  details: string[];
   live?: boolean;
   links?: WorkLink[];
 };
@@ -32,21 +33,30 @@ const work: WorkItem[] = [
   {
     title: "LLMnesia",
     category: "AI workflow product",
-    status: "Live Chrome extension",
+    status: "Live Chrome extension · v0.2.5",
     role: "Founder, product builder",
     live: true,
-    description:
-      "Local-first AI conversation search for people who need to recover useful thinking, decisions and outputs from previous ChatGPT, Claude, Gemini and other LLM chats.",
+    problem:
+      "Useful thinking was getting lost. Decisions, drafts and answers from AI conversations across 13 platforms, including ChatGPT, Claude, Gemini, DeepSeek and Grok, were effectively unrecoverable, and most tools meant handing conversation history to a cloud service.",
     outcome:
-      "Turned a recurring AI workflow problem into a packaged browser product with its own acquisition site and analytics loop.",
-    stack: ["Chrome Extension", "Next.js", "Local-first search", "GA4", "PostHog"],
-    details: [
-      "Extension architecture built around privacy-sensitive local retrieval.",
-      "SEO and LLM-discovery site with MDX content, sitemap, feed and llms.txt assets.",
-      "Weekly insights dashboard that turns PostHog, GA4 and Search Console data into action plans.",
+      "1,600+ organic installs with no paid acquisition. The MCP server, Vault (paid cloud sync with paying customers) and a live PWA are all shipped.",
+    decisions: [
+      "Treated privacy as the product: all data stays on device, which shaped the entire local retrieval architecture rather than being a settings toggle.",
+      "Shipped an MCP server so the same local index is usable from coding agents and LLM tools, not only the extension UI.",
+      "Monetised with Vault, a paid end-to-end encrypted cloud sync tier, rather than ads or data monetisation.",
+      "Built LLMnesia Insights, a supporting agentic analytics pipeline: PostHog, GA4 and Search Console evidence is collected into Supabase, then a coding agent reasons over the evidence to publish structured weekly product reports.",
+      "Closed the loop on distribution with an SEO and LLM-discovery site (MDX content, sitemap, feed, llms.txt) to drive organic installs.",
     ],
+    learned:
+      "Local-first is both an architecture and an acquisition story: with no acquisition budget, the privacy guarantee has to do the persuading.",
+    stack: ["Chrome Extension", "MCP server", "Next.js", "Local-first search", "GA4", "PostHog"],
     links: [
       { href: "https://llmnesia.com", label: "llmnesia.com", kind: "Live" },
+      {
+        href: "https://chromewebstore.google.com/detail/llmnesia/leekfgbdojiaabifbjbbgiiclannjdkf",
+        label: "Chrome Web Store",
+        kind: "Live",
+      },
       {
         href: "https://github.com/KeiranCPFlynn/llmnesia-site-njs",
         label: "LLMnesia site",
@@ -54,7 +64,7 @@ const work: WorkItem[] = [
       },
       {
         href: "https://github.com/KeiranCPFlynn/llmnesia-insights",
-        label: "Insights dashboard",
+        label: "Insights pipeline",
         kind: "GitHub",
       },
     ],
@@ -62,18 +72,19 @@ const work: WorkItem[] = [
   {
     title: "SchoolAI",
     category: "AI education platform",
-    status: "12,000+ users",
+    status: "Live · 12,000+ users",
     role: "Founder, product builder",
     live: true,
-    description:
-      "AI education platform built around practical classroom workflows and scaled through utility rather than paid distribution.",
-    outcome: "Reached 12,000+ users with zero paid acquisition.",
-    stack: ["AI product", "Education workflows", "Organic growth", "User feedback"],
-    details: [
-      "Shaped the product around repeated teacher and student use cases.",
-      "Validated demand through organic adoption rather than advertising spend.",
-      "Learned where AI products need workflow fit, not just model access.",
+    problem:
+      "Teachers and school administrators needed practical writing support built around real school workflows, not a general-purpose chat interface bolted onto a syllabus.",
+    outcome:
+      "Reached 12,000+ users with zero paid acquisition and sustained it without an acquisition budget.",
+    decisions: [
+      "Built around the writing workflows teachers and admins repeat, rather than a general-purpose chat interface.",
+      "Scaled through SEO, organic content and directory listings instead of advertising spend, so every improvement had to earn real usage.",
     ],
+    learned: "AI products need workflow fit, not just model access.",
+    stack: ["AI product", "Education workflows", "SEO and organic content", "User feedback"],
     links: [{ href: "https://schoolai.co", label: "schoolai.co", kind: "Live" }],
   },
   {
@@ -82,16 +93,19 @@ const work: WorkItem[] = [
     status: "Live AI product",
     role: "Product builder",
     live: true,
-    description:
-      "AI-powered baby sleep guidance product that turns parent intake data into structured, personalised sleep plans.",
+    problem:
+      "Parents get generic, conflicting baby sleep advice, and a one-off generated plan goes stale as the baby changes. Raw LLM output is not reliable or readable enough to act on.",
     outcome:
-      "Shipped a full product surface with intake, paid access and personalised LLM output.",
-    stack: ["Next.js", "Supabase", "Stripe", "LLM provider", "Vercel"],
-    details: [
-      "End-to-end product flow from landing page to intake to generated plan.",
-      "Supabase-backed application state and Stripe payment flow.",
-      "Prompt and output structure designed for practical, parent-readable guidance.",
+      "Working MVP covering the full loop: intake questionnaire, AI-generated plan, daily sleep diary, weekly AI reviews, living plan updates, PDF export and paid access.",
+    decisions: [
+      "Grounded generated plans in an AI-structured knowledge base of 73,000 words, organised by baby age, sleep problem and training method, with a loader that selects only the relevant knowledge for each intake.",
+      "Designed the plan as a living document: parents log a daily sleep diary, a weekly AI review runs against it, and the plan updates instead of going stale.",
+      "Designed the prompt and output structure around practical, parent-readable plans, not raw model output.",
+      "Kept the stack conventional: Next.js, Supabase and Stripe over the Gemini API, so build time went into product rather than plumbing.",
     ],
+    learned:
+      "Structured knowledge is what turns LLM generation from a demo into a product a parent can act on.",
+    stack: ["Next.js", "Supabase", "Stripe", "Gemini API", "Resend", "PDF generation", "Vercel"],
     links: [
       { href: "https://lunacradle.com", label: "lunacradle.com", kind: "Live" },
     ],
@@ -101,18 +115,26 @@ const work: WorkItem[] = [
     category: "Agent payments prototype",
     status: "Prototype and demo system",
     role: "Product builder",
-    description:
-      "Web3 and agent payments exploration around 402-style payment flows, credits, vendor gateways and USDC-based machine-to-machine transactions.",
+    problem:
+      "Agent-to-agent payments had no established product shape. The open question was how an API call between machines could carry its own payment without breaking the call, and what a developer would trust enough to integrate.",
     outcome:
-      "Built enough working surface to test the product story, gateway mechanics and demo flow before deeper investment.",
-    stack: ["Next.js", "Express", "Supabase", "x402", "Base", "USDC", "HMAC"],
-    details: [
-      "Static marketing site for private beta positioning and interest capture.",
-      "Credits dashboard and vendor demo service for paid API call simulation.",
-      "Signed gateway verification, idempotent ledger handling and Base Sepolia fork testing.",
+      "A working end-to-end demo: a non-upgradeable USDC treasury contract deployed on Base Sepolia, a credits gateway and dashboard on Vercel, and a vendor demo service on DigitalOcean, all wired into a scripted 402, top-up and retry flow.",
+    decisions: [
+      "Designed the flow so agents pay in credits while USDC settles on-chain: a 402 response triggers a top-up and a retry, so payment never breaks the API call.",
+      "Wrote and deployed the on-chain treasury escrow: USDC deposits via EIP-2612 permit and Permit2, per-user spending limits enforced in the contract, gateway-only batch settlement, re-entrancy guards and Foundry test coverage.",
+      "Built the off-chain side end to end: a Next.js gateway and credits dashboard with HMAC-signed vendor requests, and an Express vendor demo that renders the full request chain with inline trace logs.",
+      "Tested the product story first with a static marketing site and private beta interest capture before building deeper.",
     ],
+    learned:
+      "Most of the difficulty in payments is the unhappy paths: spending limits, retries and settlement failure, not moving the money.",
+    stack: ["Solidity", "Foundry", "Next.js", "Express", "Supabase", "x402", "Base", "USDC", "HMAC"],
     links: [
       { href: "https://flow402.com", label: "flow402.com", kind: "Site" },
+      {
+        href: "https://github.com/KeiranCPFlynn/flow402-escrow",
+        label: "Treasury escrow",
+        kind: "GitHub",
+      },
       {
         href: "https://github.com/KeiranCPFlynn/flow402-landing",
         label: "Landing site",
@@ -126,20 +148,34 @@ const work: WorkItem[] = [
     ],
   },
   {
-    title: "Project Redback",
-    category: "Founder advisory",
-    status: "Founder advisory",
-    role: "Product and AI advisor",
-    description:
-      "Advisory work for a founder shaping product direction, AI integration, positioning and execution cadence.",
+    title: "Know Who's Talking",
+    category: "Chrome extension prototype",
+    status: "Prototype",
+    role: "Product builder",
+    problem:
+      "News readers rarely see who owns the outlet they are reading, how its owners donate politically, or other context that shapes coverage.",
     outcome:
-      "Helped translate broad product ambition into clearer build priorities and execution decisions.",
-    stack: ["Product strategy", "AI integration", "Positioning", "Execution planning"],
-    details: [
-      "Clarified where AI should sit in the product rather than bolting it on as a feature.",
-      "Worked through product direction, positioning and founder-level decision tradeoffs.",
-      "Supported execution planning so the next build steps were concrete.",
+      "Prototype stage, not launched. Early exploration of how much hidden outlet context can be surfaced at read time.",
+    decisions: [
+      "Scoped it as a prototype: validate that outlet ownership and donation data can be surfaced reliably before investing in a launch.",
+      "Surfaces context where the article already is, rather than sending readers to a separate lookup.",
     ],
+    stack: ["Chrome Extension"],
+  },
+  {
+    title: "Project Redback",
+    category: "Founder coaching",
+    status: "Ongoing",
+    role: "Founder coach",
+    problem:
+      "A founder wanted regular outside perspective to pressure-test product and AI decisions and keep build priorities clear.",
+    outcome:
+      "Ongoing founder coaching covering strategy, prioritisation and execution.",
+    decisions: [
+      "Regular sessions centred on priorities, decisions and follow-through rather than deliverables.",
+      "Clarified where AI should sit in the product rather than bolting it on as a feature.",
+    ],
+    stack: ["Coaching", "Product strategy", "AI integration"],
   },
 ];
 
@@ -161,8 +197,8 @@ const githubProjects: GitHubProject[] = [
   {
     title: "LLMnesia Insights",
     description:
-      "Self-hosted product intelligence dashboard that combines PostHog, GA4, Search Console, Supabase and LLM analysis into weekly action plans.",
-    stack: ["Next.js", "Supabase", "PostHog", "GA4", "Search Console", "LLMs"],
+      "Evidence store and read-oriented dashboard for LLMnesia: PostHog, GA4 and Search Console evidence is collected into Supabase without a model call, then a coding agent reasons over the evidence to publish structured weekly product reports.",
+    stack: ["Next.js", "Supabase", "PostHog", "GA4", "Search Console", "Vercel Cron", "LLMs"],
     href: "https://github.com/KeiranCPFlynn/llmnesia-insights",
   },
   {
@@ -197,7 +233,7 @@ const githubProjects: GitHubProject[] = [
 
 const stats = [
   { value: "12k+", label: "users reached" },
-  { value: "5", label: "live or demo products" },
+  { value: "6", label: "projects, prototypes and advisory work" },
   { value: "AI + web3", label: "main build focus" },
 ];
 
@@ -218,17 +254,12 @@ export default function WorkPage() {
             payment experiments.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="https://cal.com/keirancpflynn/10-min-fit-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Book a fit call
+            <Link href="/contact" className="btn-primary">
+              Get in touch
               <span aria-hidden="true">-&gt;</span>
-            </a>
-            <Link href="/contact" className="btn-ghost">
-              Send a brief
+            </Link>
+            <Link href="/services" className="btn-ghost">
+              View services
             </Link>
           </div>
         </div>
@@ -271,9 +302,14 @@ export default function WorkPage() {
                 </span>
               </div>
               <h2 className="text-heading mb-4 text-white">{item.title}</h2>
-              <p className="mb-5 text-[15px] leading-relaxed text-white/65">
-                {item.description}
-              </p>
+              <div className="mb-5">
+                <p className="text-[12px] uppercase tracking-[0.14em] text-white/35">
+                  Problem
+                </p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/65">
+                  {item.problem}
+                </p>
+              </div>
               <div className="border-l border-accent/50 pl-4">
                 <p className="text-[12px] uppercase tracking-[0.14em] text-white/35">
                   Role
@@ -285,19 +321,42 @@ export default function WorkPage() {
             </div>
 
             <div className="flex flex-col">
-              <p className="mb-5 text-[15px] leading-relaxed text-white/75">
-                {item.outcome}
-              </p>
-              <ul className="grid gap-4 xl:grid-cols-3">
-                {item.details.map((detail) => (
-                  <li
-                    key={detail}
-                    className="rounded-[8px] border border-white/10 bg-white/[0.025] px-5 py-5 text-[13px] leading-[1.75] text-white/62"
-                  >
-                    {detail}
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-5">
+                <p className="text-[12px] uppercase tracking-[0.14em] text-white/35">
+                  Outcome
+                </p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/75">
+                  {item.outcome}
+                </p>
+              </div>
+
+              <div className="mb-5">
+                <p className="text-[12px] uppercase tracking-[0.14em] text-white/35">
+                  Key decisions
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {item.decisions.map((decision) => (
+                    <li
+                      key={decision}
+                      className="flex gap-3 text-[14px] leading-[1.7] text-white/62"
+                    >
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent/80" />
+                      <span>{decision}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {item.learned && (
+                <div className="mb-6 border-l border-accent/50 pl-4">
+                  <p className="text-[12px] uppercase tracking-[0.14em] text-white/35">
+                    What I learned
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/75">
+                    {item.learned}
+                  </p>
+                </div>
+              )}
               <div className="mt-6 flex flex-wrap gap-2">
                 {item.stack.map((tech) => (
                   <span

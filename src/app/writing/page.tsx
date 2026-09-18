@@ -4,7 +4,7 @@ import { absoluteUrl, siteUrl } from "@/lib/site";
 import { createPageMetadata } from "@/lib/metadata";
 import { getSortedWritingPosts } from "@/lib/writing";
 
-const title = "AI Product Writing";
+const title = "AI Product Guides";
 const description =
     "Practical AI product guides on coding agents, prototype-to-product work, product strategy and AI workflows for founders and small teams.";
 
@@ -60,18 +60,18 @@ export default function WritingPage() {
                     <div className="accent-line mb-8" />
                     <div className="grid gap-8 md:grid-cols-[1fr_15rem] md:items-end">
                         <div>
-                            <p className="eyebrow mb-5">AI product blog</p>
-                            <h1 className="text-display mb-7 text-white">Writing</h1>
+                            <p className="eyebrow mb-5">AI product guides</p>
+                            <h1 className="text-display mb-7 text-white">Guides</h1>
                             <p className="max-w-2xl text-[1.05rem] leading-relaxed text-white/60 sm:text-[1.15rem]">
-                                Practical guides on AI product strategy, coding agents,
-                                prototype hardening and the decisions that turn AI demos
-                                into useful software.
+                                Practical reference guides on AI product strategy,
+                                coding agents, prototype hardening and the decisions
+                                that turn AI demos into useful software.
                             </p>
                         </div>
 
                         {posts.length > 0 && (
                             <div className="border-l border-white/[0.08] pl-5 text-[13px] leading-relaxed text-white/42 md:justify-self-end">
-                                <p>{posts.length} notes</p>
+                                <p>{posts.length} guides</p>
                                 <p>
                                     Latest{" "}
                                     <time dateTime={featuredPost.rawDate}>
@@ -200,7 +200,7 @@ export default function WritingPage() {
                         {posts.length === 1 && (
                             <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] p-6">
                                 <p className="text-[15px] leading-relaxed text-white/55">
-                                    More notes will appear here as they are published.
+                                    More guides will appear here as they are published.
                                 </p>
                             </div>
                         )}

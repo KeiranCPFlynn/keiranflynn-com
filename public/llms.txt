@@ -17,13 +17,14 @@
 - Turns vague AI ideas into scoped products, prototypes, internal tools and live MVPs.
 - Offers AI Product Sprints, AI MVP Build Partner work and Fractional AI Product Lead support.
 - Works with Claude Code, Codex, ChatGPT, Claude, Gemini, Next.js, Supabase, PostHog, Stripe, APIs, Chrome Extensions and agentic workflows.
-- Built and scaled SchoolAI to 12,000+ users with zero paid acquisition.
-- Built LLMnesia, a live Chrome extension for local-first AI conversation search across major LLM platforms.
-- Built LunaCradle, a live AI-powered baby sleep guidance product using Next.js, Supabase, Stripe and an LLM provider.
-- Built Flow402, an x402, Base and USDC agent payments prototype.
+- Built LLMnesia, a live local-first Chrome extension that indexes and searches AI conversations across 13 platforms. 1,600+ organic installs, with a launched MCP server, an end-to-end encrypted Vault cloud sync tier and a live PWA. Current Chrome Web Store version is v0.2.5.
+- Built and scaled SchoolAI, an AI writing tool for teachers and school admins, to 12,000+ users through SEO, organic content and directories.
+- Built LunaCradle, an AI-powered baby sleep guidance product using Next.js, Supabase, Stripe and the Gemini API, grounded in a 73,000-word AI-structured knowledge base, with daily sleep diaries, weekly AI reviews and living plan updates.
+- Built Flow402, an agent payments prototype with a non-upgradeable USDC treasury escrow on Base Sepolia, an HMAC-signed credits gateway and dashboard, and a working 402 top-up and retry demo.
+- Building Know Who's Talking, a prototype Chrome extension that attributes news articles by surfacing who owns the outlet, political donations and other normally hidden context. Prototype stage, not launched.
 - Built 10+ products, prototypes and demos across AI workflows, web3 experiments, internal tools and product sites, including LLMnesia Insights, Job Radar and this site.
 
-## Writing cluster
+## Guides cluster
 - /writing/coding-agents-for-product-teams - practical guide to using coding agents inside product teams.
 - /writing/ai-prototype-to-product - how founders move from AI-generated prototype to production product.
 - /writing/practical-ai-product-strategy - product strategy framework for deciding where AI belongs in a product.
@@ -77,7 +78,7 @@
 - /writing/ai-integration-existing-tools - how to connect AI to existing tools and data without brittle integrations.
 
 ## Positioning summary
-Keiran Flynn is an AI product builder based in Thailand and working remotely with founders, operators and small teams. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.
+Keiran Flynn is an AI product builder working remotely with founders, operators and small teams, with strong overlap with UK and European hours. The site focuses on practical AI product strategy, coding-agent workflows, prototype hardening, MVP builds, internal tools and product judgment for AI-enabled software.
 
 ## Contact
 - Website contact form: https://keiranflynn.com/contact

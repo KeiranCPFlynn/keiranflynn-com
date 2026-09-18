@@ -93,7 +93,7 @@ export default function ServicesPage() {
           </h1>
           <p className="lead reveal" data-delay="140">
             For founders, operators and small teams who need help turning AI
-            ideas into products, prototypes or internal systems — with product
+            ideas into products, prototypes or internal systems, with product
             judgment, not just a working demo.
           </p>
           <div className="hero-cta reveal" data-delay="220">
@@ -184,7 +184,7 @@ export default function ServicesPage() {
           </h2>
           <p className="reveal" data-delay="140">
             Book a ten-minute fit call. We&apos;ll work out whether it&apos;s a
-            sprint, a build, or ongoing — and whether it&apos;s worth doing at all.
+            sprint, a build, or ongoing, and whether it&apos;s worth doing at all.
           </p>
           <div className="hero-cta reveal" data-delay="200">
             <a

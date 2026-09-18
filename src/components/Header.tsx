@@ -4,12 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
-
 const navItems = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "/writing", label: "Writing" },
+  { href: "/writing", label: "Guides" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -46,14 +44,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a
-              className="btn btn-ghost btn-sm nav-cta"
-              href={BOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a call
-            </a>
           </nav>
 
           <button
@@ -74,14 +64,6 @@ export function Header() {
             {item.label}
           </Link>
         ))}
-        <a
-          href={BOOK_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setMenuOpen(false)}
-        >
-          Book a call
-        </a>
       </nav>
     </>
   );

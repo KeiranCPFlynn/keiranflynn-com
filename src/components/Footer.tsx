@@ -5,13 +5,12 @@ import Link from "next/link";
 const siteLinks = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "/writing", label: "Writing" },
+  { href: "/writing", label: "Guides" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
 const connectLinks = [
-  { href: "https://cal.com/keirancpflynn/10-min-fit-call", label: "Book a call" },
   { href: "https://www.linkedin.com/in/keiran-flynn/", label: "LinkedIn" },
   { href: "https://github.com/KeiranCPFlynn", label: "GitHub" },
 ];

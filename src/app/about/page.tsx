@@ -2,10 +2,11 @@ import Image from "next/image";
 import { BookingButtons } from "@/components/BookingButtons";
 
 const experience = [
-  "Built and scaled SchoolAI to 12,000+ users with zero paid acquisition.",
-  "Built LLMnesia, a live Chrome extension for local-first AI conversation search.",
-  "Built LunaCradle, a live AI-powered baby sleep guidance product.",
-  "Built Flow402, an agent payments prototype using x402, Base and USDC.",
+  "Built LLMnesia, a live local-first Chrome extension that indexes AI conversations across 13 platforms. 1,600+ organic installs, with a launched MCP server, an end-to-end encrypted Vault sync tier and a live PWA.",
+  "Built and scaled SchoolAI, an AI writing tool for teachers and school admins, to 12,000+ users through SEO, organic content and directories.",
+  "Built LunaCradle, a live consumer SaaS for AI-powered baby sleep guidance, grounded in a 73,000-word AI-structured knowledge base.",
+  "Built Flow402, an agent payments prototype with an on-chain USDC treasury escrow on Base, a credits gateway and a working 402 retry demo.",
+  "Building Know Who's Talking, a prototype Chrome extension that surfaces who owns a news outlet, political donations and other normally hidden context.",
   "10+ products, prototypes and demos across AI workflows, web3 experiments, internal tools and product sites.",
   "25+ years in tech and IT, with focused product and AI build work since 2022.",
 ];
@@ -36,7 +37,7 @@ export default function AboutPage() {
           </h1>
           <div className="space-y-6 text-[16.5px] leading-[1.8] text-white/65">
             <p>
-              I help founders, operators and teams turn unclear AI ideas into
+              I help founders and teams turn unclear AI ideas into
               scoped products, prototypes, internal tools and live MVPs.
             </p>
             <p>
@@ -47,8 +48,8 @@ export default function AboutPage() {
             </p>
             <p>
               I am hands-on with modern full-stack tooling and agentic
-              workflows, and I advise through Project Redback on product
-              direction, AI integration, positioning and execution.
+              workflows, and I work remotely with founders and teams anywhere,
+              with strong overlap with UK and European hours.
             </p>
           </div>
           <div className="mt-12">

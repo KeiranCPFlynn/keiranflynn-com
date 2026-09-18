@@ -166,8 +166,6 @@ export default async function WritingPost({
                     <h1 className="text-heading text-white mb-6">{post.title}</h1>
 
                     <div className="flex items-center gap-4 text-[13px] text-white/35">
-                        <span>{post.author || "Keiran Flynn"}</span>
-                        <span>·</span>
                         <time dateTime={post.rawDate}>{post.date}</time>
                         <span>·</span>
                         <span>{post.readingTime}</span>

@@ -843,6 +843,17 @@ img {
   letter-spacing: .04em;
 }
 
+a.hero-cta .note,
+.hero-cta a.note {
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.hero-cta a.note:hover {
+  color: var(--ink-2);
+}
+
 .console {
   position: relative;
   overflow: hidden;

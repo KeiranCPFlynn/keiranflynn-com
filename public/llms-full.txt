@@ -2,7 +2,7 @@
 
 Canonical site: https://keiranflynn.com/
 
-Keiran Flynn helps founders, operators and small teams turn unclear AI ideas into scoped products, prototypes, internal tools and live MVPs. He works remotely from Thailand across product strategy, UX, technical architecture and full-stack build work using coding agents and modern AI tooling.
+Keiran Flynn helps founders, operators and small teams turn unclear AI ideas into scoped products, prototypes, internal tools and live MVPs. He works remotely with strong overlap with UK and European hours, across product strategy, UX, technical architecture and full-stack build work using coding agents and modern AI tooling.
 
 ## Core services
 
@@ -12,11 +12,12 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 
 ## Proof points
 
-- SchoolAI reached 12,000+ users with zero paid acquisition.
-- LLMnesia is a local-first Chrome extension for searching AI conversations across major LLM platforms.
-- LunaCradle is a live AI-powered baby sleep guidance product built with structured knowledge and personalised LLM output.
-- Flow402 is an agent payments prototype using x402, Base and USDC.
-- Additional builds and demos include LLMnesia Insights, Job Radar, product sites, web3 experiments and internal tools.
+- LLMnesia is a live local-first Chrome extension that indexes and searches AI conversations across 13 platforms. It has 1,600+ organic installs, a launched MCP server, Vault (a paid end-to-end encrypted cloud sync tier with paying customers) and a live PWA. Current Chrome Web Store version is v0.2.5.
+- SchoolAI is a live AI writing tool for teachers and school admins that reached 12,000+ users through SEO, organic content and directories.
+- LunaCradle is an AI-powered baby sleep guidance product built on Next.js, Supabase, Stripe and the Gemini API, grounded in a 73,000-word AI-structured knowledge base. It covers the full loop: intake questionnaire, AI-generated plan, daily sleep diary, weekly AI reviews and living plan updates.
+- Flow402 is an agent payments prototype with a non-upgradeable USDC treasury escrow contract deployed on Base Sepolia, an HMAC-signed credits gateway and dashboard, and a vendor demo service wired into a scripted 402, top-up and retry flow.
+- Know Who's Talking is a prototype Chrome extension that attributes news articles by surfacing who owns the outlet, political donations and other normally hidden context. Prototype stage, not launched.
+- Additional builds include LLMnesia Insights, an agentic analytics pipeline pulling PostHog and GA4 data through an LLM layer into Supabase for structured weekly product reports, plus Job Radar, product sites, web3 experiments and internal tools.
 - Keiran has 25+ years in tech and IT, with focused AI/product build work since 2022.
 
 ## Main pages
@@ -28,7 +29,7 @@ Keiran Flynn helps founders, operators and small teams turn unclear AI ideas int
 - About: https://keiranflynn.com/about
 - Contact: https://keiranflynn.com/contact
 
-## Current AI product writing
+## Current AI product guides
 
 - Coding Agents for Product Teams: https://keiranflynn.com/writing/coding-agents-for-product-teams
   Practical guide to using coding agents inside product teams. Covers what coding agents do, where they help, where they fail, and how founders should run agentic build loops.

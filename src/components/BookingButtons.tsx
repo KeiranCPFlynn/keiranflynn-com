@@ -2,18 +2,11 @@
 
 import Link from "next/link";
 
-const CAL_FIT = "https://cal.com/keirancpflynn/10-min-fit-call";
-
 export function BookingButtons({ className = "" }: { className?: string }) {
   return (
     <div className={`hero-cta ${className}`}>
-      <a
-        href={CAL_FIT}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn btn-primary"
-      >
-        Book a fit call
+      <Link href="/work" className="btn btn-primary">
+        See the work
         <svg
           className="arrow"
           width="16"
@@ -28,9 +21,9 @@ export function BookingButtons({ className = "" }: { className?: string }) {
         >
           <path d="M3 8h10M9 4l4 4-4 4" />
         </svg>
-      </a>
-      <Link href="/work" className="btn btn-ghost">
-        See the work
+      </Link>
+      <Link href="/contact" className="btn btn-ghost">
+        Get in touch
       </Link>
     </div>
   );

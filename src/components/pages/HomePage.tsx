@@ -2,8 +2,6 @@ import Link from "next/link";
 import { BuildConsole } from "@/components/BuildConsole";
 import { JsonLd } from "@/components/JsonLd";
 
-const BOOK_URL = "https://cal.com/keirancpflynn/10-min-fit-call";
-
 const helpItems = [
   {
     meta: "A",
@@ -30,25 +28,25 @@ const workItems = [
     kind: "Chrome extension",
     status: "Live",
     title: "LLMnesia",
-    text: "Local-first Chrome extension for searching AI conversations across major LLM platforms.",
-    metric: "Local-first",
-    metricTail: "private by default · Chrome Web Store",
+    text: "Local-first Chrome extension that indexes and searches AI conversations across 13 platforms, including ChatGPT, Claude, Gemini, DeepSeek and Grok. Ships with an MCP server, an end-to-end encrypted Vault sync tier and a live PWA.",
+    metric: "1,600+ installs",
+    metricTail: "organic · v0.2.5 on the Chrome Web Store",
   },
   {
     kind: "AI education platform",
     status: "Live",
     title: "SchoolAI",
-    text: "AI education platform scaled to 12,000+ users with zero paid acquisition.",
+    text: "AI writing tool for teachers and school admins, scaled to 12,000+ users through SEO, organic content and directories.",
     metric: "12,000+ users",
-    metricTail: "0 paid acquisition",
+    metricTail: "zero paid acquisition",
   },
   {
     kind: "Consumer AI product",
     status: "Live",
     title: "LunaCradle",
-    text: "AI-powered baby sleep guidance using structured knowledge and personalised LLM outputs.",
-    metric: "Structured knowledge",
-    metricTail: "personalised LLM output",
+    text: "AI-powered baby sleep guidance built on Next.js, Supabase, Stripe and the Gemini API, with daily sleep diaries and weekly AI reviews.",
+    metric: "73,000 words",
+    metricTail: "AI-structured knowledge base · living plans",
   },
   {
     kind: "Agent payments R&D",
@@ -80,36 +78,31 @@ export default function HomePage() {
               <span className="pulse">
                 <i />
               </span>
-              Open to selective AI product work
+              Currently building LLMnesia · 1,600+ organic installs
             </div>
 
             <h1 className="reveal" data-delay="60">
-              AI <em>Product</em> Builder{" "}
+              I find the <em>product</em>, then build it.{" "}
               <span className="muted">
-                for founders using coding agents.
+                AI products, shipped and measured.
               </span>
             </h1>
 
             <p className="hero-lead reveal" data-delay="140">
-              I turn vague AI ideas into scoped products, prototypes, internal
-              tools and live MVPs — using Claude Code, Codex and modern full-stack
-              tooling.
+              SchoolAI reached 12,000+ users with zero paid acquisition.
+              LLMnesia has 1,600+ organic installs and a paid sync tier. I take
+              products from problem to shipped: discovery, scoping, build and
+              iteration.
             </p>
 
             <div className="hero-cta reveal" data-delay="220">
-              <a
-                className="btn btn-primary"
-                href={BOOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book a fit call
+              <Link className="btn btn-primary" href="/work">
+                View selected work
                 <ArrowIcon />
-              </a>
-              <Link className="btn btn-ghost" href="/work">
-                See the work
               </Link>
-              <span className="note">10-min call · no pitch</span>
+              <Link className="btn btn-ghost" href="/about">
+                About me
+              </Link>
             </div>
           </div>
 
@@ -129,9 +122,13 @@ export default function HomePage() {
             <span className="tag">zero paid acquisition</span>
           </div>
           <div className="stat">
-            <div className="num">10+</div>
-            <div className="lbl">Shipped builds and prototypes</div>
-            <span className="tag">LLMnesia · Job Radar · Flow402 · sites</span>
+            <div className="num">
+              <span data-count="1600" data-suffix="+">
+                0
+              </span>
+            </div>
+            <div className="lbl">Organic installs on LLMnesia</div>
+            <span className="tag">live on the Chrome Web Store · v0.2.5</span>
           </div>
           <div className="stat">
             <div className="num">
@@ -154,7 +151,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div>
-              <span className="eyebrow">01 — Engagements</span>
+              <span className="eyebrow">01 · Engagements</span>
               <h2>What I help with</h2>
             </div>
             <p className="section-intro">
@@ -180,7 +177,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div>
-              <span className="eyebrow">02 — Proof</span>
+              <span className="eyebrow">02 · Proof</span>
               <h2>Recent work</h2>
             </div>
             <Link className="btn btn-ghost btn-sm" href="/work">
@@ -214,7 +211,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div>
-              <span className="eyebrow">03 — Method</span>
+              <span className="eyebrow">03 · Method</span>
               <h2>How I work</h2>
             </div>
             <p className="section-intro">
@@ -238,12 +235,12 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div>
-              <span className="eyebrow">04 — Approach</span>
+              <span className="eyebrow">04 · Approach</span>
               <h2>Product judgment first</h2>
             </div>
             <p className="section-intro">
-              I work remotely from Thailand across product, UX, technical
-              architecture and build.
+              I work remotely, with strong overlap with UK and European hours,
+              across product, UX, technical architecture and build.
             </p>
           </div>
 
@@ -288,26 +285,21 @@ export default function HomePage() {
             className="eyebrow reveal"
             style={{ justifyContent: "center", marginBottom: "1.4rem" }}
           >
-            Let&apos;s build
+            Get in touch
           </span>
           <h2 className="reveal" data-delay="60">
-            Have an AI idea, internal workflow problem or prototype that needs
-            turning into something real?
+            Want to talk through an AI product idea, a workflow problem or a
+            prototype that needs turning into something real?
           </h2>
           <p className="reveal" data-delay="140">
-            Book an AI Product Fit Call. Ten minutes, no pitch — just whether
-            it&apos;s worth building.
+            Happy to dig into product strategy, scoping and builds, or point
+            you to the work most relevant to you.
           </p>
           <div className="hero-cta reveal" data-delay="200">
-            <a
-              className="btn btn-primary"
-              href={BOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a fit call
+            <Link className="btn btn-primary" href="/contact">
+              Get in touch
               <ArrowIcon />
-            </a>
+            </Link>
             <Link className="btn btn-ghost" href="/services">
               View services
             </Link>

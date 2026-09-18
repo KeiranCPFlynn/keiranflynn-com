@@ -21,7 +21,7 @@ const PRODUCTS: Record<
     phrase: "ai education platform",
     name: "SchoolAI",
     status: "Live",
-    desc: "AI education platform scaled with zero paid acquisition.",
+    desc: "AI education platform for teachers and admins, scaled through SEO and organic content.",
     metric: "12,000+",
     metricLabel: "active users",
   },
@@ -30,18 +30,18 @@ const PRODUCTS: Record<
     phrase: "search my AI chats",
     name: "LLMnesia",
     status: "Live",
-    desc: "Local-first Chrome extension that searches your conversations across every major LLM.",
-    metric: "Local-first",
-    metricLabel: "runs in the browser, private by default",
+    desc: "Local-first Chrome extension that indexes and searches AI conversations across 13 platforms.",
+    metric: "1,600+",
+    metricLabel: "organic installs, private by default",
   },
   mvp: {
     chip: "MVP feature",
     phrase: "personalised sleep guidance",
     name: "LunaCradle",
     status: "Live",
-    desc: "AI baby-sleep guidance built on structured knowledge and personalised LLM output.",
-    metric: "24/7",
-    metricLabel: "personalised guidance",
+    desc: "AI baby-sleep guidance built on Next.js, Supabase, Stripe and the Gemini API.",
+    metric: "73,000-word",
+    metricLabel: "AI-structured knowledge base",
   },
   pay: {
     chip: "Agent payments",
@@ -54,7 +54,7 @@ const PRODUCTS: Record<
   },
 };
 
-const ORDER: ProductKey[] = ["idea", "tool", "mvp", "pay"];
+const ORDER: ProductKey[] = ["tool", "idea", "mvp", "pay"];
 
 const STEPS = [
   "clarify the actual problem",
@@ -65,7 +65,7 @@ const STEPS = [
 ];
 
 export function BuildConsole() {
-  const [active, setActive] = useState<ProductKey>("idea");
+  const [active, setActive] = useState<ProductKey>("tool");
   const [typed, setTyped] = useState("");
   const [runningStep, setRunningStep] = useState(-1);
   const [doneSteps, setDoneSteps] = useState(0);
@@ -183,7 +183,7 @@ export function BuildConsole() {
         <span className="dot" />
         <span className="dot" />
         <span className="dot" />
-        <span className="title">keiran@build — idea → product</span>
+        <span className="title">keiran@build · idea → product</span>
         <span className="live">
           <b /> live
         </span>
